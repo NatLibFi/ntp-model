@@ -1,5 +1,5 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
-@prefix :      <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
+@prefix :   <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -54,15 +54,20 @@
         rdfs:isDefinedBy   : ;
         rdfs:label         "suku"@fi, "Family"@en , "Familie"@de ;
         rdfs:subClassOf    <http://rdaregistry.info/Elements/c/C10008> , :AuthorityResource ;
-        :marc21equivalent  "079 $v=pif" .
+        :marc21equivalent  "075 $a=family" .
 
+:ConferenceOrEvent  a      rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Konferenssi tai tapahtuma"@fi , "Conference or Event"@en , "Konferenz oder Veranstaltung"@de ;
+        rdfs:subClassOf    <http://rdaregistry.info/Elements/c/C10005> , :AuthorityResource ;
+        :marc21equivalent  "079 $v=vie" , "079 $b=f" .
 
 :CorporateBody  a            rdfs:Class , owl:Class ;
         rdfs:isDefinedBy     : ;
         rdfs:label           "yhteisö"@fi, "Körperschaft"@de , "Corporate Body"@en ;
         rdfs:subClassOf      :AuthorityResource , <http://rdaregistry.info/Elements/c/C10005> ;
         owl:equivalentClass  foaf:Organization ;
-        :marc21equivalent    "079 $v=kiz" , "079 $b=b" .
+        :marc21equivalent    "075 $a $0 $2=mts" .
 
 :MusicalCorporateBody
         a                    rdfs:Class , owl:Class ;
@@ -139,6 +144,7 @@ xsd:gYearMonth  a  owl:Class .
 :PlaceOrGeographicName
         a                  rdfs:Class , owl:Class ;
         rdfs:isDefinedBy   : ;
+		rdfs:comment       "paikat poimitaan pääsääntöisesti YSO-paikat ontologiasta"@fi ;
         rdfs:label         "paikka tai maantieteellinen nimi"@fi, "Place or geographic name"@en , "Geografikum"@de ;
         rdfs:subClassOf    :AuthorityResource ;
         :marc21equivalent  "079 $v=giz" , "079 $b=g" .
@@ -392,5 +398,78 @@ xsd:gYearMonth  a  owl:Class .
         :marc21equivalent  "377 $a $2=iso639-2b" ;
         rdfs:comment       "Henkilön, suvun tai yhteisön käyttämä kieli"@fi , 
                            "RDA 9.14, 10.8, 11.8 "@fi .
+
+:biographicalOrHistoricalInformation
+        a                  rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment       "Zusammenfassung von wesentlichen biografischen, geschichtlichen oder\n      anderen Informationen über die zu beschreibende Entität."@de , "Summary of the essential biographical, historical, or other\n      information about the described entity."@en , "tiivistelmä olennaisesta entiteettiin liittyvästä elämänkerrasta, historiasta tai muusta tiedosta"@fi ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :Work )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Elämäkerralliset tai historiatiedot"@fi , "Biographical or historical information"@en , "Biografische oder historische Angaben"@de ;
+        rdfs:range         rdfs:Literal ;
+        :marc21equivalent  "678 $b" ;
+        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50113> , <http://rdaregistry.info/Elements/a/P50035> , <http://rdaregistry.info/Elements/a/P50064> .
+
+:professionOrOccupation
+        a                   owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A profession or occupation practiced by a person or family"@en , "Ein Beruf oder eine Tätigkeit, die von einer Person oder Familie ausgeübt wird."@de , "henkilön tai suvun ammatti tai tehtävä."@fi ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilön ammatti tai tehtävä"@fi , "Profession or occupation"@en , "Beruf oder Beschäftigung"@de ;
+        rdfs:range          :SubjectHeading ;
+        rdfs:seeAlso        :professionOrOccupationAsLiteral ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50104> ;
+        :marc21equivalent   "656 $0 $2" .
+
+:professionOrOccupationAsLiteral
+        a                   owl:DatatypeProperty , rdf:Property ;
+        rdfs:comment        "Berufs- oder Tätigkeitsbezeichnung bzw.\n\tBezeichnung für die Religionszugehörigkeit oder die Weltanschauung einer\n\tPerson. Diese Property ist äquivalent zu gndo:professionOrOccupation, zeigt aber ein Literal\n\t\tstatt einer Referenz zu einem Schlagwort"@de , "This property is equivalent to gndo:professionOrOccupation but gives a literal instead of\n\t\ta reference to a subject heading"@en , "tämä ominaisuus on vastaava kuin ntp:professionOrOccupation, mutta sisältää literaalin toisin kuin viittauksen aiheeseen."@fi ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "ammatti tai tehtävä (literaali)"@fi , "Beruf oder Beschäftigung (Literal)"@de , "Profession or occupation (Literal)"@en ;
+        rdfs:seeAlso        :professionOrOccupation ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50104> ;
+        :marc21equivalent   "656 $a $2" . 
+
+:ntpFieldOfActivityOfPerson
+        a                   owl:ObjectProperty , rdf:Property ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+        rdfs:label          "Henkilön toiminta-ala"@fi , "Field of activity of a person"@en ;
+        rdfs:range          :SubjectHeading ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50100>  ;
+        :marc21equivalent   "550 $0 $2" .
+
+:ntpFieldOfActivityOfCorporateBody
+        a                   owl:ObjectProperty , rdf:Property ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+        rdfs:label          "Yhteisön toiminta-ala"@fi , "Field of activity of a coporate body"@en ;
+        rdfs:range          :SubjectHeading ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50022>  ;
+        :marc21equivalent   "550 $0 $2" .
+
+:periodOfActivity  a        rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment        "Exaktes Wirkungsdatum einer Person"@de , "A person’s known period of activity"@en , "henkilön tunnettu toiminta-aika"@fi ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "toimintaan liittyvä ajanjakso"@fi , "Wirkungsdaten"@de , "Period of activity"@en ;
+        rdfs:subPropertyOf  :associatedDate ;
+        :marc21equivalent   "548 $a $2" ;
+        :superPropertyOf    <http://rdaregistry.info/Elements/a/P50058> , <http://rdaregistry.info/Elements/a/P50098> .
+
 
 
