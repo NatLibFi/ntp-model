@@ -6,3 +6,5 @@ Testataan KAM-kuvailuryhmässä vuosina 2015-2019 laaditun Nimitietopalvelun tie
 Luokkia ja propertyjä laaditaan aluksi GND ontologian https://d-nb.info/standards/elementset/gnd tietomallin pohjalta.
 
 Kehittämistä tehdään yhteistyössä KAM-kuvailuryhmän kanssa.
+
+html view with LODE at https://essepuntato.it/lode/
