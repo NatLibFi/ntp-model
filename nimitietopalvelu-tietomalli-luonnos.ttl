@@ -1,21 +1,12 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
-
-@prefix :      <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
-
+@prefix :      <https://raw.githubusercontent.com/jarmosaarikko/ntp-model/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
-
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
-
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-
 @prefix vann:  <http://purl.org/vocab/vann/> .
-
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 :       a                 <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology ;
@@ -32,7 +23,7 @@
         vann:preferredNamespaceUri     "https://urn.fi/URN:NBN:fi:au:ntp#" ;
         owl:priorVersion               <https://urn.fi/URN:NBN:fi:au:ntp#> ;
         owl:versionIRI                 <https://urn.fi/URN:NBN:fi:au:ntp_20200117> ;
-        owl:versionInfo                "0.01" ;
+        owl:versionInfo                "0.22" ;
         dct:modified                   "2020-01-22T15:10:00+02:00"^^xsd:dateTime .
 
 # CLASSES
@@ -104,7 +95,7 @@
         rdfs:isDefinedBy  : ;
         rdfs:label        "henkilön nimi"@fi, "Name of the person"@en , "Personenname"@de ;
         rdfs:subClassOf   owl:Thing ;
-        rdfs:comment      "RDA 9.2, 10.2, 11.2"@fi , "TJ04 Nimi"@fi, "ISAAF CPF 5.1.2-5.1.5"@fi .
+        rdfs:comment      "NTP 2.1.1 Toimijan tunnistaminen"@fi , "RDA 9.2, 10.2, 11.2"@fi , "TJ04 Nimi"@fi, "ISAAF CPF 5.1.2-5.1.5"@fi .
 
 :RealNameOfThePerson  a    rdfs:Class , owl:Class ;
         rdfs:comment       "The person’s real name"@en , "Der wirkliche Name einer Person"@de ;
@@ -153,13 +144,20 @@ xsd:gYearMonth  a  owl:Class .
 :PlaceOrGeographicName
         a                  rdfs:Class , owl:Class ;
         rdfs:isDefinedBy   : ;
-		rdfs:comment       "paikat poimitaan pääsääntöisesti YSO-paikat ontologiasta"@fi ;
+		rdfs:comment       "paikat poimitaan pääsääntöisesti YSO-paikat ontologiasta"@fi , "NTP 2.1.2. Toimijan kuvailu"@fi ;
         rdfs:label         "paikka tai maantieteellinen nimi"@fi, "Place or geographic name"@en , "Geografikum"@de ;
         rdfs:subClassOf    :AuthorityResource ;
         :marc21equivalent  "079 $v=giz" , "079 $b=g" .
 
 
+
 # PROPERTIES
+
+:ntpEditorialNote  a         rdf:Property , owl:AnnotationProperty ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Muistiinpanot"@fi ;
+        rdfs:comment       "Kentässä on vapaamuotoisia muistiinpanoja, näkyy kaikkien organisaatioiden henkilökunnalle. Kentän tietoja ei välitetä eteenpäin."@fi , "eac-cpf: descriptiveNote."@fi , "AHAA:TJ27 Muistiinpanot"@fi , "NTP: 2.1.2. Toimijan kuvailu"@fi ;
+        :marc21equivalent  "667 $a $5" .
 
 :marc21equivalent  a      rdf:Property , owl:AnnotationProperty ;
         rdfs:comment      "Osoittaa ekvivalentin MARC 21 -kentän tälle elementille."@fi  ;
@@ -168,7 +166,8 @@ xsd:gYearMonth  a  owl:Class .
 
 :associatedDate  a        rdf:Property , owl:DatatypeProperty ;
         rdfs:isDefinedBy  : ;
-        rdfs:label        "liittyvä aika"@fi, "Associated date"@en , "Assoziierte Zeit"@de .
+        rdfs:label        "liittyvä aika"@fi, "Associated date"@en ;
+        rdfs:comment      "NTP 2.1.2. Toimijan kuvailu"@fi .
 
 :dateOfBirthAndDeath  a     rdf:Property , owl:DatatypeProperty ;
         rdfs:domain         :DifferentiatedPerson ;
@@ -196,11 +195,10 @@ xsd:gYearMonth  a  owl:Class .
 
 :dateOfDeath  a                 rdf:Property , owl:DatatypeProperty ;
         rdfs:comment            "henkilön kuolinaika. Tämä voi ola vuosi, vuoden ja kuukauden yhdistelmä tai tarkka päivämäärä."@fi,
-                                "Das Sterbedatum einer Person. Dies kann ein Jahr, eine Kombination von Jahr und Monat oder ein vollständiges Datum sein."@de , 
                                 "The death date of a person. This can be a year, a year-month combination or a full date."@en ;
         rdfs:domain             :DifferentiatedPerson ;
         rdfs:isDefinedBy        : ;
-        rdfs:label              "kuolinaika"@fi, "Sterbedatum"@de , "Date of death"@en ;
+        rdfs:label              "kuolinaika"@fi , "Date of death"@en ;
         rdfs:range              [ a            owl:Class ;
                                   owl:unionOf  ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear )
                                 ] ;
@@ -219,7 +217,7 @@ xsd:gYearMonth  a  owl:Class .
         rdfs:range         rdfs:Literal ;
         :marc21equivalent  "035 $a" ;
         :superPropertyOf   <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> , <http://rdaregistry.info/Elements/a/P50006> ;
-        rdfs:comment       "Järjestelmän tuottama kontrollinumero"@fi .
+        rdfs:comment       "NTP 2.1.1 Toimijan tunnistaminen"@fi , "Järjestelmän tuottama kontrollinumero"@fi .
 
 :ntpOtherIdentifier  a          owl:DatatypeProperty , rdf:Property ;
         rdfs:domain        [ a            owl:Class ;
@@ -239,10 +237,11 @@ xsd:gYearMonth  a  owl:Class .
                              owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :UndifferentiatedPerson :Work )
                            ] ;
         rdfs:isDefinedBy   : ;
-        rdfs:label         "Aikaisempi auktoriteettitunniste"@fi , "Alte Normnummer"@de , "Old authority number"@en ;
+        rdfs:label         "Aikaisempi auktoriteettitunniste"@fi , "Old authority number"@en ;
         rdfs:range         rdfs:Literal ;
         :marc21equivalent  "035 $z" ;
-        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50006> , <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> .
+        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50006> , <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> ;
+		rdfs:comment        "Esimerkiksi Asteri-tunniste"@fi .
 
 :preferredName  a           rdf:Property , owl:AnnotationProperty ;
         rdfs:isDefinedBy    : ;
@@ -352,7 +351,7 @@ xsd:gYearMonth  a  owl:Class .
                             <http://rdaregistry.info/Elements/a/P50114> ,
                             <http://rdaregistry.info/Elements/a/P50420>  ;
         :marc21equivalent   "371 $a $e $b $d $v" , "079 $b=p" ;
-        rdfs:comment         "RDA 9.12, 11.9"@fi .
+        rdfs:comment         "NTP 2.1.1 Toimijan tunnistaminen"@fi , "RDA 9.12, 11.9"@fi .
 
 :placeOfActivity  a         rdf:Property , owl:ObjectProperty ;
         rdfs:comment        "henkilön tai suvun asuin- tai toimintapaikka"@fi, "Wirkungsort bzw. Wohnort einer Person."@de , "A person’s or family’s place of activity"@en ;
@@ -373,10 +372,10 @@ xsd:gYearMonth  a  owl:Class .
         rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50116> ;
         :marc21equivalent   "375 $a" ;
         rdfs:comment        "Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli."@fi , 
-                            "RDA 9.7"@fi , 
-                            "SPECTRUM: Person's gender"@en, 
+                            "NTP 2.1.1 Toimijan tunnistaminen"@fi , "RDA 9.7"@fi , 
+                            "SPECTRUM: Person's gender"@fi, 
                             "AHAA: TJ03 Sukupuoli"@fi ,
-                            "adminstrativeGender as opposed to clinicalGender"@en .
+                            "adminstrativeGender as opposed to clinicalGender"@fi .
 
 :ntpTypeOfEntity  a        rdf:Property , owl:ObjectProperty ;
         rdfs:domain        [ a            owl:Class ;
@@ -386,7 +385,7 @@ xsd:gYearMonth  a  owl:Class .
         rdfs:label         "Toimijaluokitus"@fi  ;
         rdfs:range         <http://urn.fi/URN:NBN:fi:au:mts:m3661> ;
         :marc21equivalent  "372 $a $2=mts/fin", "374 $a $2=mts/fin" ;
-        rdfs:comment       "Toimijaluokitus metatietosanastosta"@fi, "AHAA TJ01 Toimijaluokitus"@fi ,
+        rdfs:comment       "NTP 2.1.1 Toimijan tunnistaminen"@fi , "Toimijaluokitus metatietosanastosta"@fi, "AHAA TJ01 Toimijaluokitus"@fi ,
                            "ISN Toimijan tyyppi - Liite D (D.1)"@fi ,
                            "ISAAR CPF 5.1.1 Type of entity"@fi  .
 
@@ -403,14 +402,14 @@ xsd:gYearMonth  a  owl:Class .
                              owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :Work )
                            ] ;
         rdfs:isDefinedBy   : ;
-        rdfs:label         "Kieli"@fi, "Language code"@en , "Sprachencode"@de ;
+        rdfs:label         "Kieli"@fi, "Language code"@en ;
         :marc21equivalent  "377 $a $2=iso639-2b" ;
         rdfs:comment       "Henkilön, suvun tai yhteisön käyttämä kieli"@fi , 
-                           "RDA 9.14, 10.8, 11.8 "@fi .
+                           "NTP 2.1.1 Toimijan tunnistaminen"@fi , "RDA 9.14, 10.8, 11.8 "@fi .
 
 :biographicalOrHistoricalInformation
         a                  rdf:Property , owl:DatatypeProperty ;
-        rdfs:comment       "Zusammenfassung von wesentlichen biografischen, geschichtlichen oder\n      anderen Informationen über die zu beschreibende Entität."@de , "Summary of the essential biographical, historical, or other\n      information about the described entity."@en , "tiivistelmä olennaisesta entiteettiin liittyvästä elämänkerrasta, historiasta tai muusta tiedosta"@fi ;
+        rdfs:comment       "Summary of the essential biographical, historical, or other\n      information about the described entity."@en , "tiivistelmä olennaisesta entiteettiin liittyvästä elämänkerrasta, historiasta tai muusta tiedosta"@fi , "NTP 2.1.2. Toimijan kuvailu"@fi ;
         rdfs:domain        [ a            owl:Class ;
                              owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :Work )
                            ] ;
@@ -422,7 +421,7 @@ xsd:gYearMonth  a  owl:Class .
 
 :professionOrOccupation
         a                   owl:ObjectProperty , rdf:Property ;
-        rdfs:comment        "A profession or occupation practiced by a person or family"@en , "Ein Beruf oder eine Tätigkeit, die von einer Person oder Familie ausgeübt wird."@de , "henkilön tai suvun ammatti tai tehtävä."@fi ;
+        rdfs:comment        "A profession or occupation practiced by a person or family"@en , "Ein Beruf oder eine Tätigkeit, die von einer Person oder Familie ausgeübt wird."@de , "henkilön tai suvun ammatti tai tehtävä."@fi , "NTP 2.1.2. Toimijan kuvailu"@fi ;
         rdfs:domain         [ a            owl:Class ;
                               owl:unionOf  ( :DifferentiatedPerson :Family )
                             ] ;
@@ -452,7 +451,7 @@ xsd:gYearMonth  a  owl:Class .
                             ] ;
         rdfs:isDefinedBy    : ;
         rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 
-                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi , "NTP 2.1.2. Toimijan kuvailu"@fi ; 
         rdfs:label          "Henkilön toiminta-ala"@fi , "Field of activity of a person"@en ;
         rdfs:range          :SubjectHeading ;
         rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50100>  ;
@@ -465,7 +464,7 @@ xsd:gYearMonth  a  owl:Class .
                             ] ;
         rdfs:isDefinedBy    : ;
         rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 
-                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi , "NTP 2.1.2. Toimijan kuvailu"@fi ; 
         rdfs:label          "Yhteisön toiminta-ala"@fi , "Field of activity of a coporate body"@en ;
         rdfs:range          :SubjectHeading ;
         rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50022>  ;
@@ -481,3 +480,25 @@ xsd:gYearMonth  a  owl:Class .
         rdfs:subPropertyOf  :associatedDate ;
         :marc21equivalent   "548 $a $2" ;
         :superPropertyOf    <http://rdaregistry.info/Elements/a/P50058> , <http://rdaregistry.info/Elements/a/P50098> .
+
+:relatedCorporateBody
+        a                   rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "toimijaan liittyvä yhteisö"@fi , "Related Corporate Body"@en ;
+        rdfs:range          :CorporateBody ;
+        rdfs:subPropertyOf  <https://d-nb.info/standards/elementset/agrelon#relatedAgent> , <http://rdaregistry.info/Elements/a/P50218> ;
+        :marc21equivalent   "510 $0 " ;
+        rdfs:comment        "NTP 2.1.3. Toimijan suhteet"@fi .
+
+:relatedCorporateBodyOfPerson
+        a                   rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         :DifferentiatedPerson  ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilöön liittyvä yhteisö"@fi , "Related Corporate Body of Person"@en ;
+        rdfs:range          :CorporateBody ;
+        rdfs:subPropertyOf  <https://d-nb.info/standards/elementset/agrelon#relatedAgent> , <http://rdaregistry.info/Elements/a/P50318> ;
+        :marc21equivalent   "510 $0 " ;
+        rdfs:comment        "NTP 2.1.3. Toimijan suhteet"@fi .
