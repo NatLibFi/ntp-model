@@ -1,5 +1,5 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
-@prefix :      <https://www.kiwi.fi/download/attachments/153911372/toimijatietokanta-luonnos.ttl#> .
+@prefix :      <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
