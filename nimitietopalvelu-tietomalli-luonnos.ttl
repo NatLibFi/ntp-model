@@ -1,0 +1,396 @@
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix :      <https://www.kiwi.fi/download/attachments/153911372/toimijatietokanta-luonnos.ttl#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+:       a                 <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology ;
+        rdfs:comment                   ""@fi ;
+        cc:license                     <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        dc:title                       "Nimitietopalvelun tietomalli"@fi ;
+        dct:contributor                :kkStaff , :listMembers ;
+        dct:creator                    :jarmoSaarikko ;
+        dct:created                    "2020-01-17"^^xsd:date ;
+        dct:license                    <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        dct:publisher                  <http://urn.fi/URN:NBN:fi:au:cn:147456A> ;
+        dct:rights                     "Copyright 2020 Kansalliskirjasto" ;
+        vann:preferredNamespacePrefix  "ntp" ;
+        vann:preferredNamespaceUri     "https://urn.fi/URN:NBN:fi:au:ntp#" ;
+        owl:priorVersion               <https://urn.fi/URN:NBN:fi:au:ntp#> ;
+        owl:versionIRI                 <https://urn.fi/URN:NBN:fi:au:ntp_20200117> ;
+        owl:versionInfo                "0.01" ;
+        dct:modified                   "2020-01-21T17:10:00+02:00"^^xsd:dateTime .
+
+# CLASSES
+
+:DifferentiatedPerson
+        a                  rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "yksilöity henkilö"@fi, "Differentiated person"@en , "Individualisierte Person"@de ;
+        rdfs:subClassOf    :Person ;
+        owl:disjointWith   :UndifferentiatedPerson ;
+        :marc21equivalent  "079 $v=piz" , "079 $b=p" .
+
+:UndifferentiatedPerson
+        a                  rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "yksilöimätön henkilö"@fi, "Undifferentiated person"@en , "Nicht-individualisierte Person"@de ;
+        rdfs:subClassOf    :Person ;
+        :marc21equivalent  "079 $b=n" .
+
+:Person  a                   rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "henkilö"@fi, "Person"@en , "Person"@de ;
+        rdfs:subClassOf      :AuthorityResource ;
+        owl:equivalentClass  foaf:Person , <http://rdaregistry.info/Elements/c/C10004> ;
+        :marc21equivalent    "075 $a=Person" .
+
+:Family  a                 rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "suku"@fi, "Family"@en , "Familie"@de ;
+        rdfs:subClassOf    <http://rdaregistry.info/Elements/c/C10008> , :AuthorityResource ;
+        :marc21equivalent  "079 $v=pif" .
+
+
+:CorporateBody  a            rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "yhteisö"@fi, "Körperschaft"@de , "Corporate Body"@en ;
+        rdfs:subClassOf      :AuthorityResource , <http://rdaregistry.info/Elements/c/C10005> ;
+        owl:equivalentClass  foaf:Organization ;
+        :marc21equivalent    "079 $v=kiz" , "079 $b=b" .
+
+:MusicalCorporateBody
+        a                    rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "musiikkiyhteisö"@fi, "Musical corporate body"@en , "Musikalische Körperschaft"@de ;
+        rdfs:subClassOf      :CorporateBody ;
+        owl:equivalentClass  <http://purl.org/ontology/mo/CorporateBody> ;
+        :marc21equivalent    "079 $v=kim" .
+
+:Company  a                rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "yritys"@fi, "Company"@en , "Firma"@de ;
+        rdfs:subClassOf    :CorporateBody ;
+        :marc21equivalent  "079 $v=kif" .
+
+
+:TerritorialCorporateBodyOrAdministrativeUnit
+        a                  rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "alueellinen yhteisö tai hallinnollinen yksikkö"@fi, "Territorial corporate body or administrative unit"@en , "Gebietskörperschaft oder Verwaltungseinheit"@de ;
+        rdfs:subClassOf    :PlaceOrGeographicName ;
+        :marc21equivalent  "079 $v=gik" .
+
+:NameOfThePerson  a       rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "henkilön nimi"@fi, "Name of the person"@en , "Personenname"@de ;
+        rdfs:subClassOf   owl:Thing ;
+        rdfs:comment      "RDA 9.2, 10.2, 11.2"@fi , "TJ04 Nimi"@fi, "ISAAF CPF 5.1.2-5.1.5"@fi .
+
+:RealNameOfThePerson  a    rdfs:Class , owl:Class ;
+        rdfs:comment       "The person’s real name"@en , "Der wirkliche Name einer Person"@de ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "henkilön todellinen nimi"@fi, "Real name of the person"@en , "Wirklicher Name der Person"@de ;
+        rdfs:subClassOf    :VariantNameOfThePerson ;
+        :marc21equivalent  "400 $4=nawi" .
+
+:PreferredNameOfThePerson  a  rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "henkilön ensisijainen nimi"@fi, "Preferred name of the person"@en , "Bevorzugter Name der Person"@de ;
+        rdfs:subClassOf   :NameOfThePerson ;
+        rdfs:comment       "RDA 9.2.2"@fi ," Nimi tai nimen muoto, joka on valittu henkilön identifioimiseksi."@fi .
+
+:VariantNameOfThePerson
+        a                 rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Henkilön varianttinimi"@fi, "Variant name of the person"@en , "Abweichender Name der Person"@de ;
+        rdfs:subClassOf   :NameOfThePerson ;
+        rdfs:comment      "RDA 9.2.3"@fi .
+
+:LaterNameOfThePerson
+        a                  rdfs:Class , owl:Class ;
+        rdfs:comment       "Die vorliegende abweichende Namensform ist der spätere Name einer Person, wie der \n\t\tEhename etc., der nicht als bevorzugter Name gewählt wird."@de ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "henkilön myöhempi nimi"@fi, "Later name of the person"@en , "Späterer Name der Person"@de ;
+        rdfs:subClassOf    :VariantNameOfThePerson ;
+        :marc21equivalent  "400 $4=nasp" .
+
+xsd:date  a     owl:Class .
+
+xsd:gYearMonth  a  owl:Class .
+
+
+:kkStaff  a        foaf:Organization ;
+        rdfs:label  "Staff members of the National Library of Finland"@fi .
+
+:groupMembers  a         foaf:Group ;
+        foaf:name      "Toimijakuvailun asiantuntijaverkoston jäsenet"@fi ;
+        foaf:homepage   "https://www.kiwi.fi/display/TOIKU/Toimijakuvailun+asiantuntijaverkosto" .
+
+:jarmoSaarikko a foaf:Person ;
+               rdfs:label  "Jarmo Saarikko" ;
+               owl:sameAs  <https://orcid.org/0000-0002-6801-6151> .
+
+:PlaceOrGeographicName
+        a                  rdfs:Class , owl:Class ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "paikka tai maantieteellinen nimi"@fi, "Place or geographic name"@en , "Geografikum"@de ;
+        rdfs:subClassOf    :AuthorityResource ;
+        :marc21equivalent  "079 $v=giz" , "079 $b=g" .
+
+
+# PROPERTIES
+
+:marc21equivalent  a      rdf:Property , owl:AnnotationProperty ;
+        rdfs:comment      "Osoittaa ekvivalentin MARC 21 -kentän tälle elementille."@fi  ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "MARC 21 equivalent"@en , "MARC 21 ekvivalentti"@fi .
+
+:associatedDate  a        rdf:Property , owl:DatatypeProperty ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "liittyvä aika"@fi, "Associated date"@en , "Assoziierte Zeit"@de .
+
+:dateOfBirthAndDeath  a     rdf:Property , owl:DatatypeProperty ;
+        rdfs:domain         :DifferentiatedPerson ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "syntymä- ja kuolinaika"@fi, "Geburts- und Sterbedatum"@de , "Date of birth and death"@en ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear )
+                            ] ;
+        rdfs:subPropertyOf  :associatedDate ;
+        :marc21equivalent   "548 $a $4=datl" , "548 $a $4=datx" .
+
+:dateOfBirth  a                 owl:DatatypeProperty , rdf:Property ;
+        rdfs:comment            "henkilön syntymäaika. Tämä voi ola vuosi, vuoden ja kuukauden yhdistelmä tai tarkka päivämäärä."@fi,
+		                        "Das Geburtsdatum einer Person. Dies kann ein Jahr, eine Kombination von Jahr und Monat oder ein vollständiges Datum sein."@de , 
+		                        "The birth date of a person. This can be a year, a year-month combination or a full date."@en ;
+        rdfs:domain             :DifferentiatedPerson ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "syntymäaika"@fi, "Date of birth"@en , "Geburtsdatum"@de ;
+        rdfs:range              [ a            owl:Class ;
+                                  owl:unionOf  ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear )
+                                ] ;
+        rdfs:subPropertyOf      :associatedDate , <https://d-nb.info/standards/elementset/agrelon#hasBeginDate> ;
+        owl:equivalentProperty  <http://rdaregistry.info/Elements/a/P50121> ;
+        :marc21equivalent       "548 $a $4=datx" , "548 $a $4=datl" .
+
+:dateOfDeath  a                 rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment            "henkilön kuolinaika. Tämä voi ola vuosi, vuoden ja kuukauden yhdistelmä tai tarkka päivämäärä."@fi,
+                                "Das Sterbedatum einer Person. Dies kann ein Jahr, eine Kombination von Jahr und Monat oder ein vollständiges Datum sein."@de , 
+                                "The death date of a person. This can be a year, a year-month combination or a full date."@en ;
+        rdfs:domain             :DifferentiatedPerson ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "kuolinaika"@fi, "Sterbedatum"@de , "Date of death"@en ;
+        rdfs:range              [ a            owl:Class ;
+                                  owl:unionOf  ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear )
+                                ] ;
+        rdfs:subPropertyOf      :associatedDate , <https://d-nb.info/standards/elementset/agrelon#hasEndDate> ;
+        owl:equivalentProperty  <http://rdaregistry.info/Elements/a/P50120> ;
+        :marc21equivalent       "548 $a $4=datl" , "548 $a $4=datx" .
+
+
+
+:ntpIdentifier  a          owl:DatatypeProperty , rdf:Property ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :CorporateBody :DifferentiatedPerson :Family :UndifferentiatedPerson )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "NTP-tunniste"@fi , "NTP-Identifier"@en ;
+        rdfs:range         rdfs:Literal ;
+        :marc21equivalent  "035 $a" ;
+        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> , <http://rdaregistry.info/Elements/a/P50006> ;
+        rdfs:comment       "Järjestelmän tuottama kontrollinumero"@fi .
+
+:ntpOtherIdentifier  a          owl:DatatypeProperty , rdf:Property ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :CorporateBody :DifferentiatedPerson :Family :UndifferentiatedPerson )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Muu tunniste"@fi , "Other Identifier"@en ;
+        rdfs:range         rdfs:Literal ;
+        :marc21equivalent  "024 $a $2" ;
+        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> , <http://rdaregistry.info/Elements/a/P50006> ;
+        rdfs:comment       "Tunniste tai URI, jolle ei ole omaa MARC-kenttää. Tunnuksen lähde kerrotaan osakentässä ‡2 (Tunnuksen koodi)."@fi ,
+                           "eac-cpf: entityId, recordID"@fi ,
+                           "Toimijalla voi olla myös muita tunnisteita tai tunnuksia kuten erilaisia rekisterinumeroita tai ulkoisten tahojen myöntämiä tunnisteita." .
+
+:oldAuthorityNumber  a     owl:DatatypeProperty , rdf:Property ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :UndifferentiatedPerson :Work )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Aikaisempi auktoriteettitunniste"@fi , "Alte Normnummer"@de , "Old authority number"@en ;
+        rdfs:range         rdfs:Literal ;
+        :marc21equivalent  "035 $z" ;
+        :superPropertyOf   <http://rdaregistry.info/Elements/a/P50006> , <http://rdaregistry.info/Elements/a/P50094> , <http://rdaregistry.info/Elements/a/P50052> .
+
+:preferredName  a           rdf:Property , owl:AnnotationProperty ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "Käytettävä nimi"@fi, "Preferred name"@en , "Bevorzugter Name"@de ;
+        rdfs:subPropertyOf  rdfs:label .
+
+:temporaryName  a         rdf:Property , owl:ObjectProperty ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "väliaikainen nimi"@fi, "Temporary name"@en , "Zeitweiser Name"@de .
+
+:personalName  a           rdf:Property , owl:DatatypeProperty ;
+        rdfs:domain        :NameOfThePerson ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "henkilökohtainen nimi"@fi, "Personal name"@en , "Persönlicher Name"@de ;
+        rdfs:range         rdfs:Literal ;
+        :marc21equivalent  "400 $a" , "100 $a" ;
+        rdfs:comment       "Toimijalla täytyy olla nimi (ensisijainen nimi)"@fi,
+                           "RDA 9.2"@fi .
+
+:preferredNameForThePerson
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "Henkilön ensisijainen nimi"@fi, "Preferred name for the person"@en , "Bevorzugter Name der Person"@de ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50117> , :preferredName , foaf:name ;
+        :marc21equivalent   "100 $a $b $c $g" .
+
+:preferredNameEntityForThePerson
+        a                 rdf:Property , owl:ObjectProperty ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( :DifferentiatedPerson :UndifferentiatedPerson )
+                          ] ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "henkilön ensisijainen nimientiteetti"@fi, "Preferred name entity for the person"@en , "Bevorzugte Namensentität der Person"@de ;
+        rdfs:range        :NameOfThePerson .
+
+
+:variantNameForThePerson
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "Henkilökohtainen varianttinimi"@fi, "Varianter Name der Person"@de , "Variant name for the person"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50103> , foaf:name , :variantName ;
+        :marc21equivalent   "400 $a $b $c $g" .
+
+:variantNameForTheFamily
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:domain         :Family ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "suvun varianttinimi"@fi, "Varianter Name der Familie"@de , "Variant name for the family"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  :variantName , <http://rdaregistry.info/Elements/a/P50054> ;
+        :marc21equivalent   "400 $a $b $c $g" .
+
+:preferredNameForTheCorporateBody
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:domain         :CorporateBody ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "yhteisön ensisijainen nimi"@fi, "Preferred name for the corporate body"@en , "Bevorzugter Name der Körperschaft"@de ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  :preferredName , foaf:name , <http://rdaregistry.info/Elements/a/P50041> ;
+        :marc21equivalent   "110 $a $b $g $n" .
+
+:variantNameForTheCorporateBody
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:domain         :CorporateBody ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "yhteisön varianttinimi"@fi, "Variant name for the corporate body"@en , "Varianter Name der Körperschaft"@de ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  :variantName , <http://rdaregistry.info/Elements/a/P50025> , foaf:name ;
+        :marc21equivalent   "410 $a $b $g $n" .
+
+:abbreviatedNameForTheCorporateBody
+        a                   rdf:Property , owl:AnnotationProperty ;
+        rdfs:domain         :CorporateBody ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "yhteisön lyhenne"@fi, "Abbreviated name for the corporate body"@en , "Abgekürzter Name der Körperschaft"@de ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  :variantNameForTheCorporateBody ;
+        :marc21equivalent   "410 $a $b $g $n $4=abku" .
+
+:predecessor  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:comment      "A corporate body or a work being the predecessor of another corporate body or work"@en , "Eine Körperschaft oder ein Werk, das der Vorgänger einer anderen Körperschaft oder eines anderen Werks ist"@de ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "edeltäjä"@fi, "Predecessor"@en , "Vorgänger"@de .
+
+:precedingCorporateBody
+        a                   owl:ObjectProperty , rdf:Property ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :CorporateBody :PlaceOrGeographicName )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "yhteisön edeltäjä"@fi, "Vorherige Körperschaft"@de , "Preceding corporate body"@en ;
+        rdfs:range          :CorporateBody ;
+        rdfs:subPropertyOf  :predecessor , <http://rdaregistry.info/Elements/a/P50012> ;
+        :marc21equivalent   "510 $0 $4=vorg" .
+
+:address a                 rdf:Property , owl:DatatypeProperty ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :CorporateBody :DifferentiatedPerson :Family :UndifferentiatedPerson )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "osoite"@fi, "Address"@en ;
+        rdfs:range         rdfs:Literal ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P60512> ,
+                            <http://rdaregistry.info/Elements/a/P50036> ,
+                            <http://rdaregistry.info/Elements/a/P50114> ,
+                            <http://rdaregistry.info/Elements/a/P50420>  ;
+        :marc21equivalent   "371 $a $e $b $d $v" , "079 $b=p" ;
+        rdfs:comment         "RDA 9.12, 11.9"@fi .
+
+:placeOfActivity  a         rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "henkilön tai suvun asuin- tai toimintapaikka"@fi, "Wirkungsort bzw. Wohnort einer Person."@de , "A person’s or family’s place of activity"@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DifferentiatedPerson :Family :SubjectHeading )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "toimintapaikka"@fi, "Place of activity"@en , "Wirkungsort"@de ;
+        rdfs:range          :PlaceOrGeographicName ;
+        rdfs:subPropertyOf  :associatedPlace ;
+        :marc21equivalent   "551 $0 $4=ortw" .
+
+:gender  a                  rdf:Property , owl:ObjectProperty ;
+        rdfs:domain         :DifferentiatedPerson , <http://rdaregistry.info/Elements/c/C10004> ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "sukupuoli"@fi, "kön"@sv,  "Gender"@en , "Geschlecht"@de ;
+        rdfs:range          <https://d-nb.info/standards/vocab/gnd/gender#GenderValue> ;
+        rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50116> ;
+        :marc21equivalent   "375 $a" ;
+        rdfs:comment        "Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli."@fi , 
+                            "RDA 9.7"@fi , 
+                            "SPECTRUM: Person's gender"@en, 
+                            "AHAA: TJ03 Sukupuoli"@fi ,
+                            "adminstrativeGender as opposed to clinicalGender"@en .
+
+:ntpTypeOfEntity  a        rdf:Property , owl:ObjectProperty ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :CorporateBody :DifferentiatedPerson :Family :SubjectHeading  )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Toimijaluokitus"@fi  ;
+        rdfs:range         <http://urn.fi/URN:NBN:fi:au:mts:m3661> ;
+        :marc21equivalent  "372 $a $2=mts/fin", "374 $a $2=mts/fin" ;
+        rdfs:comment       "Toimijaluokitus metatietosanastosta"@fi, "AHAA TJ01 Toimijaluokitus"@fi ,
+                           "ISN Toimijan tyyppi - Liite D (D.1)"@fi ,
+                           "ISAAR CPF 5.1.1 Type of entity"@fi  .
+
+:fieldOfStudy  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:comment       "Studienfach einer Person."@de , "A person’s field of study"@en ;
+        rdfs:domain        :DifferentiatedPerson ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Field of study"@en , "Studienfach"@de ;
+        rdfs:range         :SubjectHeading ;
+        :marc21equivalent  "550 $0 $4=stud" .
+
+:languageCode  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:domain        [ a            owl:Class ;
+                             owl:unionOf  ( :ConferenceOrEvent :CorporateBody :DifferentiatedPerson :Family :PlaceOrGeographicName :SubjectHeading :Work )
+                           ] ;
+        rdfs:isDefinedBy   : ;
+        rdfs:label         "Kieli"@fi, "Language code"@en , "Sprachencode"@de ;
+        :marc21equivalent  "377 $a $2=iso639-2b" ;
+        rdfs:comment       "Henkilön, suvun tai yhteisön käyttämä kieli"@fi , 
+                           "RDA 9.14, 10.8, 11.8 "@fi .
+
+
