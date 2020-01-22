@@ -10,9 +10,9 @@
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 :       a                 <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology ;
-        rdfs:comment                   ""@fi ;
+        rdfs:comment                   "Tietomallin luokat ja muuttujat on rakennettu GND Ontologian pohjalta"@fi ;
         cc:license                     <http://creativecommons.org/publicdomain/zero/1.0/> ;
-        dc:title                       "Nimitietopalvelun tietomalli"@fi ;
+        dc:title                       "Nimitietopalvelun tietomalli luonnos v0.10"@fi ;
         dct:contributor                :kkStaff , :listMembers ;
         dct:creator                    :jarmoSaarikko ;
         dct:created                    "2020-01-17"^^xsd:date ;
@@ -24,7 +24,7 @@
         owl:priorVersion               <https://urn.fi/URN:NBN:fi:au:ntp#> ;
         owl:versionIRI                 <https://urn.fi/URN:NBN:fi:au:ntp_20200117> ;
         owl:versionInfo                "0.01" ;
-        dct:modified                   "2020-01-21T17:10:00+02:00"^^xsd:dateTime .
+        dct:modified                   "2020-01-22T15:10:00+02:00"^^xsd:dateTime .
 
 # CLASSES
 
