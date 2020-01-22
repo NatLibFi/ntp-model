@@ -1,10 +1,10 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
-@prefix :   <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
+@prefix :      <https://github.com/jarmosaarikko/ntp-model/blob/master/nimitietopalvelu-tietomalli-luonnos.ttl#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann:  <http://purl.org/vocab/vann/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
@@ -442,7 +442,8 @@ xsd:gYearMonth  a  owl:Class .
                               owl:unionOf  ( :DifferentiatedPerson :Family )
                             ] ;
         rdfs:isDefinedBy    : ;
-        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 
+                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
         rdfs:label          "Henkilön toiminta-ala"@fi , "Field of activity of a person"@en ;
         rdfs:range          :SubjectHeading ;
         rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50100>  ;
@@ -454,7 +455,8 @@ xsd:gYearMonth  a  owl:Class .
                               owl:unionOf  ( :DifferentiatedPerson :Family )
                             ] ;
         rdfs:isDefinedBy    : ;
-        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
+        rdfs:comment        "Otetaan esim. metatietosanastosta http://urn.fi/URN:NBN:fi:au:mts:m3661 
+                             tai YSO:sta http://www.yso.fi/onto/yso/p1427."@fi ; 
         rdfs:label          "Yhteisön toiminta-ala"@fi , "Field of activity of a coporate body"@en ;
         rdfs:range          :SubjectHeading ;
         rdfs:subPropertyOf  <http://rdaregistry.info/Elements/a/P50022>  ;
@@ -470,6 +472,3 @@ xsd:gYearMonth  a  owl:Class .
         rdfs:subPropertyOf  :associatedDate ;
         :marc21equivalent   "548 $a $2" ;
         :superPropertyOf    <http://rdaregistry.info/Elements/a/P50058> , <http://rdaregistry.info/Elements/a/P50098> .
-
-
-
