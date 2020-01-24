@@ -1,0 +1,1123 @@
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix :      <https://github.com/NatLibFi/ntp-model/ntpt#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix voaf:  <http://purl.org/vocommons/voaf#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+
+:       a                              voaf:Vocabulary , owl:Ontology ;
+        rdfs:comment                   "Nimitietopalvelun tietomallia tukeva toimijaontologia, joka perustuu Saksan kansalliskirjaston Agrelon toimijasuhteiden ontologiaan. "@fi  "vs:term_status arvot: 'unstable','testing', 'stable' and 'archaic'"@fi, "\n\t\t\tCopied from GND Agrelon element set https://d-nb.info/standards/elementset/agrelon_20190618 on 2020-01-24\n\t\t\tAll d-nb.info-URIs changed to local https\n\t\t\t\n\t\t\t"GND Modelling Guidelines \nVocabulary elements (properties and concepts) are conceived gender neutral.\nThe identifiers of properties are preferably hasProperty and invers isPropertyOf or hasInverseProperty. \nDomains and ranges of properties are mostly not fixed.\nInstance relations (object properties) are mostly specified bidirectionally.\nImplicit, deducable instance relations are explicitly formulated.\nProperties partly allow imperfect information (e.g. fragmentary dates, names instead of object URIs).\nCorrelations between instance relations, like inversity, transitivity, symmetry, hierarchie, are marked.\nMeta statements are exhibited by modelling person relations as n-ary concepts as well as as properties, corresponding n-ary concepts and properties are correlated.\n"@en ;
+        cc:license                     <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        dc:description                 "\nThe ontology of agent relationships, AgRelOn, defines relations of persons to other persons and to organisations, since agents (persons, organisations) and their interconnections are important in the cultural heritage domain. AgRelOn is developed to foster uniform cataloging as well as semantic searchability of and via relations between agents. Therefore, a general set of nearly 70 relationhip types is provided. AgRelOn discerns private acquaintanceship, group affiliation, correspondence, occupational contact,  kinship, spiritual contact, and vital/lethal contact. For these kinds of relations more specific sub-relations are formulated.\nMeta statements are supported to obtain transparency of reliability and provenance as well as validity period of facts.\nThe modelled relations are determined on the one hand by exemplary knowledge base searches, on the other hand by available data sources. Hence, the model consciously is incomplete and pertinent to a cultural area and period."@en , "\nThe ontology of agent relationships (AgRelOn) defines relations of persons to other persons\nand to organisations, since agents (persons, organisations) and their interconnections are important \nin the cultural heritage domain. AgRelOn is developed to foster uniform cataloging as well as \nsemantic searchability of and via relations between agents. Therefore, a general set of nearly \n70 relationhip types is provided. AgRelOn discerns private acquaintanceship, group affiliation, \ncorrespondence, occupational contact, kinship, spiritual contact, and vital/lethal contact. \nFor these kinds of relations more specific sub-relations are formulated.\nMeta statements are supported to obtain transparency of reliability and provenance as well as validity \nperiod of facts.\nThe modelled relations are determined on the one hand by exemplary knowledge base searches, on the other \nhand by available data sources. Hence, the model consciously is incomplete and pertinent to a cultural \narea and period."@en ;
+        dc:title                       "Toimijasuhdeontologia"@fi , "Finnish Agent Relationship Ontology based on AgRelOn"@en ;
+        dcterms:available              "2020-03-31"^^xsd:date ;
+        dcterms:contributor            :aenneLoehden , :berenikeLitz , :larsGSvensson ;
+        dcterms:creator                :jarmoSaarikko ;
+        dcterms:issued                 "2011-06-30"^^xsd:date ;
+        dcterms:license                <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        dcterms:rights                 "Copyright 2020 Kansalliskirjasto" ;
+        dcterms:publisher              <http://urn.fi/URN:NBN:fi:au:cn:147456A> ;
+        vann:preferredNamespacePrefix  "ntpt" ;
+        vann:preferredNamespaceUri     "https://github.com/NatLibFi/ntp-model/ntpt#" ;
+        owl:priorVersion               <https://github.com/NatLibFi/ntp-model/ntpt_2020-01-24> ;
+        owl:versionIRI                 <https://github.com/NatLibFi/ntp-model/ntpt_2020-01-27> ;
+        dcterms:modified               "2020-01-24T18:01:00+02:00"^^xsd:dateTime ;
+        owl:versionInfo                "0.01" .
+
+
+:HasIsMuse  a             rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasMuse / isMuseOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "henkilöllä on muusa / on henkilön muusa"@fi , "has muse / is muse of"@en ;
+        rdfs:seeAlso      :isMuseOf , :hasMuse ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:hasFianceeFiance  a        rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilö (subjekti) on kihloissa henkilön (objekti) kanssa."@fi , "A person (subject) is engaged with a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "on sulhanen tai henkilön sulhanen"@fi , "has fiancee  or fiance"@en  ;
+        rdfs:subPropertyOf  :hasInlaw ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasFianceeFiance .
+
+:IsHasPhysician  a        owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasPhysician / isPhysicianOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "henkilöllä on lääkäri / on henkilön lääkäri"@fi , "has physician / is physician of"@en ;
+        rdfs:seeAlso      :isPhysicianOf , :hasPhysician ;
+        rdfs:subClassOf   :HasVitalLethalContact ;
+        vs:term_status    "testing" .
+
+:hasSpiritualContact  a     rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "Henkilöllä tai hengellisellä entitetillä (subjekti) on jonkinlainen hengelline yhteys henkilöön ai hengelliseen entiteettin (objekti). Yhteys voi olla esim. kanavointia, guru-oppilas, tai psykoanalyytikko-potilas välinen."@fi , "A person or spiritual entity (subject) has some kind of spiritual relation with a person or spiritual entity (object). The relationship may e.g. be channelling, guru-devotee, or a psychoanalyst-patient."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilöllä on hengellinen kontakti"@fi , "has spiritual contact"@en ;
+        rdfs:subPropertyOf  :relatedAgent ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasSpiritualContact .
+
+:hasFosterSibling  a        owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "Henkilöllä (subjekti) on sisarus (objekti) ja vähintään yksi sisaruksista on yhteisen vanhemman kasvattilapsi."@fi , "A person (subject) has as sibling a person (object), where at least one of the two siblings is foster child of a joint parent."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilön sisarus on kasvattilapsi"@fi  "has foster sibling"@en  ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasFosterSibling .
+
+:hasEmployer  a                rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilö (subjekti) työskentelee toiselle henkilölle tai yhteisölle (objekti)"@fi , "A person (subject) works for a person or corporation (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "työnantaja"@fi , "has employer"@en ;
+        rdfs:subPropertyOf     :hasProfessionalContact ;
+        owl:inverseOf          :hasEmployee ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasEmployeeEmployer .
+
+:hasGndCode  a            owl:AnnotationProperty , rdf:Property ;
+        rdfs:comment      "A relationship type (subject) has a correlating GND code (literal). In the context of the project GND (Gemeinsame Normdatei), codes for agent relations correlating to AgRelOn are successively determined in cooperation with the Library of Congress or rather NDMSO (Network Development and MARC Standards Office) to supplement MARC. The codes will be indicated in AgRelOn when they are available."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "toimijasuhteella on GND koodi"@fi , "has GND code"@en ;
+        rdfs:range        xsd:string ;
+        vs:term_status    "testing" .
+
+:hasIllegitimateChild
+        a                   rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilö (subjekti) on synnyttänyt/siittänyt henkilön (objekti), eivätkä biologiset vanhemmat  olleet avioliitossa lapsen syntyhetkellä"@fi , "A person (subject) begot/conceived a person (object), without the two biological parents being married at the child's day of birth."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilöllä on avioton lapsi"@fi , "has illegitimate child"@en ;
+        rdfs:subPropertyOf  :hasBiologicalChild ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIllegitimateChildParent .
+
+:hasCooperator  a           rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "Henkilö (subjekti) työskentelee yhdessä toisen henkilön tai yhteisön kanssa (objekti)."@fi , "A person (subject) works together with a person or corporation (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "yhteistyökumppani"@fi , "has collaborator"@en ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasCooperator .
+
+:HasIsMember  a           owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasMember / isMemberOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "jäsen"@fi , "has member / is member of"@en  ;
+        rdfs:seeAlso      :isMemberOf , :hasMember ;
+        rdfs:subClassOf   :HasAssociate ;
+        vs:term_status    "testing" .
+
+:isObject  a              rdf:Property , owl:ObjectProperty ;
+        rdfs:comment      "Something (subject) takes the object role at an n-ary concept's instance (object) of the asymmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@fi ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "on objekti"@fi , "is object"@en  ;
+        vs:term_status    "testing" .
+
+:hasStudent  a              owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) kouluttaa henkilöä (objekti)"@fi , "A person (subject) trains a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilön oppilas"@fi , "has Student"@en ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        owl:inverseOf       :hasTeacher ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasStudentTeacher .
+
+:metadataConfidence  a    rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment      "Lausunnolla tai asialla (subjekti) on arvo, joka osoittaa sen luotettavuutta tai uskottavuutta."@fi , "A statement or fact (subject) has a value indicating the statement's confidence or trustworthiness."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "luotettavuus"@fi , "has confidence value"@en  ;
+        vs:term_status    "testing" .
+
+:HasAdoptiveChildParent
+        a                 rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasAdoptiveChild and hasAdoptiveParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "adoptiolapsi / adoptionvanhempi"@fi , "has adoptive child / adoptive parent"@en ;
+        rdfs:seeAlso      :hasAdoptiveParent , :hasAdoptiveChild ;
+        rdfs:subClassOf   :HasChildParent ;
+        vs:term_status    "testing" .
+
+:hasCousin  a               rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "Henkilöllä (subjekti) on serkku (objekti)."@fi , "A person (subject) has a cousin (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "serkku"@fi , "has cousin"@en ;
+        rdfs:subPropertyOf  :hasRelative ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasCousin .
+
+:hasIllegitimateParent
+        a                      rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilön (subjekti) synnytti/siitti henkilö (objekti), kun biologiset vanhemmat eivät olleet naimisissa lapsen syntyhetkellä."@fi , "A person (subject) was begotten/conceived by a person (object), without the two biological parents being married at the child's day of birth."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "yksinhuoltaja"@fi , "has illegitimate parent"@en  ;
+        rdfs:subPropertyOf     :hasBiologicalParent ;
+        owl:inverseOf          :hasIllegitimateChild ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIllegitimateChildParent .
+
+:HasIsChannel  a          owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasChannel / isChannelOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "välittäjä (?)"@fi , "has channel / is channel of"@en  ;
+        rdfs:seeAlso      :isChannelOf , :hasChannel ;
+        rdfs:subClassOf   :HasSpiritualContact ;
+        vs:term_status    "testing" .
+
+:HasSiblingInlaw  a       rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasSiblingInlaw"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "puolison sisrus"@fi , "has sibling-in-law"@en ;
+        rdfs:seeAlso      :hasSiblingInlaw ;
+        rdfs:subClassOf   :HasInlaw ;
+        vs:term_status    "testing" .
+
+:isSubjectObject  a       rdf:Property , owl:ObjectProperty ;
+        rdfs:comment      "Jokin (subjekti) ottaa subjektin tai objektin roolin n-ary käsitteen instanssissa (objekti) niiden summetrisessä suhteessa. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@fi  , "Something (subject) takes the subject or object role at an n-ary concept's instance (object) of the symmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "on subjekti tai objekti"@fi , "is subject or object"@en  ;
+        vs:term_status    "testing" .
+
+:hasCohabitee  a            owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) elää yhdessä toisen henkilön (objekti) kanssa olematta naimisissa."@fi , "A person (subject) lives together with and/or is companion of a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "avopuoliso"@fi , "has cohabitee"@en  ;
+        rdfs:subPropertyOf  :hasAcquaintance ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasCohabitee .
+
+:HasChildParent  a        owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasChild and hasParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "lapsi (perheenjäsen) / vanhempi"@fi , "has child / parent"@en  ;
+        rdfs:seeAlso      :hasChild , :hasParent ;
+        rdfs:subClassOf   :HasOffspringAncestor ;
+        vs:term_status    "testing" .
+
+:hasObject  a             owl:ObjectProperty , rdf:Property ;
+        rdfs:comment      "At an n-ary concept's instance (subject), something (object) takes the object role of the asymmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@en ;
+        rdfs:domain       :NAries ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "objekti"@fi , "has object"@en  ;
+        owl:inverseOf     :isObject ;
+        vs:term_status    "testing" .
+
+:aenneLoehden  a    foaf:Person ;
+        rdfs:label  "Aenne Löhden" .
+
+:jarmoSaarikko  a    foaf:Person ;
+        rdfs:label  "Jarmo Saarikko" ;
+		:hasEmployer  "http://urn.fi/URN:NBN:fi:au:cn:147456A" .
+
+:HasInfluenceDoneeDonor
+        a                 rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasInfluenceDonee / hasInfluenceDonor"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Einfluss auf / ist beeinflusst durch"@de , "tiene influencia sobre / es influenciado(a) por"@es , "has influence on / is influenced by"@en , "ha influenza su / è influenzato(a) da"@it ;
+        rdfs:seeAlso      :hasInfluenceDonee , :hasInfluenceDonor ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:hasMurderer  a                owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "Henkilö (subjekti) on joutunut toisen henkilön tai yhteisön (objekti) murhaamaksi."@fi , "A person (subject) is murdered by a person or corporate body (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "murhaaja"@fi , "has murderer"@en  ;
+        rdfs:subPropertyOf     :hasVitalLethalContact ;
+        owl:inverseOf          :hasMurderee ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasMurdereeMurderer .
+
+:isFounderOf  a                rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilö (subjekti) on on yhteisön (objekti) perustaja."@fi , "A person (subject) ist founder of a group (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "perustaja"@fi , "is founder of"@en ;
+        rdfs:subPropertyOf     :hasAssociate ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIsFounder .
+
+:HasSpiritualContact  a   rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasSpiritualContact"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "spirituaalinen kontakti"@fi , "has spiritual contact"@en ;
+        rdfs:seeAlso      :hasSpiritualContact ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:hasBiologicalParent  a        owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "Henkilö (subjekti) on toisen henkilön (objekti) synnyttämä tai siittämä."@fi , "A person (subject) was begotten/conceived by a person (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "biologinen vanhempi"@fi , "has biological parent"@en ;
+        rdfs:subPropertyOf     :hasParent ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasBiologicalChildParent .
+
+:hasMember  a               rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Ryhmällä (subjekti) on henkilöjäsen (objekti)"@fi , "A goup (subject) has as a member a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilöjäsen"fi , "has member"@en  ;
+        rdfs:subPropertyOf  :hasAssociate ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIsMember .
+
+:HasCooperator  a         owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasCooperator"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "yhteistyökumppani"@fi , "has collaborator"@en  ;
+        rdfs:seeAlso      :hasCooperator ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:HasMultipleBirthSibling
+        a                 rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasMultipleBirthSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "useita biologisia sisaruksia"@fi , "has multiple birth sibling"@en ;
+        rdfs:seeAlso      :hasMultipleBirthSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:HasIsFounder  a          owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasFounder / isFounderOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "on perustanut / perustaja"@fi , "has founder / is founder of"@en  ;
+        rdfs:seeAlso      :isFounderOf , :hasFounder ;
+        rdfs:subClassOf   :HasAssociate ;
+        vs:term_status    "testing" .
+
+:hasOffspring  a            owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilöllä (subjekti) on jälkeläinen (objekti), jossa lapsi-suhteiden ketjussa voi olla adoptoituja, kasvatti-, aviottomia ja puolison lapsia."@fi , "A person (subject) has an offspring (object), where the chain of child-relations might include adoptive, foster, illegitimate, step relations."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "henkilön jälkeläinen"@fi , "has offspring"@en  ;
+        rdfs:subPropertyOf  :hasRelative ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasOffspringAncestor .
+
+:HasFriend  a             rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasFriend"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ystävä"@fi , "has friend"@en ;
+        rdfs:seeAlso      :hasFriend ;
+        rdfs:subClassOf   :HasAcquaintance ;
+        vs:term_status    "testing" .
+
+:hasFosterParent  a            rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilö (subjekti) on toisen henkilön (objekti) kasvattama olematta henkilön biologinen lapsi."@fi , "A person (subject) was fostered by a person (object), without being a biological child."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "kasvattivanhempi"@fi, "has foster parent"@en ;
+        rdfs:subPropertyOf     :hasParent ;
+        owl:inverseOf          :hasFosterChild ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasFosterChildParent .
+
+:HasChildParentInlaw  a   owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasChildInlaw and hasParentInlaw"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "vävy tai miniä / appi tai anoppi"@fi , "has child/parent-in-law"@en  ;
+        rdfs:seeAlso      :hasParentInlaw , :hasChildInlaw ;
+        rdfs:subClassOf   :HasInlaw ;
+        vs:term_status    "testing" .
+
+:hasGrandParent  a              owl:ObjectProperty , rdf:Property ;
+        rdfs:comment            "Henkilöllä (subjekti) on isoisä tai isoäiti (objekti), joka voi olla adoptio-, kasvatti-, avioton tai puolison isonvanhempi."@fi , "A person (subject) has as grandparent a person (object), where the two parent-relations might include adoptive, foster, illegitimate, step relations."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "isoisä tai isoäiti"@fi , "has grandparent"@en  ;
+        rdfs:subPropertyOf      :hasAncestor ;
+        owl:inverseOf           :hasGrandChild ;
+        owl:propertyChainAxiom  ( :hasParent :hasParent ) ;
+        vs:term_status          "testing" ;
+        :correspondsToInverse   :HasGrandChildParent .
+
+:hasMuse  a                 rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "A person or corporation (subject; e.g. an artist or group of artists) who is inspired by a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "muusa"@fi , "has muse"@en  ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        owl:inverseOf       :isMuseOf ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIsMuse .
+
+:hasHalfSibling  a          owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilöllä (subjekti) on sisarus (objekti), jolla on vain yksi yhteinen biologinen vanhempi."@fi , "A person (subject) has as sibling a person (object), where the two siblings share only one biological parent."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "puolisisarus"@fi , "has half sibling"@en  ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasHalfSibling .
+
+:correspondsToInverse
+        a                 rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment      "A normal property's (type rdf:Property) fro-direction matches an n-ary concept (type rdfs:Class). \n2 mutually inverse normal properties match only 1 n-ary concept, because the meta statements must be identical for both 'to-direction' and 'fro-direction' of the relationship. \nThe normal property's to-direction is related to the n-ary concept via correspondsTo. "@fi , "A normal property's (type rdf:Property) fro-direction matches an n-ary concept (type rdfs:Class). \n2 mutually inverse normal properties match only 1 n-ary concept, because the meta statements must be identical for both 'to-direction' and 'fro-direction' of the relationship. \nThe normal property's to-direction is related to the n-ary concept via correspondsTo."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "vastakohta"@fi , "corresponds to inverse"@en   ;
+        vs:term_status    "testing" .
+
+:HasOffspringAncestor
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasAncestor / hasOffspring"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "esi-isä / jälkeläinen"@fi , "has ancestor / offspring"@en  ;
+        rdfs:seeAlso      :hasAncestor , :hasOffspring ;
+        rdfs:subClassOf   :HasRelative ;
+        vs:term_status    "testing" .
+
+:relatedAgent  a            owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilö tai yhteisö (subjekti) on jollakin tavalla suhteessa toiseen henkilöön tai yhteisöön (objekti)."@fi , "A person or corporation (subject) has some kind of relation with a person or corporation (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "Toimijaan liittyvä toimija"@fi , "related Agent"@en ;
+        rdfs:subPropertyOf  <https://d-nb.info/standards/elementset/gnd#relatedTerm> ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :RelatedAgent .
+
+:HasRelative  a           rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasRelative"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "sukulainen"@fi , "has relative"@en  ;
+        rdfs:seeAlso      :hasRelative ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:isPhysicianOf  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilö tai yhteisö (subjekti) on toisen henkilön tai yhteisön (objekti) lääkäri."@fi , "A person or corporate body (subject) is physician of a person or corporate body (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "lääkäri"@fi , "is physician of"@en ;
+        rdfs:subPropertyOf  :hasVitalLethalContact ;
+        owl:inverseOf       :hasPhysician ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :IsHasPhysician .
+
+:hasChannel  a              rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilöllä tai spirituaalisella entiteetillä (subjekti) esim. kuollut henkilö, henki, enkeli, jne. on kanavana psyykikko tai meedio, henkilö tai spirituaalinen entiteetti (objekti)."@fi , "A person or spiritual entity (subject), e.g. a dead person, spirit, angel etc. has as a channel or medium a person or spiritual entity (object). I.e. the subject transmits messages to the object."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "psyykikko"@fi , "tiene médium"@es , "hat Medium"@de , "has channel"@en , "ha sensitivo(a)"@it ;
+        rdfs:subPropertyOf  :hasSpiritualContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIsChannel .
+
+:hasEmployee  a             rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilö tai yhteisö (subjekti), jolle henkilö (objekti) työskentelee."@fi , "A person or corporation (subject) for whom/which a person (object) works."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "työntekijä"@fi , "has employee"@en ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasEmployeeEmployer .
+
+:HasStepSibling  a        rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasStepSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "puolisisarus"@fi , "has stepsibling"@en ;
+        rdfs:seeAlso      :hasStepSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:hasCorrespondent  a            owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment            "Henkilö tai yhteisö (subjekti) on kirjeenvaihdossa henklön tai yhteisön (objekti) kanssa."@fi , "A person or corporation (subject) exchanges letters with a person or corporation (object)."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "kirjeenvaihtaja"@fi , "has correspondent"@en  ;
+        rdfs:subPropertyOf      :relatedAgent ;
+        owl:equivalentProperty  <https://d-nb.info/standards/elementset/gnd#correspondent> ;
+        vs:term_status          "testing" ;
+        :correspondsTo          :HasCorrespondent ;
+        :hasGndCode             "corr" .
+
+:hasNieceNephew  a          owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) has a niece or nephew (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "sisaruksen tai puolisisaruksen lapsi"@fi , "has niece or nephew"@en  ;
+        rdfs:subPropertyOf  :hasRelative ;
+        owl:inverseOf       :hasAuntUncle ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasNieceNephewAuntUncle .
+
+:IsHasPatron  a           rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasPatron / isPatronOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "mesenaatti / suosii"@fi , "has patron / is patron of"@en  ;
+        rdfs:seeAlso      :isPatronOf , :hasPatron ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:hasSubject  a            rdf:Property , owl:ObjectProperty ;
+        rdfs:comment      "At an n-ary concept's instance (subject), something (object) takes the subject role of the asymmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@en ;
+        rdfs:domain       :NAries ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "aiheena"@fi , "has subject"@en ;
+        vs:term_status    "testing" .
+
+:HasNieceNephewAuntUncle
+        a                 rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasAuntUncle / hasNieceNephew"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "täti tai setä / sisaruksen lapsi"@fi , "has aunt or uncle / niece or nephew"@en ;
+        rdfs:seeAlso      :hasAuntUncle , :hasNieceNephew ;
+        rdfs:subClassOf   :HasRelative ;
+        vs:term_status    "testing" .
+
+:HasBiologicalSibling
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasBiologicalSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "biologinen sisarus"@fi , "has biological sibling"@en  ;
+        rdfs:seeAlso      :hasBiologicalSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:isChannelOf  a                rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person or spiritual entity (subject) is a channel or medium of a person or spiritual entity (object), e.g. a dead person, spirit, angel etc. I.e. the subject receives messages from the object."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "meedio"@fi , "is channel of"@en  ;
+        rdfs:subPropertyOf     :hasSpiritualContact ;
+        owl:inverseOf          :hasChannel ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIsChannel .
+
+:hasColleague  a            owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) works together with a person (object) at the same corporation."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "kollega"@fi , "has colleague"@en ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasColleague .
+
+:hasAdoptiveChild  a        owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) on adoptoinut henkilön (objekti)."@fi , "A person (subject) adopted a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "adoptiolapsi"@fi , "has adoptive child"@en ;
+        rdfs:subPropertyOf  :hasChild ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasAdoptiveChildParent .
+
+:hasVitalLethalContact
+        a                   owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "Henkilöllä tai yhteisöllä on jonkinlainen henkilön (objekti) eloonjäämiseen vaikuttava suhde. Suhde voi olla esim. parantava, vahingoittava, pelastava, tappava."@fi , "A person or corporate body (subject) has som kind of vital or lethal relation with a person or corporate body (object). The relationship may e.g. include healing, mutilating, life saving, killing."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "eloonjäämiseen vaikuttava suhde"@fi , "has vital or lethal contact"@en ;
+        rdfs:subPropertyOf  :relatedAgent ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasVitalLethalContact .
+
+:hasParent  a                  rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "henkilö (subjekti) on jollakin tavalla toisen henkilön (objekti) vanhempi."@fi , "A person has as some kind of parent a person (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "vanhempi"@fi , "has parent"@en ;
+        rdfs:subPropertyOf     :hasAncestor ;
+        owl:inverseOf          :hasChild ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasChildParent .
+
+:hasFounder  a              rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Yhteisön (subjekti) perustanut henkilö (objekti)."@fi , "A group (subject) has as a founder a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "perustaja"@fi , "has founder"@en  ;
+        rdfs:subPropertyOf  :hasAssociate ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIsFounder .
+
+:hasBiologicalChild  a      rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilön (subjekti) synnyttämä/siittämä henkilö (objekti)."@fi , "A person (subject) begot/conceived a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "biologinen lapsi"@fi , "has biological child"@en ;
+        rdfs:subPropertyOf  :hasChild ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasBiologicalChildParent .
+
+:hasInfluenceDonee  a       owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilö tai yhteisö (objekti), joka vaikuttaa henkilöön tai yhteisöön (objekti)."@fi , "A person or corporation (subject) who influences a person or corporation (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "vaikuttaja"@fi , "has influence on"@en ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasInfluenceDoneeDonor .
+
+:HasAssociate  a          owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasAssociate"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha gruppo di appartenenza"@it , "hat Gruppenzugehörigkeit"@de , "tiene grupo de afiliación"@es , "has group affiliation"@en ;
+        rdfs:seeAlso      :hasAssociate ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:hasMurderee  a             rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "A person or corporate body (subject) murders a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "tiene víctima"@es , "has murder victim"@en , "hat Mordopfer"@de , "ha vittima domicidio"@it ;
+        rdfs:subPropertyOf  :hasVitalLethalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasMurdereeMurderer .
+
+:hasFosterChild  a          owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) fostered a person (object), without being a biological parent."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "hat Pflegekind"@de , "has foster child"@en , "tiene hijo(a) de crianza"@es , "ha pupillo(a)"@it ;
+        rdfs:subPropertyOf  :hasChild ;
+        owl:inverseOf       :hasFosterParent ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasFosterChildParent .
+
+:HasIsChief  a            rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasChief / isChiefOf"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Chef / ist Chef von"@de , "has chief / is chief of"@en , "tiene jefe / es jefe de"@es , "ha capo / è capo di"@it ;
+        rdfs:seeAlso      :hasChief , :isChiefOf ;
+        rdfs:subClassOf   :HasAssociate ;
+        vs:term_status    "testing" .
+
+:hasEndDate  a              rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment        "A metadata period or phase (subject) has a temporal end (date). The phase might e.g. concern a relationship between agents."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "has end date"@en , "tiene fecha final"@es , "hat Enddatum"@de , "ha data finale"@it ;
+        rdfs:subPropertyOf  <https://d-nb.info/standards/elementset/gnd#associatedDate> ;
+        vs:term_status      "stable" .
+
+:hasFriend  a               owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) is friends with a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "has friend"@en , "hat Freund"@de , "tiene amigo(a)"@es , "ha amico(a)"@it ;
+        rdfs:subPropertyOf  :hasAcquaintance ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasFriend .
+
+:HasLover  a              owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasLover"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Geliebte(n)"@de , "ha amante"@it , "has lover"@en , "tiene amante"@es ;
+        rdfs:seeAlso      :hasLover ;
+        rdfs:subClassOf   :HasAcquaintance ;
+        vs:term_status    "testing" .
+
+:hasRelative  a                 rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment            "A person (subject) is kin to a person (object). This denotes not only biological kinship, but also inlaw, adoptive, step, foster relationships."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "hat Verwandte(n)"@de , "ha parente"@it , "tiene pariente"@es , "has relative"@en ;
+        rdfs:subPropertyOf      :relatedAgent ;
+        owl:equivalentProperty  <https://d-nb.info/standards/elementset/gnd#familialRelationship> ;
+        vs:term_status          "testing" ;
+        :correspondsTo          :HasRelative ;
+        :hasGndCode             "bezf" .
+
+:hasPhysician  a               rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person or corporate body (subject) has as physician a person or corporate body (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "tiene médico"@es , "hat Arzt"@de , "has physician"@en , "ha medico"@it ;
+        rdfs:subPropertyOf     :hasVitalLethalContact ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :IsHasPhysician .
+
+:correspondsTo  a         rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment      "A normal property's (type rdf:Property) to-direction matches an n-ary concept (type rdfs:Class). \n2 mutually inverse normal properties match only 1 n-ary concept, because the meta statements must be identical for both 'to-direction' and 'fro-direction' of the relationship. \nThe normal property's fro-direction is related to the n-ary concept via correspondsToInverse."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "corrisponde a"@it , "corresponde con"@es , "corresponds to"@en , "korrespondiert mit"@de ;
+        vs:term_status    "testing" .
+
+:berenikeLitz  a    foaf:Person ;
+        rdfs:label  "Berenike Litz" ;
+        owl:sameAs  <https://d-nb.info/gnd/141919701> .
+
+:hasProfessionalContact
+        a                       rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment            "A person or corporation (subject) has some business/profession/occupation related relation with a person or corporation (object)."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "hat Berufskontakt"@de , "ha contatto professionale"@it , "tiene relación profesional"@es , "has professional contact"@en ;
+        rdfs:subPropertyOf      :relatedAgent ;
+        owl:equivalentProperty  <https://d-nb.info/standards/elementset/gnd#professionalRelationship> ;
+        vs:term_status          "testing" ;
+        :correspondsTo          :HasProfessionalContact ;
+        :hasGndCode             "bezb" .
+
+:hasLover  a                owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) has a liaison with a person (object), without being married."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "has lover"@en , "ha amante"@it , "tiene amante"@es , "hat Geliebte(n)"@de ;
+        rdfs:subPropertyOf  :hasAcquaintance ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasLover .
+
+:HasIllegitimateChildParent
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasIllegitimateChild / hasIllegitimateParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat illegitimes Kind / illegitimen Elternteil"@de , "tiene hijo(a) / padre o madre illegítimo(a)"@es , "has illegitimate child / parent"@en , "ha figlio(a) / genitore illegittimo(a)"@it ;
+        rdfs:seeAlso      :hasIllegitimateParent , :hasIllegitimateChild ;
+        rdfs:subClassOf   :HasBiologicalChildParent ;
+        vs:term_status    "testing" .
+
+:HasSpouse  a             rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasSpouse"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha coniuge"@it , "has spouse"@en , "tiene esposo(a)"@es , "hat Ehepartner"@de ;
+        rdfs:seeAlso      :hasSpouse ;
+        rdfs:subClassOf   :HasInlaw ;
+        vs:term_status    "testing" .
+
+:HasStudentTeacher  a     owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasStudent / hasTeacher"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Schüler / Lehrer"@de , "ha scolaro(a) / insegnante"@it , "tiene estudiante / maestro(a)"@es , "has Student / teacher"@en ;
+        rdfs:seeAlso      :hasTeacher , :hasStudent ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:hasAcquaintance  a             owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment            "A person (subject) privately knows a person (object)."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "hat Bekannte(n)"@de , "ha conoscente"@it , "has acquaintance"@en , "tiene conocido(a)"@es ;
+        rdfs:subPropertyOf      :relatedAgent ;
+        owl:equivalentProperty  <https://d-nb.info/standards/elementset/gnd#acquaintanceshipOrFriendship> ;
+        vs:term_status          "testing" ;
+        :correspondsTo          :HasAcquaintance ;
+        :hasGndCode             "beza" .
+
+:hasAdoptiveParent  a          rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person (subject) was adopted by a person (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "has adoptive parent"@en , "tiene padre o madre adoptivo(a)"@es , "ha genitore adottivo"@it , "hat Adoptivelternteil"@de ;
+        rdfs:subPropertyOf     :hasParent ;
+        owl:inverseOf          :hasAdoptiveChild ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasAdoptiveChildParent .
+
+:HasGrandChildParent  a   rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasGrandChild and hasGrandParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has grandchild / grandparent"@en , "ha nipote (di nonni) / nonno(a)"@it , "tiene nieto(a) / abuelo(a)"@es , "hat Enkel / Großelternteil"@de ;
+        rdfs:seeAlso      :hasGrandParent , :hasGrandChild ;
+        rdfs:subClassOf   :HasOffspringAncestor ;
+        vs:term_status    "testing" .
+
+:hasBiologicalSibling
+        a                   owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) has as sibling a person (object), where the two siblings share both biological parents."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "ha fratello biologico o sorella biologica"@it , "has biological sibling"@en , "hat biologisches Geschwister"@de , "tiene hermano(a) biológico(a)"@es ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasBiologicalSibling .
+
+:hasPatron  a                  owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "A person or corporation (subject; e.g. an artist or group of artists) who is sponsored/favoured by a person or corporation (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "tiene mecenas"@es , "has patron"@en , "ha mecenate"@it , "hat Mäzen"@de ;
+        rdfs:subPropertyOf     :hasProfessionalContact , <https://d-nb.info/standards/elementset/gnd#sponsorOrPatron> ;
+        owl:inverseOf          :isPatronOf ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :IsHasPatron .
+
+:HasBiologicalChildParent
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasBiologicalChild and hasBiologicalParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha figlio(a) / genitore biologico(a)"@it , "tiene hijo(a) / padre / madre biológico(a)"@es , "has biological child / parent"@en , "hat biologisches Kind / biologischen Elternteil"@de ;
+        rdfs:seeAlso      :hasBiologicalChild , :hasBiologicalParent ;
+        rdfs:subClassOf   :HasChildParent ;
+        vs:term_status    "testing" .
+
+:hasSibling  a              rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "A person has as some kind of sibling a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "hat Geschwister"@de , "has sibling"@en , "tiene hermano(a)"@es , "ha fratello o sorella"@it ;
+        rdfs:subPropertyOf  :hasRelative ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasSibling .
+
+:isSubject  a             owl:ObjectProperty , rdf:Property ;
+        rdfs:comment      "Something (subject) takes the subject role at an n-ary concept's instance (object) of the asymmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "is subject"@en , "es sujeto"@es , "è soggetto di"@it , "ist Subjekt"@de ;
+        owl:inverseOf     :hasSubject ;
+        vs:term_status    "testing" .
+
+:hasInfluenceDonor  a          rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person or corporation (subject) who is influenced by a person or corporation (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "is influenced by"@en , "ist beeinflusst durch"@de , "es influenciado(a) por"@es , "è influenzato(a) da"@it ;
+        rdfs:subPropertyOf     :hasProfessionalContact ;
+        owl:inverseOf          :hasInfluenceDonee ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasInfluenceDoneeDonor .
+
+:HasFianceeFiance  a      owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasFianceeFiance"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Verlobte(n)"@de , "ha fidanzato(a)"@it , "has fiancee  or fiance"@en , "tiene prometido(a)"@es ;
+        rdfs:seeAlso      :hasFianceeFiance ;
+        rdfs:subClassOf   :HasInlaw ;
+        vs:term_status    "testing" .
+
+:HasFosterSibling  a      rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasFosterSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has foster sibling"@en , "tiene hermano(a) de crianza"@es , "ha fratello o sorella di latte"@it , "has Pflegegeschwister"@de ;
+        rdfs:seeAlso      :hasFosterSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:HasHalfSibling  a        owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasHalfSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "tiene medio hermano(a)"@es , "has half sibling"@en , "ha fratellastro a sorellastra"@it , "hat Halbgeschwister"@de ;
+        rdfs:seeAlso      :hasHalfSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:HasSibling  a            rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "hat Geschwister"@de , "has sibling"@en , "ha fratello o sorella"@it , "tiene hermano(a)"@es ;
+        rdfs:seeAlso      :hasSibling ;
+        rdfs:subClassOf   :HasRelative ;
+        vs:term_status    "testing" .
+
+:HasMurdereeMurderer  a   rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasMurderee / hasMurderer"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha vittima domicidio / assassino(a)"@it , "hat Mordopfer / Mörder"@de , "tiene víctima / asesino(a)"@es , "has murder victim / murderer"@en ;
+        rdfs:seeAlso      :hasMurderer , :hasMurderee ;
+        rdfs:subClassOf   :HasVitalLethalContact ;
+        vs:term_status    "testing" .
+
+:hasMultipleBirthSibling
+        a                   owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "A person (subject) has as sibling a person (object), where both siblings where carried together in a joint pregnancy. This denotes not only twins, but also triplets etc.. Mostly, multiple birth siblings are biolological siblings, i.e. share both biological parents, but this doesn't have to be the case."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "has multiple birth sibling"@en , "ha fratello o sorella plurigemellare"@it , "tiene hermano(a) gemelo(a)"@es , "hat Mehrlingsgeschwister"@de ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasMultipleBirthSibling .
+
+:hasGrandChild  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "A person's (subject) child has a child (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "has grandchild"@en , "tiene nieto(a)"@es , "ha nipote (di nonni)"@it , "hat Enkel"@de ;
+        rdfs:subPropertyOf  :hasOffspring ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasGrandChildParent .
+
+:hasChief  a                owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A group (subject) has as a chief a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "hat Chef"@de , "tiene jefe"@es , "has chief"@en , "ha capo"@it ;
+        rdfs:subPropertyOf  :hasAssociate ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasIsChief .
+
+:isMemberOf  a                 rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person (subject) ist member of a group (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "è membro di"@it , "ist Mitglied von"@de , "is member of"@en , "es miembro de"@es ;
+        rdfs:subPropertyOf     :hasAssociate ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIsMember .
+
+:isMuseOf  a                   rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person (subject) inspires a person or corporation (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "is muse of"@en , "ist Muse von"@de , "è musa di"@it , "es musa de"@es ;
+        rdfs:subPropertyOf     :hasProfessionalContact ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIsMuse .
+
+:isPatronOf  a              owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "A person or corporation (subject) sponsors/favours a person or corporation (object; e.g. an artist or group of artists)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "es mecenas de"@es , "is patron of"@en , "ist Mäzen von"@de , "è mecenate di"@it ;
+        rdfs:subPropertyOf  :hasProfessionalContact ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :IsHasPatron .
+
+:hasTeacher  a                 owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "A person (subject) who is trained by a person (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "tiene maestro(a)"@es , "ha insegnante"@it , "hat Lehrer"@de , "has teacher"@en ;
+        rdfs:subPropertyOf     :hasProfessionalContact ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasStudentTeacher .
+
+:hasParentInlaw  a             owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "A person's (subject) spouse has a parent (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "has parent-in-law"@en , "tiene suegro(a)"@es , "ha suocero(a)"@it , "hat Schwiegerelternteil"@de ;
+        rdfs:subPropertyOf     :hasInlaw ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasChildParentInlaw .
+
+:HasAcquaintance  a       owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasAcquaintance"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha conoscente"@it , "hat Bekannte(n)"@de , "tiene conocido(a)"@es , "has acquaintance"@en ;
+        rdfs:seeAlso      :hasAcquaintance ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:isChiefOf  a                  rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "A person (subject) ist chief of a group (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "è capo di"@it , "es jefe de"@es , "ist Chef von"@de , "is chief of"@en ;
+        rdfs:subPropertyOf     :hasAssociate ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasIsChief .
+
+:hasAncestor  a                rdf:Property , owl:TransitiveProperty ;
+        rdfs:comment           "A person (subject) has an ancestor (object), where the chain of parent-relations might include adoptive, foster, illegitimate, step relations."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "tiene ancestro"@es , "hat Vorfahr"@de , "has ancestor"@en , "ha antenato"@it ;
+        rdfs:subPropertyOf     :hasRelative ;
+        owl:inverseOf          :hasOffspring ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasOffspringAncestor .
+
+:HasFosterChildParent
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasFosterChild and hasFosterParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "has foster child / parent"@en , "ha pupillo(a) / genitore"@it , "tiene hijo(a) / padre o madre de crianza"@es , "hat Pflegekind / -elternteil"@de ;
+        rdfs:seeAlso      :hasFosterParent , :hasFosterChild ;
+        rdfs:subClassOf   :HasChildParent ;
+        vs:term_status    "testing" .
+
+:NAries  a                rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the top class for all n-ary classes"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "n-ary classes"@en , "n-ary Klassen"@de ;
+        vs:term_status    "testing" .
+
+:HasCohabitee  a          rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasCohabitee"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha compagno(a) di vita"@it , "has cohabitee"@en , "hat Lebensgefährte"@de , "tiene cohabitante"@es ;
+        rdfs:seeAlso      :hasCohabitee ;
+        rdfs:subClassOf   :HasAcquaintance ;
+        vs:term_status    "testing" .
+
+:HasVitalLethalContact
+        a                 owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasVitalLethalContact"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha contatto vitale o letale"@it , "tiene contacto vital o letal"@es , "hat vitalen oder letalen Kontakt"@de , "has vital or lethal contact"@en ;
+        rdfs:seeAlso      :hasVitalLethalContact ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:larsGSvensson  a   foaf:Person ;
+        rdfs:label  "Lars G. Svensson" ;
+        owl:sameAs  <https://d-nb.info/gnd/124903959> .
+
+:hasAdoptiveSibling  a      rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "A person (subject) has as sibling a person (object), where at least one of the two siblings is adoptive child of a joint parent."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "hat Adoptivgeschwister"@de , "has adoptive sibling"@en , "tiene hermano(a) adoptivo(a)"@es , "ha fratello adottato o sorella adottata"@it ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasAdoptiveSibling .
+
+:HasCousin  a             rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasCousin"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ha cugino(a)"@it , "hat Cousin"@de , "tiene primo o prima"@es , "has cousin"@en ;
+        rdfs:seeAlso      :hasCousin ;
+        rdfs:subClassOf   :HasRelative ;
+        vs:term_status    "testing" .
+
+:hasAssociate  a                rdf:Property , owl:ObjectProperty ;
+        rdfs:comment            "Henkilö (subjekti) liittyy ryhmään (objekti) tai ryhmä (subjekti) on yhteydessä henkilöön (objekti)."@fi , "A person (subject) is associated with a group (object), or a group (subject) is associated with a person (object)."@en ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "yhteydessä"@fi , "has group affiliation"@en ;
+        rdfs:subPropertyOf      :relatedAgent ;
+        owl:equivalentProperty  <https://d-nb.info/standards/elementset/gnd#affiliation> ;
+        vs:term_status          "testing" ;
+        :correspondsTo          :HasAssociate ;
+        :hasGndCode             "affi" .
+
+:HasStepChildParent  a    rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasStepChild / hasStepParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ottolapsi / ottovanhempi"@fi , "has stepchild / stepparent"@en ;
+        rdfs:seeAlso      :hasStepChild , :hasStepParent ;
+        rdfs:subClassOf   :HasChildParent ;
+        vs:term_status    "testing" .
+
+:metadataProvenance  a    rdf:Property , owl:DatatypeProperty ;
+        rdfs:comment      "väittämän tai faktan (subjekti) alkuperäinen lähde"@fi , "A statement or fact (subject) originates from a source."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "lähdeviittaus"@fi , "has provenance"@en  ;
+        vs:term_status    "testing" .
+
+:hasSpouse  a               owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) on naimisissa henkilön (objekti) kanssa."@fi , "A person (subject) is married with a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "puoliso"@fi , "has spouse"@en  ;
+        rdfs:subPropertyOf  :hasInlaw ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasSpouse .
+
+:hasGodChild  a             owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) saa henkilön (objekti) kummilapseksi kummilapsen kasteessa."@fi , "A person (subject) obtains as godchild a person (object) at the godchild's christening."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "kummilapsi"@fi , "has godchild"@en ;
+        rdfs:subPropertyOf  :hasRelative ;
+        owl:inverseOf       :hasGodParent ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasGodChildParent .
+
+:hasChild  a                rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilöllä on jonkinlainen lapsi henkilö (objekti)."@fi , "A person has as some kind of child a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "lapsi"@fi , "has child"@en ;
+        rdfs:subPropertyOf  :hasOffspring ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasChildParent .
+
+:HasAdoptiveSibling  a    rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasAdoptiveSibling"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "adoptiosisarus"@fi , "has adoptive sibling"@en ;
+        rdfs:seeAlso      :hasAdoptiveSibling ;
+        rdfs:subClassOf   :HasSibling ;
+        vs:term_status    "testing" .
+
+:hasBeginDate  a            owl:DatatypeProperty , rdf:Property ;
+        rdfs:comment        "Metadatassa kuvatulla jaksolla tai vaiheella (subjekti) on alkupäivä (päivämäärä). Vaihe liittyä esim. agenttien väliseen suhteeseen."@fi , "A metadata period or phase (subject) has a temporal start (date). The phase might e.g. concern a relationship between agents."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "alkupäivä"@fi , "has begin date"@en  ;
+        rdfs:subPropertyOf  <https://d-nb.info/standards/elementset/gnd#associatedDate> ;
+        vs:term_status      "stable" .
+
+:hasSubjectObject  a      owl:ObjectProperty , rdf:Property ;
+        rdfs:comment      "At an n-ary concept's instance (subject), something (object) takes the subject or object role of the symmetric relationship meant by the n-ary concept. \nFor inverse relationsships, the subject and object role follow the naming of the n-ary concept when reading quasi just the first part of the n-ary concept name."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "subjekti tai objekti"@fi , "has subject or object"@en  ;
+        owl:inverseOf     :isSubjectObject ;
+        vs:term_status    "testing" .
+
+:HasProfessionalContact
+        a                 rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasProfessionalContact"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "ammatillinen kontakti"@fi , "has professional contact"@en  ;
+        rdfs:seeAlso      :hasProfessionalContact ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:metadataPeriod  a        rdf:Property , owl:ObjectProperty ;
+        rdfs:comment      "instanssi (subjekti) on voimassa/tosi ajanjaksolla (objekti). Ajanjakso ilmastaan tyhjällä nodella, jolla on ominaisuudet hasBeginDate tai/ja hasEndDate."@fi , "An n−ary instance (subject) is valid/true in a period (object). The period should be manifested in a blank node, with data properties hasBeginDate or/and hasEndDate set."@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "voimassaoloaika"@fi , "has validity period"@en ;
+        vs:term_status    "testing" .
+
+:hasStepParent  a              owl:ObjectProperty , rdf:Property ;
+        rdfs:comment           "Henkilön (subjekti) biologinen vanhempi on naimisissa tai avoliitossa henkilön (objekti) kanssa."@fi , "A person's (subject) biological parent is married with or cohabits with a person (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "ottovanhempi"@fi , "has stepparent"@en ;
+        rdfs:subPropertyOf     :hasParent ;
+        owl:inverseOf          :hasStepChild ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasStepChildParent .
+
+:RelatedAgent  a          owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the property relatedAgent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "liittyvä toimija"@fi , "related Agent"@en  ;
+        rdfs:seeAlso      :relatedAgent ;
+        rdfs:subClassOf   :NAries ;
+        vs:term_status    "testing" .
+
+:HasEmployeeEmployer  a   owl:Class , rdfs:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasEmployee and hasEmployer"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "työntekijä / työnantaja"@fi , "has employee / employer"@en ;
+        rdfs:seeAlso      :hasEmployer , :hasEmployee ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:hasStepSibling  a          rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "Henkilöllä (subjekti) on sisaruksena henkilö (objekti), jolloin vähintään toinen sisaruksista on yhteisten vanhempien ottolapsi."@fi , "A person (subject) has as sibling a person (object), where at least one of the two siblings is step child of a joint parent."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "puolisisarus"@fi "sisarpuoli tai velipuoli (?)"@fi, "has stepsibling"@en  ;
+        rdfs:subPropertyOf  :hasSibling ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasStepSibling .
+
+:HasInlaw  a              rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasInlaw"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "appivanhempi"@es , "has in-law"@en  ;
+        rdfs:seeAlso      :hasInlaw ;
+        rdfs:subClassOf   :HasRelative ;
+        vs:term_status    "testing" .
+
+:hasGodParent  a               rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilö (subjekti) saa kummiksi henkilön (objekti) kummilapsen kasteessa."@fi , "A person (subject) obtains as godparent a person (object) at the godchild's christening."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "kummi"@fi , "has godparent"@en  ;
+        rdfs:subPropertyOf     :hasRelative ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasGodChildParent .
+
+:hasChildInlaw  a           rdf:Property , owl:ObjectProperty ;
+        rdfs:comment        "Henkilön (subjekti) lapsi on naimisissa henkilön (objekti) kanssa."@fi , "A person's (subject) child is married with a person (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "lapsen puoliso"@fi , "has child-in-law"@en  ;
+        rdfs:subPropertyOf  :hasInlaw ;
+        owl:inverseOf       :hasParentInlaw ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasChildParentInlaw .
+
+:hasAuntUncle  a               rdf:Property , owl:ObjectProperty ;
+        rdfs:comment           "Henkilöllä (subjekti) on täti tai setä (objekti)."@fi , "A person (subject) has an aunt or uncle (object)."@en ;
+        rdfs:isDefinedBy       : ;
+        rdfs:label             "täti tai setä"@fi ,"has aunt or uncle"@en ;
+        rdfs:subPropertyOf     :hasRelative ;
+        vs:term_status         "testing" ;
+        :correspondsToInverse  :HasNieceNephewAuntUncle .
+
+:hasSiblingInlaw  a         rdf:Property , owl:SymmetricProperty ;
+        rdfs:comment        "Henkilön (subjekti) puolisolla on sisarus (objekti)."@fi , "A person's (subject) spouse has a sibling (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "puolison sisarus"@fi , "has sibling-in-law"@en ;
+        rdfs:subPropertyOf  :hasInlaw ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasSiblingInlaw .
+
+:hasInlaw  a                owl:SymmetricProperty , rdf:Property ;
+        rdfs:comment        "Henkilö (subjekti) on sukua toiselle henkilölle (objekti) keskinäisen avioliiton tai sukulaisten avioliiton kautta."@fi , "A person (subject) is related with a person (object) by a marriage between themselves or between relatives."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "puolison sukulainen"@fi , "has in-law"@en ;
+        rdfs:subPropertyOf  :hasRelative ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasInlaw .
+
+:hasStepChild  a            owl:ObjectProperty , rdf:Property ;
+        rdfs:comment        "Henkilön (subjekti) puolison lapsi (objekti)."@fi , "A person's (subject) spouse has a child (object)."@en ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "lapsipuoli"@fi , "has stepchild"@en ;
+        rdfs:subPropertyOf  :hasChild ;
+        vs:term_status      "testing" ;
+        :correspondsTo      :HasStepChildParent .
+
+:HasCorrespondent  a      rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasCorrespondent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "kirjeenvaihtajana"@fi , "has correspondent"@en  ;
+        rdfs:seeAlso      :hasCorrespondent ;
+        rdfs:subClassOf   :RelatedAgent ;
+        vs:term_status    "testing" .
+
+:HasColleague  a          rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the property hasColleague"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "kollega"@fi , "has colleague"@en  ;
+        rdfs:seeAlso      :hasColleague ;
+        rdfs:subClassOf   :HasProfessionalContact ;
+        vs:term_status    "testing" .
+
+:HasGodChildParent  a     rdfs:Class , owl:Class ;
+        rdfs:comment      "This is the n-ary concept for the properties hasGodChild and hasGodParent"@en ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "kummilapsi / kummi"@fi , "has godchild / godparent"@en  ;
+        rdfs:seeAlso      :hasGodChild , :hasGodParent ;
+        rdfs:subClassOf   :HasNieceNephewAuntUncle ;
+        vs:term_status    "testing" .
