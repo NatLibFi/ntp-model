@@ -1,0 +1,71 @@
+:ntpProjektiryhma a foaf:Group ;
+  rdfs:label     "KAM-sektorin nimitietopalvelun projektiryhmä"@fi, 
+                 "Finnish GLAM-sector Agent Metadata Service data model project group"@en ;
+  foaf:homepage <https://www.kiwi.fi/display/TD/Nimitietopalvelu> ;
+  foaf:member :piiaNaukkarinen, :kennethAhlfors, :hannuHakkinen, :tommiSuominen, :miiaHerrala, :sallaRimpinen, :leenaFuruKallio, :riittaKela,
+              :mikkoLappalainen, :katerinaSornova, :matiasFrosterus, :okkoVainonen, :jarmoSaarikko .
+		
+:marjaLiisaSeppala
+  a  foaf:Person ;        
+  rdfs:label  "Marja-Liisa Seppälä" ;
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> 
+  foaf:homepage <https://researchportal.helsinki.fi/fi/persons/marja-liisa-sepp%C3%A4l%C3%A4> .
+
+:piiaNaukkarinen a  foaf:Person ;
+  rdfs:label  "Piia Naukkarinen" ; 
+  owl:sameAs <https://orcid.org/0000-0001-7704-8721> ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
+  
+:kennethAhlfors  a  foaf:Person ;
+  rdfs:label  "Kenneth Ahlfors" ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000032367> .
+  
+:hannuHakkinen  a  foaf:Person ;
+  rdfs:label  "Hannu  Häkkinen" ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034885> .
+  
+:tommiSuominen  a  foaf:Person ;
+  rdfs:label  "Tommi Suominen" ;  
+  owl:sameAs <https://orcid.org/0000-0002-4382-7425> ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000035509> .
+  
+:miiaHerrala  a  foaf:Person ;
+  rdfs:label  "Miia Herrala" ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000032367> .
+  
+:sallaRimpinen  a  foaf:Person ;
+  rdfs:label  "Salla Rimpinen" ;
+  :employer <https://isni.org/isni/0000000104685922> .
+  
+:leenaFuruKallio  a  foaf:Person ;
+  rdfs:label  "Leena Furu-Kallio" ;
+  owl:sameAs <http://urn.fi/URN:NBN:fi:au:finaf:000147683> .
+  
+:riittaKela  a  foaf:Person ;
+  rdfs:label  "Riitta Kela" ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000000448> .
+  
+:mikkoLappalainen  a  foaf:Person ;
+  rdfs:label  "Mikko Lappalainen" ;  
+  owl:sameAs <https://orcid.org/0000-0002-1841-5971> ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
+
+:katerinaSornova  a  foaf:Person ;
+  rdfs:label  "Katerina Sornova" ;  
+  owl:sameAs <https://orcid.org/0000-0002-4589-0751> ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
+  
+:matiasFrosterus  a  foaf:Person ;        
+   rdfs:label  "Matias Frosterus" ;  
+   owl:sameAs <https://orcid.org/0000-0002-8355-0256> ; 
+   :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
+   
+:okkoVainonen  a  foaf:Person ;        
+   rdfs:label  "Okko Vainonen" ;  
+   owl:sameAs <https://orcid.org/0000-0002-2662-7333> ; 
+   :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
+   
+:jarmoSaarikko  a  foaf:Person ;        
+  rdfs:label  "Jarmo Saarikko" ;  
+  owl:sameAs <https://orcid.org/0000-0002-6801-6151> ; 
+  :employer <http://urn.fi/URN:NBN:fi:au:finaf:000034269> .
