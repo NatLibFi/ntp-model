@@ -47,6 +47,8 @@
 @prefix tutkimus: <http://uri.suomi.fi/datamodel/ns/tutkimus#> .
 @prefix jhs: <http://uri.suomi.fi/datamodel/ns/jhs#> .
 @prefix yso: <http://www.yso.fi/onto/yso/> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix cc:  <http://creativecommons.org/ns#> .
 
 
 :       a                              <http://purl.org/vocommons/voaf#Vocabulary> , owl:Ontology ;
