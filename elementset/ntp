@@ -54,14 +54,14 @@
      "Okko Vainonen";
   dcterms:creator "Jarmo Saarikko";
   dcterms:license "http://creativecommons.org/publicdomain/zero/1.0/";
-  dcterms:modified "2021-01-14T18:44:52+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+  dcterms:modified "2021-03-10T19:00:00+02:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
   dcterms:publisher "http://urn.fi/URN:NBN:fi:au:finaf:000034269";
   rdf:type :Class ;
-  skos:editorialNote 
-    "Classes and properties of the datamodel";
-  skos:prefLabel "Nimitietopalvelun tietomalli v.2.23"@fi .
+  skos:editorialNote "Classes and properties of the datamodel.","Turtle code validated with Node.JS Turtle validator at http://ttl.summerofcode.be/";
+  skos:changeNote "v2.24: some editorial notes and unnecessary quotation marks were removed; marc21equivalent properties corrected; unnecessary propertyScope properties were removed";  
+  skos:prefLabel "Nimitietopalvelun tietomalli v.2.24"@fi .
 
-### CLASSES 
+### CLASSES
 
 
 
@@ -70,26 +70,25 @@
   rdfs:subClassOf    :Entity ;
   skos:closeMatch    rdac:C10002;
   skos:editorialNote "NTP: 2.1.3. Toimijan suhteet ", 
-	                 "Q40";
+	                 "ntpwikibase:Q40";
   skos:prefLabel     "Agent"@en, "Toimija"@fi;
   skos:altLabel      "toimija"@fi;
-  :ahaaLabel         "TJ21 Toimija";
-  :propertyScope     "270" .
+  :ahaaLabel         "TJ21 Toimija" ;
+  :marc21equivalent  "075 a toimija b 2" .
 
 :Concept a           owl:Class ;
   skos:closeMatch    skos:Concept ;
   skos:editorialNote "Huomautus: subclassOf:rdac:C10013",
-     "Q16";
+     "ntpwikibase:Q16";
   skos:prefLabel     "Käsite"@fi, "Concept"@en ;
-  skos:altLabel      "Aihe"@fi;
-  :propertyScope     "279" .
+  skos:altLabel      "Aihe"@fi .
 
 :CategoryOfAgent a   owl:Class ;
-  skos:editorialNote "Luokan arvot: henkilö, suku, yhteisö tai tapahtuma"@fi,"ntp wikibase Q339" ; 
+  skos:editorialNote "Luokan arvot: henkilö, suku, yhteisö tai tapahtuma"@fi,"ntpwikibase:Q339" ; 
   skos:prefLabel     "toimijan tyyppi"@fi, "category of agent"@en, "agenkategori"@sv .
 
 :CategoryOfFamily a  owl:Class ;
-  skos:editorialNote "Suvun tyypit: klaani, kuningashuone, hallitsijasuku, aatelissuku"@fi, "ntp wikibase Q342", 
+  skos:editorialNote "Suvun tyypit: klaani, kuningashuone, hallitsijasuku, aatelissuku"@fi, "ntpwikibase:Q342", 
                      "types of family: clan, royal house, dynasty, noble family"@en   ;
   skos:prefLabel     "suvun tyyppi"@fi, "category of family"@en .
  
@@ -98,26 +97,24 @@
   skos:altLabel     "Yhteisö"@fi;
   rdfs:subClassOf    :Agent ;
   skos:closeMatch    <http://uri.suomi.fi/terminology/prh/c37>, org:Organization, rdac:C10005 ;
-  skos:editorialNote "Q41";
+  skos:editorialNote "ntpwikibase:Q41";
   skos:prefLabel     "Yhteisö"@fi;
-  skos:altLabel      "Organisaatio"@fi;
-  :propertyScope     "192" .
+  skos:altLabel      "Organisaatio"@fi .
 
 :Entity a            owl:Class ;
   skos:closeMatch    rdac:C10013 ;
-  skos:editorialNote "Q2", 
-                     "RDA Toolkit: 0.6.7 Osio 3:";
+  skos:editorialNote "ntpwikibase:Q2", 
+                     "original.rdatoolkit.org : 0.6.7 Osio 3:";
   skos:prefLabel     "Entiteetti"@fi,
                      "Entity"@en ;
-  skos:altLabel      "Auktoriteettiresurssi"@fi;
-  :propertyScope     "269" .
+  skos:altLabel      "Auktoriteettiresurssi"@fi .
 
 :Event a             owl:Class ;
-  skos:editorialNote "Q115";
+  skos:editorialNote "ntpwikibase:Q115";
   skos:prefLabel     "Tapahtuma"@fi, 
                      "Event"@en ;
   rdfs:subClassOf    :CorporateBody ;
-  :marc21equivalent  "111 ** $a" .
+  :marc21equivalent  "075 a tapahtuma b 2" .
 
 :ExternalIdentifier a owl:Class ;
   skos:editorialNote " ";
@@ -126,69 +123,66 @@
 
 :Family a            owl:Class ;
   skos:closeMatch    :Agent, rdac:C10008 ;
-  skos:editorialNote "Q45", 
-                     "RDA Toolkit: 0.6.7 Osio 3:";
+  skos:editorialNote "ntpwikibase:Q45", 
+                     "original.rdatoolkit.org : 0.6.7 Osio 3:";
   skos:prefLabel     "Suku"@fi,
                      "Family"@en ;
   rdfs:subClassOf    :Agent ;
-  :marc21equivalent  "075 ** $a=suku";
-  :propertyScope     "272" .
+  :marc21equivalent  "075 a suku" .
 
 :Item a              owl:Class ;
     rdfs:type        xsd:anyURI ;
   	rdfs:subClassOf  rdfs:Literal ;
+    skos:prefLabel   "Item"@fi, "Item"@en ;
 	rdfs:comment     "wikibase datatyyppi" . 
 
 :Nomen a             owl:Class ;
   skos:closeMatch    rdac:C10012 ;
-  skos:editorialNote "Q43";
+  skos:editorialNote "ntpwikibase:Q43";
   skos:prefLabel     "Nomen"@fi, 
-                     "Nomen"@en;
-  :propertyScope     "276" .
+                     "Nomen"@en .
 
-			  
+
 :Monolingualtext a owl:Class;
     rdf:type         rdfs:langString ;
 	rdfs:subClassOf  rdfs:Literal ;
+    skos:prefLabel   "Yksikielinen teksti"@fi, "Monolingual text"@en ;
 	rdfs:comment     "wikibase datatyyppi" .
 	
 :Person a            owl:Class ;
   skos:closeMatch    <http://uri.suomi.fi/terminology/idha/concept-5>, person:Person, rdac:C10004 ;
   rdfs:subClassOf     :Agent;
-  skos:editorialNote "Q39";
+  skos:editorialNote "ntpwikibase:Q39";
   skos:prefLabel     "Henkilö"@fi,
-                     "Person"@en;
-  :propertyScope     "271" .
+                     "Person"@en ;
+  :marc21equivalent  "075 a henkilö b 2" .
 
 :Place a             owl:Class ;
   rdf:type           :Class ;
   skos:closeMatch    rdac:C10009 ;
   skos:editorialNote "Kuvaus: yso-paikat:",
      "NTP: 5. Paikka",
-     "Q44";
-  skos:prefLabel     "Paikka"@fi;
-  :propertyScope     "275" .
+     "ntpwikibase:Q44";
+  skos:prefLabel     "Paikka"@fi .
 
 :String a            owl:Class;
     rdf:type         xsd:string ;
 	rdfs:subClassOf  rdfs:Literal ;
+    skos:prefLabel   "Merkkijono"@fi, "String"@en ;
 	rdfs:comment     "wikibase datatyyppi" .
 
 
 :Timespan a          owl:Class ;
   rdf:type           :Class ;
   skos:closeMatch    rdac:C10010;
-  skos:editorialNote "?mappaus",
-     "Q22";
+  skos:editorialNote "ntpWb: Q22";
   skos:prefLabel     "Ajanjakso"@fi .
 
 :Work a              owl:Class ;
   rdf:type           :Class ;
-  skos:altLabel      "Teos"@fi;
   skos:closeMatch    rdac:C10001;
-  skos:editorialNote "Q207";
-  skos:prefLabel     "Teos"@fi;
-  :propertyScope     "281" .
+  skos:editorialNote "ntpwikibase:Q207";
+  skos:prefLabel     "Teos"@fi .
 
 
 ### PROPERTIES
@@ -203,12 +197,11 @@
   skos:editorialNote 
     "ISNI: tärkeä", 
 	"NTP: 8.1. Toimija-toimija-roolit ", 
-	"P191",
-    "RDA Toolkit: K.4.3.";
+	"ntpwikibase:P191",
+    "original.rdatoolkit.org : K.4.3.";
   skos:prefLabel "absorbed corporate body"@en, "sulautunut yhteisö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent "510W";
-  :propertyScope "178" .
+  :marc21equivalent "510 w".
 
 :absorbingCorporateBody a owl:ObjectProperty, rdf:Property ;
   rdf:type         :Item ;
@@ -220,10 +213,9 @@
   skos:editorialNote
     "ISNI: tärkeä", 
 	"NTP: 8.1. Toimija-toimija-roolit", 
-	"P192",
-    "RDA Toolkit: K.4.3.";
-  skos:prefLabel "absorbing corporate body"@en, "sulautunut yhteisöön"@fi;
-  :propertyScope "179" .
+	"ntpwikibase:P192",
+    "original.rdatoolkit.org : K.4.3.";
+  skos:prefLabel "absorbing corporate body"@en, "sulautunut yhteisöön"@fi .
 
 :acronym a owl:DatatypeProperty, rdf:Property;
   rdf:type       :String;
@@ -235,7 +227,7 @@
     "NTP: 8.6. Toimijan nimien roolit",
     "Tyyppi: listan arvo";
   skos:prefLabel "acronym"@en, "lyhenne"@fi;
-  :marc21equivalent   "100A W/0d W/1 d" .
+  :marc21equivalent   "100 a w/0d;100 a w/1 d" .
 
 :activity a owl:DatatypeProperty, rdf:Property;
   rdf:type           :Monolingualtext ;
@@ -252,8 +244,8 @@
 	"Kuvaus: Relaatio: Toiminta + Tyyppi: 7.13 Toimija-toiminta roolit+ Relaatio: Aika",
     "Kuvaus: Toimija on suorittanut jotain toimintaa.", 
 	"NTP: 2.1.3. Toimijan suhteet ",
-    "P280", 
-	"RDA Toolkit: 0.6.7 Osio 3:   Ajan osalta: 11.4.5.", 
+    "ntpwikibase:P280", 
+	"original.rdatoolkit.org : 0.6.7 Osio 3:   Ajan osalta: 11.4.5.", 
 	"Selite: Toimijalla voi olla suhde toimintaan. Suhde voidaan rajata rajavuosilla.",
     "Tyyppi: Relaatio: Toiminta + Tyyppi: 7.13 Toimija-toiminta roolit + Relaatio: Aika";
   skos:prefLabel     "activity"@en, 
@@ -261,8 +253,7 @@
   :ahaaLabel         "TJ19 Toiminta (Valtuutettu tehtävä)",
      "TJ37 Toiminta";
   :ahaaValue         "function, date/dateRange /dateSet, (FunctionRelation+ FUNCTIONRELATIONTYPE)";
-  :marc21equivalent  "372";
-  :propertyScope     "249;282;116" .
+  :marc21equivalent  "372" .
 
 :addresseeAgentOf  a owl:DatatypeProperty, rdf:Property;
   rdfs:domain        :Agent;
@@ -280,28 +271,23 @@
   skos:altLabel      "toimijan osoite"@fi;
   skos:closeMatch    rdaa:P50114, locn:Address, org:siteAddress, rdaa:P50036, rdaa:P50418, rdau:P60512;
   skos:editorialNote 
-    "Huomautus: sarakkeessa henkilön nimi??", 
-	"Huomautus:  Salla/MuseumPlus: Linkki Yhteystiedot-moduuliin, jossa toimijan osoitetiedot ",
+    "Huomautus: sarakkeessa voi olla henkilön nimi", 
+    "MuseumPlus: Linkki Yhteystiedot-moduuliin, jossa toimijan osoitetiedot ",
     "ISAAR(CPF): 5.2.3 Places", 
-	"Kuvaus: Yhteisön tai henkilön osoite", 
-	"NTP: 2.1.1 Toimijan tunnistaminen",
-    "P262",
-     "RDA Toolkit: 9.12., 11.9.", 
-	"SPECTRUM: Person’s address, Organisation’s address",
-    "Selite: Yhteisön tai henkilön osoite";
+    "Kuvaus: Yhteisön tai henkilön osoite", 
+    "NTP: 2.1.1 Toimijan tunnistaminen",
+    "original.rdatoolkit.org : 9.12., 11.9.", 
+    "SPECTRUM: Person’s address, Organisation’s address";
   skos:prefLabel "address of agent"@en, "toimijan osoite"@fi;
-  :ahaaValue         "placeEntry ..address";
+  :ahaaValue         "placeEntry .address";
   :marc21equivalent  "371 a";
-  :museumPlus        "Yhteystiedot_yhteystieto";
-  :propertyScope     "106" .
+  :museumPlus        "Yhteystiedot_yhteystieto" .
 
 :addressOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type           :String;
   rdfs:domain        :CorporateBody;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdaa:P50036;
-  skos:editorialNote "?mappaus",
-     "P245";
   skos:prefLabel     "address of corporate body"@en, "yhteisön osoite"@fi .
 
 :addressOfPerson a   owl:DatatypeProperty, rdf:Property;
@@ -310,22 +296,21 @@
   rdfs:range         xsd:string ;
   skos:altLabel      "henkilön osoite"@fi;
   skos:closeMatch    rdaad:P50114;
-  skos:editorialNote "P240",
+  skos:editorialNote "ntpwikibase:P240",
      "Selite: voi koostua osista: katuosoite, postinumero, postipaikka (kaupunki), maa. Myös sähköpostiosoite.";
-  skos:prefLabel     "address of person"@en, "henkilön osoite"@fi;
-  :propertyScope     "277" .
+  skos:prefLabel     "address of person"@en, "henkilön osoite"@fi .
 
-:agentHistory a      owl:DatatypeProperty ;
+:agentHistory a      owl:DatatypeProperty, rdf:Property;
   rdf:type           :Monolingualtext ;
   rdfs:domain        :Agent;
   rdfs:range         rdf:langString;
   skos:closeMatch    rdau:P60484;
-  skos:editorialNote "P347";
+  skos:editorialNote "ntpwikibase:P347";
   skos:prefLabel     "agent history"@en, 
                      "toimijan historia"@fi;
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:alternateIdentityOfPerson a owl:ObjectProperty;
+:alternateIdentityOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
   rdfs:domain        :Person ;
   rdfs:range         :Person ;
@@ -333,19 +318,15 @@
   skos:altLabel      "toinen identiteetti"@fi;
   skos:closeMatch    gndo:pseudonym, rdaao:P50428 ;
   skos:editorialNote "ISNI: tärkeä", 
-	                 "Kuvaus: Toinen identiteetti = ??", 
 	                 "NTP: 8.1. Toimija-toimija-roolit ",
-                     "P105", 
-	                 "RDA Toolkit: K.2.1 ", 
+	                 "original.rdatoolkit.org : K.2.1", 
 	                 "Selite: Hankittu eli itse käyttöönotettu identiteetti (acquired identity)";
   skos:prefLabel     "alternate identity of person"@en, 
                      "toinen identiteetti"@fi;
   :ahaaValue         "voidaan esittää multiple identities tai cpf-relation avulla";
-  :marc21equivalent  " 501 1* $a",
-     "500 0* $a";
-  :propertyScope     "170" .
+  :marc21equivalent  " 501 1* a; 500 0* a" .
 
-:alternateIdentityOfPersonOf a owl:ObjectProperty;
+:alternateIdentityOfPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
   rdfs:domain        :Nomen ;
   rdfs:range         :Person ;
@@ -363,7 +344,7 @@
   :ahaaLabel         "Sovittaja";
   :ahaaValue         rdaa:P50137 .
 
-:artistAgentOf a     owl:DatatypeProperty ;
+:artistAgentOf a     owl:DatatypeProperty, rdf:Property;
   rdf:type           :String ;
   rdfs:domain        :Agent;
   rdfs:range         xsd:string ;
@@ -380,14 +361,13 @@
   skos:altLabel      "Asteri-tunnus"@fi;
   skos:closeMatch    :rdaa:P50094, jhs:J169 ;
   skos:editorialNote "NTP: 8.5. Tunnisteen roolit", 
-	                 "P210";
+	                 "ntpwikibase:P210";
   skos:prefLabel     "Asteri identifier"@en, 
                      "Asteri-tunniste"@fi;
-  :marc21equivalent  "024 7* $a $2finaf $0";
-  :propertyScope     "296";
+  :marc21equivalent  "024 7* a 0 2finaf" ;
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:authorAgentOf a     owl:DatatypeProperty ;
+:authorAgentOf a     owl:DatatypeProperty, rdf:Property;
   rdf:type           :String;
   rdfs:domain        :Agent;
   rdfs:range         xsd:string ;
@@ -397,14 +377,15 @@
   :ahaaLabel         "kirjoittaja";
   :ahaaValue         rdaa:P50195 .
 
-:authorCorporateBody a owl:ObjectProperty;
+:authorCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
   rdfs:domain        :Work ;
   rdfs:range         :CorporateBody;
   skos:closeMatch    rdaw:P10530;
-  skos:editorialNote "P212";
+  skos:editorialNote "ntpwikibase:P212";
   skos:prefLabel     "author corporate body"@en, 
-                     "luetteloiva organisaatio"@fi .
+                     "luetteloiva organisaatio"@fi ;
+  :marc21equivalent  "040 a" .
 
 :authorizedAccessPointForEntity 
   a                  owl:DatatypeProperty, rdf:Property;
@@ -412,7 +393,7 @@
   rdfs:domain        :Entity ;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdaxd:P00020;
-  skos:editorialNote "P258";
+  skos:editorialNote "ntpwikibase:P258";
   skos:prefLabel     "authorized access point for entity"@en, 
                      "entiteetin auktorisoitu hakutieto"@fi   .
 
@@ -422,9 +403,9 @@
   rdfs:domain        :Family ;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdaad:P50409;
-  skos:editorialNote "P343";
-  skos:prefLabel     "authorized access point for family"@en, "suvun auktorisoitu hakutieto"@fi;
-   .
+  skos:editorialNote "ntpwikibase:P343";
+  skos:prefLabel     "authorized access point for family"@en, "suvun auktorisoitu hakutieto"@fi ;
+  :marc21equivalent  "100 3# " .
 
 :authorizedAccessPointForPerson 
   a                  owl:DatatypeProperty, rdf:Property;
@@ -432,7 +413,7 @@
   rdfs:domain        :Person ;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdaad:P50411;
-  skos:editorialNote "P90";
+  skos:editorialNote "ntpwikibase:P90";
   skos:prefLabel     "authorized access point for person"@en, 
                      "henkilön auktorisoitu hakutieto"@fi;
   :marc21equivalent  "100 a b c d e j q i 0 1 2 4"   .
@@ -453,7 +434,7 @@
   rdfs:domain        :CorporateBody;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdaad:P50407;
-  skos:editorialNote "P147";
+  skos:editorialNote "ntpwikibase:P147";
   skos:prefLabel     "authorized access point of corporate body "@en, 
                      "yhteisön auktorisoitu hakutieto"@fi;
   :marc21equivalent  "110 a b c e d g n 0 1 2 4"  .
@@ -464,7 +445,7 @@
   rdfs:domain        :Timespan ;
   rdfs:range         xsd:string ;
   skos:closeMatch    rdatd:P70047;
-  skos:editorialNote "P73";
+  skos:editorialNote "ntpwikibase:P73";
   skos:prefLabel     "ajanjakson auktorisoitu hakutieto"@fi, 
                      "authorized access point of timespan "@en   .
 
@@ -484,8 +465,8 @@
   skos:closeMatch    rdau:P60998, rdat:P70039;
   skos:editorialNote 
                      "Kuvaus: wb: käytä tarkenteena", 
-                     "P66", 
-                     "RDA Toolkit: 11.4.3, 11.4.5",
+                     "ntpwikibase:P66", 
+                     "original.rdatoolkit.org : 11.4.3, 11.4.5",
                      "tarkenteena";
   skos:prefLabel     "ajanjakson alku"@fi;
   :museumPlus        "Biografia_alkamispaiva",
@@ -502,31 +483,28 @@
                      "5.2.5, 5.2.7 ja 5.2.8 ", 
 	                 "Selite:   MuseumPlus: Kentässä teksti: Kirjoittaja: $1. Biografia_status: ajantasainen/monografia/vanhentunut ajantasainen/monografia/vanhentunut",
                      "Huomautus: Mikäli nämä halutaan erotella tarvitaan kullekin omat kenttänsä.", 
-	                 "ISAAR(CPF): 5.2.2",
-                     "Kuvaus: Teksti", 
-	                 "Kuvaus: Toimijaa voidaan kuvailla vapaamuotoisesti mm. historiaa tai elämäkertaa, yleistä kontekstitietoa, tehtäviä, organisaatiorakennetta, sukupuuta tai suvun historiaa.",
+                     "ISAAR(CPF): 5.2.2",
+	 "Kuvaus: Toimijaa voidaan kuvailla vapaamuotoisesti mm. historiaa tai elämäkertaa, yleistä kontekstitietoa, tehtäviä, organisaatiorakennetta, sukupuuta tai suvun historiaa.",
 	                 "NTP: 2.1.2. Toimijan kuvailu ", 
-                     "P40", 
-                     "RDA Toolkit: 9.17, 10.9, 11.11", 
+                     "ntpwikibase:P40", 
+                     "original.rdatoolkit.org : 9.17, 10.9, 11.11", 
                      "SPECTRUM: person’s biographical note, Organisation’s history",
                      "Selite:  Toimijaa voidaan kuvailla vapaamuotoisesti mm. historiaa tai elämäkertaa, yleistä kontekstitietoa, tehtäviä, organisaatiorakennetta, sukupuuta tai suvun historiaa.",
                      "Tyyppi: Teksti";
   skos:prefLabel     "elämäkerralliset tiedot"@fi;
-  :ahaaLabel         " henkilön biografia",
-     "TJ36 Kuvaus";
+  :ahaaLabel         " henkilön biografia", "TJ36 Kuvaus";
   :ahaaValue         "bioghist,generalContext,function,structureOrGenealogy";
-  :marc21equivalent  "678";
+  :marc21equivalent  "678 a b" ;
   :museumPlus        "Biografia_jarjestys",
                      "Biografia_kirjoittaja", 
 					 "Biografia_status", 
 					 "Biografia_teksti", 
-					 "Biografia_tyyppi";
-  :propertyScope     "110";
+					 "Biografia_tyyppi" ;
   :viewingRestriction "20";
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :broaderAffiliatedBody 
-  a                  owl:ObjectProperty;
+  a                  owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
   rdfs:domain        :CorporateBody;
   rdfs:range         :CorporateBody;
@@ -535,14 +513,13 @@
   skos:closeMatch    rdaa:P50240, wd:Q1956113;
   skos:editorialNote "ISNI: tärkeä", 
                      "NTP: 8.1. Toimija-toimija-roolit ", 
-                     "P188",
-                     "RDA Toolkit: K.4.3.";
+                     "ntpwikibase:P188",
+                     "original.rdatoolkit.org : K.4.3.";
   skos:prefLabel     "laajempi emoyhtiö"@fi;
   :ahaaValue         "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent  "510W";
-  :propertyScope     "184" .
+  :marc21equivalent  "510 w" .
 
-:categoryOfAgent a   owl:ObjectProperty;
+:categoryOfAgent a   owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
   rdfs:domain        :Agent;
   rdfs:range         :CategoryOfAgent ;
@@ -554,14 +531,13 @@
                      edellytä erillistä toimijakuvailua. Eri identiteetit ja nimimuutokset \n esitetään yleensä toimijan muina nimimuotoina.''' ,
                      "Kuvaus: Kuvailun kohde on toimija. Kukin toimija on kuvailtu järjestelmässä vain kertaalleen",
                      "NTP: 2.1.1 Toimijan tunnistaminen", 
-                     "P244", 
+                     "ntpwikibase:P244", 
                      "Selite: tässä tapauksessa :Person, :Family, :CorporateBody, :Event ",
                      "Tyyppi: listan arvo";
   skos:prefLabel     "toimijan tyyppi"@fi;
   :ahaaLabel         "TJ99 Kuvailun kohde";
   :ahaaValue         "identity, multipleidentities, IDENTITYTYPE=given tai acquired tai cpfRelation+XLINK:ARCHROLE=rdaregistryn uri";
-  :marc21equivalent   "-";
-  :propertyScope      "105;260";
+  :marc21equivalent   "-" ;
   sh:maxCount         "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount         "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -576,15 +552,14 @@
                      "ISNI: Toimijan tyyppi – Liite D (D.1)", 
 	                 "Kuvaus: Linkki Metatietosanastosta löytyvään toimijaluokitukseen http://urn.fi/URN:NBN:fi:au:mts:m196 Yhteisön tyyppi",
                      "NTP: 2.1.1 Toimijan tunnistaminen", 
-                     "P160", 
-                     "RDA Toolkit: RDA 11.7.1.4  Yhteisön tyyppi. toimijan kategoria. Tyyppi tai jaottelu, johon toimija kuuluu. ",
+                     "ntpwikibase:P160", 
+                     "original.rdatoolkit.org : RDA 11.7.1.4  Yhteisön tyyppi. toimijan kategoria. Tyyppi tai jaottelu, johon toimija kuuluu. ",
                      "Selite: Linkki Metatietosanastosta löytyvään toimijaluokitukseen mts:m196", 
 	                 "Tyyppi: Relaatio: FINTO ";
   skos:prefLabel     "yhteisön tyyppi"@fi;
   :ahaaLabel         "TJ01 Toimijaluokitus";
   :ahaaValue         "entity type, LOCALTYPE , localDescription";
-  :marc21equivalent  "372, 374, 368##$a yhteisön tyyppi";
-  :propertyScope     "114";
+  :marc21equivalent  "372, 374, 368 a yhteisön tyyppi" ;
   sh:minCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :categoryOfFamily a  owl:ObjectypeProperty, rdf:Property;
@@ -593,18 +568,18 @@
   rdfs:range         :CategoryOfFamily ;
   skos:closeMatch    rdaad:P50051;
   skos:editorialNote "Huomautus: Merkitse osaksi biografiatietoja (MARC 678 a) rdaa:P50064",
-                    "P344";
+                    "ntpwikibase:P344";
   skos:note         "Ydinelementti";
   skos:prefLabel    "suvun tyyppi"@fi;
   :marc21equivalent "376 a";
   :museumPlus       "<EI KÄYTÖSSÄ>" .
 
-:categoryOfFamilyObject a owl:ObjectProperty;
+:categoryOfFamilyObject a owl:ObjectProperty, rdf:Property;
   rdf:type            :Item ;
   rdfs:domain         :Family ;
   rdfs:range          :CategoryOfFamily ;
   skos:closeMatch     rdaa:P50051 ;
-  skos:editorialNote  "P345";
+  skos:editorialNote  "ntpwikibase:P345";
   skos:prefLabel      "suvun tyyppi (kohde)"@fi .
 
 :categoryOfGovernment a owl:DatatypeProperty, rdf:Property;
@@ -612,7 +587,7 @@
   rdfs:domain        :CorporateBody;
   rdfs:range         rdf:langString;
   skos:closeMatch    rdaad:P50238 ;
-  skos:editorialNote "P161";
+  skos:editorialNote "ntpwikibase:P161";
   skos:prefLabel     "hallintoalueen tyyppi"@fi;
   :marc21equivalent  "368 B" .
 
@@ -622,13 +597,12 @@
   rdfs:range         xsd:string ;
   skos:closeMatch    rdand:P80078 ;
   skos:editorialNote "NTP: 3. Tunniste", 
-	                 "P288", 
+	                 "ntpwikibase:P288", 
 	"Tyyppi: Tyyppi: 7.8 Tunnisteen roolit";
   skos:prefLabel     "pysyvän tunnisteen tyyppi"@fi;
   skos:altLabel      "tunnuksen tyyppi"@fi;
   :ahaaLabel         "TUN3";
   :marc21equivalent  "024 7* $2";
-  :propertyScope     "132";
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -638,8 +612,7 @@
   rdfs:range         rdf:langString;
   skos:closeMatch    rdaa:P50489 ;
   skos:editorialNote 
-    "$2 arvo propertyyn P209 sanastotunnus, kun tietueessä kenttä 100",
-    "Huomautus: Vastaava arvo on deprekoitu RDA:sta . Onko tarpeeton kenttä???? muu lisäilmaus kuin arvonimi henkilön nimelle";
+    "$2 arvo propertyyn P209 sanastotunnus, kun tietueessä kenttä 100"    ;
   skos:note          "Ydinelementti";
   skos:prefLabel     "henkilön tyyppi"@fi;
   :marc21equivalent  "368 c" .
@@ -652,13 +625,12 @@
   skos:editorialNote "ISAAR(CPF):  5.2.3.", 
                      "ISNI: Type of Place", 
 					 "NTP: 5. Paikka",
-                     "P302", 
+                     "ntpwikibase:P302", 
 					 "Tyyppi: 7.10 Paikkaroolit";
   skos:prefLabel     "paikan tyyppi"@fi;
   skos:altLabel      "paikan rooli"@fi;
   :ahaaLabel         "(TJ09 Paikka)";
   :ahaaValue         "kts.koodisto";
-  :propertyScope     "137";
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -668,7 +640,7 @@
   rdfs:range         :Entity ;
   skos:closeMatch    rdax:P00029;
   skos:editorialNote "Huomautus:  rdax:P00029 type of RDA entity", 
-                     "P244";
+                     "ntpwikibase:P244";
   skos:prefLabel     "toimijan tyyppi"@fi;
   :marc21equivalent   "075 a";
   :museumPlus        "Tyyppi" .
@@ -683,13 +655,12 @@
 					 "ISNI: Type of Date",
                      "Kuvaus: Ajan rooli liittyen liitettyyn kohteeseen.", 
 					 "NTP: 7.8 Aikaroolit", 
-					 "P256",
+					 "ntpwikibase:P256",
                      "Tyyppi 7.8 Aikaroolit";
   skos:prefLabel     "ajanjakson tyyppi"@fi;
   skos:altLabel      "ajanjakson tyyppi;ajan rooli"@fi;
   :ahaaLabel         "AIK2 Rooli";
   :ahaaValue         "useita, kts. koodisto";
-  :propertyScope     "135";
   sh:maxCount        "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount        "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -723,7 +694,7 @@
 	"Kuvaus: syntymänimi", 
 	"NTP:  8.6. Toimijan nimien roolit",
     "NTP: 6. Toimijan nimi", 
-	"P133", 
+	"ntpwikibase:P133", 
 	"SPECTRUM: Person’s association, Organisation’s association, People’s association",
 	'''Selite:  Poimitaan listalta, Tarkenteena.  WIkibasessa tyypit ovat esiintyminä luokasta "varianttinimen tyyppi" (Q203).\n
 	Y-työkalussa ne ovat sanastossa alakäsitteinä käsitteelle "henkilön varianttinimi" http://uri.suomi.fi/terminology/ntp/concept-5 ''',
@@ -739,8 +710,7 @@
                      "400A Henkilön nimi", 
 					 "410A Yhteisön nimi", 
 					 "100A W/0a W/1d ";
-  :museumPlus        "MuutNimet_Tyyppi";
-  :propertyScope     "214;215;216;217;230" .
+  :museumPlus        "MuutNimet_Tyyppi" .
 
 :chiefExecutive a    owl:ObjectProperty, rdf:Property;
   rdf:type           :Item ;
@@ -749,7 +719,7 @@
   skos:closeMatch    <https://www.wikidata.org/wiki/Property:P1037>, org:Head, rdaa:P50284;
   skos:prefLabel     "pääjohtaja"@fi .
 
-:chiefExecutiveOf a owl:ObjectProperty;
+:chiefExecutiveOf a owl:ObjectProperty, rdf:Property;
   rdf:type          :Item ;
   rdfs:domain       :Person ;
   rdfs:range        :CorporateBody;
@@ -774,7 +744,7 @@
   :ahaaLabel  "Kerääjä (perinnetiedon)";
   :ahaaValue rdaa:P50189 .
 
-:componentOfMerger a owl:ObjectProperty;
+:componentOfMerger a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -783,13 +753,12 @@
   skos:closeMatch mts:m1618, rdaa:P50232 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P193",
-    "RDA Toolkit: K.4.3.",
+     "ntpwikibase:P193",
+    "original.rdatoolkit.org : K.4.3.",
      "Selite: yhdistymistä edeltänyt yhteisö";
   skos:prefLabel "yhdistynyt yhteisö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510 w i";
-  :propertyScope "183" .
+  :marc21equivalent   "510 w i".
 
 :composerAgentOfWorkOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -814,12 +783,12 @@
   rdfs:domain :Nomen ;
   rdfs:range rdf:langString;
   skos:closeMatch rdan:P80067 ;
-  skos:editorialNote "P316";
+  skos:editorialNote "ntpwikibase:P316";
   skos:prefLabel "käyttökonteksti"@fi;
   :marc21equivalent   "667 a" .
 
 
-:corporateBodyMemberOfCorporateBody a owl:ObjectProperty;
+:corporateBodyMemberOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -828,15 +797,14 @@
   skos:closeMatch  org:member, rdaao:P50231 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P196",
-    "RDA Toolkit: K.4.3.",
+     "ntpwikibase:P196",
+    "original.rdatoolkit.org : K.4.3.",
      "Selite: yhteisön jäsenyhteisö, jäsenyhteisö";
   skos:prefLabel "yhteisön yhteisöjäsen"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "291" .
+  :marc21equivalent   "510 w".
 
-:corporateBodyMemberOfCorporateBodyOf a owl:ObjectProperty;
+:corporateBodyMemberOfCorporateBodyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -845,18 +813,17 @@
   skos:closeMatch  org:hasMembership, rdaa:P50230 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P197",
-    "RDA Toolkit: K.4.3.",
+     "ntpwikibase:P197",
+    "original.rdatoolkit.org : K.4.3.",
      "Selite: yhteisön laajempi jäsenyhteisö";
-  skos:prefLabel "yhteisön laajempi jäsenyhteisö"@fi;
-  :propertyScope "177" .
+  skos:prefLabel "yhteisön laajempi jäsenyhteisö"@fi.
 
 :corporateHistory a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :CorporateBody;
   rdfs:range rdf:langString;
   skos:closeMatch rdaa:P50035 ;
-  skos:editorialNote "P371";
+  skos:editorialNote "ntpwikibase:P371";
   skos:prefLabel "yhteisön historia"@fi;
   :ahaaLabel  "Organisaation historia";
   :ahaaValue rdaa:P50035;
@@ -867,30 +834,29 @@
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50097 ;
-  skos:editorialNote "P324";
+  skos:editorialNote "ntpwikibase:P324";
   skos:prefLabel "henkilöön liittyvä maa"@fi .
 
-:countryAssociatedWithPersonPlace a owl:ObjectProperty;
+:countryAssociatedWithPersonPlace a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range  :Place ;
   skos:altLabel "henkilöön liittyvä maa"@fi;
   skos:closeMatch rdaa:P50097 ;
   skos:editorialNote "NTP: 8.9. Paikkaroolit",
-     "P120",
-     "RDA Toolkit: 9.10.",
+     "ntpwikibase:P120",
+     "original.rdatoolkit.org : 9.10.",
      "isaar cpf: 5.2.3 Places";
   skos:prefLabel "henkilöön liittyvä maa (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370C";
-  :propertyScope "245" .
+  :marc21equivalent   "370C".
 
 :countryOfCitizenship a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P27>,  person:citizenship, rdaad:P50097 ;
-  skos:editorialNote "P327";
+  skos:editorialNote "ntpwikibase:P327";
   skos:prefLabel "kansalaisuus"@fi;
   :museumPlus "Kansallisuus" .
 
@@ -902,9 +868,7 @@
   skos:closeMatch rdaad:P50204 ;
   skos:editorialNote "ISAAR(CPF): 6.* resourceRelation",
      "Kuvaus:  Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti.",
-    "NTP: 2.1.5 ?",
-     "P287",
-     "RDA Toolkit: 18-22, liite I",
+     "original.rdatoolkit.org : 18-22, liite I",
      "Tyyppi: Linkki";
   skos:note "Ydinelementti";
   skos:prefLabel "teoksen tekijä (toimija) teoksessa"@fi;
@@ -913,27 +877,24 @@
      "citation";
   :kaukoValue  "arkistonmuodostaja",
     "Laatija | Tekijä ";
-  :propertyScope "283";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:creatorAgentOfWorkOfObject a owl:ObjectProperty;
+:creatorAgentOfWorkOfObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range :Work ;
   skos:closeMatch rdaao:P50204 ;
   skos:editorialNote  "Huomautus: rdfs:seeAlso  rdaa:P60672",
      "Selite: toimijan tekemät aineistot";
-  skos:prefLabel "teoksen tekijänä teoksessa (kohde)"@fi;
-  :propertyScope "265" .
+  skos:prefLabel "teoksen tekijänä teoksessa (kohde)"@fi.
 
 :dateAssociatedWithAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
   skos:closeMatch rdau:P60324 ;
-  skos:editorialNote "P369";
-  skos:prefLabel "toimijaan liittyvä aika"@fi;
-  :propertyScope "289" .
+  skos:editorialNote "ntpwikibase:P369";
+  skos:prefLabel "toimijaan liittyvä aika"@fi.
 
 :dateOfBirth a owl:DatatypeProperty, rdf:Property;
   rdf:type :Time ;
@@ -942,13 +903,10 @@
   owl:inverseOf :dateOfDeathOf;
   skos:altLabel "syntymäaika"@fi;
   skos:closeMatch gndo:dateOfBirth, <https://www.wikidata.org/wiki/Property:P569>, madsrdf:birthDate, rdaad:P50121, schema:birthDate ;
-  skos:editorialNote " TAI voiko syntymäaika ja syntymäpaikka (046f ja 370a) yhdistää? vastaavasti sitten kuolinaika ja -paikka? (046g ja 370b)",
-    " jos joo, otsikot voisi olla esim. Syntynyt: 1948 Helsinki tai Syntynyt: 12.12.2000, Rovaniemi.",
-    " myös Elinvuodet 1949- VAI pystyykö laittamaan Syntymävuosi 1949, jos kuolinvuotta ei ole",
-    "Huomautus: vain yksi arvo. Missä muodossa tätä esitetään? Poimitaanko vain syntymävuosi? Mihin propertyyn päivämäärä talletetaan? Elinvuodet 1928-2019",
+  skos:editorialNote "Huomautus: vain yksi arvo",
     "NTP: 8.7. Aikaroolit ",
-     "P46",
-     "RDA Toolkit: 0.6.7 Osio 3" ;
+     "ntpwikibase:P46",
+     "original.rdatoolkit.org : 0.6.7 Osio 3" ;
   skos:note "Ydinelementti";
   skos:prefLabel "syntymäaika"@fi;
   :ahaaLabel  " has date of birth (person)",
@@ -957,15 +915,14 @@
   :kaukoValue  "Syntymäajan tarkenne:";
   :marc21equivalent   "046 f (6-7 jos numeerisia, muuten EDTF)";
   :museumPlus "Syntymaaika_pvm",
-    "Syntymaaika_vuosi";
-  :propertyScope "285" .
+    "Syntymaaika_vuosi".
 
 :dateOfCaptureOfRepresentativeExpression  a owl:DatatypeProperty, rdf:Property;
   rdf:type :Time ;
   rdfs:domain :Work ;
   rdfs:range xsd:date ;
   skos:closeMatch rdaw:P10350 ;
-  skos:editorialNote "P310";
+  skos:editorialNote "ntpwikibase:P310";
   skos:prefLabel "tietueen luontipäivä"@fi;
   :marc21equivalent   "008/00-05" .
 
@@ -978,16 +935,15 @@
   skos:editorialNote "ISAAR(CPF): 5.2.1 Dates of existence", 
     "Kuvaus: Tapahtuman kuten konferenssin ajankohta silloin kun tapahtuma kuvaillaan toimijana",
     "NTP: 8.7. Aikaroolit ", 
-	"P169",
-     "RDA Toolkit: 0.6.7 osioa 3:  11.4.2. ", 
+	"ntpwikibase:P169",
+     "original.rdatoolkit.org : 0.6.7 osioa 3:  11.4.2. ", 
 	"Selite: Tapahtuman kuten konferenssin ajankohta silloin kun tapahtuma kuvaillaan toimijana";
   skos:note "Ydinelementti";
   skos:prefLabel "konferenssin ajankohta"@fi;
   :ahaaLabel  "yhteisö/tapahtumana-toimijan aika";
   :ahaaValue "existDates àdateRange";
   :marc21equivalent   "111 d";
-  :museumPlus "<EI TUODA>";
-  :propertyScope "237" .
+  :museumPlus "<EI TUODA>".
 
 :dateOfDeath a owl:DatatypeProperty, rdf:Property;
   rdf:type :Time ;
@@ -997,8 +953,8 @@
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P570>, rdaad:P50120, schema:deathDate ;
   skos:editorialNote "Huomautus: vain yksi arvo Muodossa vvvv, vvvvkk tai vvvvkkpp.",
     "NTP: 8.7. Aikaroolit ",
-     "P51",
-     "RDA Toolkit: 0.6.7 Osio 3";
+     "ntpwikibase:P51",
+     "original.rdatoolkit.org : 0.6.7 Osio 3";
   skos:note "Ydinelementti";
   skos:prefLabel "kuolinaika"@fi;
   :ahaaLabel  "has date of death (person)";
@@ -1006,8 +962,7 @@
   :kaukoValue  "Kuolinajan tarkenne:";
   :marc21equivalent   "046 g (4 ensimmäistä numeroa)";
   :museumPlus "Kuolinaika_pvm",
-    "Kuolinaika_vuosi";
-  :propertyScope "264" .
+    "Kuolinaika_vuosi" .
 
 :dateOfEstablishment a owl:DatatypeProperty, rdf:Property;
   rdf:type :Time ;
@@ -1016,8 +971,8 @@
   skos:altLabel "perustamisajankohta"@fi;
   skos:closeMatch rdaad:P50037 ;
   skos:editorialNote "NTP: 8.7. Aikaroolit ",
-     "P167",
-     "RDA Toolkit: 0.6.7 Osio 3";
+     "ntpwikibase:P167",
+     "original.rdatoolkit.org : 0.6.7 Osio 3";
   skos:note "Ydinelementti";
   skos:prefLabel "perustamisajankohta"@fi;
   :ahaaLabel  "yhteisön perustamisaika";
@@ -1032,20 +987,17 @@
   rdfs:range xsd:date ;
   skos:altLabel "metatiedon luontiaika"@fi;
   skos:closeMatch rdaw:P10219 ;
-  skos:editorialNote "Kuvaus: Toimijakuvailun luontiaika(?)", 
+  skos:editorialNote "Kuvaus: Toimijakuvailun luontiaika.", 
     "NTP: 8.7. Aikaroolit ",
-    "P144",
+    "ntpwikibase:P144",
      "isaar cpf: 5.4.6 Dates of creation, revision or deletion";
   skos:prefLabel "metatiedon luontiaika"@fi;
-  :ahaaValue "(eventDateTime)";
-  :propertyScope "236" .
+  :ahaaValue "(eventDateTime)" .
 
 :dateOfReference a owl:DatatypeProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Work ;
   rdfs:range "Timespan";
-  skos:editorialNote "?mappaus",
-     "P72";
   skos:prefLabel "viittauspäivä"@fi .
 
 :dateOfTermination a owl:DatatypeProperty, rdf:Property;
@@ -1053,7 +1005,7 @@
   rdfs:domain :CorporateBody;
   rdfs:range [a owl:Class ; owl:unionOf ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear)] ;
   skos:closeMatch rdaad:P50038 ;
-  skos:editorialNote "P168";
+  skos:editorialNote "ntpwikibase:P168";
   skos:note "Ydinelementti";
   skos:prefLabel "lakkauttamisajankohta"@fi;
   :ahaaLabel  "yhteisön (toiminnan) lopetusaika | has date of termination";
@@ -1062,12 +1014,12 @@
   :museumPlus "Lakkauttamisaika_pvm",
     "Lakkauttamisaika_vuosi" .
 
-:dateOfTerminationObject a owl:ObjectProperty;
+:dateOfTerminationObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range "Timespan";
   skos:closeMatch rdaao:P50038 ;
-  skos:editorialNote "P175";
+  skos:editorialNote "ntpwikibase:P175";
   skos:prefLabel "lakkauttamisajankohta (ajanjakso)"@fi .
 
 :dateOfUsage a owl:DatatypeProperty, rdf:Property;
@@ -1078,15 +1030,14 @@
   skos:closeMatch rdan:P80166 ;
   skos:editorialNote "Kuvaus: Tunnisteen ajallinen kattavuus.",
      "NTP: 3. Tunniste",
-    "P289",
-     "RDA Toolkit: 9.3, 10.4, 11.4", 
+    "ntpwikibase:P289",
+     "original.rdatoolkit.org : 9.3, 10.4, 11.4", 
 	"Selite: Nimen aika", 
 	"Tyyppi: Relaatio: Aika";
   skos:prefLabel "käyttöaika"@fi;
   :ahaaLabel  " TONI3 Aika",
     "TUN4";
   :ahaaValue "usaDates";
-  :propertyScope "133";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :dateOfWork rdf:type
@@ -1103,8 +1054,7 @@
   rdfs:domain :Person ;
   rdfs:range xsd:date ;
   skos:closeMatch rdaad:P50121 ;
-  skos:editorialNote "?mappaus",
-     "P111";
+  skos:editorialNote "ntpwikibase:P111";
   skos:prefLabel "syntymäpäivä"@fi .
 
 :dayOfDeath a owl:DatatypeProperty, rdf:Property;
@@ -1116,20 +1066,20 @@
   :museumPlus "Kuolinaika_aikakausi",
     "Kuolinaika_teksti" .
 
-:descendantFamilyOfFamily a owl:ObjectProperty;
+:descendantFamilyOfFamily a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Family ;
   rdfs:range "Family";
   skos:altLabel "suvusta polveutuva suku"@fi;
   skos:closeMatch rdaa:P50053 ;
-  skos:editorialNote  "Huomautus:  RDA  suhdetta ei toisin pain (?)",
+  skos:editorialNote  
+     "Huomautus:  RDA suhdetta ei ole toisin pain",
      "NTP: 8.1. Toimija-toimija-roolit ";
   skos:prefLabel "suvusta polveutuva suku"@fi;
-  :ahaaValue " =”family” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "157" .
+  :ahaaValue " =family tai XLINK:ARCROLE=rdaregistrynURI";
+  :marc21equivalent   "510 w".
 
-:descendantFamilyOfPerson a owl:ObjectProperty;
+:descendantFamilyOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "Family";
@@ -1137,13 +1087,12 @@
   skos:altLabel "henkilöstä polveutuva suku"@fi;
   skos:closeMatch rdaa:P50099 ;
   skos:editorialNote  "NTP: 8.1. Toimija-toimija-roolit ",
-     "RDA Toolkit: K.3.2. ";
+     "original.rdatoolkit.org : K.3.2. ";
   skos:prefLabel "henkilöstä polveutuva suku"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”family” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "156" .
+  :marc21equivalent   "510 w".
 
-:descendantFamilyOfPersonOf a owl:ObjectProperty;
+:descendantFamilyOfPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1151,14 +1100,12 @@
   skos:altLabel "kantaisä"@fi;
   skos:closeMatch rdaao:P50055 ;
   skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit ",
-     "P348";
+     "ntpwikibase:P348";
   skos:prefLabel "kantaisä"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W-510W";
-  :propertyScope "297" .
+  :marc21equivalent   "500 w -510 w".
 
-:descriptionStandard
-  a "owl:AnnotationProperty";
+:descriptionStandard   a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Work ;
   rdfs:range rdf:langString;
@@ -1176,7 +1123,6 @@
   :marc21equivalent   " 040$e",
      " LDR/18",
      "008 mp10";
-  :propertyScope "123";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :directorAgentOf a owl:DatatypeProperty, rdf:Property;
@@ -1209,7 +1155,7 @@
   :ahaaLabel  "Piirtäjä";
   :ahaaValue rdaa:P50141 .
 
-:editorAgentOf a owl:DatatypeProperty ;
+:editorAgentOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
@@ -1229,7 +1175,7 @@
   :ahaaLabel  "Toimittaja";
   :ahaaValue rdaa:P50289 .
 
-:employee a owl:ObjectProperty;
+:employee a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Person ;
@@ -1238,14 +1184,13 @@
   skos:closeMatch rdaa:P50026,wd:Q703534 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
- "P177",
-    "RDA Toolkit: K.2.3. – K.4.1. ";
+ "ntpwikibase:P177",
+    "original.rdatoolkit.org : K.2.3. – K.4.1. ";
   skos:prefLabel "työntekijä"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W/510W";
-  :propertyScope "172" .
+  :marc21equivalent   "500W/510W".
 
-:employer a owl:ObjectProperty;
+:employer a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :CorporateBody;
@@ -1254,11 +1199,10 @@
   skos:closeMatch rdaa:P50096,wd:Q3053337 ;
   skos:editorialNote "ISNI: tärkeä",
  "NTP: 8.1. Toimija-toimija-roolit ",
-   "P123",
-    "RDA Toolkit: K.2.3. – K.4.1.";
+   "ntpwikibase:P123",
+    "original.rdatoolkit.org : K.2.3. – K.4.1.";
   skos:prefLabel "työnantaja"@fi;
-  :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :propertyScope "173" .
+  :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI".
 
 :ending a owl:DatatypeProperty, rdf:Property;
   rdf:type :Time ;
@@ -1266,16 +1210,15 @@
   rdfs:range xsd:date ;
   skos:closeMatch rdatd:P70040, rdau:P61000 ;
   skos:editorialNote "Kuvaus: wb: käytä tarkenteena",
-   "P67",
+   "ntpwikibase:P67",
      "Selite:  loppumisaika, loppumisvuosi";
   skos:prefLabel "ajanjakson loppu"@fi;
-  :marc21equivalent   "370 $t, 372$t, 373$t, 374$t";
+  :marc21equivalent   "370 t; 372 t; 373 t; 374 t" ;
   :museumPlus "Biografia_paattymispaiva",
     "Biografia_paattymisvuosi";
-  :propertyScope "#";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:familyHistory a owl:DatatypeProperty ;
+:familyHistory a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Family ;
   rdfs:range rdf:langString;
@@ -1291,9 +1234,9 @@
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
   skos:closeMatch rdaa:P50387 ;
-  skos:editorialNote "P346";
-  skos:prefLabel "toimiala"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P346";
+  skos:prefLabel "toimiala"@fi ;
+  :marc21equivalent "372 a; 372 0; 372 1"   .
 
 :fieldOfActivityOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -1305,17 +1248,16 @@
      "ISDF: 5.1.5 Classification)",
      "Kuvaus: Yhteisön toimiala",
     "NTP: 2.1.2. Toimijan kuvailu ",
-     "P166",
-     "RDA Toolkit: 11.10",
+     "ntpwikibase:P166",
+     "original.rdatoolkit.org : 11.10",
      "Selite: Yhteisön toimiala";
   skos:prefLabel "yhteisön toiminta-ala"@fi;
   :ahaaLabel  "TJ19 Toiminta",
     "TJ36 Kuvaus",
      "Toimialaluokitus";
   :ahaaValue "function, bioghist, localDescription";
-  :marc21equivalent   "372 $a";
-  :museumPlus "Ammatt/Toimiala";
-  :propertyScope "233" .
+  :marc21equivalent   "372 a 0 1 2";
+  :museumPlus "Ammatt/Toimiala".
 
 :fieldOfActivityOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -1326,15 +1268,14 @@
   skos:editorialNote "ISAAR(CPF): 5.2.5, 5.2.2",
      "Kuvaus: Henkilön toimiala. YSO toimialat: http://www.yso.fi/onto/yso/p1427",
     "NTP: 2.1.2. Toimijan kuvailu ",
-     "P96",
-     "RDA Toolkit: 9.15",
+     "ntpwikibase:P96",
+     "original.rdatoolkit.org : 9.15",
      "Selite: Henkilön toimiala";
   skos:prefLabel "henkilön toiminta-ala"@fi;
   :ahaaLabel  " TJ19 Toiminta",
     "TJ36 Kuvaus";
   :ahaaValue "function, bioghist";
-  :marc21equivalent   "372 $a";
-  :propertyScope "113" .
+  :marc21equivalent   "372 a; 372 a s; 372 a + s + t".
 
 :finaf-id a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1345,7 +1286,7 @@
   :marc21equivalent   " 400 d",
      "035 $a  $2finaf" .
 
-:formatOfDate a owl:DatatypeProperty ;
+:formatOfDate a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
@@ -1363,7 +1304,7 @@
   :ahaaLabel  "Luovuttaja";
   :ahaaValue rdaa:P50163 .
 
-:foundedCorporateBodyOfCorporateBody a owl:ObjectProperty;
+:foundedCorporateBodyOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -1371,14 +1312,13 @@
   skos:altLabel "yhteisön perustama yhteisö"@fi;
   skos:closeMatch rdaa:P50017 ;
   skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit ",
-     "P198",
-     "RDA Toolkit: K.4.3.";
+     "ntpwikibase:P198",
+     "original.rdatoolkit.org : K.4.3.";
   skos:prefLabel "yhteisön perustama yhteisö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "174" .
+  :marc21equivalent   "510 w".
 
-:foundedCorporateBodyOfPerson a owl:ObjectProperty;
+:foundedCorporateBodyOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :CorporateBody;
@@ -1386,11 +1326,10 @@
   skos:altLabel "perustanut yhteisön"@fi;
   skos:closeMatch mts:m1499, rdaa:P50112, wd:Q65972149;
   skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit ",
-     "P135";
-  skos:prefLabel "henkilön perustama yhteisö"@fi;
-  :propertyScope "175" .
+     "ntpwikibase:P135";
+  skos:prefLabel "henkilön perustama yhteisö"@fi.
 
-:foundingCorporateBodyOfCorporateBody a owl:ObjectProperty;
+:foundingCorporateBodyOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -1398,12 +1337,11 @@
   skos:altLabel "perustajayhteisö"@fi;
   skos:closeMatch rdaa:P50007 ;
   skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit ",
-     "P199",
-     "RDA Toolkit: K.4.3. ";
-  skos:prefLabel "yhteisön perustanut yhteisö"@fi;
-  :propertyScope "188" .
+     "ntpwikibase:P199",
+     "original.rdatoolkit.org : K.4.3. ";
+  skos:prefLabel "yhteisön perustanut yhteisö"@fi.
 
-:foundingPersonOfCorporateBody a owl:ObjectProperty;
+:foundingPersonOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Person ;
@@ -1412,21 +1350,20 @@
   skos:closeMatch mts:m1499, rdaao:P50029, wd:Q26950764;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P178",
-    "RDA Toolkit: K.2.3. – K.4.1.";
+     "ntpwikibase:P178",
+    "original.rdatoolkit.org : K.2.3. – K.4.1.";
   skos:prefLabel "yhteisön perustaja"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W-510W";
-  :propertyScope "267" .
+  :marc21equivalent   "500 w -510 w".
 
-:fullerFormOfPersonalNameNomen a owl:ObjectProperty;
+:fullerFormOfPersonalNameNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  
   skos:closeMatch rdaao:P50115 ;
-  skos:editorialNote "P113";
-  skos:prefLabel "henkilönimen täydellisempi muoto (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P113";
+  skos:prefLabel "henkilönimen täydellisempi muoto (kohde)"@fi ;
+  :marc21equivalent "400 0* 0 1 2" .
 
 :fullerFormOfPersonalName a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1434,21 +1371,21 @@
   rdfs:range xsd:string ;
   skos:altLabel "henkilön nimen täydellisempi muoto"@fi;
   skos:closeMatch gndo:FullerFormOfNameOfThePerson, rdaad:P50115;
-  skos:editorialNote "Huomautus:  11.1.2016 Nimen pitkä versio voitaisiin kirjata myös varianttinimiin- tarvitaanko tämä?   2020-03-06/js Toimijakuvailun esimerkissä tähän merkitty etunimet peräkkäin sulkujen sisällä.",
-    "Kuvaus: Jos ensisijainen nimi on esim. lyhenne kirjoitetaan täydellisempi nimimuoto tänne  ",
+  skos:editorialNote 
+    "Huomautus:  Marc21 tähän kenttään merkitty etunimet peräkkäin sulkujen sisällä.",
+    "Kuvaus: Jos ensisijainen nimi on esim. lyhenne kirjoitetaan täydellisempi nimimuoto tähän",
     "NTP: 8.6. Toimijan nimien roolit",
-     "P322",
-     "RDA Toolkit: 0.6.7 Osio 3:   9.5.",
-     "Selite: http://uri.suomi.fi/terminology/ntp/concept-21";
+    "original.rdatoolkit.org : 0.6.7, 9.5.",
+    "Selite: http://uri.suomi.fi/terminology/ntp/concept-21";
   skos:prefLabel "henkilönimen täydellisempi muoto"@fi;
-  :marc21equivalent   " 100 1* $q",
-     " 378 ** $q",
-     " 400 0* $q",
-     " 400 1* $q",
-     " 500 0* $q",
-     " 500 1* $q",
-    "100 0* $q";
-  :propertyScope "219; 231" .
+  :marc21equivalent   
+     "100 1* q",
+     "100 0* q",
+     "378    q",
+     "400 0* q",
+     "400 1* q",
+     "500 0* q",
+     "500 1* q" .
 
 :function a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -1461,15 +1398,14 @@
      "Kuvaus: Relaatio: Tehtävä (ISDF) + 8.10 Toimija tehtävä-rooli + Relaatio: Aika",
     "Kuvaus: Toimijalla voi olla suhde tehtävään. Suhde voidaan rajata rajavuosilla.",
     "NTP: 2.1.3. Toimijan suhteet ",
-     "P281",
-     "RDA Toolkit: Ajan osalta: 11.4.5.",
+     "ntpwikibase:P281",
+     "original.rdatoolkit.org : Ajan osalta: 11.4.5.",
      "Selite: Toimijalla voi olla suhde tehtävään. Suhde voidaan rajata rajavuosilla.",
     "Tyyppi: Relaatio: Tehtävä (ISDF) + 8.10 Toimija tehtävä-rooli + Relaatio: Aika";
   skos:prefLabel "tehtävä"@fi;
-  :ahaaValue "FunctionRelation FUNCTIONRELATIONTYPE = ”controls”,” owns”, ”performs” ja/tai function/term ”asiasana”";
-  :propertyScope "117; 250" .
+  :ahaaValue "FunctionRelation FUNCTIONRELATIONTYPE = ”controls”,” owns”, ”performs” ja/tai function/term ”asiasana”" .
 
-:gender a owl:ObjectProperty;
+:gender a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "sukupuoli (Q106)";
@@ -1479,21 +1415,20 @@
   skos:editorialNote "Huomautus: Relaatio: Aika",
      "Kuvaus: Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli.",
     "NTP: 2.1.1 Toimijan tunnistaminen",
-     "P87",
-     "RDA Toolkit: 9.7",
+     "ntpwikibase:P87",
+     "original.rdatoolkit.org : 9.7",
      "SPECTRUM: Person’s gender",
     "Selite: Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli.",
     "Tyyppi: 7.11 Toimijan sukupuolet + Relaatio: Aika";
   skos:prefLabel "sukupuoli"@fi;
   :ahaaLabel  "TJ03 Sukupuoli";
   :ahaaValue "localDescription";
-  :marc21equivalent   "375 $a";
+  :marc21equivalent   "375 a s t u 2" ;
   :museumPlus "Sukupuoli";
-  :propertyScope "102";
   :viewingRestriction    "20";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:givenName a "owl:AnnotationProperty";
+:givenName a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
@@ -1502,28 +1437,26 @@
   skos:editorialNote "Kuvaus: Yhteisön alanimi tai henkilön etunimet",
      "Kuvaus: henkilön etunimet",
     "NTP: 6. Toimijan nimi",
-     "P206",
+     "ntpwikibase:P206",
      "Tyyppi: Teksti";
   skos:prefLabel "etunimi"@fi;
   :ahaaLabel  "TONI4 Alanimeke/etunimi";
   :ahaaValue "oma part +LOCALTYPE nameEntry:n yhteydessä";
-  :marc21equivalent   "1000# a (ensimmäinen termi)|1001# (termi pilkun jälkeen)";
-  :museumPlus "Etunimi";
-  :propertyScope "140" .
+  :marc21equivalent   "1000# a (ensimmäinen termi);1001# a (termi pilkun jälkeen)";
+  :museumPlus "Etunimi".
 
-:givenNameObject  a "owl:AnnotationProperty";
+:givenNameObject  a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:altLabel "etunimi"@fi;
   skos:closeMatch rdan:P80175,
     <https://www.wikidata.org/wiki/Property:P735>, rdaa:P50292 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P320",
+     "ntpwikibase:P320",
      "Tyyppi: Teksti";
-  skos:prefLabel "etunimi (kohde)"@fi;
-  :propertyScope "293" .
+  skos:prefLabel "etunimi (kohde)"@fi .
 
-:hasAlternateIdentity a owl:ObjectProperty;
+:hasAlternateIdentity a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range "Agent";
@@ -1531,10 +1464,9 @@
   skos:altLabel "omaa myös identiteetin"@fi;
   skos:editorialNote  "NTP: 8.16. Toimija - Identiteetti –rooli";
   skos:prefLabel "Omaa myös identiteetin"@fi;
-  :ahaaValue "multipleIdentities/identity";
-  :propertyScope "262" .
+  :ahaaValue "multipleIdentities/identity" .
 
-:hasChild a owl:ObjectProperty;
+:hasChild a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1547,10 +1479,9 @@
     "Selite: agrelon#hasChild | subPropertyOf:rdaa:P50316";
   skos:prefLabel "lapsi"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE  =”family” tai XLINK:ARCROLE";
-  :marc21equivalent   "500W";
-  :propertyScope "152" .
+  :marc21equivalent   "500 w" .
 
-:hasParent a owl:ObjectProperty;
+:hasParent a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1562,10 +1493,9 @@
     "Selite: agrelon#hasParent | subPropertyOf:rdaa:P50316";
   skos:prefLabel "vanhempi"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE  =”family” tai XLINK:ARCROLE";
-  :marc21equivalent   "500W";
-  :propertyScope "153" .
+  :marc21equivalent   "500 w" .
 
-:hasRealIdentity a owl:ObjectProperty;
+:hasRealIdentity a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range "Agent";
@@ -1573,10 +1503,9 @@
   skos:altLabel "On toimijan identiteetti"@fi;
   skos:editorialNote  "NTP: 8.16. Toimija - Identiteetti –rooli";
   skos:prefLabel "On toimijan identiteetti"@fi;
-  :ahaaValue "+IDENTITYTYPE =given/ acquired tai cpfRelation + XLINK:ARCROLE=rda registry uri";
-  :propertyScope "263" .
+  :ahaaValue "+IDENTITYTYPE =given/ acquired tai cpfRelation + XLINK:ARCROLE=rda registry uri"  .
 
-:hasRelative a owl:ObjectProperty;
+:hasRelative a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1586,10 +1515,9 @@
      "Selite: https://d-nb.info/standards/elementset/agrelon#HasRelative";
   skos:prefLabel "sukulainen"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W-510W";
-  :propertyScope "195" .
+  :marc21equivalent   "500 w -510 w" .
 
-:hasSibling a owl:ObjectProperty;
+:hasSibling a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1600,10 +1528,9 @@
      "Selite: agrelon#HasSibling | subPropertyOf:rdaa:P50316";
   skos:prefLabel "sisarus"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”family” tai XLINK:ARCHROLE  ";
-  :marc21equivalent   "500W";
-  :propertyScope "161" .
+  :marc21equivalent   "500 w" .
 
-:hasSpouse a owl:ObjectProperty;
+:hasSpouse a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
@@ -1614,10 +1541,9 @@
      "Selite: agrelon#hasSpouse | subPropertyOf:rdaa:P50316";
   skos:prefLabel "puoliso"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”family” tai XLINK:ARCHROLE";
-  :marc21equivalent   "500W";
-  :propertyScope "160" .
+  :marc21equivalent   "500 w" .
 
-:henkilotunnus a owl:DatatypeProperty ;
+:henkilotunnus a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
@@ -1626,18 +1552,18 @@
   :ahaaValue "entityId";
   :marc21equivalent   "035 a" .
 
-:hereditaryTermOfHonour   a "owl:AnnotationProperty";
+:hereditaryTermOfHonour   a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Family ;
   rdfs:range rdf:langString;
   skos:altLabel "periytyvä arvonimi"@fi;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P97>, rdaad:P50059 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P342";
+     "ntpwikibase:P342";
   skos:prefLabel "periytyvä arvonimi"@fi;
-  :propertyScope "296" .
+  :marc21equivalent "075 c" .
 
-:hierarchicalSubordinate a owl:ObjectProperty;
+:hierarchicalSubordinate a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -1646,13 +1572,12 @@
   skos:closeMatch mts:m925,  org:hasSubOrganization, rdaa:P50010 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P190";
+     "ntpwikibase:P190";
   skos:prefLabel "alayhteisö"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”hierarchialChild” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510Wt";
-  :propertyScope "164" .
+  :marc21equivalent   "510 w t" .
 
-:hierarchicalSuperior a owl:ObjectProperty;
+:hierarchicalSuperior a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -1661,19 +1586,18 @@
   skos:closeMatch mts:m142, org:subOrganizationOf, rdaao:P50008 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P187",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P187",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "kattoyhteisö"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”hierarchial-Parent” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510/511 a, w=t, 0, i alayhteisö";
-  :museumPlus "Osasto";
-  :propertyScope "165" .
+  :marc21equivalent   "510 a w=t i alayhteisö 0;511 a";
+  :museumPlus "Osasto" .
 
 :hostInstitutionOf  rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range "Event";
   skos:closeMatch rdau:P60003 ;
-  skos:editorialNote "P366";
+  skos:editorialNote "ntpwikibase:P366";
   skos:prefLabel "isäntäorganisaationa tapahtumassa"@fi;
   :ahaaLabel  "isäntäorganisaatio";
   :ahaaValue rdau:P60003;
@@ -1683,17 +1607,15 @@
   rdf:type :String;
   rdfs:domain :Nomen ;
   rdfs:range xsd:anyURI ;
-  skos:editorialNote  "?mappaus";
   skos:prefLabel "nomenin tunniste"@fi .
 
-:identiferForTimespanObject a owl:ObjectProperty;
+:identiferForTimespanObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Timespan ;
   rdfs:range :Identifier ;
   skos:closeMatch rdat:P70018 ;
-  skos:editorialNote "P70";
-  skos:prefLabel """ajanjakson tunniste (kohde)	"""@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P70";
+  skos:prefLabel "ajanjakson tunniste (kohde)"@fi .
 
 :identifierForAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1708,8 +1630,8 @@
      "Kuvaus: Relaatio",
      "Kuvaus: Toimijalla täytyy olla yksilöivä tunniste ja toimijalla voi olla myös muita tunnisteita tai tunnuksia kuten erilaisia rekisterinumeroita tai ulkoisten tahojen myöntämiä tunnisteita. ",
     "NTP: 2.1.1 Toimijan tunnistaminen",
-     "P261",
-     "RDA Toolkit: 0.6.7 Osio 3",
+     "ntpwikibase:P261",
+     "original.rdatoolkit.org : 0.6.7 Osio 3",
      "SPECTRUM: Person’s/Organisation’s reference number",
     "Selite: Toimijalla täytyy olla yksilöivä tunniste ja toimijalla voi olla myös muita tunnisteita tai tunnuksia kuten erilaisia rekisterinumeroita tai ulkoisten tahojen myöntämiä tunnisteita. ",
     "Tyyppi: Relaatio: Tunniste";
@@ -1717,43 +1639,40 @@
   :ahaaLabel  " TUN1",
     "TJ06 Tunniste";
   :ahaaValue "entityId, recordId, otheRecordId";
-  :marc21equivalent   " 024 8* $a",
-     "024 7* $a $0 $2";
+  :marc21equivalent   "024 7* a 0 2; 024 8* a";
   :museumPlus "UUID";
-  :propertyScope "104";
+  
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:identifierForCorporateBodyObject a owl:ObjectProperty;
+:identifierForCorporateBodyObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Identifier ;
   skos:closeMatch rdaao:P50006 ;
-  skos:editorialNote "P140";
-  skos:prefLabel "yhteisön tunniste (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P140";
+  skos:prefLabel "yhteisön tunniste (kohde)"@fi ;
+  :marc21equivalent "111 0" .
 
-:identifierForCorporateBodyOf a owl:ObjectProperty;
+:identifierForCorporateBodyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Identifier ;
   rdfs:range :CorporateBody;
   skos:closeMatch rdano:P80035 ;
-  skos:editorialNote "P137";
-  skos:prefLabel "tunniste yhteisölle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P137";
+  skos:prefLabel "tunniste yhteisölle"@fi .
 
 :identifierForCorporateBodyString a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch  org:identifier, rdaad:P50006 ;
-  skos:editorialNote "P311";
+  skos:editorialNote "ntpwikibase:P311";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisön tunniste"@fi;
   :ahaaLabel  "yhteisön identifiointitunnus";
   :ahaaValue rdaa:P50006;
   :marc21equivalent   "024 a";
-  :museumPlus "Tunnisteet_Tunniste";
-  :propertyScope "#" .
+  :museumPlus "Tunnisteet_Tunniste" .
 
 :identifierForEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1763,17 +1682,15 @@
   skos:closeMatch rdaxd:P00018 ;
   skos:editorialNote "Kuvaus: tietomallin elementin numero",
      "NTP: 3. Tunniste",
-     "P79";
+     "ntpwikibase:P79";
   skos:prefLabel "entiteetin tunniste"@fi;
-  :ahaaValue "Identifier / Legal Identifier";
-  :propertyScope "208" .
+  :ahaaValue "Identifier / Legal Identifier" .
 
 :identifierForFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Family ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaa:P50052 ;
-
   skos:note "Ydinelementti";
   skos:prefLabel "suvun tunniste"@fi;
   :ahaaLabel  "suvun identifiointitunnus";
@@ -1789,14 +1706,14 @@
   skos:closeMatch rdaw:P10002 ;
   skos:editorialNote  "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies ",
     "NTP: 3. Tunniste",
-     "RDA Toolkit: identifier for work";
+     "original.rdatoolkit.org : identifier for work";
   skos:prefLabel "toimijakuvailun yksilöivä tunnus"@fi;
   :ahaaLabel  "EAC-CPF: recordId/otherRecordId";
   :ahaaValue "entityId";
   :marc21equivalent   
-     "024 8* $a",
-     "024 7* $a $2";
-  :propertyScope "210";
+     "024 8* a",
+     "024 7* a 2";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -1806,60 +1723,54 @@
   rdfs:range xsd:string ;
   skos:closeMatch jhs:tunniste, rdaad:P50094 ;
   skos:editorialNote "Huomautus: $2 sanastotunnus tarkenteena",
-     "P141";
+     "ntpwikibase:P141";
   skos:note "Ydinelementti";
   skos:prefLabel "henkilön tunniste"@fi;
   :ahaaLabel  "henkilön Identifiointitunnus";
   :ahaaValue rdaa:P50094;
-  :marc21equivalent   "024 a, 2";
-  :propertyScope "#" .
+  :marc21equivalent "001; 024 a 2" .
 
-:identifierForPersonObject a owl:ObjectProperty;
+:identifierForPersonObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Identifier ;
   skos:closeMatch :rdaao:P50094;
-  skos:editorialNote "P132";
+  skos:editorialNote "ntpwikibase:P132";
   skos:note "Ydinelementti";
   skos:prefLabel "henkilön tunniste (kohde)"@fi;
-  :marc21equivalent   "100 0";
-  :propertyScope "#" .
+  :marc21equivalent   "100 0 1" .
 
-:identifierForPersonOf a owl:ObjectProperty;
+:identifierForPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Identifier ;
   rdfs:range :Person ;
   skos:closeMatch rdano:P80037 ;
-  skos:editorialNote "P136";
-  skos:prefLabel "tunniste henkilölle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P136";
+  skos:prefLabel "tunniste henkilölle"@fi .
 
 :identifierForPlace a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain  :Place ;
   rdfs:range xsd:string ;
   skos:closeMatch rdapd:P70020 ;
-  skos:editorialNote "P276";
-  skos:prefLabel "paikan tunniste"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P276";
+  skos:prefLabel "paikan tunniste"@fi .
 
-:identifierForPlaceObject a owl:DatatypeProperty, rdf:Property;
+:identifierForPlaceObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain  :Place ;
   rdfs:range :Identifier ;
   skos:closeMatch rdapo:P70020 ;
-  skos:editorialNote "P38";
-  skos:prefLabel "paikan tunniste (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P38";
+  skos:prefLabel "paikan tunniste (kohde)"@fi .
 
-:identifierForPlaceOf a owl:ObjectProperty;
+:identifierForPlaceOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Identifier ;
   rdfs:range  :Place ;
   skos:closeMatch rdano:P80042 ;
-  skos:editorialNote "P138";
-  skos:prefLabel "tunniste paikalle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P138";
+  skos:prefLabel "tunniste paikalle"@fi .
 
 :identifierForRDAEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1867,7 +1778,7 @@
   rdfs:range xsd:string ;
   skos:closeMatch rdax:P00018 ;
   skos:editorialNote "Huomautus: Tämän asemesta Jokaiselle järjestelmälle oma tunniste!!",
-    "P79";
+    "ntpwikibase:P79";
   skos:prefLabel "entiteetin tunniste"@fi .
 
 :identifierForResource a  owl:DatatypeProperty, rdf:Property;
@@ -1877,32 +1788,30 @@
   skos:closeMatch rdaw:P10002, rdau:P60052 ;
   skos:editorialNote  "Huomautus: systemControlNumber";
   skos:prefLabel "tietueen tunniste"@fi;
-  :marc21equivalent   "1" .
+  :marc21equivalent   "001" .
 
 :identifierForTimespan a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Timespan ;
   rdfs:range xsd:string ;
   skos:closeMatch rdatd:P70018 ;
-  skos:editorialNote "P68";
-  skos:prefLabel """ajanjakson tunniste (URL)	"""@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P68";
+  skos:prefLabel """ajanjakson tunniste (URL)	"""@fi .
 
-:identifierForTimespanOf a owl:ObjectProperty;
+:identifierForTimespanOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Identifier ;
   rdfs:range "Timespan";
   skos:closeMatch rdano:P80050 ;
-  skos:editorialNote "P139",
+  skos:editorialNote "ntpwikibase:P139",
      "Selite: liittää tunnisteen ajanjaksoon, jota se identifioi";
-  skos:prefLabel "tunniste ajanjaksolle"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "tunniste ajanjaksolle"@fi .
 
 :instrument a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
-  skos:editorialNote  "Kuvaus: poimitaan seko-sanastosta?",
+  skos:editorialNote  "Kuvaus: voidaan poimia SEKO-sanastosta",
      "Selite: wikidatan property - henkilön käyttämä soitin";
   skos:prefLabel "instrumentti"@fi .
 
@@ -1945,11 +1854,10 @@
   skos:editorialNote "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId",
     "Kuvaus: jhs",
      "NTP: 8.5. Tunnisteen roolit",
-     "P22";
+     "ntpwikibase:P22";
   skos:prefLabel "ISNI-tunniste"@fi;
-  :marc21equivalent   "024 7* $a $2isni $0";
+  :marc21equivalent   "024 7* a 2isni 0" ;
   :museumPlus "Tunnisteet_tunniste+Tunnisteet_tyyppi=ISNI";
-  :propertyScope "203";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :isniIdentifer  a     owl:ObjectProperty, rdf:Property ;
@@ -1957,20 +1865,18 @@
   rdfs:domain :Person ;
   rdfs:range :Identifier ;
   skos:closeMatch :rdaa:P50094 ;
-  skos:editorialNote "P22";
+  skos:editorialNote "ntpwikibase:P22";
   skos:prefLabel "ISNI-tunnus"@fi;
-  :propertyScope "#";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:isPartOfNomen a owl:ObjectProperty;
+:isPartOfNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range :Nomen ;  skos:closeMatch rdan:P80059 ;
   skos:editorialNote  "Selite: viittaa Nomenista toiseen nomeniin, jonka osana viittaava nomen on. Esim. nimen osasta koko nimeen";
-  skos:prefLabel "osa nomenia"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "osa nomenia"@fi .
 
-:jointlyHeldConference a owl:ObjectProperty;
+:jointlyHeldConference a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -1979,12 +1885,12 @@
   skos:closeMatch rdaa:P50303,wd:Q625994 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P182",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P182",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "yhteiskonferenssi"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "207" .
+  :marc21equivalent   "510 w";
+.
 
 :kotusID a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -1993,42 +1899,40 @@
   skos:editorialNote  "Selite: nimitietopalvelun selvityksessä";
   skos:prefLabel "KOTUS-id"@fi .
 
-:languageOfAgent a owl:ObjectProperty;
+:languageOfAgent a owl:ObjectProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
   skos:altLabel "toimijan kieli"@fi;
   skos:closeMatch jhs:kielitunniste, rdaa:P50401, rdau:P60098 ;
   skos:editorialNote "-",
-     "Huomautus: käytetään iso639-3. Voidaan käyttää Fintossa olevaa Lexvoa?",
+     "Huomautus: käytetään iso639-3. Fintossa Lexvo",
     "Kuvaus: Kielikoodisto pitää lisätä",
      "Kuvaus: Yhteisön, suvun tai henkilön käyttämä kieli",
     "NTP: 2.1.1 Toimijan tunnistaminen",
-     "P263",
-     "RDA Toolkit: 9.13, 10.8. 11.8.",
+     "ntpwikibase:P263",
+     "original.rdatoolkit.org : 9.13, 10.8. 11.8.",
      "Selite: Yhteisön, suvun tai henkilön käyttämä kieli",
     "Tyyppi: Kielikoodisto pitää lisätä  http://www.lexvo.org/page/iso639-3/#  tai http://id.loc.gov/vocabulary/languages/sms";
   skos:prefLabel "toimijan kieli"@fi;
   :ahaaValue "languageUsed";
-  :marc21equivalent   "377 #7 $a [kielikoodi] $l [kielen nimi] $2=iso639-3";
-  :propertyScope "107" .
+  :marc21equivalent   "377 #7 a [kielikoodi] l [kielen nimi] 2iso639-3".
 
 :languageOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P37>,jhs:kielitunniste, rdaad:P50023 ;
-  skos:editorialNote "P159";
+  skos:editorialNote "ntpwikibase:P159";
   skos:prefLabel "yhteisön kieli"@fi;
-  :marc21equivalent   "377 #7 $a $2iso639-3";
-  :propertyScope "#" .
+  :marc21equivalent   "377 #7 a $2iso639-3" .
 
 :languageOfExpression a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
   skos:closeMatch rdae:P20006 ;
-  skos:editorialNote  "Huomautus: 5.5.2020/js: sopisiko tähän rdaw:P10353 \"edustavan ekspression kieli\"? (metadata-work)";
+  skos:editorialNote  "Huomautus: Katso myös rdaw:P10353 \"edustavan ekspression kieli\" (metadata-work)";
   skos:prefLabel "luettelointikieli"@fi;
   :marc21equivalent   "040 b" .
 
@@ -2038,15 +1942,14 @@
   rdfs:range xsd:string ;
   skos:altLabel "nimen kieli"@fi;
   skos:closeMatch rdan:P80066 ;
-  skos:editorialNote "Huomautus:  Voidaanko käyttää Fintossa olevaa Lexvoa? Määriteltävä siinä tapauksessa mitä sieltä tuodaan.",
+  skos:editorialNote "Huomautus:  Fintossa Lexvo. Määriteltävä siinä tapauksessa mitä sieltä tuodaan.",
     "Kuvaus: Nimi tulee määrittää jonkin kieliseksi (Fi, Sv, En, smi, sma, sme, smn, sms, est, krl, fre, ger, rus)",
     "NTP: 6. Toimijan nimi",
-     "P77",
-     "Tyyppi: Kielikoodisto pitää lisätä ";
+    "ntpwikibase:P77",
+    "Tyyppi: Kielikoodisto pitää lisätä ";
   skos:prefLabel "nomenin kieli"@fi;
   :ahaaLabel  "TONI6";
   :ahaaValue "nameEntry+XML:LANG (language Declarationà language, LANGUAGECODE) ";
-  :propertyScope "144";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -2055,16 +1958,15 @@
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P463>, rdaad:P50102 ;
-  skos:editorialNote "P78";
-  skos:prefLabel "henkilön käyttämä kieli"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P78";
+  skos:prefLabel "henkilön käyttämä kieli"@fi .
 
-:languageOfRepresentativeExpression  a owl:ObjectProperty;
+:languageOfRepresentativeExpression  a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range "kielitunniste (Q96)";
   skos:closeMatch rdaw:P10353 ;
-  skos:editorialNote "P20";
+  skos:editorialNote "ntpwikibase:P20";
   skos:prefLabel "kieli"@fi .
 
 :languageOfResource a owl:DatatypeProperty, rdf:Property;
@@ -2072,11 +1974,11 @@
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
   skos:closeMatch rdau:P60099 ;
-  skos:editorialNote "P76";
+  skos:editorialNote "ntpwikibase:P76";
   skos:prefLabel "resurssin kieli"@fi;
   :museumPlus "Biografia_kieli" .
 
-:localAffiliate a owl:ObjectProperty;
+:localAffiliate a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -2085,10 +1987,9 @@
   skos:closeMatch rdaa:P50241,wd:Q658255 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P189",
-    "RDA Toolkit: K.4.3. ";
-  skos:prefLabel "paikallinen tytäryhtiö"@fi;
-  :propertyScope "185" .
+     "ntpwikibase:P189",
+    "original.rdatoolkit.org : K.4.3. ";
+  skos:prefLabel "paikallinen tytäryhtiö"@fi.
 
 :mandate a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2101,21 +2002,20 @@
      "Kuvaus: Teksti",
      "Kuvaus: Toimijan toimintaa ohjaavia säädöksiä voidaan kuvata vapaamuotoisesti",
     "NTP: 2.1.2. Toimijan kuvailu ",
-     "P284",
+     "ntpwikibase:P284",
      "Selite: Toimijan toimintaa ohjaavia säädöksiä voidaan kuvata vapaamuotoisesti",
     "Tyyppi: Teksti";
   skos:prefLabel "ohjaavat säädökset"@fi;
   :ahaaLabel  "TJ12 Ohjaavat säädökset";
   :ahaaValue "mandate";
-  :marc21equivalent   "680 $a";
-  :propertyScope "111";
+  :marc21equivalent   "680 i";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :marc21-osakenttaA a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P350",
+  skos:editorialNote "ntpwikibase:P350",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä a"@fi .
 
@@ -2123,7 +2023,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P351",
+  skos:editorialNote "ntpwikibase:P351",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä b"@fi .
 
@@ -2135,14 +2035,13 @@
   skos:editorialNote  "tarkenteena";
   skos:prefLabel "marc21-osakenttä c"@fi;
   :marc21equivalent   "100 c";
-  :museumPlus "Nimenlisäys";
-  :propertyScope "#" .
+  :museumPlus "Nimenlisäys" .
 
 :marc21-osakenttaF a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P362",
+  skos:editorialNote "ntpwikibase:P362",
      "tarkenteena";
   skos:prefLabel " marc21-osakenttä f"@fi .
 
@@ -2150,7 +2049,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P358",
+  skos:editorialNote "ntpwikibase:P358",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä 0"@fi .
 
@@ -2158,7 +2057,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P357",
+  skos:editorialNote "ntpwikibase:P357",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä d"@fi .
 
@@ -2166,7 +2065,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P365",
+  skos:editorialNote "ntpwikibase:P365",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä e"@fi .
 
@@ -2174,7 +2073,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P354",
+  skos:editorialNote "ntpwikibase:P354",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä g"@fi .
 
@@ -2182,7 +2081,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P356",
+  skos:editorialNote "ntpwikibase:P356",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä j"@fi .
 
@@ -2190,7 +2089,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P355",
+  skos:editorialNote "ntpwikibase:P355",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä q"@fi .
 
@@ -2198,7 +2097,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P363",
+  skos:editorialNote "ntpwikibase:P363",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä r"@fi .
 
@@ -2206,7 +2105,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P359",
+  skos:editorialNote "ntpwikibase:P359",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä s"@fi .
 
@@ -2214,7 +2113,7 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P360",
+  skos:editorialNote "ntpwikibase:P360",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä t"@fi .
 
@@ -2222,21 +2121,20 @@
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P361",
+  skos:editorialNote "ntpwikibase:P361",
      "tarkenteena";
   skos:prefLabel "marc21-osakenttä u"@fi .
 
-:maximumDate rdf:type
-    "Item";
+:maximumDate rdf:type "Item";
   rdfs:domain :Entity ;
   rdfs:range "Timespan (Q22)";
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P2311>;
-  skos:editorialNote "?mappaus",
-     "P108",
+  skos:editorialNote 
+     "ntpwikibase:P108",
      "tarkenteena";
   skos:prefLabel "maksimipäiväys"@fi .
 
-:mergee a owl:ObjectProperty;
+:mergee a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -2245,38 +2143,35 @@
   skos:closeMatch mts:m4457, rdaa:P50011 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P194",
-    "RDA Toolkit: K.4.3. ",
+     "ntpwikibase:P194",
+    "original.rdatoolkit.org : K.4.3. ",
      "Selite: kanssayhdistyjä  ";
-  skos:prefLabel "yhteisöön yhdistynyt"@fi;
-  :propertyScope "167" .
+  skos:prefLabel "yhteisöön yhdistynyt"@fi.
 
-:minimumDate  a owl:ObjectProperty ;
+:minimumDate  a owl:ObjectProperty, rdf:Property ;
   rdf:type  :Item ;
   rdfs:domain :Entity ;
   rdfs:range "Timespan (Q22)";
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P2310>;
-  skos:editorialNote "?mappaus",
-     "P107",
+  skos:editorialNote 
+     "ntpwikibase:P107",
      "tarkenteena";
   skos:prefLabel "minimipäiväys"@fi .
 
-:modifierCorporateBody  a owl:ObjectProperty; ;
+:modifierCorporateBody  a owl:ObjectProperty, rdf:Property; ;
   rdf:type :Item ;
   rdfs:domain :Item ;
   rdfs:range :CorporateBody;
   skos:closeMatch rdai:P40144 ;
-
   skos:prefLabel "muokkaava organisaatio"@fi;
-  :marc21equivalent   "040 c d" .
+  :marc21equivalent   "040 d" .
 
 :nameMonolingual a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P2561>;
-  skos:editorialNote "?mappaus",
-     "P64";
+  skos:editorialNote "ntpwikibase:P64";
   skos:prefLabel "nimi yksikielinen"@fi .
 
 :nameOfAgent a owl:DatatypeProperty, rdf:Property;
@@ -2290,14 +2185,14 @@
      "Kuvaus: Relaatio",
     "Kuvaus: Toimijalla täytyy olla nimi (ensisijainen nimi ja RDA:n ensisijainen nimi)",
     "NTP: 2.1.1 Toimijan tunnistaminen",
-     "P260",
-     "RDA Toolkit: 0.6.7 Osio 3, 9.2, 10.2, 11.2",
+     "ntpwikibase:P260",
+     "original.rdatoolkit.org : 0.6.7 Osio 3, 9.2, 10.2, 11.2",
     "Selite: Toimijalla täytyy olla nimi (ensisijainen nimi ja RDA:n ensisijainen nimi)",
     "Tyyppi: Relaatio: Toimijan nimi";
   skos:prefLabel "toimijan nimi"@fi;
   :ahaaLabel  "TJ04 Nimi";
   :ahaaValue "name entry";
-  :propertyScope "103";
+;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :nameOfConference a owl:DatatypeProperty, rdf:Property;
@@ -2305,17 +2200,15 @@
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50032 ;
-  skos:editorialNote "P328";
-  skos:prefLabel "konferenssin nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P328";
+  skos:prefLabel "konferenssin nimi"@fi .
 
-:nameOfConfernenceObject a owl:ObjectProperty;
+:nameOfConfernenceObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaa:P50032 ;
-  skos:editorialNote "P180";
-  skos:prefLabel "konferenssin nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P180";
+  skos:prefLabel "konferenssin nimi (kohde)"@fi .
 
 :nameOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -2324,49 +2217,46 @@
   skos:altLabel "yhteisön nimi"@fi;
   skos:closeMatch madsrdf:CorporateName, madsrdf:COnferenceName, rdaad:P50032 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P308";
+     "ntpwikibase:P308";
   skos:prefLabel "yhteisön nimi"@fi;
-  :propertyScope "187" .
+ .
 
-:nameOfCorporateBodyNomen a owl:ObjectProperty;
+:nameOfCorporateBodyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50032 ;
-  skos:editorialNote "P265";
+  skos:editorialNote "ntpwikibase:P265";
   skos:prefLabel "yhteisön nimi"@fi;
   :ahaaLabel  "has name of the corporate body";
   :ahaaValue "TONI2|<identity><nameEntry><part> Rooli \"ensisijainen nimi\" <nameEntry \"@localtype=\"URI\">";
   :marc21equivalent   "410 a";
   :museumPlus " Nimi+Yksikkö/osasto",
-    "Nimi";
-  :propertyScope "#" .
+    "Nimi" .
 
 :nameOfEntity  a     owl:ObjectProperty, rdf:Property ;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range :Nomen ;  skos:closeMatch rdaxo:P00019 ;
 
-  skos:prefLabel "entiteetin nimi"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "entiteetin nimi"@fi .
 
-:nameOfFamily a owl:DatatypeProperty ;
+:nameOfFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Family ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50061 ;
-  skos:editorialNote "P334";
-  skos:prefLabel "suvun nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P334";
+  skos:prefLabel "suvun nimi"@fi .
 
-:nameOfFamilyNomen a owl:ObjectProperty;
+:nameOfFamilyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Family ;
   rdfs:range :Nomen ;  skos:altLabel "suvun nimi"@fi;
   skos:closeMatch madsrdf:FamilyName, rdaa:P50061 ;
-  skos:editorialNote "P250",
-     "RDA Toolkit: 0.6.7 Osio 3:";
+  skos:editorialNote "ntpwikibase:P250",
+     "original.rdatoolkit.org : 0.6.7 Osio 3:";
   skos:prefLabel "suvunnimi (kohde)"@fi;
-  :propertyScope "268" .
+ .
 
 :nameOfHierarchicalSubordinate a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2376,42 +2266,38 @@
   skos:closeMatch rdaa:P50032 ;
   skos:editorialNote "Kuvaus: Yhteisön alanimi",
      "NTP: 6. Toimijan nimi",
-     "P265",
+     "ntpwikibase:P265",
      "Tyyppi: Teksti";
   skos:prefLabel "alayhteisön nimi"@fi;
   :ahaaLabel  "TONI4 Alanimeke/etunimi";
   :ahaaValue "oma part +LOCALTYPE nameEntry:n yhteydessä";
-  :marc21equivalent   "410 a";
-  :propertyScope "140" .
+  :marc21equivalent "410 b", "110 b", "111 b" .
 
 :nameOfHierarchicalSuperior a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50008 ;
-  skos:editorialNote "P373";
+  skos:editorialNote "ntpwikibase:P373";
   skos:prefLabel "kattoyhteisön nimi"@fi;
-  :marc21equivalent   "110A";
-  :propertyScope "#" .
+  :marc21equivalent   "110 a" .
 
-:nameOfPerson a owl:DatatypeProperty ;
+:nameOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Person ;
   rdfs:range rdf:langString;
   skos:altLabel "henkilön nimi"@fi;
   skos:closeMatch gndo:nameOfThePerson, foaf:name,
     madsrdf:PersonalName, rdaad:P50111 ;
-  skos:editorialNote "P251";
-  skos:prefLabel "henkilön nimi"@fi;
-  :propertyScope "266" .
+  skos:editorialNote "ntpwikibase:P251";
+  skos:prefLabel "henkilön nimi"@fi.
 
-:nameOfPersonNomen a owl:ObjectProperty;
+:nameOfPersonNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50111 ;
 
-  skos:prefLabel "henkilön nimi"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "henkilön nimi"@fi .
 
 :nameOfPlace a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2420,19 +2306,19 @@
   skos:altLabel "Paikan nimi"@fi;
   skos:closeMatch :Location ,
     rdap:P70001 ;
-  skos:editorialNote " Huomautus: Ratkaistava vielä miten paikat, joita ei löydy Finton ontologioista ovat käyettävissä Nimiatietopalvelussa. (Tekstikenttä, sisäinen koodisto?)",
+  skos:editorialNote 
+    "Huomautus: Ratkaistava vielä miten paikat, joita ei löydy Finton ontologioista ovat käyettävissä  Nimiatietopalvelussa. (Tekstikenttä, sisäinen koodisto, tms.)",
     "Huomautus: Paikka elementti kuvaa aluetta, johon toimija liittyy. Tämä elementti on aina liitetty johonkin kuvailtavaan kohteeseen tai suhteeseen eikä se ole itsenäisesti tarkasteltava kohde. ",
     "ISAAR(CPF): 5.2.3. ",
-     "ISNI: Place",
-     "Kuvaus: Toimijalla voi olla esim. maantieteellinen toiminta-alue. Tässä viittaukset Fintoon (YSO-paikat)",
+    "ISNI: Place",
+    "Kuvaus: Toimijalla voi olla esim. maantieteellinen toiminta-alue. Tässä viittaukset Fintoon (YSO-paikat)",
     "NTP: 5. Paikka",
-     "P102",
-     "RDA Toolkit: 9.8-9.12, 10.5, 11.3, 11.9",
-     "Tyyppi: Relaatio: FINTO ";
+    "ntpwikibase:P102",
+    "original.rdatoolkit.org : 9.8-9.12, 10.5, 11.3, 11.9",
+    "Tyyppi: Relaatio: FINTO ";
   skos:prefLabel "paikan nimi"@fi;
   :ahaaLabel  "TJ09 Paikka";
   :ahaaValue "placeEntry (useita mahdollisuuksia ilmaista paikkaan liittyvää tietoa) VOCABULARYSOURCE URI-tunnisteelle";
-  :propertyScope "136";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -2441,26 +2327,23 @@
   rdfs:domain :Timespan ;
   rdfs:range rdf:langString;
   skos:closeMatch rdatd:P70049 ;
-  skos:editorialNote "P323";
-  skos:prefLabel "ajanjakson nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P323";
+  skos:prefLabel "ajanjakson nimi"@fi .
 
-:nameOfTimespanObject a owl:ObjectProperty;
+:nameOfTimespanObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Timespan ;
   rdfs:range :Nomen ;  skos:closeMatch rdat:P70049 ;
-  skos:editorialNote "P84";
-  skos:prefLabel "ajanjakson nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P84";
+  skos:prefLabel "ajanjakson nimi (kohde)"@fi .
 
 :nomenString a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Nomen ;
   rdfs:range xsd:string ;
   skos:closeMatch rdan:P80068 ;
-  skos:editorialNote "P104";
-  skos:prefLabel "nomenin merkkijono"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P104";
+  skos:prefLabel "nomenin merkkijono"@fi .
 
 :nonPublicNoteOnResource a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2472,15 +2355,15 @@
      "Kuvaus: Kentässä on vapaamuotoisia muistiinpanoja, näkyy kaikkien organisaatioiden henkilökunnalle. Kentän tietoja ei välitetä eteenpäin.",
     "Kuvaus: Teksti",
      "NTP: 2.1.2. Toimijan kuvailu ",
-     "P273",
-     "RDA Toolkit: huomautus metatietoteoksesta",
+     "ntpwikibase:P273",
+     "original.rdatoolkit.org : huomautus metatietoteoksesta",
     "Selite: Kentässä on vapaamuotoisia muistiinpanoja, näkyy kaikkien organisaatioiden henkilökunnalle. Kentän tietoja ei välitetä eteenpäin.",
     "Tyyppi: Teksti";
   skos:prefLabel "sisäinen huomautus"@fi;
   :ahaaLabel  "TJ27 Muistiinpanot";
   :ahaaValue "descriptiveNote";
-  :marc21equivalent   "667 $a";
-  :propertyScope "115";
+  :marc21equivalent   "667 a";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :noteFromSource a owl:DatatypeProperty, rdf:Property;
@@ -2499,16 +2382,13 @@
   skos:altLabel "yhteisön kategoria"@fi;
   skos:closeMatch rdaad:P50393 ;
   skos:editorialNote " (11.7.1.6 Muu määrite)",
-     " 11.7.1.5 Hallintoalueen tyyppi",
-    "NTP: 2.1.5 ?",
-     "P98",
-     "RDA Toolkit: 11.7: 11.7.1.4 Yhteisön tyyppi";
+     "11.7.1.5 Hallintoalueen tyyppi",
+     "ntpwikibase:P98",
+     "original.rdatoolkit.org : 11.7: 11.7.1.4 Yhteisön tyyppi";
   skos:prefLabel "huomautus yhteisöstä"@fi;
-  :ahaaLabel  """Yhteisön tyyppi: TJ01 Toimijaluokitus 
-Hallintoalueen tyyppi: -""";
+  :ahaaLabel  "Yhteisön tyyppi: TJ01 Toimijaluokitus; Hallintoalueen tyyppi: -";
   :ahaaValue "localDescription, localType";
-  :marc21equivalent   "110G";
-  :propertyScope "130" .
+  :marc21equivalent   "110 g" .
 
 :noteOnDateOfBirth a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2537,16 +2417,15 @@ Hallintoalueen tyyppi: -""";
   :museumPlus "Lakkauttamisaika_aikakausi",
     "Lakkauttamisaika_teksti" .
 
-:noteOnEntity a owl:DatatypeProperty ;
+:noteOnEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
   skos:closeMatch rdaxd:P00015 ;
-  skos:editorialNote "P80";
-  skos:prefLabel "huomautus entiteetistä"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P80";
+  skos:prefLabel "huomautus entiteetistä"@fi .
 
-:noteOnFamily a owl:DatatypeProperty ;
+:noteOnFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Family ;
   rdfs:range rdf:langString;
@@ -2559,7 +2438,7 @@ Hallintoalueen tyyppi: -""";
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
-  skos:editorialNote "??",
+  skos:editorialNote 
      "Huomautus: käytetään ohjaamaan oikeaan propertyyn - 4 tyyppiä";
   skos:prefLabel "tunnisteen tyyppi"@fi;
   :marc21equivalent   "024 q";
@@ -2570,18 +2449,16 @@ Hallintoalueen tyyppi: -""";
   rdfs:domain :Work ;
   rdfs:range rdf:langString;
   skos:closeMatch rdawd:P10402 ;
-  skos:editorialNote "P272";
-  skos:prefLabel "huomautus metatietoteoksesta"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P272";
+  skos:prefLabel "huomautus metatietoteoksesta"@fi .
 
 :noteOnNomen a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Nomen ;
   rdfs:range rdf:langString;
   skos:closeMatch rdand:P80071 ;
-  skos:editorialNote "P259";
-  skos:prefLabel "huomautus nomenista"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P259";
+  skos:prefLabel "huomautus nomenista"@fi .
 
 :noteOnPeriodOfActivityOfAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2599,30 +2476,28 @@ Hallintoalueen tyyppi: -""";
   skos:prefLabel "henkilön toimintaan liityvän ajanjakson kuvaus"@fi;
   :museumPlus "Biografia_aikatiedon_kuvaus" .
 
-:noteOnPerson a owl:DatatypeProperty ;
+:noteOnPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Person ;
   rdfs:range rdf:langString;
   skos:closeMatch rdaad:P50395 ;
-  skos:editorialNote "P97";
-  skos:prefLabel "huomautus henkilöstä"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P97";
+  skos:prefLabel "huomautus henkilöstä"@fi .
 
 :noteOnPlace a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain  :Place ;
   rdfs:range rdf:langString;
   skos:closeMatch rdapd:P70022 ;
-  skos:editorialNote "P274";
-  skos:prefLabel "huomautus paikasta"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P274";
+  skos:prefLabel "huomautus paikasta"@fi .
 
 :noteOnRDAEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaxd:P00015 ;
-  skos:editorialNote "P255";
+  skos:editorialNote "ntpwikibase:P255";
   skos:prefLabel "huomautus resurssista"@fi;
   :marc21equivalent   "100 g" .
 
@@ -2630,18 +2505,16 @@ Hallintoalueen tyyppi: -""";
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
-  skos:editorialNote "P255";
-  skos:prefLabel "huomautus resurssista"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P255";
+  skos:prefLabel "huomautus resurssista"@fi .
 
 :noteOnTimespan a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Timespan ;
   rdfs:range rdf:langString;
   skos:closeMatch rdatd:P70045 ;
-  skos:editorialNote "P71";
-  skos:prefLabel "huomautus ajanjaksosta"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P71";
+  skos:prefLabel "huomautus ajanjaksosta"@fi .
 
 :NR1 a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2653,7 +2526,7 @@ Hallintoalueen tyyppi: -""";
     "NTP: 7. Näyttörajoitus",
      "Tyyppi: 7.5 Näyttörajoitus tyypit";
   skos:prefLabel "näyttörajoituksen peruste"@fi;
-  :propertyScope "145";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -2667,11 +2540,11 @@ Hallintoalueen tyyppi: -""";
      "NTP: 7. Näyttörajoitus",
      "Tyyppi: Teksti";
   skos:prefLabel "näyttörajoituksen nimi"@fi;
-  :propertyScope "146";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:NR3 a "owl:AnnotationProperty";
+:NR3 a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
@@ -2681,11 +2554,11 @@ Hallintoalueen tyyppi: -""";
      "NTP: 7. Näyttörajoitus",
     "Tyyppi: Teksti";
   skos:prefLabel "näyttörajoituksen selite"@fi;
-  :propertyScope "147";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:NR4 a "owl:AnnotationProperty";
+:NR4 a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
@@ -2695,11 +2568,11 @@ Hallintoalueen tyyppi: -""";
      "NTP: 7. Näyttörajoitus",
     "Tyyppi: Luku";
   skos:prefLabel "näyttörajoituksen kesto"@fi;
-  :propertyScope "148";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:NR5 a "owl:AnnotationProperty";
+:NR5 a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
@@ -2710,11 +2583,11 @@ Hallintoalueen tyyppi: -""";
     "Tyyppi: Relaatio: Aika";
   skos:prefLabel "näyttörajoituksen voimassaoloaika"@fi;
   :ahaaValue "localDescriptionàdate/dateRange";
-  :propertyScope "149";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:NR7 a "owl:AnnotationProperty";
+:NR7 a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
@@ -2724,11 +2597,11 @@ Hallintoalueen tyyppi: -""";
     "NTP: 7. Näyttörajoitus",
      "Tyyppi 7.3 Näyttörajoitusten tasot";
   skos:prefLabel "näyttörajoituksen käyttäjätaso"@fi;
-  :propertyScope "150";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:NR8 a owl:ObjectProperty;
+:NR8 a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range :Entity ;
@@ -2738,10 +2611,10 @@ Hallintoalueen tyyppi: -""";
     "NTP: 7. Näyttörajoitus",
      "Tyyppi 7.4 Näyttörajoitettavat attribuutit";
   skos:prefLabel "näyttörajoitettava attribuutti"@fi;
-  :propertyScope "151";
+  
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:ntpID a owl:ObjectProperty;
+:ntpID a owl:ObjectProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Nomen ;
   rdfs:range xsd:string ;
@@ -2753,7 +2626,7 @@ Hallintoalueen tyyppi: -""";
      "NTP: 8.5. Tunnisteen roolit";
   skos:prefLabel "tekninen tunniste"@fi;
   :marc21equivalent   "001";
-  :propertyScope "201";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -2764,21 +2637,21 @@ Hallintoalueen tyyppi: -""";
   skos:altLabel "konferenssin numero"@fi;
   skos:closeMatch rdaa:P50019 ;
   skos:editorialNote "ISAAR(CPF): 5.1.2-5.1.5",
-     "NTP: 2.1.5 ?",
-     "P181",
-     "RDA Toolkit: 0.6.7 Osio 3:   11.6.";
+     "ntpwikibase:P181",
+     "original.rdatoolkit.org : 0.6.7 Osio 3:   11.6.";
   skos:note "Ydinelementti";
   skos:prefLabel "konferenssin numero"@fi;
   :ahaaLabel  "(TJ04 Nimi)";
   :ahaaValue "localDescription, localType (riippuu tiedon merkintätavasta)";
-  :marc21equivalent   " 411N",
-     " 510N",
-     " 511N",
-     "110N ",
-     "111N",
-     "410N";
+  :marc21equivalent   
+     "110 n",
+     "111 n",
+     "410 n",
+     "411 n",
+     "510 n",
+     "511 n";
   :museumPlus "<EI TUODA>";
-  :propertyScope "129";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :occupation a owl:DatatypeProperty, rdf:Property;
@@ -2794,8 +2667,8 @@ Hallintoalueen tyyppi: -""";
 http://urn.fi/URN:NBN:fi:au:mts:m2332""",
     "Kuvaus: Teksti",
      "NTP: 2.1.2. Toimijan kuvailu ",
-     "P92",
-     "RDA Toolkit: 0.6.7 Osio 3, 9.16",
+     "ntpwikibase:P92",
+     "original.rdatoolkit.org : 0.6.7 Osio 3, 9.16",
     "SPECTRUM: Person’s occupation",
      "Selite: Linkki metatietosanaston ammattitermeihin",
     "Tyyppi: Relaatio: FINTO + Relaatio: Aika";
@@ -2803,18 +2676,16 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   :ahaaLabel  "ammatti|TJ18 Ammatti";
   :ahaaValue "rdaa:P50104|occupation";
   :kaukoValue  "Ammatti:";
-  :marc21equivalent   "374 $a  (100 $c , 400 $c)";
-  :museumPlus "Ammatti";
-  :propertyScope "112" .
+  :marc21equivalent   "374 a 0 1 2","100 c", "400 c";
+  :museumPlus "Ammatti".
 
 :occupationClass a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P60489 ;
-  skos:editorialNote "P99";
-  skos:prefLabel "ammattiluokka"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P99";
+  skos:prefLabel "ammattiluokka"@fi .
 
 :officer rdf:type
     "Item";
@@ -2825,7 +2696,7 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   skos:prefLabel "toimihenkilö"@fi;
   :ahaaLabel  "yhteisön johtaja";
   :ahaaValue rdaa:P50027;
-  :marc21equivalent   "510 $i" .
+  :marc21equivalent  "510 i toimihenkilö" .
 
 :orcid a owl:DatatypeProperty, rdf:Property;
   rdf:type :ExternalIdentifier ;
@@ -2835,19 +2706,18 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   skos:closeMatch jhs:J384, rdaad:P50094 ;
   skos:editorialNote "Kuvaus: jhs",
      "NTP: 8.5. Tunnisteen roolit",
-     "P145";
+     "ntpwikibase:P145";
   skos:prefLabel "ORCID-ID"@fi;
-  :marc21equivalent   "024 7* $a $2orcid $0";
-  :propertyScope "204";
+  :marc21equivalent   "024 7* a 2orcid 0";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:orcidIdentifier a owl:ObjectProperty;
+:orcidIdentifier a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Identifier ;
   skos:closeMatch rdaa:P50094;
-  skos:prefLabel "ORCID-tunnus"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "ORCID-tunnus"@fi .
 
 :otherDesignationOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
@@ -2865,8 +2735,7 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   rdfs:range :Person ;
   skos:closeMatch rdaa:P50428 ;
 
-  skos:prefLabel "muu identiteetti"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "muu identiteetti"@fi .
 
 :otherPlaceAssociatedWithCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -2876,27 +2745,25 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   skos:editorialNote  "Huomautus: Salla/MuseumPlus: OK";
   skos:note "Ydinelementti";
   skos:prefLabel "muu yhteisöön liittyvä paikka"@fi;
-  :marc21equivalent   "370  F";
+  :marc21equivalent   "370 f";
   :museumPlus "Lakkauttamispaikka",
     "Perustamispaikka",
      "RyhmanPaikka" .
 
-:partOfNomen a owl:ObjectProperty;
+:partOfNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range :Nomen ;  skos:closeMatch rdan:P80058 ;
   skos:editorialNote  "Selite: Viittaa toiseen Nomenin, joka on osa viittaavaa nomenia";
-  skos:prefLabel "nomenin osa"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "nomenin osa"@fi .
 
 :performerAgentOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P60147 ;
-  skos:editorialNote "P298";
-  skos:prefLabel "esittäjä (toimija) ekspressiossa"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P298";
+  skos:prefLabel "esittäjä (toimija) ekspressiossa"@fi .
 
 :periodofActivityOfAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -2909,14 +2776,14 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
      "Kuvaus: Relaatio: Aika",
      "Kuvaus: Toimijalla voi olla esim. toimintavuodet",
     "NTP: 2.1.2. Toimijan kuvailu ",
-     "P283",
-     "RDA Toolkit: 9.3, 10.4, 11.4",
+     "ntpwikibase:P283",
+     "original.rdatoolkit.org : 9.3, 10.4, 11.4",
      "Selite: Toimijalla voi olla esim. toimintavuodet",
     "Tyyppi: Relaatio: Aika";
   skos:prefLabel "toimijan toiminta-aika"@fi;
   :ahaaLabel  "TJ02 Aika";
   :ahaaValue "existDates";
-  :propertyScope "108";
+  
   :viewingRestriction "20" .
 
 :periodOfActivityOfCorporateBody a owl:DatatypeProperty, rdf:Property;
@@ -2929,15 +2796,14 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
     "ISNI: tärkeä",
      "Kuvaus: Yhteisön perustamisaika – lakkauttamisaika",
      "NTP: 8.7. Aikaroolit ",
-    "P268",
-     "RDA Toolkit: 11.4.3. – 11.4.4.",
+    "ntpwikibase:P268",
+     "original.rdatoolkit.org : 11.4.3. – 11.4.4.",
      "isaar cpf: 5.2.1 Dates of existence5.2..1 - saar cpf: 5.2.1 Dates of existence5.2.1";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisön toiminta-aika"@fi;
   :ahaaValue "existDates àfromDate - existDates àtoDate";
-  :marc21equivalent   "046 s t";
-  :museumPlus "Perustamisaika-Lakkauttamisaika";
-  :propertyScope "163" .
+  :marc21equivalent   "046 s + t";
+  :museumPlus "Perustamisaika-Lakkauttamisaika".
 
 :periodOfActivityOfEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -2947,35 +2813,39 @@ http://urn.fi/URN:NBN:fi:au:mts:m2332""",
   skos:closeMatch rdax:P00011 ;
   skos:editorialNote "Kuvaus: Määriteltävän kohteen (tunnisteen tai nimen) ajallinen kattavuus",
     "NTP: 8.7. Aikaroolit ",
-     "P81",
-     "RDA Toolkit: 0.6.7 Osio 3:";
+     "ntpwikibase:P81",
+     "original.rdatoolkit.org : 0.6.7 Osio 3:";
   skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi;
-  :ahaaValue "nimi: useDates tunniste -";
-  :propertyScope "235" .
+  :ahaaValue "nimi: useDates tunniste -".
 
+:periodOfActivityOfFamily a owl:DatatypeProperty, rdf:Property;
+  rdf:type :String;
+  rdfs:domain :Family ;
+  rdfs:range xsd:string ;
+  skos:closeMatch rdaad:P50432 ;
+  skos:altLabel "suvun toiminta-aika"@fi;
+  :marc21equivalent "046 s + t" .
+  
 :periodOfActivityOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
-  skos:altLabel "henkilön elinaika;henkilön toiminta-aika"@fi;
+  skos:altLabel "henkilön elinaika","henkilön toiminta-aika"@fi;
   skos:closeMatch madsrdf:deathDate, rdaad:P50098 ;
   skos:editorialNote "Huomautus: $s ja $t kirjataan yhdessä ja kirjataan tarkenteisiin erillisinä P66 ja P67",
-    "Kuvaus: Henkilön syntymäaika – kuolinaika",
+     "Kuvaus: Henkilön syntymäaika – kuolinaika",
      "Kuvaus: Merkitään muodossa YYYY-YYYY",
-    "NTP: 8.7. Aikaroolit ",
-     "P267",
-     "RDA Toolkit: 9.3.2. – 9.3.3.",
+     "NTP: 8.7. Aikaroolit ",
+     "ntpwikibase:P267",
+     "original.rdatoolkit.org : 9.3.2. – 9.3.3.",
      "Selite: myös henkilön elinaika",
-    "saar cpf: 5.2.1 Dates of existence5.2..1 - saar cpf: 5.2.1 Dates of existence5.2.1",
-    "tärkeä, päivämäärätarkkuus";
+     "isaar cpf: 5.2.1 Dates of existence5.2..1 ",
+     "tärkeä, päivämäärätarkkuus";
   skos:note "Ydinelementti";
   skos:prefLabel "henkilön toimintaan liittyvä ajanjakso"@fi;
   :ahaaValue "existDates àfromDate - existDates àtoDate";
-  :marc21equivalent   " 046 F G",
-     "046 s t";
-  :museumPlus """Biografia_alkamisvuosi- 
-Biografia_paattymisvuosi""";
-  :propertyScope "234" .
+  :marc21equivalent   "046 f + g", "046 s + t";
+  :museumPlus "Biografia_alkamisvuosi- Biografia_paattymisvuosi".
 
 :persistentIdentifier a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -2986,12 +2856,12 @@ Biografia_paattymisvuosi""";
   skos:editorialNote "Huomautus: Analoginen",
      "Kuvaus: jhs",
      "NTP: 8.5. Tunnisteen roolit",
-    "P41",
+    "ntpwikibase:P41",
      "Selite: Vapaamuotoinen tunnus";
   skos:note " ";
   skos:prefLabel "pysyvä tunniste"@fi;
   :marc21equivalent   "035 ** $a";
-  :propertyScope "202";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :personalIdentityCode a owl:DatatypeProperty, rdf:Property;
@@ -3002,13 +2872,12 @@ Biografia_paattymisvuosi""";
   skos:closeMatch jhs:J1 ;
   skos:editorialNote "Kuvaus: jhs , Henkilötunnus väestörekisteristä",
      "NTP: 8.5. Tunnisteen roolit",
-    "P9";
+    "ntpwikibase:P9";
   skos:prefLabel "henkilötunnus"@fi;
   :ahaaLabel  "(EAC-CPF:entityId)";
-  :marc21equivalent   "024 8* $a $q henkilötunnus ";
-  :propertyScope "205" .
+  :marc21equivalent "024 8* a q henkilötunnus " .
 
-:personMemberOfCorporateBody a owl:ObjectProperty;
+:personMemberOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Person ;
@@ -3017,11 +2886,11 @@ Biografia_paattymisvuosi""";
   skos:closeMatch mts:m746, org:hasMember, rdaa:P50030,wd:Q9200127, <https://www.wikidata.org/wiki/Property:P463> ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P179";
+     "ntpwikibase:P179";
   skos:prefLabel "yhteisön henkilöjäsen"@fi;
-  :propertyScope "292" .
+.
 
-:personMemberOfCorporateBodyOf a owl:ObjectProperty;
+:personMemberOfCorporateBodyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :CorporateBody;
@@ -3030,15 +2899,13 @@ Biografia_paattymisvuosi""";
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P463>,  org:memberOf, rdaa:P50095 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P121",
-    "RDA Toolkit: K.2.3. – K.4.1.";
+     "ntpwikibase:P121",
+    "original.rdatoolkit.org : K.2.3. – K.4.1.";
   skos:prefLabel "henkilöjäsen yhteisössä"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   " 373",
-     "500W-510W";
-  :propertyScope "176" .
+  :marc21equivalent  "373 0 1 2","500 w-510 w" .
 
-:personMemberOfFamily a owl:ObjectProperty;
+:personMemberOfFamily a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Family ;
   rdfs:range :Person ;
@@ -3046,14 +2913,13 @@ Biografia_paattymisvuosi""";
   skos:altLabel "suvun henkilöjäsen"@fi;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P1038>, rdaa:P50056 ;
   skos:editorialNote  "NTP: 8.1. Toimija-toimija-roolit ",
-     "RDA Toolkit: K.3.1. - K.2.2. –",
+     "original.rdatoolkit.org : K.3.1. - K.2.2. –",
     "Selite: Sukuun kuuluu (suku->henkilö)";
   skos:prefLabel "suvun henkilöjäsen"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE =”family” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W<->510W";
-  :propertyScope "155" .
+  :marc21equivalent   "500 w <-> 510 w" .
 
-:personMemberOfFamilyOf a owl:ObjectProperty;
+:personMemberOfFamilyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "Family";
@@ -3062,13 +2928,12 @@ Biografia_paattymisvuosi""";
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P53>, rdaa:P50233 ;
   skos:editorialNote "Kuvaus: kuuluu sukuun (henkilö->suku)",
      "NTP: 8.1. Toimija-toimija-roolit ",
-    "P352",
-     "RDA Toolkit: K.3.1. - K.2.2. –",
+    "ntpwikibase:P352",
+     "original.rdatoolkit.org : K.3.1. - K.2.2. –",
      "Selite: Kuuluu sukuun (henkilö->suku)";
   skos:prefLabel "kuuluu sukuun"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE =”family” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W<->510W";
-  :propertyScope "154" .
+  :marc21equivalent   "500 w <-> 510 w" .
 
 :photographerAgentOfWorkOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3080,17 +2945,16 @@ Biografia_paattymisvuosi""";
   :ahaaLabel  "Valokuvaaja";
   :ahaaValue rdaa:P50190 .
 
-:placeOfBirth a owl:DatatypeProperty ;
+:placeOfBirth a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50119 ;
-  skos:editorialNote "P331";
+  skos:editorialNote "ntpwikibase:P331";
   skos:prefLabel "syntymäpaikka"@fi;
-  :museumPlus "Syntymapaikka_teksti";
-  :propertyScope "#" .
+  :museumPlus "Syntymapaikka_teksti" .
 
-:placeOfBirthObject a owl:ObjectProperty;
+:placeOfBirthObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "Place;dcterms:Location;schema:Place";
@@ -3099,31 +2963,30 @@ Biografia_paattymisvuosi""";
   skos:editorialNote "Huomautus: MH 11.01.2016: ISAAR CPF ei määritä paikkaa rakenteisessa muodossa",
     "Kuvaus: Henkilön syntymäpaikka",
      "NTP: 8.9. Paikkaroolit",
-     "P115",
-     "RDA Toolkit: 9.8.",
+     "ntpwikibase:P115",
+     "original.rdatoolkit.org : 9.8.",
     "isaar cpf: 5.2.3 Places";
   skos:prefLabel "syntymäpaikka (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370A";
+  :marc21equivalent   "370 a";
   :museumPlus "Syntymapaikka_YSO",
     "Syntymapaikka_kohteet_paikat";
-  :propertyScope "243" .
+.
 
 :placeOfConference a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50024 ;
-  skos:editorialNote "P329";
+  skos:editorialNote "ntpwikibase:P329";
   skos:note "Ydinelementti";
   skos:prefLabel "konferenssin paikka"@fi;
   :ahaaLabel  "konferenssin paikka";
   :ahaaValue rdaa:P50024;
-  :marc21equivalent   "111 c";
-  :museumPlus "<EI TUODA>";
-  :propertyScope "#" .
+  :marc21equivalent   "111 c","410 c","411 c" ;
+  :museumPlus "<EI TUODA>" .
 
-:placeOfConferenceObject a owl:ObjectProperty;
+:placeOfConferenceObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range  :Place ;
@@ -3132,28 +2995,27 @@ Biografia_paattymisvuosi""";
   skos:editorialNote "ISNI: tärkeä",
      "Kuvaus: Konferenssin pitopaikka, pakollinen kun toimija on konferenssi",
     "NTP: 8.9. Paikkaroolit",
-     "P183",
-     "RDA Toolkit: 0.6.7 Osio 3:  11.3.2.",
+     "ntpwikibase:P183",
+     "original.rdatoolkit.org : 0.6.7 Osio 3:  11.3.2.",
      "Selite: tapahtuman paikka",
     "isaar cpf: 5.2.3 Places";
   skos:prefLabel "konferenssin paikka (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370F";
+  :marc21equivalent   "370 f";
   :museumPlus "<EI TUODA>";
-  :propertyScope "247" .
+.
 
 :placeOfDeath a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50118 ;
-  skos:editorialNote "P330";
+  skos:editorialNote "ntpwikibase:P330";
   skos:prefLabel "kuolinpaikka"@fi;
   :museumPlus " Kuolinpaikka_teksti",
-    "Kuolinpaikka_kohteet_paikat";
-  :propertyScope "#" .
+    "Kuolinpaikka_kohteet_paikat" .
 
-:placeOfDeathObject a owl:ObjectProperty;
+:placeOfDeathObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "Place;dcterms:Location;schema:Place";
@@ -3161,41 +3023,40 @@ Biografia_paattymisvuosi""";
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P20>, person:placeOfDeath, rdaao:P50118 ;
   skos:editorialNote "Kuvaus: Henkilön kuolinpaikka",
      "NTP: 8.9. Paikkaroolit",
-     "P117",
-    "RDA Toolkit: 9.9.",
+     "ntpwikibase:P117",
+    "original.rdatoolkit.org : 9.9.",
      "isaar cpf: 5.2.3 Places";
   skos:prefLabel "kuolinpaikka (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370B";
+  :marc21equivalent   "370 b";
   :museumPlus "Kuolinpaikka_YSO";
-  :propertyScope "244" .
+.
 
 :placeOfResidence a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Person ;
   rdfs:range rdf:langString;
   skos:closeMatch rdaad:P50109 ;
-  skos:editorialNote "P318";
+  skos:editorialNote "ntpwikibase:P318";
   skos:prefLabel "asuinpaikka"@fi;
-  :marc21equivalent   "370E";
-  :propertyScope "#" .
+  :marc21equivalent   "370 e" .
 
-:placeOfResidenceObject a owl:DatatypeProperty, rdf:Property;
+:placeOfResidenceObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "Place;dcterms:Jurisdiction";
   skos:altLabel "asuinpaikka"@fi;
   skos:closeMatch person:residency, rdaao:P50109 ;
   skos:editorialNote "NTP: 8.9. Paikkaroolit",
-     "P118",
-     "RDA Toolkit: 9.11.",
+     "ntpwikibase:P118",
+     "original.rdatoolkit.org : 9.11.",
      "isaar cpf: 5.2.3 Places";
   skos:prefLabel "asuinpaikka (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370E";
-  :propertyScope "246" .
+  :marc21equivalent   "370 e 0 1";
+.
 
-:predecessorOfCorporateBody a owl:ObjectProperty;
+:predecessorOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -3204,14 +3065,13 @@ Biografia_paattymisvuosi""";
   skos:closeMatch rdaa:P50012, <https://www.wikidata.org/wiki/Property:P155> ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P185",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P185",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "yhteisön edeltäjä"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”temporal” tai ”temporal-earlier” ja ”temporal-later”";
-  :marc21equivalent   "510Wa-b";
-  :propertyScope "273" .
+  :marc21equivalent   "510 wa-b".
 
-:predecessorOfSplit a owl:ObjectProperty;
+:predecessorOfSplit a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -3220,12 +3080,12 @@ Biografia_paattymisvuosi""";
   skos:closeMatch mts:m3642, rdaa:P50229 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P202",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P202",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "jakautunut yhteisö / Jakautumista edeltänyt yhteisö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "193" .
+  :marc21equivalent   "510 w";
+.
 
 :preferredNameOfAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3235,14 +3095,14 @@ Biografia_paattymisvuosi""";
   skos:closeMatch gndo:preferredName, rdaad:P50413 ;
   skos:editorialNote "Kuvaus: Toimijalla tulee olla ensisijainen nimimuoto, jota käytetään järjestelmän sisällä",
     "NTP: 8.6. Toimijan nimien roolit",
-     "P335",
-     "RDA Toolkit: 0.6.7 Osio 3:",
+     "ntpwikibase:P335",
+     "original.rdatoolkit.org : 0.6.7 Osio 3:",
      "Tyyppi: listan arvo";
   skos:prefLabel "toimijan ensisijainen nimi"@fi;
-  :marc21equivalent   "100 A",
-     "110 A",
-     "111 A";
-  :propertyScope "211";
+  :marc21equivalent   "100 a",
+     "110 a",
+     "111 a";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -3251,19 +3111,17 @@ Biografia_paattymisvuosi""";
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50041 ;
-  skos:editorialNote "P312";
+  skos:editorialNote "ntpwikibase:P312";
   skos:prefLabel "konferenssin ensisijainen nimi"@fi;
-  :marc21equivalent   "111AB";
-  :museumPlus "<EI TUODA>";
-  :propertyScope "#" .
+  :marc21equivalent   "111 a";
+  :museumPlus "<EI TUODA>" .
 
-:preferredNameOfConferenceNomen a owl:ObjectProperty;
+:preferredNameOfConferenceNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaa:P50041 ;
 
-  skos:prefLabel "konferenssin ensisijainen nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "konferenssin ensisijainen nimi (kohde)"@fi .
 
 :preferredNameOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3273,58 +3131,55 @@ Biografia_paattymisvuosi""";
   skos:closeMatch rdaad:P50041 ;
   skos:editorialNote "Huomautus: suluissa perässä voi olla tyyppi tai tyyppi : maa)",
     "NTP: 6. Toimijan nimi",
-     "P336",
+     "ntpwikibase:P336",
      "Tyyppi: Teksti";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisön ensisijainen nimi"@fi;
   :marc21equivalent   "110 a";
   :museumPlus "NImi+Yksikkö/Osasto",
     "RyhmanNimi";
-  :propertyScope "162" .
+.
 
-:preferredNameOfCorporateBodyNomen a owl:ObjectProperty;
+:preferredNameOfCorporateBodyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:altLabel "yhteisön ensisijainen nimi"@fi;
   skos:closeMatch rdaao:P50041 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P89",
+     "ntpwikibase:P89",
      "Tyyppi: Teksti";
   skos:prefLabel "yhteisön ensisijainen nimi (kohde)"@fi;
-  :propertyScope "162" .
+.
 
-:preferredNameOfCorporateBodyOf a owl:ObjectProperty;
+:preferredNameOfCorporateBodyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range :CorporateBody;
   skos:closeMatch rdano:P80144 ;
-  skos:editorialNote "P148";
-  skos:prefLabel "ensisijainen nimi yhteisölle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P148";
+  skos:prefLabel "ensisijainen nimi yhteisölle"@fi .
 
 :preferredNameOfFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Family ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50065 ;
-  skos:editorialNote "P294";
+  skos:editorialNote "ntpwikibase:P294";
   skos:note "Ydinelementti";
   skos:prefLabel "suvun ensisijainen nimi"@fi;
   :ahaaLabel  "perheen ensisijainen nimimuoto";
-  :marc21equivalent   "1003# a";
-  :museumPlus "Sukunimi (kun yhteisötyyppi Suku)";
-  :propertyScope "#" .
+  :marc21equivalent   "100 3# a";
+  :museumPlus "Sukunimi (kun yhteisötyyppi Suku)" .
 
-:preferredNameOfFamilyOf a owl:ObjectProperty;
+:preferredNameOfFamilyOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range "Family";
   skos:closeMatch rdano:P80145 ;
-  skos:editorialNote "P257";
-  skos:prefLabel "ensisijainen nimi suvulle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P257";
+  skos:prefLabel "ensisijainen nimi suvulle"@fi .
 
-:preferredNameOfPersonNomen a owl:ObjectProperty;
+:preferredNameOfPersonNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:altLabel "henkilön ensisijainen nimi"@fi;
@@ -3333,23 +3188,21 @@ Biografia_paattymisvuosi""";
 käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
     "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto",
      "NTP: 8.6. Toimijan nimien roolit",
-     "P88",
-    "RDA Toolkit: Ensisijanen nimi 9.2.2";
+     "ntpwikibase:P88",
+    "original.rdatoolkit.org : Ensisijanen nimi 9.2.2";
   skos:prefLabel "henkilön ensisijainen nimi (kohde)"@fi;
   :ahaaLabel  rdaa:P50117;
   :ahaaValue "nameEntry/preferredForm  tai authorizedForm";
-  :marc21equivalent   "100A Henkilön ensisijainen nimi";
-  :propertyScope "299";
+  :marc21equivalent   "100 0";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:preferredNameOfPersonOf a owl:ObjectProperty;
+:preferredNameOfPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range :Person ;
   skos:closeMatch rdano:P80146 ;
-  skos:editorialNote "P211";
-  skos:prefLabel "ensisijainen nimi henkilölle"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P211";
+  skos:prefLabel "ensisijainen nimi henkilölle"@fi .
 
 :preferredNameOfPersonString a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3360,16 +3213,16 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:editorialNote "Huomautus: MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit käytetään, jos eri kieliversioita nameEntryParaller yhteydessä",
     "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto",
      "NTP: 8.6. Toimijan nimien roolit",
-     "P315",
-    "RDA Toolkit: Ensisijanen nimi 9.2.2";
+     "ntpwikibase:P315",
+    "original.rdatoolkit.org : Ensisijanen nimi 9.2.2";
   skos:note "Ydinelementti";
   skos:prefLabel "henkilön ensisijainen nimi"@fi;
   :ahaaLabel  "Henkilön ensisisjainen nimimuoto";
   :ahaaValue " nameEntry/preferredForm  tai authorizedForm",
     rdaa:P50117;
-  :marc21equivalent   "100 A";
+  :marc21equivalent   "100 a";
   :museumPlus "Sukunimi+Etunimi";
-  :propertyScope "299";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -3378,51 +3231,45 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   rdfs:domain  :Place ;
   rdfs:range rdf:langString;
   skos:closeMatch rdapd:P70002 ;
-  skos:editorialNote "P278";
-  skos:prefLabel "paikan ensisijainen nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P278";
+  skos:prefLabel "paikan ensisijainen nimi"@fi .
 
-:preferredNameOfPlaceNomen a owl:ObjectProperty;
+:preferredNameOfPlaceNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain  :Place ;
   rdfs:range :Nomen ;  skos:closeMatch rdap:P70002 ;
-  skos:editorialNote "P101";
-  skos:prefLabel "paikan ensisijainen nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P101";
+  skos:prefLabel "paikan ensisijainen nimi (kohde)"@fi .
 
 :preferredNameOfRDAEntity a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
   skos:closeMatch rdaxd:P00021 ;
-  skos:editorialNote "P319";
-  skos:prefLabel "entiteetin ensisijainen nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P319";
+  skos:prefLabel "entiteetin ensisijainen nimi"@fi .
 
-:preferredNameOfRDAEntityNomen a owl:ObjectProperty;
+:preferredNameOfRDAEntityNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range :Nomen ;  skos:closeMatch rdaxo:P00021 ;
-  skos:editorialNote "P83";
-  skos:prefLabel "entiteetin ensisijainen nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P83";
+  skos:prefLabel "entiteetin ensisijainen nimi (kohde)"@fi .
 
 :preferredNameOfTimespan a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Timespan ;
   rdfs:range xsd:string ;
   skos:closeMatch rdatd:P70049 ;
-  skos:editorialNote "P338";
-  skos:prefLabel "ajanjakson ensisijainen nimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P338";
+  skos:prefLabel "ajanjakson ensisijainen nimi"@fi .
 
-:preferredNameOfTimespanNomen a owl:ObjectProperty;
+:preferredNameOfTimespanNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Timespan ;
   rdfs:range :Nomen ;  skos:closeMatch rdat:P70049 ;
-  skos:editorialNote "P74";
-  skos:prefLabel "ajanjakson ensisijainen nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P74";
+  skos:prefLabel "ajanjakson ensisijainen nimi (kohde)"@fi .
 
 :producerAgentOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3434,17 +3281,16 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   :ahaaLabel  "Tuottaja";
   :ahaaValue rdaa:P50201 .
 
-:producerCorporateBody  a owl:ObjectProperty;
+:producerCorporateBody  a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Work ;
   rdfs:range :CorporateBody;
   skos:closeMatch rdaw:P10548 ;
-  skos:editorialNote  "Huomautus: Salla/MuseumPlus: OK";
   skos:prefLabel "tiedon tuottajaorganisaatio"@fi;
-  :museumPlus "Domain";
-  :propertyScope "#" .
+  :museumPlus "Domain" ;
+  :marc21equivalent "040 c" .
 
-:productOfMerger a owl:ObjectProperty;
+:productOfMerger a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -3454,14 +3300,14 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:editorialNote "ISNI: tärkeä",
      "Kuvaus: yhdistymistä edeltänyt yhteisö:(1=<2)",
     "NTP: 8.1. Toimija-toimija-roolit ",
-     "P195",
-     "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P195",
+     "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "yhdistymisestä muodostunut yhteisö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W";
-  :propertyScope "166" .
+  :marc21equivalent   "510 w";
+.
 
-:productOfSplit a owl:ObjectProperty;
+:productOfSplit a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -3470,12 +3316,12 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:closeMatch mts:m1162, rdaa:P50014 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P203",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P203",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "Jakautumisesta muodostunut"@fi;
-  :propertyScope "194" .
+.
 
-:prominentMemberOfFamily a owl:ObjectProperty;
+:prominentMemberOfFamily a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Family ;
   rdfs:range :Person ;
@@ -3484,14 +3330,12 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:editorialNote  "Huomautus: Salla/MuseumPlus: liittyvän toimijan tyyppi",
     "Kuvaus: Yksilöi sukua ensisijaisen nimen yhteydessä, mikäli tarpeellista",
      "NTP: 8.1. Toimija-toimija-roolit ",
-    "RDA Toolkit: 10.6.";
+    "original.rdatoolkit.org : 10.6.";
   skos:note "Ydinelementti";
   skos:prefLabel "suvun tunnettu jäsen"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   " 500W-510W",
-     "400 #3 a 0";
-  :museumPlus "PerPersonAref(TypeAvoc)";
-  :propertyScope "169" .
+  :marc21equivalent "400 #3 a 0","500 w-510 w" ;
+  :museumPlus "PerPersonAref(TypeAvoc)".
 
 :publisherOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3503,7 +3347,7 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   :ahaaLabel  "Julkaisija";
   :ahaaValue rdaa:P50203 .
 
-:rdaPreferredNameOfCorporateBody a owl:ObjectProperty;
+:rdaPreferredNameOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
@@ -3515,23 +3359,18 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
     "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto",
      "Kuvaus: Toimijalla tulee olla RDA:n mukainen ensisijainen nimimuoto. Mikäli tällaista ei ole toimijaa luodessa kopioidaan tähän nimi kentästä ”Ensisijainen nimi”. Tätä voidaan kuitenkin muuttaa ilman, että sillä on vaikutusta mainittuun kenttään.",
     "NTP: 8.6. Toimijan nimien roolit",
-     "P339",
+     "ntpwikibase:P339",
      "Tyyppi: listan arvo";
   skos:prefLabel "yhteisön RDAn mukainen ensisijainen nimi"@fi;
   :ahaaValue "nameEntry/preferredForm  tai authorizedForm";
-  :marc21equivalent   " (110B Alayhteisön nimi – A+B)",
-     " 110A Yhteisön enisijainen nimi",
-     "100A Henkilön ensisijainen nimi";
-  :propertyScope "189";
+  :marc21equivalent  "110 a","110 b (Alayhteisön nimi – A+B)";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:rdaPreferredNameOfCorporateBodyNomen a owl:ObjectProperty;
+:rdaPreferredNameOfCorporateBodyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50041 ;
-
-  skos:prefLabel "yhteisön RDAn mukainen ensisijainen nimi"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "yhteisön RDAn mukainen ensisijainen nimi"@fi .
 
 :rdaPreferredNameOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3542,34 +3381,29 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:editorialNote "Ensisijanen nimi 9.2.2, 10.2.2, 11.2.2",
      "Kuvaus: Toimijalla tulee olla RDA:n mukainen ensisijainen nimimuoto. Mikäli tällaista ei ole toimijaa luodessa kopioidaan tähän nimi kentästä ”Ensisijainen nimi”. Tätä voidaan kuitenkin muuttaa ilman, että sillä on vaikutusta mainittuun kenttään.",
     "NTP: 8.6. Toimijan nimien roolit",
-     "P321",
-     "Tyyppi: listan arvo";
+    "ntpwikibase:P321",
+    "Tyyppi: listan arvo";
   skos:prefLabel "henkilön RDAn mukainen ensisijainen nimi"@fi;
   :ahaaValue "nameEntry/preferredForm  tai authorizedForm";
-  :marc21equivalent   " (110B Alayhteisön nimi – A+B)",
-     " 110A Yhteisön enisijainen nimi",
-     "100A Henkilön ensisijainen nimi";
-  :propertyScope "#";
+  :marc21equivalent   "100 a";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:rdaPreferredNameOfPersonNomen a owl:ObjectProperty;
+:rdaPreferredNameOfPersonNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:closeMatch rdaa:P50117 ;
   skos:editorialNote "Huomautus:  MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit käytetään, jos eri kieliversioita nameEntryParaller yhteydessä",
     "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto",
-     "P208";
+     "ntpwikibase:P208";
   skos:prefLabel "henkilön RDAn mukainen ensisijainen nimi (kohde)"@fi;
-  :propertyScope "212" .
+.
 
 :rdfuri a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:anyURI ;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P1921>;
-  skos:editorialNote "1",
-     "?mappaus",
-     "P61";
+  skos:editorialNote "ntpwikibase:P61";
   skos:prefLabel "RDF:ssä käytetty URL-muoto"@fi .
 
 :realIdentity  a     owl:ObjectProperty, rdf:Property ;
@@ -3580,24 +3414,20 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:altLabel "todellinen identiteetti"@fi;
   skos:closeMatch gndo:realIdentity, rdau:P60037 ;
   skos:editorialNote " 2.1.3. Toimijan suhteet ",
-     " 30, liite K",
-     "Huomautus: Voiko yksi ja sama identiteetti olla kahden eri toimijan identiteetti? Esim. Toimija 1 Tarja Halonen, Toimija 2 Tasavallan presidentti voiko identiteetti Tasavallan presidentti Tarja Halonen olla molempien identiteetti?",
-    "ISAAR(CPF): 5.3.1",
-     "Kuvaus: Toimijaan voi liittyä eri identiteettejä ja identiteetin tulee aina liittyä johonkin toimijaan. Todellinen identitetti = toimija, Toinen identiteetti =",
-    "NTP: 8.1. Toimija-toimija-roolit ",
-     "P106",
-     "RDA Toolkit: K.2.1  ",
+     "original.rdatoolkit.org: 30, liite K.2.1",
+     "ISAAR(CPF): 5.3.1",
+     "NTP: 8.1. Toimija-toimija-roolit ",
+     "ntpwikibase:P106",
      "Selite: Todellinen eli syntymässä annettu identiteetti. Toimijaan voi liittyä eri identiteettejä ja identiteetin tulee aina liittyä johonkin toimijaan.  ",
     "Tyyppi: Relaatio: Toimija/Identiteetti + Tyyppi: 7.17 Toimija - Identiteetti –rooli + Relaatio: Aika";
   skos:prefLabel "todellinen identiteetti"@fi;
   :ahaaLabel  "TJ98 Identiteetti";
   :ahaaValue "  cpfRelation + ”@cpfRelationType=identity” tai multipleidentities /identity ”@localType=” ",
     "voidaan esittää multiple identities tai cpf-relation avulla";
-  :marc21equivalent   "500W";
-  :propertyScope "119;171";
+  :marc21equivalent   "500 w";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:realIdentityOfPersonOf a owl:ObjectProperty;
+:realIdentityOfPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range :Person ;
@@ -3621,11 +3451,9 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   skos:prefLabel "ylläpitomerkinnät"@fi;
   :ahaaLabel  "TJ31 Ylläpitomerkinnät";
   :ahaaValue "(maintenanceHistory)";
-  :marc21equivalent   "-";
-  :propertyScope "181";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:recordingSource a owl:ObjectProperty;
+:recordingSource a owl:ObjectProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
@@ -3644,7 +3472,7 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   :ahaaLabel  "TJ35 Lähteet";
   :ahaaValue "sourceEntry";
   :marc21equivalent   "670";
-  :propertyScope "126";
+  
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :recordistAgentOf a owl:DatatypeProperty, rdf:Property;
@@ -3662,7 +3490,7 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
   rdfs:range xsd:string ;
   skos:prefLabel "arkistonmuodostaja"@fi .
 
-:recordStatus a owl:DatatypeProperty ;
+:recordStatus a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
@@ -3673,7 +3501,7 @@ käytetään, jos eri kieliversioita nameEntryParaller yhteydessä""",
     "Kuvaus: Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä luonnos, lopullinen ja/tai muutettu vai poistettu versio. (Valintalista)",
     "Kuvaus: Tyyppi: 7.16 Toimija-auktoriteettitiedoston tila",
      "NTP: 2.1.4. Toimijakuvailun hallinta",
-    "RDA Toolkit: 8.10.",
+    "original.rdatoolkit.org : 8.10.",
      """Selite:  recordStatus, 
 Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä ehdotus, luonnos, lopullinen ja/tai muutettu vai poistettu versio. (Valintalista)""",
     "Tyyppi: 7.16 Toimija-auktoriteettitiedoston tila";
@@ -3681,10 +3509,9 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   :ahaaLabel  "TJ33 Tila";
   :ahaaValue "(maintenanceStatus, publicationStatus)";
   :marc21equivalent   "Nimiö mp17";
-  :propertyScope "124";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:referenceGroup a owl:ObjectProperty;
+:referenceGroup a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :CorporateBody;
@@ -3693,13 +3520,13 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:editorialNote  "ISNI: tärkeä",
      "Kuvaus: Henkilön viiteryhmä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-    "RDA Toolkit: 9.13.";
+    "original.rdatoolkit.org : 9.13.";
   skos:prefLabel "viiteryhmä"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”associative” tarvitaessa vaihtoehtoisesti XLINK:ARCHROLE ";
-  :marc21equivalent   "500W-510W";
-  :propertyScope "142" .
+  :marc21equivalent   "500 w -510 w";
+.
 
-:relatedAgentOfAgent a owl:ObjectProperty;
+:relatedAgentOfAgent a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range "Agent";
@@ -3710,23 +3537,22 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
     "Kuvaus: Relaatio: Toimija + Tyyppi: 8.1 Toimija toimija rooli+ Relaatio: Aika+ Teksti",
     "Kuvaus: Relates an agent to an agent who is associated with an agent.",
      "NTP: 2.1.3. Toimijan suhteet ",
-    "P282",
-     "RDA Toolkit: 30-32, liite I",
+    "ntpwikibase:P282",
+     "original.rdatoolkit.org : 30-32, liite I",
      "Selite: Toimija voidaan liittää toiseen toimijaan.";
   skos:prefLabel "toimijaan liittyvä toimija"@fi;
   :ahaaLabel  "TJ21 Toimija";
-  :propertyScope "118" .
+.
 
-:relatedAgentOfWork a owl:ObjectProperty;
+:relatedAgentOfWork a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Work ;
   rdfs:range "Agent";
   skos:closeMatch rdaw:P10311 ;
-  skos:editorialNote "P297";
-  skos:prefLabel "teokseen liittyvä toimija"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P297";
+  skos:prefLabel "teokseen liittyvä toimija"@fi .
 
-:relatedCorporateBodyOfAgent a owl:ObjectProperty;
+:relatedCorporateBodyOfAgent a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range :CorporateBody;
@@ -3738,16 +3564,15 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
      "ISNI: Relationship, Related ISNI",
      "Kuvaus: Toimija voidaan liittää toiseen toimijaan.",
     "NTP: 2.1.3. Toimijan suhteet ",
-     "P309",
-     "RDA Toolkit: 30-32, liite I",
+     "ntpwikibase:P309",
+     "original.rdatoolkit.org : 30-32, liite I",
      "Tyyppi: Relaatio: Toimija + Tyyppi: 8.1 Toimija toimija rooli+ Relaatio: Aika+ Teksti";
   skos:prefLabel "toimijaan liittyvä yhteisö"@fi;
   :ahaaLabel  "TJ21 Toimija";
   :ahaaValue "cpfRelation + CPFRELATIONTYPE tai XLINK:ARCROLE+ date/dateRange/DateSet ";
-  :marc21equivalent   "373 $a";
-  :propertyScope "278" .
+  :marc21equivalent   "373 a 0 1 2" .
 
-:relatedCorporateBodyOfCorporateBody a owl:ObjectProperty;
+:relatedCorporateBodyOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -3755,17 +3580,16 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch  org:linkedTo, rdaao:P50336 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P184",
-    "RDA Toolkit: 11.5.";
+     "ntpwikibase:P184",
+    "original.rdatoolkit.org : 11.5.";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisöön liittyvä yhteisö"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”associative” tarvitaessa vaihtoehtoisesti XLINK:ARCHROLE ";
-  :marc21equivalent   " 510 a (koko nimi osakenttineen b, c, d ja q)",
-     "510Wt";
-  :museumPlus "PerPersonAref(TypeAvoc)";
-  :propertyScope "248" .
+  :marc21equivalent "510 w t",
+     "510 a (koko nimi osakenttineen b, c, d ja q)" ;
+  :museumPlus "PerPersonAref(TypeAvoc)".
 
-:relatedCorporateBodyOfPerson a owl:ObjectProperty;
+:relatedCorporateBodyOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain "Person ";
   rdfs:range :CorporateBody;
@@ -3773,22 +3597,21 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch rdaao:P50318 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P122";
+     "ntpwikibase:P122";
   skos:prefLabel "henkilöön liittyvä yhteisö (kohde)"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”associative” tai XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "510W-500W";
-  :propertyScope "158" .
+  :marc21equivalent   "510 w -500 w";
+.
 
 :relatedCorporateBodyOfPersonString a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50318 ;
-  skos:editorialNote "P349";
-  skos:prefLabel "henkilöön liittyvä yhteisö"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P349";
+  skos:prefLabel "henkilöön liittyvä yhteisö"@fi .
 
-:relatedCorporateBodyOfPlace a owl:ObjectProperty;
+:relatedCorporateBodyOfPlace a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain  :Place ;
   rdfs:range :CorporateBody;
@@ -3802,38 +3625,34 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   rdfs:range xsd:string ;
   skos:altLabel "yhteisöön liittyvä nomen"@fi;
   skos:closeMatch rdaad:P50352 ;
-  skos:editorialNote "P340";
-  skos:prefLabel "yhteisöön liittyvä nimi"@fi;
-  :propertyScope "159" .
+  skos:editorialNote "ntpwikibase:P340";
+  skos:prefLabel "yhteisöön liittyvä nimi"@fi.
 
-:relatedNameOfCorporateBodyNomen a owl:ObjectProperty;
+:relatedNameOfCorporateBodyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50352 ;
 
-  skos:prefLabel "yhteisöön liittyvä nimi (kohde)"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "yhteisöön liittyvä nimi (kohde)"@fi .
 
 :relatedNameOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50348 ;
-  skos:editorialNote "P325";
-  skos:prefLabel "henkilöön liittyvä nimi"@fi;
-  :propertyScope "300" .
+  skos:editorialNote "ntpwikibase:P325";
+  skos:prefLabel "henkilöön liittyvä nimi"@fi.
 
-:relatedNomenOfPerson a owl:ObjectProperty;
+:relatedNomenOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:altLabel "henkilöön liittyvä Nomen"@fi;
   skos:closeMatch rdaa:P50348 ;
   skos:editorialNote "NTP: 2.1.3. Toimijan suhteet ",
-     "P153";
-  skos:prefLabel "henkilöön liittyvä nimi (kohde)"@fi;
-  :propertyScope "#" .
+     "ntpwikibase:P153";
+  skos:prefLabel "henkilöön liittyvä nimi (kohde)"@fi .
 
-:relatedPersonOfCorporateBody a owl:ObjectProperty;
+:relatedPersonOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Person ;
@@ -3841,23 +3660,22 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch rdaao:P50334 ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P173";
+     "ntpwikibase:P173";
   skos:prefLabel "yhteisöön liittyvä henkilö"@fi;
-  :marc21equivalent   "510W-500W";
-  :propertyScope "239" .
+  :marc21equivalent   "510W-500W" .
 
-:relatedPersonOfPerson a owl:ObjectProperty;
+:relatedPersonOfPerson a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Person ;
   skos:altLabel "henkilöön liittyvä henkilö"@fi;
   skos:closeMatch rdaao:P50316 ;
   skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit ",
-     "P313";
+     "ntpwikibase:P313";
   skos:prefLabel "henkilöön liittyvä henkilö"@fi;
   :ahaaValue "cpfRelation+ XLINK:ARCROLE=rdaregistrynURI";
-  :marc21equivalent   "500W-510W";
-  :propertyScope "196" .
+  :marc21equivalent   "500 w -510 w";
+.
 
 :relatedPlaceOfAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3870,32 +3688,28 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
      "Kuvaus: Linkki YSO-paikkoihin",
      "Kuvaus: Relaatio: Paikka",
     "NTP: 2.1.2. Toimijan kuvailu ",
-     "P279",
+     "ntpwikibase:P279",
      "Selite: Linkki YSO-paikkoihin",
      "Tyyppi: Relaatio: Paikka";
   skos:prefLabel "toimijaan liittyvä paikka"@fi;
   :ahaaLabel  "TJ09 Paikka";
   :ahaaValue "placeEntry";
-  :marc21equivalent   " 370  $e $0 $2 ",
-     " 370  $g $0 $2  ",
-     "370 $c $0 $2 ";
-  :propertyScope "109" .
+  :marc21equivalent   " 370 c e g 0 2" .
 
-:relatedPlaceOfAgentObject a owl:ObjectProperty;
+:relatedPlaceOfAgentObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range  :Place ;
   skos:closeMatch rdaao:P50338 ;
-
-  skos:prefLabel "toimijaan liittyvä paikka"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "toimijaan liittyvä paikka"@fi ;
+  :marc21equivalent "370 c f 0 2" .
 
 :relatedPlaceOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
   skos:closeMatch  org:Site, rdaad:P50350 ;
-  skos:editorialNote "P337";
+  skos:editorialNote "ntpwikibase:P337";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisöön liittyvä paikka"@fi;
   :ahaaLabel  "yhteisöön liittyvä paikka |has place associated with the corporate body";
@@ -3903,10 +3717,9 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   :marc21equivalent   "370 c f";
   :museumPlus "Lakkauttamispaikka",
     "Perustamispaikka",
-     "RyhmanPaikka";
-  :propertyScope "#" .
+     "RyhmanPaikka" .
 
-:relatedPlaceOfCorporateBodyObject a owl:ObjectProperty;
+:relatedPlaceOfCorporateBodyObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range  :Place ;
@@ -3915,13 +3728,12 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:editorialNote "ISNI: tärkeä",
      "Kuvaus: ISO-8601 (EDTF 1.0) mukainen ajan kuvaus.",
     "NTP: 8.9. Paikkaroolit",
-     "P176",
-     "RDA Toolkit: 11.3.",
+     "ntpwikibase:P176",
+     "original.rdatoolkit.org : 11.3.",
      "isaar cpf: 5.2.3 Places";
   skos:prefLabel "yhteisöön liittyvä paikka (kohde)"@fi;
   :ahaaValue "placeEntry +placeRole";
-  :marc21equivalent   "370 CEF, 370#7 $0 yso/fin,";
-  :propertyScope "295" .
+  :marc21equivalent   "370 c f 1","370 f 0 2yso/fin" .
 
 :relatedPlaceOfFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3929,48 +3741,46 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50354 ;
   skos:editorialNote "Huomautus:  Salla/MuseumPlus: (kun yhteisötyyppi Suku)",
-     "P333";
+     "ntpwikibase:P333";
   skos:note "Ydinelementti";
   skos:prefLabel "sukuun liittyvä paikka"@fi;
   :ahaaLabel  "sukuun liittyvä paikka";
   :ahaaValue rdaa:P50354;
-  :marc21equivalent   "370 a";
+  :marc21equivalent   "370 c f 2yso/fin";
   :museumPlus "",
     "Kuolinpaikka",
-     "Syntymäpaikka";
-  :propertyScope "#" .
+     "Syntymäpaikka" .
 
-:relatedPlaceOfFamilyObject a owl:ObjectProperty;
+:relatedPlaceOfFamilyObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Family ;
   rdfs:range  :Place ;
   skos:altLabel "sukuun liittyvä paikka"@fi;
   skos:closeMatch rdaa:P50354 ;
   skos:editorialNote "NTP: 8.9. Paikkaroolit",
-     "P296",
-     "RDA Toolkit: 0.6.7 Osio 3: ";
+     "ntpwikibase:P296",
+     "original.rdatoolkit.org : 0.6.7 Osio 3: ";
   skos:prefLabel "sukuun liittyvä paikka (kohde)"@fi;
-  :ahaaLabel  rdaa:P50354;
-  :propertyScope "297" .
+  :ahaaLabel  "rdaa:P50354" ;
+  :marc21equivalent   "370 c f 1","370 c f 0 2yso/fin" .
 
 :relatedPlaceOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Person ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50346 ;
-  skos:editorialNote "P326";
+  skos:editorialNote "ntpwikibase:P326";
   skos:prefLabel "henkilöön liittyvä paikka"@fi;
-  :marc21equivalent   "370F";
-  :propertyScope "#" .
+  :marc21equivalent   "370 c f 2yso/fin" .
 
-:relatedPlaceOfPersonObject a owl:ObjectProperty;
+:relatedPlaceOfPersonObject a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range  :Place ;
   skos:closeMatch rdaa:P50346 ;
-  skos:editorialNote "P119";
-  skos:prefLabel "henkilöön liittyvä paikka (kohde)"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P119";
+  skos:prefLabel "henkilöön liittyvä paikka (kohde)"@fi ;
+  :marc21equivalent   "370 f 0 2yso/fin" .
 
 :relatedTimespanOfAgent a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3982,14 +3792,13 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
      "Kuvaus: Relaatio: Ajallinen ilmiö + Tyyppi: 7.15 Toimija-Ajallinen ilmiö -roolit + Relaatio: Aika",
     "Kuvaus: Toimijaan liittyvät ajalliset ilmiöt.",
      "NTP: 2.1.3. Toimijan suhteet ",
-    "P270",
+    "ntpwikibase:P270",
      "Selite: Toimijaan liittyvät ajalliset ilmiöt.",
      "Tyyppi: Relaatio: Ajallinen ilmiö + Tyyppi: 7.15 Toimija-Ajallinen ilmiö -roolit + Relaatio: Aika";
   skos:prefLabel "toimijaan liittyvä ajanjakso"@fi;
   :ahaaLabel  "TJ25 Ajallinen ilmiö";
   :ahaaValue "(generalContext, resourceRelation)";
-  :marc21equivalent   "1XX $d ";
-  :propertyScope "120" .
+:marc21equivalent "100 d","110 d","111 d" .
 
 :relatedTimespanOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -3997,10 +3806,10 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50351 ;
   skos:editorialNote "Huomautus: $s ja $t kirjataan yhdessä ja kirjataan tarkenteisiin erillisinä P66 ja P67",
-    "P269";
+    "ntpwikibase:P269";
   skos:note "Ydinelementti";
   skos:prefLabel "yhteisöön liittyvä ajanjakso"@fi;
-  :marc21equivalent   "046 s t";
+  :marc21equivalent   "046 s + t";
   :museumPlus "Biografia_alkamisvuosi-Biografia_paattymisvuosi" .
 
 :relatedTimespanOfEntity a owl:DatatypeProperty, rdf:Property;
@@ -4014,7 +3823,7 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi;
   :ahaaLabel  "AIK1 Ajan kuvaus";
   :ahaaValue "date, daterange (standardDate-attribuutti)";
-  :marc21equivalent   "046S-046T";
+  :marc21equivalent   "046 s + t";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -4026,8 +3835,8 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch rdaad:P50355 ;
   skos:editorialNote "Kuvaus: Suvun historiaan liittyvä merkittävä ajankohta",
      "NTP: 8.7. Aikaroolit ",
-    "P295",
-     "RDA Toolkit: 10.4.",
+    "ntpwikibase:P295",
+     "original.rdatoolkit.org : 10.4.",
      "rdat:P70012 \"has related family of timespan;Kuvaus: Suvun historiaan liittyvä merkittävä ajankohta;rdat:P70012 \"has related family of timespan";
   skos:note "Ydinelementti";
   skos:prefLabel "sukuun liittyvä ajanjakso"@fi;
@@ -4035,16 +3844,15 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   :ahaaValue "bioghistàchronItem ->dateRange",
     rdaa:P50058;
   :museumPlus "Syntymäaika-Kuolinaika";
-  :propertyScope "238" .
+  :marc21equivalent "046 s + t","376 s + t" .
 
 :relatedTimespanOfIdentifier a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Identifier ;
   rdfs:range xsd:string ;
   skos:closeMatch rdand:P80008 ;
-  skos:editorialNote "P300";
-  skos:prefLabel "tunnisteeseen liittyvä ajanjakso"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P300";
+  skos:prefLabel "tunnisteeseen liittyvä ajanjakso"@fi .
 
 :relatedTimespanOfNomen a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4054,13 +3862,12 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch rdand:P80008 ;
   skos:editorialNote "Kuvaus: Nimen aika",
      "NTP: 6. Toimijan nimi",
-     "P301",
-     "RDA Toolkit: 9.3, 10.4, 11.4",
+     "ntpwikibase:P301",
+     "original.rdatoolkit.org : 9.3, 10.4, 11.4",
     "Tyyppi: Relaatio: Aika";
   skos:prefLabel "nomeniin liittyvä ajanjakso"@fi;
   :ahaaLabel  "TONI3 Aika";
   :ahaaValue "useDates";
-  :propertyScope "143";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :relatedTimespanOfPerson a owl:DatatypeProperty, rdf:Property;
@@ -4070,12 +3877,11 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:closeMatch rdaa:P50347 ;
   skos:editorialNote " Henkilön kuolinaikakausi: alku, loppu",
      "Huomautus:  Henkilön syntymäaikakausi: alku, loppu",
-    "P266";
+    "ntpwikibase:P266";
   skos:prefLabel "henkilöön liittyvä ajanjakso"@fi;
-  :museumPlus " Kuolinaika_aikakausi",
-    "Syntymaaika_aikakausi";
-  :propertyScope "#" .
-
+  :museumPlus " Kuolinaika_aikakausi", "Syntymaaika_aikakausi" ;
+  :marc21equivalent "046 f + g" .
+ 
 :relatedTimespanOfPlace a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain  :Place ;
@@ -4085,11 +3891,10 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   skos:editorialNote "ISAAR(CPF):  5.2.3.",
      "Kuvaus: Toimijan suhteella paikkaan voi olla aikatieto",
     "NTP: 5. Paikka",
-     "P303",
+     "ntpwikibase:P303",
      "Tyyppi: Relaatio: Aika";
   skos:prefLabel "paikkaan liittyvä ajanjakso"@fi;
   :ahaaLabel  "(TJ09 Paikka)";
-  :propertyScope "138";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :relatedTimespanOfRDAEntity a owl:DatatypeProperty, rdf:Property;
@@ -4098,25 +3903,24 @@ Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä 
   rdfs:range xsd:string ;
   skos:altLabel "ajanjakso"@fi;
   skos:closeMatch rdax:P00011 ;
-  skos:editorialNote """Huomautus:  Aika elementti kuvaa EDTF 1.0 [1] formaatin mukaisesti ajanjaksoa, jolla on jokin tietty rooli. Tämä elementti on aina liitetty johonkin kuvailtavaan kohteeseen tai suhteeseen eikä se ole itsenäisesti tarkasteltava kohde.
-  Tuntematta EDTF:ää kysymys: sisältääkö myös tiedon varmuuden, sanallisen kuvauksen jne.  ilmaisemisen?
-Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
-    "ISAAR(CPF):  ei tarkastele ajankohtia rakenteellisessa muodossa",
+  skos:editorialNote 
+      "Huomautus:  Aika elementti kuvaa EDTF 1.0 [1] formaatin mukaisesti ajanjaksoa, jolla on jokin tietty rooli. Tämä elementti on aina liitetty johonkin kuvailtavaan kohteeseen tai suhteeseen eikä se ole itsenäisesti tarkasteltava kohde.",
+      "Sisältääkö myös tiedon varmuuden, sanallisen kuvauksen jne.  ilmaisemisen. ämän tosin kattaa nykymäärityksessä edellisen polven standardiilmauksen",
+     "ISAAR(CPF):  ei tarkastele ajankohtia rakenteellisessa muodossa",
      "ISNI: Date",
      "Kuvaus: ISO-8601 (EDTF 1.0) mukainen ajan kuvaus.",
-    "NTP: 4. Aika",
-     "P81",
+     "NTP: 4. Aika",
+     "ntpwikibase:P81",
      "SPECTRUM: Date earliest/single, Date earliest/singles certainty, Date earliest/singles qualifier, Date latest, Date latest certainty, Date latest qualifier, Date Period, Date text",
-    "Tyyppi: ISO-8601 (EDTF 1.0?)";
+    "Tyyppi: ISO-8601 (EDTF 1.0)";
   skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi;
   :ahaaLabel  "AIK1 Ajan kuvaus";
   :ahaaValue "date, daterange (standardDate -attribuutti)";
-  :marc21equivalent   "046S - 046T";
-  :propertyScope "134";
+  :marc21equivalent   "046 s + t";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:relatedWorkOfAgent a owl:ObjectProperty;
+:relatedWorkOfAgent a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Agent;
   rdfs:range :Work ;
@@ -4128,13 +3932,12 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
      "Kuvaus: Toimijan ja aineiston väliset suhteet määritelään taustajärjestelmissä. ISNIssä pakolliset aineistotiedot voidaan hakea FINNAsta. Linkki ulkoiseen tietolähteeseen,josta löytyy tietoa toimijaan liittyvistä aineistoista ja toimijan suhteista niihin. (Pakollinen ISNIssä)",
     "Kuvaus: Uri (Tavoitetilassa Finnasta toimijan nimellä tehdyn haun tulokset)",
      "NTP: 2.1.3. Toimijan suhteet ",
-    "P286",
+    "ntpwikibase:P286",
      "Selite: Toimijan ja aineiston väliset suhteet määritelään taustajärjestelmissä. ISNIssä pakolliset aineistoatiedot voidaan hakea FINNAsta. Linkki ulkoiseen tietolähteeseen,josta löytyy tietoa toimijaan liittyvistä aineistoista ja toimijan suhteista niihin. (Pakollinen ISNIssä)",
     "Tyyppi: Uri (Tavoitetilassa Finnasta toimijan nimellä tehdyn haun tulokset)";
   skos:prefLabel "toimijaan liittyvä teos"@fi;
   :ahaaLabel  "(TJ23 Aineisto)";
   :ahaaValue "(resourceRelation)";
-  :propertyScope "121";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :relatedWorkOfAgentString a owl:DatatypeProperty, rdf:Property;
@@ -4144,35 +3947,30 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   skos:altLabel "toimijaan liittyvä teos (literaali)"@fi;
   skos:closeMatch rdaad:P50305 ;
   skos:editorialNote "ISAAR(CPF): 6.* resourceRelation",
-     "Kuvaus: Teksti/linkki(?)",
-    "Kuvaus: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti.",
-    "NTP: 2.1.5 ?",
-     "P271",
-     "RDA Toolkit: 18-22, liite I",
-     "Selite: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti.",
-    "Tyyppi: Teksti/linkki(?)";
+     "Kuvaus: Teksti/linkki",
+     "Kuvaus: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti.",
+     "ntpwikibase:P271",
+     "original.rdatoolkit.org : 18-22, liite I",
+     "Selite: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti." ;
   skos:prefLabel "toimijaan liittyvä teos (string)"@fi;
   :ahaaLabel  "TJ17 Julkaisut";
   :ahaaValue "citation";
-  :marc21equivalent   "-";
-  :propertyScope "128";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:restrictionOfGender a owl:ObjectProperty;
+:restrictionOfGender a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "viewingRestriction";
-  skos:altLabel "TJ03 Sukupuoli(?)"@fi;
+  skos:altLabel "TJ03 Sukupuoli"@fi;
   skos:editorialNote  "NTP: 8.3  Näyttörajoitettavat attribuutit";
-  skos:prefLabel "TJ03 Sukupuoli(?)"@fi;
-  :propertyScope "264";
+  skos:prefLabel "TJ03 Sukupuoli"@fi;
   :viewingRestriction "20" .
 
 :rightOfAccessOfIdentity a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Work ;
   rdfs:range xsd:string ;
-  skos:editorialNote  "Selite: nimitietopalvelun selvityksessä (julkinen/ei-julkinen|public/non-public)";
+  skos:editorialNote  "Selite: nimitietopalvelun selvityksessä. Arvot: julkinen/ei-julkinen. Values: public/non-public";
   skos:prefLabel "identiteetin julkisuus"@fi .
 
 :sharedIdentity a owl:DatatypeProperty, rdf:Property;
@@ -4184,7 +3982,7 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   :marc21equivalent   "008/32";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:signatory a owl:ObjectProperty;
+:signatory a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Work ;
   rdfs:range :Person ;
@@ -4194,21 +3992,27 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   :ahaaLabel  "Ratkaisija (asiakirjan allekirjoittaja)";
   :ahaaValue "jhs:J304" .
 
-:significantEvent a owl:ObjectProperty;
+:significantEvent a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain [ a owl:Class ; owl:unionOf ( :Person :CorporateBody )] ;
   rdfs:range "Event";
-  skos:editorialNote "P91";
+  skos:editorialNote "ntpwikibase:P91";
   skos:prefLabel "merkittävä tapahtuma"@fi;
-  :marc21equivalent   "510 i";
-  :propertyScope "#" .
+  :marc21equivalent   "510 i" .
 
-:significantPlace a owl:ObjectProperty;
+:significantPerson a owl:ObjectProperty, rdf:Property;
+  rdf:type :Item ;
+  rdfs:domain :Family ;
+  rdfs:range  :Person ;
+  skos:closeMatch rdaa:P50060 ;
+  skos:prefLabel "suvun merkittävän jäsenen nimi"@fi, "prominent member of family"@en;
+  :marc21equivalent "376 b".
+
+:significantPlace a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain [ a owl:Class ; owl:unionOf ( :Person :CorporateBody )] ;
   rdfs:range  :Place ;
-  skos:editorialNote "?mappaus",
-     "P65";
+  skos:editorialNote "ntpwikibase:P65";
   skos:prefLabel "merkittävä paikka (kohde)"@fi .
 
 :sortingOrder  a owl:DatatypeProperty, rdf:Property;
@@ -4227,10 +4031,10 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   rdfs:range "rdf:langString",
      "xsd:string";
   skos:closeMatch rdau:P61101 ;
-  skos:editorialNote  "Huomautus: Museoilla vapaatekstikenttä. wikibasessa oma Lähteet-kenttä!",
-    "P116",
-     "x";
-  skos:prefLabel "Lähdeproperty"@fi, "tiedon lähde"@fi;
+  skos:editorialNote  "Huomautus: Museoilla vapaatekstikenttä. wikibasessa oma Lähteet-kenttä.",
+    "ntpwikibase:P116";
+  skos:prefLabel  "tiedon lähde"@fi;
+  skos:altLabel "lähdeproperty"@fi;
   :marc21equivalent   "670 a";
   :museumPlus "Biografia_lahde",
     "MuutNimet_Lahde" .
@@ -4240,7 +4044,7 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   rdfs:domain :Entity ;
   rdfs:range xsd:anyURI ;
   skos:closeMatch rdau:P61101 ;
-  skos:editorialNote "P56",
+  skos:editorialNote "ntpwikibase:P56",
      "x";
   skos:prefLabel "lähde-URL"@fi;
   :marc21equivalent   "670 u" .
@@ -4255,23 +4059,21 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   :ahaaLabel  "Puhuja";
   :ahaaValue rdaa:P50083 .
 
-:sponsoredCorporateBodyOfCorporateBody a owl:ObjectProperty;
+:sponsoredCorporateBodyOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
   skos:closeMatch rdaao:P50009 ;
-  skos:editorialNote "P200";
-  skos:prefLabel "yhteisön sponsoroima yhteisö"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P200";
+  skos:prefLabel "yhteisön sponsoroima yhteisö"@fi .
 
-:sponsoringCorporateBodyOfCorporateBody a owl:ObjectProperty;
+:sponsoringCorporateBodyOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
   skos:closeMatch rdaao:P50015 ;
-  skos:editorialNote "P201";
-  skos:prefLabel "yhteisöä sponsoroiva yhteisö"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P201";
+  skos:prefLabel "yhteisöä sponsoroiva yhteisö"@fi .
 
 :statusOfAuthority a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4283,7 +4085,7 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
      "Kuvaus: Boolean",
      "Kuvaus: Yhteiset yhdistetyt toimijat ovat auktorisoituja. Kentän oletusarvo on false. ",
     "NTP: 2.1.4. Toimijakuvailun hallinta",
-     "RDA Toolkit: 18.4.1.2",
+     "original.rdatoolkit.org : 18.4.1.2",
      "Selite: Yhteiset yhdistetyt toimijat ovat auktorisoituja. Kentän oletusarvo on false. ",
     "Tyyppi: Boolean",
      "ntp-vocab:statAuthorisation";
@@ -4292,7 +4094,6 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   :ahaaValue "(authorizedForm nimelle)";
   :marc21equivalent   "008/09";
   :museumPlus "MuutNimet_Status";
-  :propertyScope "127";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :statusOfIdentification a owl:DatatypeProperty, rdf:Property;
@@ -4303,16 +4104,15 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   skos:closeMatch modsrdf:recordInfo ;
   skos:editorialNote  "ISAAR(CPF):  5.4.5",
      "Kuvaus: Ilmaistaan onko auktoriteettitiedosto kuvailtu välttämättömillä, osittaisilla vai yksityiskohtaisilla tiedoilla. (Valintalista: fully established, provisional, preliminary)",
-    "Kuvaus: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste",
+     "Kuvaus: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste",
      "NTP: 2.1.4. Toimijakuvailun hallinta",
-    "RDA: Toolkit: rdan:P80168 viittaa nimen vahvistamisen tasoon",
+     "RDA: Toolkit: rdan:P80168 viittaa nimen vahvistamisen tasoon",
      "Selite: Ilmaistaan onko auktoriteettitiedosto kuvailtu välttämättömillä, osittaisilla vai yksityiskohtaisilla tiedoilla. (Valintalista)",
-    "Tyyppi: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste";
+     "Tyyppi: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste";
   skos:prefLabel "nimen vahvistamisen taso"@fi;
   :ahaaLabel  "TJ34 Auktoriteettitiedoston tarkkuusaste";
   :marc21equivalent   "008/33";
   :museumPlus "statusOfIdentification";
-  :propertyScope "125";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :style a owl:DatatypeProperty, rdf:Property;
@@ -4320,8 +4120,7 @@ Tämän tosin kattaa nykymäärityksessä edllisen polven standardiilmauksen""",
   rdfs:domain :Person ;
   rdfs:range rdf:langString;
   skos:editorialNote "<MUSEO>",
-     """Huomautus:  Salla/MuseumPlus: toimijan yleisimmin käyttämä tyyli (esim. taiteilijan tyyli) / Olisi hyvä tuoda?
-käytetty 2 kertaa (taidemaalarin tyyli)""";
+     "Huomautus:  MuseumPlus: toimijan yleisimmin käyttämä tyyli (esim. taiteilijan tyyli)";
   skos:prefLabel "tyyli"@fi;
   :museumPlus "Tyyli" .
 
@@ -4330,11 +4129,10 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
   skos:closeMatch rdau:P60805, rdaw:P10256 ;
-  skos:editorialNote "P252",
-     "RDA Toolkit: 23.2.3, M.2.6-M.2.8",
+  skos:editorialNote "ntpwikibase:P252",
+     "original.rdatoolkit.org : 23.2.3, M.2.6-M.2.8",
      "Selite: esim. YSO-käsite. Termi, ilmaus, luokka tms., joka ilmaisee mitä aihetta teos käsittelee.";
-  skos:prefLabel "aihe"@fi;
-  :propertyScope "#" .
+  skos:prefLabel "aihe"@fi .
 
 :subjectPersonOf a owl:DatatypeProperty, rdf:Property;
   rdf:type :Item ;
@@ -4343,7 +4141,7 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:closeMatch rdaa:P50249 ;
   skos:prefLabel "henkilö aiheena teoksessa"@fi .
 
-:successorOfCorporateBody a owl:ObjectProperty;
+:successorOfCorporateBody a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :CorporateBody;
@@ -4352,12 +4150,11 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:closeMatch rdaa:P50016,<https://www.wikidata.org/wiki/Property:P156> ;
   skos:editorialNote "ISNI: tärkeä",
      "NTP: 8.1. Toimija-toimija-roolit ",
-     "P186",
-    "RDA Toolkit: K.4.3. ";
+     "ntpwikibase:P186",
+    "original.rdatoolkit.org : K.4.3. ";
   skos:prefLabel "yhteisön seuraaja"@fi;
   :ahaaValue "cpfRelation+RELATIONTYPE=”temporal” tai ”temporal-earlier” ja ”temporal-later”";
-  :marc21equivalent   "510Wa-b";
-  :propertyScope "#" .
+  :marc21equivalent   "510 w a-b" .
 
 :surname a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4366,12 +4163,11 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:altLabel "sukunimi"@fi;
   skos:closeMatch foaf:familyName, rdaad:P50291 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P317",
+     "ntpwikibase:P317",
      "Tyyppi: Teksti";
   skos:prefLabel "sukunimi"@fi;
-  :marc21equivalent   "400 b";
+  :marc21equivalent   "400 a";
   :museumPlus "Sukunimi";
-  :propertyScope "290";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -4386,12 +4182,11 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
     "ISAAR(CPF): ei määritä toimijan nimeä rakenteisessa muodossa",
      "Kuvaus: Yhteisön tai suvun päänimi tai henkilön sukunimi",
     "NTP: 6. Toimijan nimi",
-     "P205",
+     "ntpwikibase:P205",
      "Tyyppi: Teksti";
   skos:prefLabel "sukunimi (kohde)"@fi;
   :ahaaLabel  "TONI1 Päänimeke/sukunimi";
   :ahaaValue "oma part +LOCALTYPE nameEntry:n yhteydessä";
-  :propertyScope "139";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -4405,48 +4200,45 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
      "Huomautus:  $2 arvo propertyyn P209 sanastotunnus",
     "Kuvaus: Henkilöllä tai suvulla voi olla arvonimi ",
      "NTP: 6. Toimijan nimi",
-     "P142",
-    "RDA Toolkit: 0.6.7 Osio 3:    9.4. 10.7.",
+     "ntpwikibase:P142",
+    "original.rdatoolkit.org : 0.6.7 Osio 3:    9.4. 10.7.",
      "Tyyppi: TekstiTyyppi: 7.7 Toimijan nimien roolit ";
   skos:note "Ydinelementti";
   skos:prefLabel "henkilön arvonimi"@fi;
   :ahaaLabel  "TONI5";
   :ahaaValue "oma part +LOCALTYPE nameEntry:n yhteydessä";
-  :marc21equivalent   "100C, 400C , 368D";
-  :museumPlus "Arvonimi";
-  :propertyScope "141" .
+  :marc21equivalent   "100 c","400 c","368 d";
+  :museumPlus "Arvonimi".
 
-:typeOfAddress a owl:DatatypeProperty ;
+:typeOfAddress a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain [ a owl:Class ; owl:unionOf ( :Person :CorporateBody )] ;
   rdfs:range xsd:string ;
   skos:editorialNote "<MUSEO>",
-     "?mappaus",
-     "Huomautus: ei ole vanhoissa toimijoissa?";
-  skos:prefLabel "yhteystieto?"@fi;
+    "Huomautus: ei ole vanhoissa toimijoissa";
+  skos:prefLabel "yhteystieto"@fi;
   :museumPlus "Yhteystiedot_tyyppi" .
 
 :typeOfCorporateBodyName a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :CorporateBody;
   rdfs:range xsd:string ;
-  skos:editorialNote  "Kuvaus: 0 - Inverted name, 1 - jurisdiction name, 2 - direct order ";
+  skos:editorialNote  "Kuvaus: Marc21 first indicator: 0 - Inverted name, 1 - jurisdiction name, 2 - direct order ";
   skos:prefLabel "yhteisön nimen tyypin indikaattori"@fi;
-  :marc21equivalent   "1100#, 1101#, 1102#";
-  :propertyScope "#";
+  :marc21equivalent   "110 0#","110 1#","110 2#";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-:typeOfIdentifier a owl:DatatypeProperty ;
+:typeOfIdentifier a owl:DatatypeProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Nomen ;
   rdfs:range "Tunnisteen tyyppi Q158";
   skos:closeMatch rdan:P80078 ;
-  skos:editorialNote "P239",
+  skos:editorialNote "ntpwikibase:P239",
      "museo";
   skos:prefLabel "tunnisteen tyyppi"@fi;
   :museumPlus "Tunnisteet_tyyppi" .
 
-:typeOfIdentity a owl:ObjectProperty;
+:typeOfIdentity a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range "identiteetin tyyppi (Q341)";
@@ -4454,13 +4246,12 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:editorialNote "Kuvaus: Kuvailun kohde on toimijan identiteetti. Yhdellä toimijalla voi olla useampia identiteettejä ja identiteetin tulee aina olla liitettynä johonkin toimijaan",
     "Kuvaus: Tyyppi: 7.16 Kuvailun kohde",
      "NTP: 8.15. Kuvailun kohde",
-     "P341",
+     "ntpwikibase:P341",
      "SPECTRUM: Person’s association, Organisation’s association, People’s association",
     "Selite: pakollinen ominaisuus, jolla ilmaistaan  onko kyseessä toimijan todellnen identiteetti vai toinen identiteeti",
     "Tyyppi: Tyyppi: 7.16 Kuvailun kohde";
   skos:prefLabel "identiteetin tyyppi"@fi;
   :ahaaValue "multipleIdentities/identity+IDENTITYTYPE =acquired ";
-  :propertyScope "261";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int>;
   sh:minCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
@@ -4469,11 +4260,10 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   rdfs:domain :Entity ;
   rdfs:range rdf:langString;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P2559>;
-  skos:editorialNote "?mappaus",
-     "P6";
+  skos:editorialNote "ntpwikibase:P6";
   skos:prefLabel "käyttöohjeet"@fi .
 
-:variantNameOfAgent a owl:ObjectProperty;
+:variantNameOfAgent a owl:ObjectProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
@@ -4482,15 +4272,12 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:editorialNote "Huomautus: tällöin nameEntryParaller sisällä jos vaihtoehtoinen nimi on ns. eri kielinen",
     "ISAAR CPF 5.1.3. Rinnakkainen nimimuoto",
      "NTP: 8.6. Toimijan nimien roolit",
-     "P304",
-    "RDA Toolkit: Varianttinimi 9.2.3., 10.2.3., 11.2.3.",
+     "ntpwikibase:P304",
+    "original.rdatoolkit.org : Varianttinimi 9.2.3., 10.2.3., 11.2.3.",
      "Tyyppi: listan arvo";
   skos:prefLabel "toimijan varianttinimi"@fi;
   :ahaaValue "nameEntry  tai nameEntry/alternativeForm";
-  :marc21equivalent   " (410B Alayhteisön nimi – A+B)",
-     " 410A Yhteisön nimi",
-     "400A Henkilön nimi";
-  :propertyScope "213" .
+  :marc21equivalent "400 a","410 a","410 b (a+b)" .
 
 :variantNameOfCorporateBody a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4499,27 +4286,26 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:altLabel "yhteisön varianttinimi"@fi;
   skos:closeMatch rdaad:P50025 ;
   skos:editorialNote "NTP: 6. Toimijan nimi",
-     "P292",
+     "ntpwikibase:P292",
      "Tyyppi: Teksti";
-  skos:prefLabel "yhteisön varianttinimi"@fi;
-  :propertyScope "101" .
+  skos:prefLabel "yhteisön varianttinimi"@fi ;
+  :marc21equivalent "410 a b" .
 
-:variantNameOfCorporateBodyNomen a owl:ObjectProperty;
+:variantNameOfCorporateBodyNomen a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :CorporateBody;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50025 ;
-  skos:editorialNote "P150";
-  skos:prefLabel "yhteisön varianttinimi (kohde)"@fi;
-  :propertyScope "#" .
-
+  skos:editorialNote "ntpwikibase:P150";
+  skos:prefLabel "yhteisön varianttinimi (kohde)"@fi ;
+  :marc21equivalent "410 a b" .
+  
 :variantNameOfFamily a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Family ;
   rdfs:range xsd:string ;
   skos:closeMatch rdaad:P50054 ;
-  skos:editorialNote "P293";
-  skos:prefLabel "suvun varianttinimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P293";
+  skos:prefLabel "suvun varianttinimi"@fi .
 
 :variantNameOfPerson a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4529,36 +4315,33 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:closeMatch dcterms:alternative, rdaad:P50103 ;
   skos:editorialNote "Huomautus: P114 > Nomen, kts. myös P64 nimi yksikielinen",
     "NTP: 8.6. Toimijan nimien roolit",
-     "P291";
+     "ntpwikibase:P291";
   skos:prefLabel "henkilön varianttinimi"@fi;
   :kaukoValue  "Muut nimet:";
   :marc21equivalent   "400 a";
-  :museumPlus "MuutNimet_Nimi";
-  :propertyScope "294" .
+  :museumPlus "MuutNimet_Nimi".
 
-:variantNameOfPersonOf a owl:ObjectProperty;
+:variantNameOfPersonOf a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Person ;
   rdfs:range :Nomen ;  skos:closeMatch rdaao:P50103 ;
-  skos:editorialNote "P114";
-  skos:prefLabel "henkilön varianttinimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P114";
+  skos:prefLabel "henkilön varianttinimi"@fi .
 
 :variantNameOfPlace a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain  :Place ;
   rdfs:range rdf:langString;
   skos:closeMatch rdap:P70003 ;
-  skos:editorialNote "P290";
-  skos:prefLabel "paikan varianttinimi"@fi;
-  :propertyScope "#" .
+  skos:editorialNote "ntpwikibase:P290";
+  skos:prefLabel "paikan varianttinimi"@fi .
 
 :variantNameOfTimespan a owl:DatatypeProperty, rdf:Property;
   rdf:type :Monolingualtext  ;
   rdfs:domain :Timespan ;
   rdfs:range rdf:langString;
   skos:closeMatch rdatd:P70050 ;
-  skos:editorialNote "P75";
+  skos:editorialNote "ntpwikibase:P75";
   skos:prefLabel "ajanjakson varianttinimi"@fi .
 
 :vatNumber a owl:DatatypeProperty, rdf:Property;
@@ -4574,9 +4357,9 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   rdfs:range xsd:anyURI ;
   skos:closeMatch rdaad:P50094 ;
   skos:editorialNote "Huomautus: kenttä 100 on ilman t-osakenttää",
-     "P60";
+     "ntpwikibase:P60";
   skos:prefLabel "VIAF-tunniste"@fi;
-  :marc21equivalent   "024 7# a, 0, 2 VIAF" .
+  :marc21equivalent   "024 7# a 0 2 VIAF" .
 
 :viewingRestriction a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
@@ -4589,14 +4372,13 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
      "NTP: 8.4. Näyttörajoitus tyypit",
      "ntp-vocab:viewingRestriction",
      "tarkenteena";
-  skos:prefLabel "näyttörajoitus"@fi;
-  :propertyScope "284" .
+  skos:prefLabel "näyttörajoitus"@fi.
 
 :vocabularyIdentifier a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Agent;
   rdfs:range xsd:string ;
-  skos:editorialNote "P209",
+  skos:editorialNote "ntpwikibase:P209",
      "tarkenteena";
   skos:prefLabel "sanastotunnus"@fi;
   :marc21equivalent   
@@ -4610,7 +4392,7 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:closeMatch rdaad:P50418 ;
   skos:editorialNote  "Huomautus: Salla/MuseumPlus: toimijan oman verkkosivun lisäksi voi olla hänestä tehty sivu (esim. Kansallisbiografia)";
   skos:prefLabel "verkkosivut"@fi;
-  :marc21equivalent   "371 U";
+  :marc21equivalent   "371 u";
   :museumPlus "Verkkosivut_verkkosivu" .
 
 :yhdistysrekisterinumero a owl:DatatypeProperty, rdf:Property;
@@ -4628,15 +4410,14 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
      "Selite: http://uri.suomi.fi/datamodel/ns/jhs#yhdistysrekisterinumero";
   skos:prefLabel "yhdistysrekisterinumero"@fi;
   :ahaaLabel  " EAC-CPF: entityId";
-  :marc21equivalent   "024 8* $a $q yhdistysrekisterinumero";
-  :propertyScope "180";
+  :marc21equivalent   "024 8* a q yhdistysrekisterinumero";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :ysoTerm a owl:DatatypeProperty, rdf:Property;
   rdf:type :String;
   rdfs:domain :Entity ;
   rdfs:range xsd:string ;
-  skos:editorialNote "P263",
+  skos:editorialNote "ntpwikibase:P263",
      "tarkenteena";
   skos:prefLabel "YSO-termi"@fi .
 
@@ -4646,7 +4427,7 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   rdfs:range xsd:anyURI ;
   skos:closeMatch rdau:P60805 ;
   skos:editorialNote "Kuvaus: tarkenteena",
-     "P43",
+     "ntpwikibase:P43",
      "Selite: kts. rdax:P00010",
      "tarkenteena";
   skos:prefLabel "YSO-ID"@fi .
@@ -4661,14 +4442,13 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
     "ISAAR CPF: 5.1.6 Identifiers for corporate bodies",
     "Kuvaus: jhs ",
     "NTP: 8.5. Tunnisteen roolit",
-    "P158",
-    "RDA Toolkit: 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId";
+    "ntpwikibase:P158",
+    "original.rdatoolkit.org : 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId";
   skos:closeMatch <http://uri.suomi.fi/datamodel/ns/jhs#ytunnus>,
                   <https://tietomallit.suomi.fi/model/yritysrek/y-tunnus/> ;
   skos:prefLabel "Y-tunnus"@fi;
   :ahaaLabel  " EAC-CPF: entityId";
-  :marc21equivalent   "024 8* $a $q Y-tunnus";
-  :propertyScope "122";
+  :marc21equivalent   "024 8* a q Y-tunnus";
   sh:maxCount "1"^^<http://www.w3.org/2001/XMLSchema#int> .
 
 :museumPlus a owl:DatatypeProperty, rdf:Property;
@@ -4699,18 +4479,17 @@ käytetty 2 kertaa (taidemaalarin tyyli)""";
   skos:editorialNote "kentän arvo Kauko-järjestelmässä"@fi;
   skos:prefLabel "huomautus Kauko elementistä"@fi .
 
-:constraint a owl:ObjectProperty;
+:constraint a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range :Entity ;
-  skos:editorialNote "P7";
+  skos:editorialNote "ntpwikibase:P7";
   skos:prefLabel "ominaisuusrajoite"@fi .
 
-:propertyScope a
-    "owl:ObjectProperty";
+:propertyScope a owl:ObjectProperty, rdf:Property;
   rdf:type :Item ;
   rdfs:domain :Entity ;
   rdfs:range :Entity ;
   skos:closeMatch <https://www.wikidata.org/wiki/Property:P5314>;
-  skos:editorialNote "P49";
+  skos:editorialNote "ntpwikibase:P49";
   skos:prefLabel "ominaisuuden kattavuus"@fi .
