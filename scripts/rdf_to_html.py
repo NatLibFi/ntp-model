@@ -70,6 +70,17 @@ class RDFtoHTML:
                 else:    
                     return(obj)
     
+    def sort_properties(self, graph, properties):
+        unsorted_properties = {}
+        for prop in properties:
+            pref_label = self.get_pref_label(graph, prop)
+            unsorted_properties[pref_label] = {prop: properties[prop]}
+        sorted_labels = sorted(unsorted_properties.keys(), key=str.casefold)
+        sorted_properties = {}
+        for pref_label in sorted_labels:
+            sorted_properties.update(unsorted_properties[pref_label])
+        return sorted_properties
+    
     def create_contents(self, html_doc, graph, header, properties):
         header_element = add_sublement(html_doc, 'h2', text=header)
         paragraph = add_sublement(html_doc, 'p')
@@ -87,7 +98,6 @@ class RDFtoHTML:
         header_element = add_sublement(html_doc, 'h2', text=header)
         paragraph = add_sublement(html_doc, 'div')
         for subject in properties:
-            sorted_properties = {}
             result = urldefrag(subject)
             if result:
                 pref_label = self.get_pref_label(graph, subject)
@@ -110,7 +120,8 @@ class RDFtoHTML:
                             result = urldefrag(subject)
                             if result:
                                 tag = result[0]
-                                if tag == self.base_url and prop != 'URI':
+                                base_tag = urldefrag(self.base_url)[0]
+                                if tag == base_tag and prop != 'URI':
                                     value_label = self.get_pref_label(graph, value)
                                     if value_label:
                                         value = value_label
@@ -201,7 +212,8 @@ class RDFtoHTML:
         link.set('href', 'stylesheet.css')
         link.tail = None
         body = etree.SubElement(html_doc, "body")
-
+        for t in data_model:
+            data_model[t] = self.sort_properties(g, data_model[t])
         for t in data_model:
             if data_model[t]:
                 self.create_contents(html_doc, g, HEADERS[t], data_model[t])

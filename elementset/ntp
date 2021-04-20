@@ -85,12 +85,12 @@
 
 :CategoryOfAgent a   owl:Class ;
   skos:editorialNote "Luokan arvot: henkilö, suku, yhteisö tai tapahtuma"@fi,"ntpwikibase:Q339" ; 
-  skos:prefLabel     "toimijan tyyppi"@fi, "category of agent"@en, "agenkategori"@sv .
+  skos:prefLabel     "Toimijan tyyppi"@fi, "category of agent"@en, "agenkategori"@sv .
 
 :CategoryOfFamily a  owl:Class ;
   skos:editorialNote "Suvun tyypit: klaani, kuningashuone, hallitsijasuku, aatelissuku"@fi, "ntpwikibase:Q342", 
                      "types of family: clan, royal house, dynasty, noble family"@en   ;
-  skos:prefLabel     "suvun tyyppi"@fi, "category of family"@en .
+  skos:prefLabel     "Suvun tyyppi"@fi, "category of family"@en .
  
 
 :CorporateBody a     owl:Class ;
