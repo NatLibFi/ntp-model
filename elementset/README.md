@@ -1,11 +1,13 @@
-### ntp.ttl Nimitietopalvelun elementtien ontologia  (luonnos)
+### ntp.ttl Nimitietopalvelun elementtien ontologia 
 - siirretään tänne myöhemmin
 
-### ntpt.ttl  Toimijasuhdeontologia (luonnos)
-Nimitietopalvelun toimijoiden välisten suhteiden ontologia joka täydentää edellistä.
-Pohjautuu Saksan kansalliskirjaston agrelon ontologiaan
+### Toimijasuhdeontologia
+Nimitietopalvelun toimijoiden välisten suhteet on määritelty Metatietosanastossa http://urn.fi/URN:NBN:fi:au:mts:m875
+Nämä perustuvat osittain Saksan kansalliskirjaston Agrelon ontologiaan
 
-### ntp  Finnish Agent Authority Registry Ontology (plan)
+### Finnish Agent Authority Registry
+The Finnish Agent Authorities are available at: https://finto.fi/finaf/
 
-### ntpt Finnish Agent Relationship Ontology (plan)
-based originally on the German AgRelOn 	https://d-nb.info/standards/elementset/agrelon
+### Finnish Agent Relationships
+The Agent relationships are provided in the Finnish Metadata thesaurus: https://finto.fi/mts/fi/page/m875
+They are partially based on the Agrelon ontolgy of the German National Library.
