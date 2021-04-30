@@ -14,10 +14,11 @@
  limitations under the License.
 """
 
-from rdflib import Graph, URIRef, Namespace, RDF, Literal
+from rdflib import Graph, URIRef, BNode, Namespace, RDF, Literal
 from rdflib.namespace import SKOS, XSD, OWL, DC, NamespaceManager
-from lxml import etree, html
-from urllib.parse import urldefrag
+from lxml import etree
+from helpers import add_sublement, defrag_iri
+from io import StringIO
 import argparse
 import logging
 
@@ -28,12 +29,6 @@ HEADERS = {OWL.Class: 'Classes',
            
 TYPES = [OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty]
 
-def add_sublement(element, tag, text=None):
-    subelement = etree.SubElement(element, tag)
-    if text:
-        subelement.text = text
-    return subelement    
-        
 class RDFtoHTML:
 
     def __init__(self):
@@ -46,21 +41,31 @@ class RDFtoHTML:
             help="Input path for rdf file", required=True)
         parser.add_argument("-o", "--output_path",  
             help="Output path for html documentation file", required=True)
-        parser.add_argument("-u", "--base_url",  
+        parser.add_argument("-ns", "--name_space",  
             help="Namespace of concepts in input file", required=True)
+        parser.add_argument("-u", "--base_url",  
+            help="Base URL of published html file", required=True)
+        parser.add_argument("-t", "--title",  
+            help="Title of HTML document")
+        parser.add_argument("-d", "--description",  
+            help="HTML file containing description of data model to be included to output file")
         args = parser.parse_args()
         self.language = args.language
         self.pref_label = args.pref_label
         self.input_path = args.input_path
         self.output_path = args.output_path
+        self.name_space = args.name_space
         self.base_url = args.base_url
+        self.title = args.title
+        self.description = args.description
+        self.graph = Graph()
         self.parse_graph()
-        
-    def get_pref_label(self, graph, subject):
-        for probj in graph.predicate_objects(subject):
+          
+    def get_pref_label(self, subject):
+        for probj in self.graph.predicate_objects(subject):
             prop = probj[0]
             obj = probj[1]
-            prop_ns = prop.n3(graph.namespace_manager)
+            prop_ns = prop.n3(self.graph.namespace_manager)
             language = None
             prop_name = prop_ns
             if prop_ns == self.pref_label:
@@ -69,11 +74,18 @@ class RDFtoHTML:
                         return(obj)
                 else:    
                     return(obj)
-    
-    def sort_properties(self, graph, properties):
+     
+    def sort_properties_with_id(self, properties):
+        sorted_labels = sorted(properties.keys(), key=str.casefold)
+        sorted_properties = {}
+        for subject in sorted_labels:
+            sorted_properties.update({subject: properties[subject]})
+        return sorted_properties
+        
+    def sort_properties_with_label(self, properties):
         unsorted_properties = {}
         for prop in properties:
-            pref_label = self.get_pref_label(graph, prop)
+            pref_label = self.get_pref_label(prop)
             unsorted_properties[pref_label] = {prop: properties[prop]}
         sorted_labels = sorted(unsorted_properties.keys(), key=str.casefold)
         sorted_properties = {}
@@ -81,65 +93,89 @@ class RDFtoHTML:
             sorted_properties.update(unsorted_properties[pref_label])
         return sorted_properties
     
-    def create_contents(self, html_doc, graph, header, properties):
+    def set_anchor(self, prop, value=None, urn=False):
+        root = etree.Element('a')
+        href_value = prop
+        text_value = prop
+        result = defrag_iri(prop)
+        if result:
+            tag = result[0]
+            fragment = result[1]   
+            if urn:
+                result = defrag_iri(href_value)
+                text_value = text_value.replace('http://urn.fi/', '')
+            elif tag == self.name_space and prop != 'URN':
+                
+                text_value = self.get_pref_label(prop)
+                if text_value:
+                    result = defrag_iri(href_value)
+                    href_value = "#" + result[1]
+            elif prop != 'URN':
+                prop_ns = prop.n3(self.graph.namespace_manager)
+                text_value = prop_ns
+                if value and Literal(value).language:
+                    text_value += " (" + Literal(value).language + ")"
+                root.set('target', '_blank')
+        else:
+            root.set('target', '_blank')
+        root.text = str(text_value)
+        root.set('href', str(href_value))
+        return root
+        
+    def create_contents(self, html_doc, header, properties):
         header_element = add_sublement(html_doc, 'h2', text=header)
         paragraph = add_sublement(html_doc, 'p')
         for idx, subject in enumerate(properties):
-            text = self.get_pref_label(graph, subject)
-            result = urldefrag(subject)
+            result = defrag_iri(subject)
             if result:
-                tag = result[1]
+                fragment = result[1]
+                text = fragment
                 if idx < len(properties) - 1:
                     text = text + ", "
                 anchor = add_sublement(paragraph, 'a', text) 
-                anchor.set('href' , "#" + tag)
+                anchor.set('href' , "#" + fragment)
         
-    def create_properties(self, html_doc, graph, header, properties):
+    def create_properties(self, html_doc, header, properties):
         header_element = add_sublement(html_doc, 'h2', text=header)
         paragraph = add_sublement(html_doc, 'div')
         for subject in properties:
-            result = urldefrag(subject)
+            result = defrag_iri(subject)
             if result:
-                pref_label = self.get_pref_label(graph, subject)
                 div = add_sublement(paragraph, 'div')
                 div.set('class', 'property')
-                anchor = add_sublement(div, 'a', pref_label)
+                anchor = add_sublement(div, 'a', result[1])
                 anchor.set('id', result[1])
                 table = add_sublement(paragraph, 'table')
                 for prop in properties[subject]:
                     tablerow = add_sublement(table, 'tr')
-                    td_key = add_sublement(tablerow, 'td', prop)
+                    prop_name = prop
+                    tag = None
+                    if type(prop) == URIRef:
+                        root = self.set_anchor(prop)
+                        td_key = etree.SubElement(tablerow, 'td')
+                        td_key.append(root)
+                    else:
+                        td_key = add_sublement(tablerow, 'td', prop_name)
+                    
                     td_key.set('class', 'key')
                     td_value = add_sublement(tablerow, 'td')
                     td_value.set('class', 'value')
                     text = ""
                     for idx, value in enumerate(properties[subject][prop]):
                         if type(value) == URIRef:
-                            root = etree.Element('a')
-                            href_value = value
-                            result = urldefrag(subject)
-                            if result:
-                                tag = result[0]
-                                base_tag = urldefrag(self.base_url)[0]
-                                if tag == base_tag and prop != 'URI':
-                                    value_label = self.get_pref_label(graph, value)
-                                    if value_label:
-                                        value = value_label
-                                        result = urldefrag(href_value)
-                                        href_value = "#" + result[1]
-                                else:
-                                    root.set('target', '_blank')
-                            else:
-                                root.set('target', '_blank')
-                            root.text = str(value)
-                            root.set('href', str(href_value))
+                            urn = False
+                            if prop == 'URN':
+                                urn = True
+                            root = self.set_anchor(value, urn=urn)
                             if idx < len(properties[subject][prop]) - 1:
                                 root.tail = ", "
                             td_value.append(root)
-                        else:                    
+                        else:  
+                            if Literal(value).language:
+                                value = str(value) + " (" + Literal(value).language + ")"
                             text += str(value)
                             if idx < len(properties[subject][prop]) - 1:
-                                text += ", "        
+                                text += ", "  
                     try:
                         text = etree.fromstring(text)
                         td_value.append(text)
@@ -151,37 +187,39 @@ class RDFtoHTML:
                             td_value.text = text
             
     def parse_graph(self):
-        g = Graph()
-        g.parse(self.input_path, format="ttl")
+        self.graph.parse(self.input_path, format="ttl")
         class_properties = set()         
         data_model = {}
-
+        for ns in self.graph.namespaces():
+            self.graph.namespace_manager.bind(ns[0], ns[1])
         for t in TYPES:
             data_model[t] = {}
-            for subject in g.subjects(RDF.type, t):
-                result = urldefrag(subject)
-                pref_label = self.get_pref_label(g, subject)
-                if pref_label and result:
-                    tag = result[1]
+            for subject in self.graph.subjects(RDF.type, t):
+                fragment = None
+                result = defrag_iri(subject)
+                if result:
+                    fragment = result[1]
+                pref_label = self.get_pref_label(subject)
+                if pref_label and fragment:    
                     sorted_properties  = {}
                     subject_properties = {}
-                    sorted_properties['URI'] = [subject]
-                    result = urldefrag(subject)
+                    sorted_properties['URN'] = [subject]
                     pref_labels = []
                     other_properties = []
-                    for probj in g.predicate_objects(subject):
+                    for probj in self.graph.predicate_objects(subject):
                         prop = probj[0]
                         obj = probj[1]
-                        prop_ns = prop.n3(g.namespace_manager)
+                        prop_ns = prop.n3(self.graph.namespace_manager)
                         language = None
-                        prop_name = prop_ns
                         if Literal(probj[1]).language:
                             language = Literal(probj[1]).language
-                            prop_name += " (" + Literal(probj[1]).language + ")"
+                        if isinstance(obj, URIRef):
+                            obj_ns = self.graph.namespace_manager.normalizeUri(obj)
+                        prop_dict = {'language': language, 'prop': prop, 'obj': obj}
                         if prop_ns == self.pref_label:
-                            pref_labels.append({'language': language, 'prop': prop_name, 'obj': obj})
+                            pref_labels.append(prop_dict)
                         else:
-                            other_properties.append({'language': language, 'prop': prop_name, 'obj': obj})
+                            other_properties.append(prop_dict)
                             
                     sorted_languages = sorted(pref_labels, key=lambda k: (  
                         k['language'] != self.language,
@@ -204,27 +242,39 @@ class RDFtoHTML:
                     data_model[t][subject] = sorted_properties
 
                 else:
-                    logging.warning("PrefLabel or URI fragment missing from %s"%subject)
+                    logging.warning("PrefLabel or URI fragment missing from %s"%subject)                      
+                                
         html_doc = etree.Element("html")
         head = etree.SubElement(html_doc, "head")
+        if self.title:
+            title = add_sublement(head, 'title', self.title)
+        meta = etree.SubElement(head, "meta")
+        meta.set('http-equiv', 'Content-Type')
+        meta.set('content', 'text/html; charset=utf-8')
+        meta.tail = None
         link = add_sublement(head, "link", text=None)
         link.set('rel', 'stylesheet')
         link.set('href', 'stylesheet.css')
         link.tail = None
         body = etree.SubElement(html_doc, "body")
+        if self.description:
+            with open(self.description, 'r', encoding='utf-8') as fh:
+                data = fh.read()
+                parser = etree.HTMLParser()
+                description = etree.parse(StringIO(data), parser)
+                droot = description.getroot()
+                body.append(droot) 
         for t in data_model:
-            data_model[t] = self.sort_properties(g, data_model[t])
+            data_model[t] = self.sort_properties_with_id(data_model[t])
         for t in data_model:
             if data_model[t]:
-                self.create_contents(html_doc, g, HEADERS[t], data_model[t])
-
+                self.create_contents(html_doc, HEADERS[t], data_model[t])
         for t in data_model:
             if data_model[t]:
-                self.create_properties(html_doc, g, HEADERS[t], data_model[t])
-
+                self.create_properties(html_doc, HEADERS[t], data_model[t])
         with open(self.output_path, 'wb') as output:
             output.write(etree.tostring(html_doc, encoding='utf-8', pretty_print=True))
-  
+            
 if __name__ == '__main__':
     RDFtoHTML()
     
