@@ -1,5 +1,5 @@
-### ntp.ttl Nimitietopalvelun elementtien ontologia 
-- siirretään tänne myöhemmin
+### Nimitietopalvelun elementtien ontologia 
+Skeema löytyy osoitteesta https://schema.finto.fi/ntp sekä https://schema.finto.fi/ntp.xml
 
 ### Toimijasuhdeontologia
 Nimitietopalvelun toimijoiden välisten suhteet on määritelty Metatietosanastossa http://urn.fi/URN:NBN:fi:au:mts:m875
