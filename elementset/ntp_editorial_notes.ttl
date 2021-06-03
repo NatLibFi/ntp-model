@@ -1,0 +1,1301 @@
+@prefix : <http://urn.fi/URN:NBN:fi:schema:ntp:> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+: skos:editorialNote "Classes and properties of the datamodel."@fi,
+        "Turtle code validated with Node.JS Turtle validator at http://ttl.summerofcode.be/"@fi .
+
+:Agent skos:editorialNote "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "ntpwikibase:Q40"@fi .
+
+:CategoryOfAgent skos:editorialNote "Luokan arvot: henkilö, suku, yhteisö tai tapahtuma"@fi,
+        "ntpwikibase:Q339"@fi .
+
+:CategoryOfFamily skos:editorialNote "Suvun tyypit: klaani, kuningashuone, hallitsijasuku, aatelissuku"@fi,
+        "ntpwikibase:Q342"@fi,
+        "types of family: clan, royal house, dynasty, noble family"@fi .
+
+:Concept skos:editorialNote "Huomautus: subclassOf:rdac:C10013"@fi,
+        "ntpwikibase:Q16"@fi .
+
+:CorporateBody skos:editorialNote "ntpwikibase:Q41"@fi .
+
+:Entity skos:editorialNote "ntpwikibase:Q2"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:"@fi .
+
+:Event skos:editorialNote "ntpwikibase:Q115"@fi .
+
+:ExternalIdentifier skos:editorialNote " "@fi .
+
+:Family skos:editorialNote "ntpwikibase:Q45"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:"@fi .
+
+:IdentifierForPerson skos:editorialNote "Huomautus: $2 sanastotunnus tarkenteena"@fi,
+        "ntpwikibase:P141"@fi .
+
+:NR1 skos:editorialNote "Kuvaus: Rajoituksen peruste. esim. laki tai sopimus"@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi: 7.5 Näyttörajoitus tyypit"@fi .
+
+:NR2 skos:editorialNote "Kuvaus: Rajoituksen nimi"@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi: Teksti"@fi .
+
+:NR3 skos:editorialNote "Kuvaus: Rajoituksen selite"@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi: Teksti"@fi .
+
+:NR4 skos:editorialNote "Kuvaus: Rajoituksen kesto vuosissa."@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi: Luku"@fi .
+
+:NR5 skos:editorialNote "Kuvaus: Voidaan antaa rajoituksen voimassaoloaika"@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi: Relaatio: Aika"@fi .
+
+:NR7 skos:editorialNote "Kuvaus: Määrittää tason, jolla käyttäjän on oltava, jotta edellytykset näyttörajoitetun tiedon näkymiseen ovat olemassa."@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi 7.3 Näyttörajoitusten tasot"@fi .
+
+:NR8 skos:editorialNote "Kuvaus: Määrittää ne attribuutit, jotka on rajoitettu ko. näyttörajoituksella."@fi,
+        "NTP: 7. Näyttörajoitus"@fi,
+        "Tyyppi 7.4 Näyttörajoitettavat attribuutit"@fi .
+
+:Nomen skos:editorialNote "ntpwikibase:Q43"@fi .
+
+:Person skos:editorialNote "ntpwikibase:Q39"@fi .
+
+:Place skos:editorialNote "Kuvaus: yso-paikat:"@fi,
+        "NTP: 5. Paikka"@fi,
+        "ntpwikibase:Q44"@fi .
+
+:Timespan skos:editorialNote "ntpWb: Q22"@fi .
+
+:Work skos:editorialNote "ntpwikibase:Q207"@fi .
+
+:absorbedCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P191"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:absorbingCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit"@fi,
+        "ntpwikibase:P192"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:acronym skos:editorialNote "Huomautus: VariantNameOfThePerson"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Tyyppi: listan arvo"@fi .
+
+:activity skos:editorialNote "8.10. Toimija-Toiminta -roolit"@fi,
+        "Huomautus: Kts. 8.10. AHAA: Yhteisötoimijan valtuutettu tehtävä esitetään elementillä TJ19 Tehtävä."@fi,
+        "ISAAR(CPF): 5.2.5 functions, occupations, activities"@fi,
+        "Kuvaus: Relaatio: Toiminta + Tyyppi: 7.13 Toimija-toiminta roolit+ Relaatio: Aika"@fi,
+        "Kuvaus: Toimija on suorittanut jotain toimintaa."@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Selite: Toimijalla voi olla suhde toimintaan. Suhde voidaan rajata rajavuosilla."@fi,
+        "Toimijalla voi olla suhde toimintaan. Suhde voidaan rajata rajavuosilla."@fi,
+        "Tyyppi: Relaatio: Toiminta + Tyyppi: 7.13 Toimija-toiminta roolit + Relaatio: Aika"@fi,
+        "ntpwikibase:P280"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:   Ajan osalta: 11.4.5."@fi .
+
+:addressOfAgent skos:editorialNote "Huomautus: sarakkeessa voi olla henkilön nimi"@fi,
+        "ISAAR(CPF): 5.2.3 Places"@fi,
+        "Kuvaus: Yhteisön tai henkilön osoite"@fi,
+        "MuseumPlus: Linkki Yhteystiedot-moduuliin, jossa toimijan osoitetiedot "@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "SPECTRUM: Person’s address, Organisation’s address"@fi,
+        "original.rdatoolkit.org : 9.12., 11.9."@fi .
+
+:addressOfPerson skos:editorialNote "Selite: voi koostua osista: katuosoite, postinumero, postipaikka (kaupunki), maa. Myös sähköpostiosoite."@fi,
+        "ntpwikibase:P240"@fi .
+
+:agentHistory skos:editorialNote "ntpwikibase:P347"@fi .
+
+:ahaaLabel skos:editorialNote "Elementin nimi AHAA järjestelmässä"@fi .
+
+:alternateIdentityOfPerson skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: Hankittu eli itse käyttöönotettu identiteetti (acquired identity)"@fi,
+        "original.rdatoolkit.org : K.2.1"@fi .
+
+:asteri-id skos:editorialNote "NTP: 8.5. Tunnisteen roolit"@fi,
+        "ntpwikibase:P210"@fi .
+
+:authorCorporateBody skos:editorialNote "ntpwikibase:P212"@fi .
+
+:authorizedAccessPointForEntity skos:editorialNote "ntpwikibase:P258"@fi .
+
+:authorizedAccessPointForFamily skos:editorialNote "ntpwikibase:P343"@fi .
+
+:authorizedAccessPointForPerson skos:editorialNote "ntpwikibase:P90"@fi .
+
+:authorizedAccessPointOfCorporateBody skos:editorialNote "ntpwikibase:P147"@fi .
+
+:authorizedAccessPointOfTimespan skos:editorialNote "ntpwikibase:P73"@fi .
+
+:award skos:editorialNote "Selite: nimitietopalvelun selvityksessä"@fi .
+
+:beginning skos:editorialNote "Kuvaus: wb: käytä tarkenteena"@fi,
+        "ntpwikibase:P66"@fi,
+        "original.rdatoolkit.org : 11.4.3, 11.4.5"@fi,
+        "tarkenteena"@fi .
+
+:biographicalInformation skos:editorialNote "5.2.5, 5.2.7 ja 5.2.8 "@fi,
+        "Huomautus: Mikäli nämä halutaan erotella tarvitaan kullekin omat kenttänsä."@fi,
+        "ISAAR(CPF): 5.2.2"@fi,
+        "Kuvaus: Toimijaa voidaan kuvailla vapaamuotoisesti mm. historiaa tai elämäkertaa, yleistä kontekstitietoa, tehtäviä, organisaatiorakennetta, sukupuuta tai suvun historiaa."@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "SPECTRUM: person’s biographical note, Organisation’s history"@fi,
+        "Selite:   MuseumPlus: Kentässä teksti: Kirjoittaja: $1. Biografia_status: ajantasainen/monografia/vanhentunut ajantasainen/monografia/vanhentunut"@fi,
+        "Selite:  Toimijaa voidaan kuvailla vapaamuotoisesti mm. historiaa tai elämäkertaa, yleistä kontekstitietoa, tehtäviä, organisaatiorakennetta, sukupuuta tai suvun historiaa."@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P40"@fi,
+        "original.rdatoolkit.org : 9.17, 10.9, 11.11"@fi .
+
+:broaderAffiliatedBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P188"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:categoryOfAgent skos:editorialNote "8.15. Kuvailun kohde"@fi,
+        """Huomautus:  kts. 8.15. Kuvailun kohde arvot.  Erotuksena RDA:han \r\r\r\r
+ AHAA:ssa henkilötoimijan eri julkiset identiteetit \r\r\r\r
+ \r\r\r\r
+                     esitetään erillisinä toimijakuvailuina vain tarvittaessa.  Vastaavasti muutos yhteisötoimijan tunnetussa nimessä ei \r\r\r\r
+ \r\r\r\r
+                     edellytä erillistä toimijakuvailua. Eri identiteetit ja nimimuutokset \r\r\r\r
+ esitetään yleensä toimijan muina nimimuotoina."""@fi,
+        "Kuvaus: Kuvailun kohde on toimija. Kukin toimija on kuvailtu järjestelmässä vain kertaalleen"@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "Selite: tässä tapauksessa :Person, :Family, :CorporateBody, :Event "@fi,
+        "Tyyppi: listan arvo"@fi,
+        "ntpwikibase:P244"@fi .
+
+:categoryOfCorporateBody skos:editorialNote "Huomautus: MARC vastaavuus vaihdettu 372,374 --> 368"@fi,
+        "ISAAR(CPF): 5.1.1"@fi,
+        "ISNI: Toimijan tyyppi – Liite D (D.1)"@fi,
+        "Kuvaus: Linkki Metatietosanastosta löytyvään toimijaluokitukseen http://urn.fi/URN:NBN:fi:au:mts:m196 Yhteisön tyyppi"@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "Selite: Linkki Metatietosanastosta löytyvään toimijaluokitukseen mts:m196"@fi,
+        "Tyyppi: Relaatio: FINTO "@fi,
+        "ntpwikibase:P160"@fi,
+        "original.rdatoolkit.org : RDA 11.7.1.4  Yhteisön tyyppi. toimijan kategoria. Tyyppi tai jaottelu, johon toimija kuuluu. "@fi .
+
+:categoryOfFamily skos:editorialNote "Huomautus: Merkitse osaksi biografiatietoja (MARC 678 a) rdaa:P50064"@fi,
+        "ntpwikibase:P344"@fi .
+
+:categoryOfFamilyObject skos:editorialNote "ntpwikibase:P345"@fi .
+
+:categoryOfGovernment skos:editorialNote "ntpwikibase:P161"@fi .
+
+:categoryOfPersistentIdentifier skos:editorialNote "NTP: 3. Tunniste"@fi,
+        "Tyyppi: Tyyppi: 7.8 Tunnisteen roolit"@fi,
+        "ntpwikibase:P288"@fi .
+
+:categoryOfPerson skos:editorialNote "$2 arvo propertyyn P209 sanastotunnus, kun tietueessä kenttä 100"@fi .
+
+:categoryOfPlace skos:editorialNote "ISAAR(CPF):  5.2.3."@fi,
+        "ISNI: Type of Place"@fi,
+        "NTP: 5. Paikka"@fi,
+        "Tyyppi: 7.10 Paikkaroolit"@fi,
+        "ntpwikibase:P302"@fi .
+
+:categoryOfRDAEntity skos:editorialNote "Huomautus:  rdax:P00029 type of RDA entity"@fi,
+        "ntpwikibase:P244"@fi .
+
+:categoryOfTimespan skos:editorialNote "ISAAR(CPF): Date association"@fi,
+        "ISNI: Type of Date"@fi,
+        "Kuvaus: Ajan rooli liittyen liitettyyn kohteeseen."@fi,
+        "NTP: 4. Aika"@fi,
+        "NTP: 7.8 Aikaroolit"@fi,
+        "Tyyppi 7.8 Aikaroolit"@fi,
+        "ntpwikibase:P256"@fi .
+
+:categoryOfVariantName skos:editorialNote "Esimerkiksi Väestötietojärjestelmästä tai Patentti- ja rekisterihallituksen rekisteristä saatava virallinen nimi henkilölle tai yhteisölle."@fi,
+        "Huomautus:  kts. Roolit"@fi,
+        "ISAAR CPF 5.1.3. Rinnakkainen nimimuoto"@fi,
+        "ISAAR CPF 5.1.5.b, EAC-CPF nameEntry"@fi,
+        "Kuvaus: Nimen rooli"@fi,
+        "Kuvaus: syntymänimi"@fi,
+        """LF 31.12.2015: Tästä alaspäin lisäsin meillä käytössä olevat termit. \r\r\r\r
+\r\r\r\r
+	 Voidaan keskustella näistä.Lupasin jossakin tapaamisessa laittaa näitä ekseliin, mutta lienee järkevämpää pitää nämä tässä dokumentissa."""@fi,
+        "NTP:  8.6. Toimijan nimien roolit"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "SPECTRUM: Person’s association, Organisation’s association, People’s association"@fi,
+        """Selite:  Poimitaan listalta, Tarkenteena.  WIkibasessa tyypit ovat esiintyminä luokasta "varianttinimen tyyppi" (Q203).\r\r\r\r
+\r\r\r\r
+	Y-työkalussa ne ovat sanastossa alakäsitteinä käsitteelle "henkilön varianttinimi" http://uri.suomi.fi/terminology/ntp/concept-5 """@fi,
+        "Tyyppi: 7.7 Toimijan nimien roolit "@fi,
+        "Vanhentuneet ensisijaiset nimet saavat tämän roolin."@fi,
+        "avionimi, codeName, earlierNameOfPerson, henkilön aikaisempi nimi, puumerkki, housemark, liikanimi, muu nimi, other name, peitenimi, syntymänimi, vanhentunut nimi, virallinen nimi"@fi,
+        "entinen nimi"@fi,
+        "epithet"@fi,
+        "henkilön avioliiton kautta saama nimi"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-14"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-18"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-23"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-31"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-32"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-34"@fi,
+        "http://uri.suomi.fi/terminology/ntp/concept-36"@fi,
+        "listan arvo tarkenteena"@fi,
+        "ntpwikibase:P133"@fi,
+        "tarkenteena"@fi .
+
+:componentOfMerger skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: yhdistymistä edeltänyt yhteisö"@fi,
+        "ntpwikibase:P193"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:constraint skos:editorialNote "ntpwikibase:P7"@fi .
+
+:contextOfUsage skos:editorialNote "ntpwikibase:P316"@fi .
+
+:corporateBodyMemberOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: yhteisön jäsenyhteisö, jäsenyhteisö"@fi,
+        "ntpwikibase:P196"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:corporateBodyMemberOfCorporateBodyOf skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: yhteisön laajempi jäsenyhteisö"@fi,
+        "ntpwikibase:P197"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:corporateHistory skos:editorialNote "ntpwikibase:P371"@fi .
+
+:countryAssociatedWithPerson skos:editorialNote "ntpwikibase:P324"@fi .
+
+:countryAssociatedWithPersonPlace skos:editorialNote "NTP: 8.9. Paikkaroolit"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P120"@fi,
+        "original.rdatoolkit.org : 9.10."@fi .
+
+:countryOfCitizenship skos:editorialNote "ntpwikibase:P327"@fi .
+
+:creatorAgentOfWorkOf skos:editorialNote "ISAAR(CPF): 6.* resourceRelation"@fi,
+        "Kuvaus:  Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti."@fi,
+        "Tyyppi: Linkki"@fi,
+        "original.rdatoolkit.org : 18-22, liite I"@fi .
+
+:creatorAgentOfWorkOfObject skos:editorialNote "Huomautus: rdfs:seeAlso  rdaa:P60672"@fi,
+        "Selite: toimijan tekemät aineistot"@fi .
+
+:dateAssociatedWithAgent skos:editorialNote "ntpwikibase:P369"@fi .
+
+:dateOfBirth skos:editorialNote "Huomautus: vain yksi arvo"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "ntpwikibase:P46"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3"@fi .
+
+:dateOfCaptureOfRepresentativeExpression skos:editorialNote "ntpwikibase:P310"@fi .
+
+:dateOfConference skos:editorialNote "ISAAR(CPF): 5.2.1 Dates of existence"@fi,
+        "Kuvaus: Tapahtuman kuten konferenssin ajankohta silloin kun tapahtuma kuvaillaan toimijana"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "Selite: Tapahtuman kuten konferenssin ajankohta silloin kun tapahtuma kuvaillaan toimijana"@fi,
+        "ntpwikibase:P169"@fi,
+        "original.rdatoolkit.org : 0.6.7 osioa 3:  11.4.2. "@fi .
+
+:dateOfDeath skos:editorialNote "Huomautus: vain yksi arvo Muodossa vvvv, vvvvkk tai vvvvkkpp."@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "ntpwikibase:P51"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3"@fi .
+
+:dateOfEstablishment skos:editorialNote "NTP: 8.7. Aikaroolit "@fi,
+        "ntpwikibase:P167"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3"@fi .
+
+:dateOfMetadataWork skos:editorialNote "Kuvaus: Toimijakuvailun luontiaika."@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "isaar cpf: 5.4.6 Dates of creation, revision or deletion"@fi,
+        "ntpwikibase:P144"@fi .
+
+:dateOfTermination skos:editorialNote "ntpwikibase:P168"@fi .
+
+:dateOfTerminationObject skos:editorialNote "ntpwikibase:P175"@fi .
+
+:dateOfUsage skos:editorialNote "Kuvaus: Tunnisteen ajallinen kattavuus."@fi,
+        "NTP: 3. Tunniste"@fi,
+        "Selite: Nimen aika"@fi,
+        "Tyyppi: Relaatio: Aika"@fi,
+        "ntpwikibase:P289"@fi,
+        "original.rdatoolkit.org : 9.3, 10.4, 11.4"@fi .
+
+:dateOfWork skos:editorialNote "Huomautus: latestTransaction"@fi .
+
+:dayOfBirth skos:editorialNote "ntpwikibase:P111"@fi .
+
+:dayOfDeath skos:editorialNote "Huomautus:  Lisättävä merkkjono \"syntymäaika\" propertyn arvoksi: muuttuja: muuttujan arvo"@fi .
+
+:descendantFamilyOfFamily skos:editorialNote "Huomautus:  RDA suhdetta ei ole toisin pain"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi .
+
+:descendantFamilyOfPerson skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "original.rdatoolkit.org : K.3.2. "@fi .
+
+:descendantFamilyOfPersonOf skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P348"@fi .
+
+:descriptionStandard skos:editorialNote "ISAAR(CPF): 5.4.3"@fi,
+        "Kuvaus: Teksti"@fi,
+        "Kuvaus: Voidaan kuvata käytettyjen käytäntöjen ja sääntöjen nimet, painokset ja julkaisupäivät."@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        "Selite: Voidaan kuvata käytettyjen käytäntöjen ja sääntöjen nimet, painokset ja julkaisupäivät."@fi,
+        "Tyyppi: Teksti"@fi .
+
+:editorialDirectorAgentOf skos:editorialNote " Range:Work"@fi,
+        "Huomautus:  Domain:Agent"@fi .
+
+:employee skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P177"@fi,
+        "original.rdatoolkit.org : K.2.3. – K.4.1. "@fi .
+
+:employer skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P123"@fi,
+        "original.rdatoolkit.org : K.2.3. – K.4.1."@fi .
+
+:ending skos:editorialNote "Kuvaus: wb: käytä tarkenteena"@fi,
+        "Selite:  loppumisaika, loppumisvuosi"@fi,
+        "ntpwikibase:P67"@fi .
+
+:fieldOfActivity skos:editorialNote "ntpwikibase:P346"@fi .
+
+:fieldOfActivityOfCorporateBody skos:editorialNote "ISAAR(CPF): 5.2.5, 5.2.2"@fi,
+        "ISDF: 5.1.5 Classification)"@fi,
+        "Kuvaus: Yhteisön toimiala"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Yhteisön toimiala"@fi,
+        "ntpwikibase:P166"@fi,
+        "original.rdatoolkit.org : 11.10"@fi .
+
+:fieldOfActivityOfPerson skos:editorialNote "ISAAR(CPF): 5.2.5, 5.2.2"@fi,
+        "Kuvaus: Henkilön toimiala. YSO toimialat: http://www.yso.fi/onto/yso/p1427"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Henkilön toimiala"@fi,
+        "ntpwikibase:P96"@fi,
+        "original.rdatoolkit.org : 9.15"@fi .
+
+:formatOfDate skos:editorialNote "Huomautus: Tieto säilytettävä vaikka elementti ei mappaudu mihinkään"@fi .
+
+:foundedCorporateBodyOfCorporateBody skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P198"@fi,
+        "original.rdatoolkit.org : K.4.3."@fi .
+
+:foundedCorporateBodyOfPerson skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P135"@fi .
+
+:foundingCorporateBodyOfCorporateBody skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P199"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:foundingPersonOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P178"@fi,
+        "original.rdatoolkit.org : K.2.3. – K.4.1."@fi .
+
+:fullerFormOfPersonalName skos:editorialNote "Huomautus:  Marc21 tähän kenttään merkitty etunimet peräkkäin sulkujen sisällä."@fi,
+        "Kuvaus: Jos ensisijainen nimi on esim. lyhenne kirjoitetaan täydellisempi nimimuoto tähän"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Selite: http://uri.suomi.fi/terminology/ntp/concept-21"@fi,
+        "original.rdatoolkit.org : 0.6.7, 9.5."@fi .
+
+:fullerFormOfPersonalNameNomen skos:editorialNote "ntpwikibase:P113"@fi .
+
+:function skos:editorialNote " 8.10. Toimija-Toiminta -roolit"@fi,
+        "Kuvaus: Relaatio: Tehtävä (ISDF) + 8.10 Toimija tehtävä-rooli + Relaatio: Aika"@fi,
+        "Kuvaus: Toimijalla voi olla suhde tehtävään. Suhde voidaan rajata rajavuosilla."@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Selite: Toimijalla voi olla suhde tehtävään. Suhde voidaan rajata rajavuosilla."@fi,
+        "Tyyppi: Relaatio: Tehtävä (ISDF) + 8.10 Toimija tehtävä-rooli + Relaatio: Aika"@fi,
+        "ntpwikibase:P281"@fi,
+        "original.rdatoolkit.org : Ajan osalta: 11.4.5."@fi .
+
+:gender skos:editorialNote "Huomautus: Relaatio: Aika"@fi,
+        "Kuvaus: Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli."@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "SPECTRUM: Person’s gender"@fi,
+        "Selite: Toimijalla voi olla sukupuoli. Toimijan kohdalla kyseessä on juridinen sukupuoli, mutta identiteetillä voi olla myös sosiaalinen sukupuoli."@fi,
+        "Tyyppi: 7.11 Toimijan sukupuolet + Relaatio: Aika"@fi,
+        "ntpwikibase:P87"@fi,
+        "original.rdatoolkit.org : 9.7"@fi .
+
+:givenName skos:editorialNote "Kuvaus: Yhteisön alanimi tai henkilön etunimet"@fi,
+        "Kuvaus: henkilön etunimet"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P206"@fi .
+
+:givenNameObject skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P320"@fi .
+
+:hasAlternateIdentity skos:editorialNote "NTP: 8.16. Toimija - Identiteetti –rooli"@fi .
+
+:hasChild skos:editorialNote "Huomautus:  Tarkistetaan uuden RDA:n mukaiset roolit."@fi,
+        "Kuvaus: Tämän avulla voidaan muodostaa sukupuita"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: agrelon#hasChild | subPropertyOf:rdaa:P50316"@fi .
+
+:hasParent skos:editorialNote "Kuvaus: Tämän avulla voidaan muodostaa sukupuita"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: agrelon#hasParent | subPropertyOf:rdaa:P50316"@fi .
+
+:hasRealIdentity skos:editorialNote "NTP: 8.16. Toimija - Identiteetti –rooli"@fi .
+
+:hasRelative skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: https://d-nb.info/standards/elementset/agrelon#HasRelative"@fi .
+
+:hasSibling skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: agrelon#HasSibling | subPropertyOf:rdaa:P50316"@fi .
+
+:hasSpouse skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: agrelon#hasSpouse | subPropertyOf:rdaa:P50316"@fi .
+
+:henkilotunnus skos:editorialNote "Huomautus:  Henkilötunnus väestörekisteristä"@fi .
+
+:hereditaryTermOfHonour skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "ntpwikibase:P342"@fi .
+
+:hierarchicalSubordinate skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P190"@fi .
+
+:hierarchicalSuperior skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P187"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:hostInstitutionOf skos:editorialNote "ntpwikibase:P366"@fi .
+
+:identiferForTimespanObject skos:editorialNote "ntpwikibase:P70"@fi .
+
+:identifierForAgent skos:editorialNote " 3. Tunniste"@fi,
+        "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId"@fi,
+        "ISNI"@fi,
+        "Kuvaus: Relaatio"@fi,
+        "Kuvaus: Toimijalla täytyy olla yksilöivä tunniste ja toimijalla voi olla myös muita tunnisteita tai tunnuksia kuten erilaisia rekisterinumeroita tai ulkoisten tahojen myöntämiä tunnisteita. "@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "SPECTRUM: Person’s/Organisation’s reference number"@fi,
+        "Selite: Toimijalla täytyy olla yksilöivä tunniste ja toimijalla voi olla myös muita tunnisteita tai tunnuksia kuten erilaisia rekisterinumeroita tai ulkoisten tahojen myöntämiä tunnisteita. "@fi,
+        "Tyyppi: Relaatio: Tunniste"@fi,
+        "ntpwikibase:P261"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3"@fi .
+
+:identifierForCorporateBodyObject skos:editorialNote "ntpwikibase:P140"@fi .
+
+:identifierForCorporateBodyOf skos:editorialNote "ntpwikibase:P137"@fi .
+
+:identifierForCorporateBodyString skos:editorialNote "ntpwikibase:P311"@fi .
+
+:identifierForEntity skos:editorialNote "Kuvaus: tietomallin elementin numero"@fi,
+        "NTP: 3. Tunniste"@fi,
+        "ntpwikibase:P79"@fi .
+
+:identifierForMetadataWork skos:editorialNote "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies "@fi,
+        "NTP: 3. Tunniste"@fi,
+        "original.rdatoolkit.org : identifier for work"@fi .
+
+:identifierForPersonObject skos:editorialNote "ntpwikibase:P132"@fi .
+
+:identifierForPersonOf skos:editorialNote "ntpwikibase:P136"@fi .
+
+:identifierForPlace skos:editorialNote "ntpwikibase:P276"@fi .
+
+:identifierForPlaceObject skos:editorialNote "ntpwikibase:P38"@fi .
+
+:identifierForPlaceOf skos:editorialNote "ntpwikibase:P138"@fi .
+
+:identifierForRDAEntity skos:editorialNote "Huomautus: Tämän asemesta Jokaiselle järjestelmälle oma tunniste!!"@fi,
+        "ntpwikibase:P79"@fi .
+
+:identifierForResource skos:editorialNote "Huomautus: systemControlNumber"@fi .
+
+:identifierForTimespan skos:editorialNote "ntpwikibase:P68"@fi .
+
+:identifierForTimespanOf skos:editorialNote "Selite: liittää tunnisteen ajanjaksoon, jota se identifioi"@fi,
+        "ntpwikibase:P139"@fi .
+
+:instrument skos:editorialNote "Kuvaus: voidaan poimia SEKO-sanastosta"@fi,
+        "Selite: wikidatan property - henkilön käyttämä soitin"@fi .
+
+:intervieweeAgentOfExpressionOf skos:editorialNote "http://urn.fi/URN:NBN:fi:au:mts:m4477"@fi .
+
+:interviewerAgentOfWorkOf skos:editorialNote "http://urn.fi/URN:NBN:fi:au:mts:m4470"@fi .
+
+:isPartOfNomen skos:editorialNote "Selite: viittaa Nomenista toiseen nomeniin, jonka osana viittaava nomen on. Esim. nimen osasta koko nimeen"@fi .
+
+:isniId skos:editorialNote "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId"@fi,
+        "Kuvaus: jhs"@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "ntpwikibase:P22"@fi .
+
+:isniIdentifer skos:editorialNote "ntpwikibase:P22"@fi .
+
+:jointlyHeldConference skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P182"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:kaukoValue skos:editorialNote "kentän arvo Kauko-järjestelmässä"@fi .
+
+:kotusID skos:editorialNote "Selite: nimitietopalvelun selvityksessä"@fi .
+
+:languageOfAgent skos:editorialNote "-"@fi,
+        "Huomautus: käytetään iso639-3. Fintossa Lexvo"@fi,
+        "Kuvaus: Kielikoodisto pitää lisätä"@fi,
+        "Kuvaus: Yhteisön, suvun tai henkilön käyttämä kieli"@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "Selite: Yhteisön, suvun tai henkilön käyttämä kieli"@fi,
+        "Tyyppi: Kielikoodisto pitää lisätä  http://www.lexvo.org/page/iso639-3/#  tai http://id.loc.gov/vocabulary/languages/sms"@fi,
+        "ntpwikibase:P263"@fi,
+        "original.rdatoolkit.org : 9.13, 10.8. 11.8."@fi .
+
+:languageOfCorporateBody skos:editorialNote "ntpwikibase:P159"@fi .
+
+:languageOfExpression skos:editorialNote "Huomautus: Katso myös rdaw:P10353 \"edustavan ekspression kieli\" (metadata-work)"@fi .
+
+:languageOfNomen skos:editorialNote "Huomautus:  Fintossa Lexvo. Määriteltävä siinä tapauksessa mitä sieltä tuodaan."@fi,
+        "Kuvaus: Nimi tulee määrittää jonkin kieliseksi (Fi, Sv, En, smi, sma, sme, smn, sms, est, krl, fre, ger, rus)"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Kielikoodisto pitää lisätä "@fi,
+        "ntpwikibase:P77"@fi .
+
+:languageOfPerson skos:editorialNote "ntpwikibase:P78"@fi .
+
+:languageOfRepresentativeExpression skos:editorialNote "ntpwikibase:P20"@fi .
+
+:languageOfResource skos:editorialNote "ntpwikibase:P76"@fi .
+
+:localAffiliate skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P189"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:mandate skos:editorialNote "Huomautus: ei ole AHAAsta tulostettava kenttä.  Vain tekstikenttä AHAAssa"@fi,
+        "ISAAR(CPF): 5.2.6"@fi,
+        "Kuvaus: Teksti"@fi,
+        "Kuvaus: Toimijan toimintaa ohjaavia säädöksiä voidaan kuvata vapaamuotoisesti"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Toimijan toimintaa ohjaavia säädöksiä voidaan kuvata vapaamuotoisesti"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P284"@fi .
+
+:marc21-osakenttaA skos:editorialNote "ntpwikibase:P350"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttaB skos:editorialNote "ntpwikibase:P351"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttaC skos:editorialNote "tarkenteena"@fi .
+
+:marc21-osakenttaF skos:editorialNote "ntpwikibase:P362"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttä0 skos:editorialNote "ntpwikibase:P358"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäD skos:editorialNote "ntpwikibase:P357"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäE skos:editorialNote "ntpwikibase:P365"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäG skos:editorialNote "ntpwikibase:P354"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäJ skos:editorialNote "ntpwikibase:P356"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäQ skos:editorialNote "ntpwikibase:P355"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäR skos:editorialNote "ntpwikibase:P363"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäS skos:editorialNote "ntpwikibase:P359"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäT skos:editorialNote "ntpwikibase:P360"@fi,
+        "tarkenteena"@fi .
+
+:marc21-osakenttäU skos:editorialNote "ntpwikibase:P361"@fi,
+        "tarkenteena"@fi .
+
+:maximumDate skos:editorialNote "ntpwikibase:P108"@fi,
+        "tarkenteena"@fi .
+
+:mergee skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: kanssayhdistyjä  "@fi,
+        "ntpwikibase:P194"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:minimumDate skos:editorialNote "ntpwikibase:P107"@fi,
+        "tarkenteena"@fi .
+
+:museumPlus skos:editorialNote "Elementin nimi järjestelmässä"@fi .
+
+:nameMonolingual skos:editorialNote "ntpwikibase:P64"@fi .
+
+:nameOfAgent skos:editorialNote "ISAAR(CPF): 5.1.2- 5.1.5"@fi,
+        "ISNI: Name of Public Entity"@fi,
+        "Kuvaus: Relaatio"@fi,
+        "Kuvaus: Toimijalla täytyy olla nimi (ensisijainen nimi ja RDA:n ensisijainen nimi)"@fi,
+        "NTP: 2.1.1 Toimijan tunnistaminen"@fi,
+        "Selite: Toimijalla täytyy olla nimi (ensisijainen nimi ja RDA:n ensisijainen nimi)"@fi,
+        "Tyyppi: Relaatio: Toimijan nimi"@fi,
+        "ntpwikibase:P260"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3, 9.2, 10.2, 11.2"@fi .
+
+:nameOfConference skos:editorialNote "ntpwikibase:P328"@fi .
+
+:nameOfConfernenceObject skos:editorialNote "ntpwikibase:P180"@fi .
+
+:nameOfCorporateBody skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "ntpwikibase:P308"@fi .
+
+:nameOfCorporateBodyNomen skos:editorialNote "ntpwikibase:P265"@fi .
+
+:nameOfFamily skos:editorialNote "ntpwikibase:P334"@fi .
+
+:nameOfFamilyNomen skos:editorialNote "ntpwikibase:P250"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:"@fi .
+
+:nameOfHierarchicalSubordinate skos:editorialNote "Kuvaus: Yhteisön alanimi"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P265"@fi .
+
+:nameOfHierarchicalSuperior skos:editorialNote "ntpwikibase:P373"@fi .
+
+:nameOfPerson skos:editorialNote "ntpwikibase:P251"@fi .
+
+:nameOfPlace skos:editorialNote "Huomautus: Paikka elementti kuvaa aluetta, johon toimija liittyy. Tämä elementti on aina liitetty johonkin kuvailtavaan kohteeseen tai suhteeseen eikä se ole itsenäisesti tarkasteltava kohde. "@fi,
+        "Huomautus: Ratkaistava vielä miten paikat, joita ei löydy Finton ontologioista ovat käyettävissä  Nimiatietopalvelussa. (Tekstikenttä, sisäinen koodisto, tms.)"@fi,
+        "ISAAR(CPF): 5.2.3. "@fi,
+        "ISNI: Place"@fi,
+        "Kuvaus: Toimijalla voi olla esim. maantieteellinen toiminta-alue. Tässä viittaukset Fintoon (YSO-paikat)"@fi,
+        "NTP: 5. Paikka"@fi,
+        "Tyyppi: Relaatio: FINTO "@fi,
+        "ntpwikibase:P102"@fi,
+        "original.rdatoolkit.org : 9.8-9.12, 10.5, 11.3, 11.9"@fi .
+
+:nameOfTimespan skos:editorialNote "ntpwikibase:P323"@fi .
+
+:nameOfTimespanObject skos:editorialNote "ntpwikibase:P84"@fi .
+
+:nomenString skos:editorialNote "ntpwikibase:P104"@fi .
+
+:nonPublicNoteOnResource skos:editorialNote "-"@fi,
+        "Kuvaus: Kentässä on vapaamuotoisia muistiinpanoja, näkyy kaikkien organisaatioiden henkilökunnalle. Kentän tietoja ei välitetä eteenpäin."@fi,
+        "Kuvaus: Teksti"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Kentässä on vapaamuotoisia muistiinpanoja, näkyy kaikkien organisaatioiden henkilökunnalle. Kentän tietoja ei välitetä eteenpäin."@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P273"@fi,
+        "original.rdatoolkit.org : huomautus metatietoteoksesta"@fi .
+
+:noteFromSource skos:editorialNote "Selite: Lähteestä saadun tiedon kuvaus. Samaa sisältöä voi olla myös muissa kentissä. Vain viitteessä. rdau:P61101 tarkenteena"@fi .
+
+:noteOnCorporateBody skos:editorialNote " (11.7.1.6 Muu määrite)"@fi,
+        "11.7.1.5 Hallintoalueen tyyppi"@fi,
+        "ntpwikibase:P98"@fi,
+        "original.rdatoolkit.org : 11.7: 11.7.1.4 Yhteisön tyyppi"@fi .
+
+:noteOnEntity skos:editorialNote "ntpwikibase:P80"@fi .
+
+:noteOnFamily skos:editorialNote "Huomautus: Kun tietueessa on kenttä 100 eikä t-osakenttää"@fi .
+
+:noteOnIdentifier skos:editorialNote "Huomautus: käytetään ohjaamaan oikeaan propertyyn - 4 tyyppiä"@fi .
+
+:noteOnMetadataWork skos:editorialNote "ntpwikibase:P272"@fi .
+
+:noteOnNomen skos:editorialNote "ntpwikibase:P259"@fi .
+
+:noteOnPerson skos:editorialNote "ntpwikibase:P97"@fi .
+
+:noteOnPlace skos:editorialNote "ntpwikibase:P274"@fi .
+
+:noteOnRDAEntity skos:editorialNote "ntpwikibase:P255"@fi .
+
+:noteOnResource skos:editorialNote "ntpwikibase:P255"@fi .
+
+:noteOnTimespan skos:editorialNote "ntpwikibase:P71"@fi .
+
+:ntpID skos:editorialNote "Huomautus: nimitietopalvelun tuottama tunniste"@fi,
+        "ISAAR CPF 5.4.1. Authority record Identifier, 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId, recordId/otherRecordId"@fi,
+        "Kuvaus: jhs"@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi .
+
+:numberOfConference skos:editorialNote "ISAAR(CPF): 5.1.2-5.1.5"@fi,
+        "ntpwikibase:P181"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:   11.6."@fi .
+
+:occupation skos:editorialNote "Huomautus: voi olla useita $a osakenttiä. Käytetään mts-termejä"@fi,
+        "ISAAR(CPF): '5.2.5 functions, occupations, activities"@fi,
+        """Kuvaus: Linkki metatietosanaston ammattitermeihin \r\r\r\r
+http://urn.fi/URN:NBN:fi:au:mts:m2332"""@fi,
+        "Kuvaus: Teksti"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "SPECTRUM: Person’s occupation"@fi,
+        "Selite: Linkki metatietosanaston ammattitermeihin"@fi,
+        "Tyyppi: Relaatio: FINTO + Relaatio: Aika"@fi,
+        "ntpwikibase:P92"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3, 9.16"@fi .
+
+:occupationClass skos:editorialNote "ntpwikibase:P99"@fi .
+
+:orcid skos:editorialNote "Kuvaus: jhs"@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "ntpwikibase:P145"@fi .
+
+:otherDesignationOfCorporateBody skos:editorialNote "$2 arvo propertyyn P209 sanastotunnus rdaa:P50108"@fi,
+        "Huomautus: muu lisäilmaus yhteisön nimelle"@fi .
+
+:otherPlaceAssociatedWithCorporateBody skos:editorialNote "Huomautus: Salla/MuseumPlus: OK"@fi .
+
+:partOfNomen skos:editorialNote "Selite: Viittaa toiseen Nomenin, joka on osa viittaavaa nomenia"@fi .
+
+:performerAgentOf skos:editorialNote "ntpwikibase:P298"@fi .
+
+:periodOfActivityOfCorporateBody skos:editorialNote "Huomautus: $s ja $t kirjataan yhdessä ja kirjataan tarkenteisiin erillisinä P66 ja P67"@fi,
+        "ISNI: tärkeä"@fi,
+        "Kuvaus: Yhteisön perustamisaika – lakkauttamisaika"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "isaar cpf: 5.2.1 Dates of existence5.2..1 - saar cpf: 5.2.1 Dates of existence5.2.1"@fi,
+        "ntpwikibase:P268"@fi,
+        "original.rdatoolkit.org : 11.4.3. – 11.4.4."@fi .
+
+:periodOfActivityOfEntity skos:editorialNote "Kuvaus: Määriteltävän kohteen (tunnisteen tai nimen) ajallinen kattavuus"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "ntpwikibase:P81"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:"@fi .
+
+:periodOfActivityOfPerson skos:editorialNote "Huomautus: $s ja $t kirjataan yhdessä ja kirjataan tarkenteisiin erillisinä P66 ja P67"@fi,
+        "Kuvaus: Henkilön syntymäaika – kuolinaika"@fi,
+        "Kuvaus: Merkitään muodossa YYYY-YYYY"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "Selite: myös henkilön elinaika"@fi,
+        "isaar cpf: 5.2.1 Dates of existence5.2..1 "@fi,
+        "ntpwikibase:P267"@fi,
+        "original.rdatoolkit.org : 9.3.2. – 9.3.3."@fi,
+        "tärkeä, päivämäärätarkkuus"@fi .
+
+:periodofActivityOfAgent skos:editorialNote "Huomautus: Käytä mieluummin ominaisuuksia henkilöön liittyvä ajanjakso, yhteisöön liittyvä ajanjakso"@fi,
+        "ISAAR(CPF): 5.2.1"@fi,
+        "Kuvaus: Relaatio: Aika"@fi,
+        "Kuvaus: Toimijalla voi olla esim. toimintavuodet"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Toimijalla voi olla esim. toimintavuodet"@fi,
+        "Tyyppi: Relaatio: Aika"@fi,
+        "ntpwikibase:P283"@fi,
+        "original.rdatoolkit.org : 9.3, 10.4, 11.4"@fi .
+
+:persistentIdentifier skos:editorialNote "Huomautus: Analoginen"@fi,
+        "Kuvaus: jhs"@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "Selite: Vapaamuotoinen tunnus"@fi,
+        "ntpwikibase:P41"@fi .
+
+:personMemberOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P179"@fi .
+
+:personMemberOfCorporateBodyOf skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P121"@fi,
+        "original.rdatoolkit.org : K.2.3. – K.4.1."@fi .
+
+:personMemberOfFamily skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: Sukuun kuuluu (suku->henkilö)"@fi,
+        "original.rdatoolkit.org : K.3.1. - K.2.2. –"@fi .
+
+:personMemberOfFamilyOf skos:editorialNote "Kuvaus: kuuluu sukuun (henkilö->suku)"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: Kuuluu sukuun (henkilö->suku)"@fi,
+        "ntpwikibase:P352"@fi,
+        "original.rdatoolkit.org : K.3.1. - K.2.2. –"@fi .
+
+:personalIdentityCode skos:editorialNote "Kuvaus: jhs , Henkilötunnus väestörekisteristä"@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "ntpwikibase:P9"@fi .
+
+:placeOfBirth skos:editorialNote "ntpwikibase:P331"@fi .
+
+:placeOfBirthObject skos:editorialNote "Huomautus: MH 11.01.2016: ISAAR CPF ei määritä paikkaa rakenteisessa muodossa"@fi,
+        "Kuvaus: Henkilön syntymäpaikka"@fi,
+        "NTP: 8.9. Paikkaroolit"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P115"@fi,
+        "original.rdatoolkit.org : 9.8."@fi .
+
+:placeOfConference skos:editorialNote "ntpwikibase:P329"@fi .
+
+:placeOfConferenceObject skos:editorialNote "ISNI: tärkeä"@fi,
+        "Kuvaus: Konferenssin pitopaikka, pakollinen kun toimija on konferenssi"@fi,
+        "NTP: 8.9. Paikkaroolit"@fi,
+        "Selite: tapahtuman paikka"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P183"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:  11.3.2."@fi .
+
+:placeOfDeath skos:editorialNote "ntpwikibase:P330"@fi .
+
+:placeOfDeathObject skos:editorialNote "Kuvaus: Henkilön kuolinpaikka"@fi,
+        "NTP: 8.9. Paikkaroolit"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P117"@fi,
+        "original.rdatoolkit.org : 9.9."@fi .
+
+:placeOfResidence skos:editorialNote "ntpwikibase:P318"@fi .
+
+:placeOfResidenceObject skos:editorialNote "NTP: 8.9. Paikkaroolit"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P118"@fi,
+        "original.rdatoolkit.org : 9.11."@fi .
+
+:predecessorOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P185"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:predecessorOfSplit skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P202"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:preferredNameOfAgent skos:editorialNote "Kuvaus: Toimijalla tulee olla ensisijainen nimimuoto, jota käytetään järjestelmän sisällä"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Tyyppi: listan arvo"@fi,
+        "ntpwikibase:P335"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:"@fi .
+
+:preferredNameOfConference skos:editorialNote "ntpwikibase:P312"@fi .
+
+:preferredNameOfCorporateBody skos:editorialNote "Huomautus: suluissa perässä voi olla tyyppi tai tyyppi : maa)"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P336"@fi .
+
+:preferredNameOfCorporateBodyNomen skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P89"@fi .
+
+:preferredNameOfCorporateBodyOf skos:editorialNote "ntpwikibase:P148"@fi .
+
+:preferredNameOfFamily skos:editorialNote "ntpwikibase:P294"@fi .
+
+:preferredNameOfFamilyOf skos:editorialNote "ntpwikibase:P257"@fi .
+
+:preferredNameOfPersonNomen skos:editorialNote """Huomautus:  MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit\r\r\r\r
+käytetään, jos eri kieliversioita nameEntryParaller yhteydessä"""@fi,
+        "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "ntpwikibase:P88"@fi,
+        "original.rdatoolkit.org : Ensisijanen nimi 9.2.2"@fi .
+
+:preferredNameOfPersonOf skos:editorialNote "ntpwikibase:P211"@fi .
+
+:preferredNameOfPersonString skos:editorialNote "Huomautus: MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit käytetään, jos eri kieliversioita nameEntryParaller yhteydessä"@fi,
+        "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "ntpwikibase:P315"@fi,
+        "original.rdatoolkit.org : Ensisijanen nimi 9.2.2"@fi .
+
+:preferredNameOfPlace skos:editorialNote "ntpwikibase:P278"@fi .
+
+:preferredNameOfPlaceNomen skos:editorialNote "ntpwikibase:P101"@fi .
+
+:preferredNameOfRDAEntity skos:editorialNote "ntpwikibase:P319"@fi .
+
+:preferredNameOfRDAEntityNomen skos:editorialNote "ntpwikibase:P83"@fi .
+
+:preferredNameOfTimespan skos:editorialNote "ntpwikibase:P338"@fi .
+
+:preferredNameOfTimespanNomen skos:editorialNote "ntpwikibase:P74"@fi .
+
+:productOfMerger skos:editorialNote "ISNI: tärkeä"@fi,
+        "Kuvaus: yhdistymistä edeltänyt yhteisö:(1=<2)"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P195"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:productOfSplit skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P203"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:prominentMemberOfFamily skos:editorialNote "Huomautus: Salla/MuseumPlus: liittyvän toimijan tyyppi"@fi,
+        "Kuvaus: Yksilöi sukua ensisijaisen nimen yhteydessä, mikäli tarpeellista"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "original.rdatoolkit.org : 10.6."@fi .
+
+:propertyScope skos:editorialNote "ntpwikibase:P49"@fi .
+
+:rdaPreferredNameOfCorporateBody skos:editorialNote "Ensisijanen nimi 9.2.2, 10.2.2, 11.2.2"@fi,
+        """Huomautus: MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit\r\r\r\r
+käytetään, jos eri kieliversioita nameEntryParaller yhteydessä"""@fi,
+        "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto"@fi,
+        "Kuvaus: Toimijalla tulee olla RDA:n mukainen ensisijainen nimimuoto. Mikäli tällaista ei ole toimijaa luodessa kopioidaan tähän nimi kentästä ”Ensisijainen nimi”. Tätä voidaan kuitenkin muuttaa ilman, että sillä on vaikutusta mainittuun kenttään."@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Tyyppi: listan arvo"@fi,
+        "ntpwikibase:P339"@fi .
+
+:rdaPreferredNameOfPerson skos:editorialNote "Ensisijanen nimi 9.2.2, 10.2.2, 11.2.2"@fi,
+        "Kuvaus: Toimijalla tulee olla RDA:n mukainen ensisijainen nimimuoto. Mikäli tällaista ei ole toimijaa luodessa kopioidaan tähän nimi kentästä ”Ensisijainen nimi”. Tätä voidaan kuitenkin muuttaa ilman, että sillä on vaikutusta mainittuun kenttään."@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Tyyppi: listan arvo"@fi,
+        "ntpwikibase:P321"@fi .
+
+:rdaPreferredNameOfPersonNomen skos:editorialNote "Huomautus:  MH: 11.1.2016 kaikki nimiroolit voidaan ilmaista myös ns. localtype-attribuutin avulla, jolloin voidaan käyttää sujuvasti mm. RDA:n termejä, rippumatta eac-cpf:n eri vaihtoehdoista esittää nimiroolit käytetään, jos eri kieliversioita nameEntryParaller yhteydessä"@fi,
+        "ISAAR CPF 5.1.2. Auktorisoitu nimimuoto"@fi,
+        "ntpwikibase:P208"@fi .
+
+:rdfuri skos:editorialNote "ntpwikibase:P61"@fi .
+
+:realIdentity skos:editorialNote " 2.1.3. Toimijan suhteet "@fi,
+        "ISAAR(CPF): 5.3.1"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "Selite: Todellinen eli syntymässä annettu identiteetti. Toimijaan voi liittyä eri identiteettejä ja identiteetin tulee aina liittyä johonkin toimijaan.  "@fi,
+        "Tyyppi: Relaatio: Toimija/Identiteetti + Tyyppi: 7.17 Toimija - Identiteetti –rooli + Relaatio: Aika"@fi,
+        "ntpwikibase:P106"@fi,
+        "original.rdatoolkit.org: 30, liite K.2.1"@fi .
+
+:realIdentityOfPersonOf skos:editorialNote "Selite: Henkilö, jonka nimi on todellinen identiteetti (given identity)"@fi .
+
+:recordInfoNote skos:editorialNote "ISAAR(CPF): 5.4.9"@fi,
+        "Kuvaus: Ilmaistaan auktoriteettitiedoston tuottamiseen ja ylläpitämiseen liittyvät olennaiset huomautukset (selitykset)."@fi,
+        "Kuvaus: Teksti"@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        "Selite: Ilmaistaan auktoriteettitiedoston tuottamiseen ja ylläpitämiseen liittyvät olennaiset huomautukset (selitykset)."@fi,
+        "Tyyppi: Teksti"@fi,
+        "check if closeMatch with madsrdf:recordInfoNote"@fi .
+
+:recordStatus skos:editorialNote "Check with  modsrdf:recordInfo#AdminMetadata"@fi,
+        "Huomautus:  esim. http://metadataregistry.org/concept/list/vocabulary_id/31.html"@fi,
+        "ISAAR(CPF): 5.4.4"@fi,
+        "Kuvaus: Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä luonnos, lopullinen ja/tai muutettu vai poistettu versio. (Valintalista)"@fi,
+        "Kuvaus: Tyyppi: 7.16 Toimija-auktoriteettitiedoston tila"@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        """Selite:  recordStatus, \r\r\r\r
+Merkitään auktoriteettitiedoston ajantasainen tila. Ilmaistaan onko kyseessä ehdotus, luonnos, lopullinen ja/tai muutettu vai poistettu versio. (Valintalista)"""@fi,
+        "Tyyppi: 7.16 Toimija-auktoriteettitiedoston tila"@fi,
+        "original.rdatoolkit.org : 8.10."@fi .
+
+:recordingSource skos:editorialNote "Huomautus:  MODS: The code or name of the organization that either created the original description or modified it."@fi,
+        "ISAAR(CPF): 5.4.8"@fi,
+        "Kuvaus: Teksti"@fi,
+        "Kuvaus: Voidaan merkitä auktoriteettitiedoston tuottamisessa käytetyt lähteet."@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        "SPECTRUM: Reference"@fi,
+        "Selite: Voidaan merkitä auktoriteettitiedoston tuottamisessa käytetyt lähteet."@fi,
+        "Tyyppi: Teksti"@fi,
+        "check if closeMatch with madsrdf:recordinfo#rcordContentSource"@fi .
+
+:referenceGroup skos:editorialNote "ISNI: tärkeä"@fi,
+        "Kuvaus: Henkilön viiteryhmä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "original.rdatoolkit.org : 9.13."@fi .
+
+:relatedAgentOfAgent skos:editorialNote "ISAAR(CPF): 5.3.1, 5.3.2, 5.3.4"@fi,
+        "ISNI: Relationship, Related ISNI (Järjestelmän linkityksessä käytetään muuta tunnusta, mutta ISNIin vietäessä linkin avulla voidaan hakea linkitetyn toimijan ISNI-tunnus.)"@fi,
+        "Kuvaus: Relaatio: Toimija + Tyyppi: 8.1 Toimija toimija rooli+ Relaatio: Aika+ Teksti"@fi,
+        "Kuvaus: Relates an agent to an agent who is associated with an agent."@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Selite: Toimija voidaan liittää toiseen toimijaan."@fi,
+        "ntpwikibase:P282"@fi,
+        "original.rdatoolkit.org : 30-32, liite I"@fi .
+
+:relatedAgentOfWork skos:editorialNote "ntpwikibase:P297"@fi .
+
+:relatedCorporateBodyOfAgent skos:editorialNote " Huomautus: (ISNI: Järjestelmän linkityksessä käytetään muuta tunnusta, mutta ISNIin vietäessä linkin avulla voidaan hakea linkitetyn toimijan ISNI-tunnus."@fi,
+        "Huomautus:  (CPFRELATIONTYPE:n kontrolloitu sanasto ei kata kaikkia RDA-suhteita)"@fi,
+        "ISAAR(CPF): 5.3.1, 5.3.2, 5.3.4"@fi,
+        "ISNI: Relationship, Related ISNI"@fi,
+        "Kuvaus: Toimija voidaan liittää toiseen toimijaan."@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Tyyppi: Relaatio: Toimija + Tyyppi: 8.1 Toimija toimija rooli+ Relaatio: Aika+ Teksti"@fi,
+        "ntpwikibase:P309"@fi,
+        "original.rdatoolkit.org : 30-32, liite I"@fi .
+
+:relatedCorporateBodyOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P184"@fi,
+        "original.rdatoolkit.org : 11.5."@fi .
+
+:relatedCorporateBodyOfPerson skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P122"@fi .
+
+:relatedCorporateBodyOfPersonString skos:editorialNote "ntpwikibase:P349"@fi .
+
+:relatedNameOfCorporateBody skos:editorialNote "ntpwikibase:P340"@fi .
+
+:relatedNameOfPerson skos:editorialNote "ntpwikibase:P325"@fi .
+
+:relatedNomenOfPerson skos:editorialNote "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "ntpwikibase:P153"@fi .
+
+:relatedPersonOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P173"@fi .
+
+:relatedPersonOfPerson skos:editorialNote "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P313"@fi .
+
+:relatedPlaceOfAgent skos:editorialNote "ISAAR(CPF):  5.2.3"@fi,
+        "Kuvaus: Linkki YSO-paikkoihin"@fi,
+        "Kuvaus: Relaatio: Paikka"@fi,
+        "NTP: 2.1.2. Toimijan kuvailu "@fi,
+        "Selite: Linkki YSO-paikkoihin"@fi,
+        "Tyyppi: Relaatio: Paikka"@fi,
+        "ntpwikibase:P279"@fi .
+
+:relatedPlaceOfCorporateBody skos:editorialNote "ntpwikibase:P337"@fi .
+
+:relatedPlaceOfCorporateBodyObject skos:editorialNote "ISNI: tärkeä"@fi,
+        "Kuvaus: ISO-8601 (EDTF 1.0) mukainen ajan kuvaus."@fi,
+        "NTP: 8.9. Paikkaroolit"@fi,
+        "isaar cpf: 5.2.3 Places"@fi,
+        "ntpwikibase:P176"@fi,
+        "original.rdatoolkit.org : 11.3."@fi .
+
+:relatedPlaceOfFamily skos:editorialNote "Huomautus:  Salla/MuseumPlus: (kun yhteisötyyppi Suku)"@fi,
+        "ntpwikibase:P333"@fi .
+
+:relatedPlaceOfFamilyObject skos:editorialNote "NTP: 8.9. Paikkaroolit"@fi,
+        "ntpwikibase:P296"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3: "@fi .
+
+:relatedPlaceOfPerson skos:editorialNote "ntpwikibase:P326"@fi .
+
+:relatedPlaceOfPersonObject skos:editorialNote "ntpwikibase:P119"@fi .
+
+:relatedTimespanOfAgent skos:editorialNote "ISAAR(CPF): 5.2.8"@fi,
+        "Kuvaus: Relaatio: Ajallinen ilmiö + Tyyppi: 7.15 Toimija-Ajallinen ilmiö -roolit + Relaatio: Aika"@fi,
+        "Kuvaus: Toimijaan liittyvät ajalliset ilmiöt."@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Selite: Toimijaan liittyvät ajalliset ilmiöt."@fi,
+        "Tyyppi: Relaatio: Ajallinen ilmiö + Tyyppi: 7.15 Toimija-Ajallinen ilmiö -roolit + Relaatio: Aika"@fi,
+        "ntpwikibase:P270"@fi .
+
+:relatedTimespanOfCorporateBody skos:editorialNote "Huomautus: $s ja $t kirjataan yhdessä ja kirjataan tarkenteisiin erillisinä P66 ja P67"@fi,
+        "ntpwikibase:P269"@fi .
+
+:relatedTimespanOfEntity skos:editorialNote "ISAAR CPF ei tarkastele ajankohtia rakenteellisessa muodossa"@fi,
+        "ISNI: Date"@fi,
+        "SPECTRUM: Date earliest/single, Date earliest/singles certainty, Date earliest/singles qualifier, Date latest, Date latest certainty, Date latest qualifier, Date Period, Date text"@fi .
+
+:relatedTimespanOfFamily skos:editorialNote "Kuvaus: Suvun historiaan liittyvä merkittävä ajankohta"@fi,
+        "NTP: 8.7. Aikaroolit "@fi,
+        "ntpwikibase:P295"@fi,
+        "original.rdatoolkit.org : 10.4."@fi,
+        "rdat:P70012 \"has related family of timespan;Kuvaus: Suvun historiaan liittyvä merkittävä ajankohta;rdat:P70012 \"has related family of timespan"@fi .
+
+:relatedTimespanOfIdentifier skos:editorialNote "ntpwikibase:P300"@fi .
+
+:relatedTimespanOfNomen skos:editorialNote "Kuvaus: Nimen aika"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Relaatio: Aika"@fi,
+        "ntpwikibase:P301"@fi,
+        "original.rdatoolkit.org : 9.3, 10.4, 11.4"@fi .
+
+:relatedTimespanOfPerson skos:editorialNote " Henkilön kuolinaikakausi: alku, loppu"@fi,
+        "Huomautus:  Henkilön syntymäaikakausi: alku, loppu"@fi,
+        "ntpwikibase:P266"@fi .
+
+:relatedTimespanOfPlace skos:editorialNote "ISAAR(CPF):  5.2.3."@fi,
+        "Kuvaus: Toimijan suhteella paikkaan voi olla aikatieto"@fi,
+        "NTP: 5. Paikka"@fi,
+        "Tyyppi: Relaatio: Aika"@fi,
+        "ntpwikibase:P303"@fi .
+
+:relatedTimespanOfRDAEntity skos:editorialNote "Huomautus:  Aika elementti kuvaa EDTF 1.0 [1] formaatin mukaisesti ajanjaksoa, jolla on jokin tietty rooli. Tämä elementti on aina liitetty johonkin kuvailtavaan kohteeseen tai suhteeseen eikä se ole itsenäisesti tarkasteltava kohde."@fi,
+        "ISAAR(CPF):  ei tarkastele ajankohtia rakenteellisessa muodossa"@fi,
+        "ISNI: Date"@fi,
+        "Kuvaus: ISO-8601 (EDTF 1.0) mukainen ajan kuvaus."@fi,
+        "NTP: 4. Aika"@fi,
+        "SPECTRUM: Date earliest/single, Date earliest/singles certainty, Date earliest/singles qualifier, Date latest, Date latest certainty, Date latest qualifier, Date Period, Date text"@fi,
+        "Sisältääkö myös tiedon varmuuden, sanallisen kuvauksen jne.  ilmaisemisen. ämän tosin kattaa nykymäärityksessä edellisen polven standardiilmauksen"@fi,
+        "Tyyppi: ISO-8601 (EDTF 1.0)"@fi,
+        "ntpwikibase:P81"@fi .
+
+:relatedWorkOfAgent skos:editorialNote "(ISAD (G): 3.2 Aineisto- Toimija tiedot)"@fi,
+        "Huomautus: rdfs:seeAlso  rdaa:P50204"@fi,
+        "ISNI: External Data Link, Creation Class, Role"@fi,
+        "Kuvaus: Toimijan ja aineiston väliset suhteet määritelään taustajärjestelmissä. ISNIssä pakolliset aineistotiedot voidaan hakea FINNAsta. Linkki ulkoiseen tietolähteeseen,josta löytyy tietoa toimijaan liittyvistä aineistoista ja toimijan suhteista niihin. (Pakollinen ISNIssä)"@fi,
+        "Kuvaus: Uri (Tavoitetilassa Finnasta toimijan nimellä tehdyn haun tulokset)"@fi,
+        "NTP: 2.1.3. Toimijan suhteet "@fi,
+        "Selite: Toimijan ja aineiston väliset suhteet määritelään taustajärjestelmissä. ISNIssä pakolliset aineistoatiedot voidaan hakea FINNAsta. Linkki ulkoiseen tietolähteeseen,josta löytyy tietoa toimijaan liittyvistä aineistoista ja toimijan suhteista niihin. (Pakollinen ISNIssä)"@fi,
+        "Tyyppi: Uri (Tavoitetilassa Finnasta toimijan nimellä tehdyn haun tulokset)"@fi,
+        "ntpwikibase:P286"@fi .
+
+:relatedWorkOfAgentString skos:editorialNote "ISAAR(CPF): 6.* resourceRelation"@fi,
+        "Kuvaus: Teksti/linkki"@fi,
+        "Kuvaus: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti."@fi,
+        "Selite: Toimijaan voi liittyä julkaisuja ja tutkimuksia, joihin voidaan viitata ja joita voidaan kuvailla vapaamuotoisesti."@fi,
+        "ntpwikibase:P271"@fi,
+        "original.rdatoolkit.org : 18-22, liite I"@fi .
+
+:restrictionOfGender skos:editorialNote "NTP: 8.3  Näyttörajoitettavat attribuutit"@fi .
+
+:rightOfAccessOfIdentity skos:editorialNote "Selite: nimitietopalvelun selvityksessä. Arvot: julkinen/ei-julkinen. Values: public/non-public"@fi .
+
+:sharedIdentity skos:editorialNote "Huomautus: arvot a,b,n,| -- b - nimi kuuluu usealle henkilölle"@fi .
+
+:significantEvent skos:editorialNote "ntpwikibase:P91"@fi .
+
+:significantPlace skos:editorialNote "ntpwikibase:P65"@fi .
+
+:sortingOrder skos:editorialNote "1"@fi,
+        "Huomautus: Salla/MuseumPlus: kenttä ilmaisee, missä järjestyksessä muut nimet näkyvät tietueella / Mielestäni olisi hyvä saada mukaan."@fi .
+
+:sourceConsulted skos:editorialNote "Huomautus: Museoilla vapaatekstikenttä. wikibasessa oma Lähteet-kenttä."@fi,
+        "ntpwikibase:P116"@fi .
+
+:sourceConsultedURL skos:editorialNote "ntpwikibase:P56"@fi,
+        "x"@fi .
+
+:sponsoredCorporateBodyOfCorporateBody skos:editorialNote "ntpwikibase:P200"@fi .
+
+:sponsoringCorporateBodyOfCorporateBody skos:editorialNote "ntpwikibase:P201"@fi .
+
+:statusOfAuthority skos:editorialNote "ISAAR(CPF): 5.1.2 nimelle"@fi,
+        "Kuvaus: Boolean"@fi,
+        "Kuvaus: Yhteiset yhdistetyt toimijat ovat auktorisoituja. Kentän oletusarvo on false. "@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        "Selite: Yhteiset yhdistetyt toimijat ovat auktorisoituja. Kentän oletusarvo on false. "@fi,
+        "Tyyppi: Boolean"@fi,
+        "ntp-vocab:statAuthorisation"@fi,
+        "original.rdatoolkit.org : 18.4.1.2"@fi .
+
+:statusOfIdentification skos:editorialNote "ISAAR(CPF):  5.4.5"@fi,
+        "Kuvaus: Ilmaistaan onko auktoriteettitiedosto kuvailtu välttämättömillä, osittaisilla vai yksityiskohtaisilla tiedoilla. (Valintalista: fully established, provisional, preliminary)"@fi,
+        "Kuvaus: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste"@fi,
+        "NTP: 2.1.4. Toimijakuvailun hallinta"@fi,
+        "RDA: Toolkit: rdan:P80168 viittaa nimen vahvistamisen tasoon"@fi,
+        "Selite: Ilmaistaan onko auktoriteettitiedosto kuvailtu välttämättömillä, osittaisilla vai yksityiskohtaisilla tiedoilla. (Valintalista)"@fi,
+        "Tyyppi: Tyyppi: 7.17 Toimija-auktoriteettitiedoston tarkkuusaste"@fi .
+
+:style skos:editorialNote "<MUSEO>"@fi,
+        "Huomautus:  MuseumPlus: toimijan yleisimmin käyttämä tyyli (esim. taiteilijan tyyli)"@fi .
+
+:subject skos:editorialNote "Selite: esim. YSO-käsite. Termi, ilmaus, luokka tms., joka ilmaisee mitä aihetta teos käsittelee."@fi,
+        "ntpwikibase:P252"@fi,
+        "original.rdatoolkit.org : 23.2.3, M.2.6-M.2.8"@fi .
+
+:successorOfCorporateBody skos:editorialNote "ISNI: tärkeä"@fi,
+        "NTP: 8.1. Toimija-toimija-roolit "@fi,
+        "ntpwikibase:P186"@fi,
+        "original.rdatoolkit.org : K.4.3. "@fi .
+
+:surname skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P317"@fi .
+
+:surnameNomen skos:editorialNote "Huomautus:  Toimijan nimi voidaan käsittää tietynlaisena nimekkeenä toimijalle. Toimijan nimellä on attribuuttina aika, jonka avulla on tarkoitus palvella niitä tilanteita, joissa toimija pysyy samana mutta tämän nimi muuttuu. Tällöin nimekkeellä (nimellä) on myös ajallinen kattavuus. "@fi,
+        "ISAAR(CPF): ei määritä toimijan nimeä rakenteisessa muodossa"@fi,
+        "Kuvaus: Yhteisön tai suvun päänimi tai henkilön sukunimi"@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P205"@fi .
+
+:termOfRankHonourOrOffice skos:editorialNote " Huomautus: Salla/MuseumPlus: (kun yhteisötyyppi Suku)"@fi,
+        "Huomautus:  $2 arvo propertyyn P209 sanastotunnus"@fi,
+        "Kuvaus: Henkilöllä tai suvulla voi olla arvonimi "@fi,
+        "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: TekstiTyyppi: 7.7 Toimijan nimien roolit "@fi,
+        "ntpwikibase:P142"@fi,
+        "original.rdatoolkit.org : 0.6.7 Osio 3:    9.4. 10.7."@fi .
+
+:typeOfAddress skos:editorialNote "<MUSEO>"@fi,
+        "Huomautus: ei ole vanhoissa toimijoissa"@fi .
+
+:typeOfCorporateBodyName skos:editorialNote "Kuvaus: Marc21 first indicator: 0 - Inverted name, 1 - jurisdiction name, 2 - direct order "@fi .
+
+:typeOfIdentifier skos:editorialNote "museo"@fi,
+        "ntpwikibase:P239"@fi .
+
+:typeOfIdentity skos:editorialNote "Kuvaus: Kuvailun kohde on toimijan identiteetti. Yhdellä toimijalla voi olla useampia identiteettejä ja identiteetin tulee aina olla liitettynä johonkin toimijaan"@fi,
+        "Kuvaus: Tyyppi: 7.16 Kuvailun kohde"@fi,
+        "NTP: 8.15. Kuvailun kohde"@fi,
+        "SPECTRUM: Person’s association, Organisation’s association, People’s association"@fi,
+        "Selite: pakollinen ominaisuus, jolla ilmaistaan  onko kyseessä toimijan todellnen identiteetti vai toinen identiteeti"@fi,
+        "Tyyppi: Tyyppi: 7.16 Kuvailun kohde"@fi,
+        "ntpwikibase:P341"@fi .
+
+:usageInstructions skos:editorialNote "ntpwikibase:P6"@fi .
+
+:variantNameOfAgent skos:editorialNote "Huomautus: tällöin nameEntryParaller sisällä jos vaihtoehtoinen nimi on ns. eri kielinen"@fi,
+        "ISAAR CPF 5.1.3. Rinnakkainen nimimuoto"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "Tyyppi: listan arvo"@fi,
+        "ntpwikibase:P304"@fi,
+        "original.rdatoolkit.org : Varianttinimi 9.2.3., 10.2.3., 11.2.3."@fi .
+
+:variantNameOfCorporateBody skos:editorialNote "NTP: 6. Toimijan nimi"@fi,
+        "Tyyppi: Teksti"@fi,
+        "ntpwikibase:P292"@fi .
+
+:variantNameOfCorporateBodyNomen skos:editorialNote "ntpwikibase:P150"@fi .
+
+:variantNameOfFamily skos:editorialNote "ntpwikibase:P293"@fi .
+
+:variantNameOfPerson skos:editorialNote "Huomautus: P114 > Nomen, kts. myös P64 nimi yksikielinen"@fi,
+        "NTP: 8.6. Toimijan nimien roolit"@fi,
+        "ntpwikibase:P291"@fi .
+
+:variantNameOfPersonOf skos:editorialNote "ntpwikibase:P114"@fi .
+
+:variantNameOfPlace skos:editorialNote "ntpwikibase:P290"@fi .
+
+:variantNameOfTimespan skos:editorialNote "ntpwikibase:P75"@fi .
+
+:vatNumber skos:editorialNote "Selite: nimitietopalvelun selvityksessä"@fi .
+
+:viaf skos:editorialNote "Huomautus: kenttä 100 on ilman t-osakenttää"@fi,
+        "ntpwikibase:P60"@fi .
+
+:viewingRestriction skos:editorialNote "Kesto (vuosissa) NR4"@fi,
+        "Kuvaus: Peruste NR1"@fi,
+        "NTP: 8.4. Näyttörajoitus tyypit"@fi,
+        "Nimi NR2"@fi,
+        "Selite  NR3"@fi,
+        "ntp-vocab:viewingRestriction"@fi,
+        "tarkenteena"@fi .
+
+:vocabularyIdentifier skos:editorialNote "ntpwikibase:P209"@fi,
+        "tarkenteena"@fi .
+
+:webAddressOfAgent skos:editorialNote "Huomautus: Salla/MuseumPlus: toimijan oman verkkosivun lisäksi voi olla hänestä tehty sivu (esim. Kansallisbiografia)"@fi .
+
+:yTunnus skos:editorialNote "Huomautus: Kaupparekisteristä"@fi,
+        "ISAAR CPF: 5.1.6 Identifiers for corporate bodies"@fi,
+        "Kuvaus: jhs "@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "PRH tunnus Kaupparekisteristä"@fi,
+        "ntpwikibase:P158"@fi,
+        "original.rdatoolkit.org : 5.1.6 Identifiers for corporate bodies EAC-CPF: entityId"@fi .
+
+:yhdistysrekisterinumero skos:editorialNote " Yhdistyksen rekisterinumero yhdistysrekisteristä"@fi,
+        " prh "@fi,
+        "ISAAR CPF: 5.1.6 Identifiers for corporate bodies"@fi,
+        "Kuvaus: Yhdistyksen rekisterinumero yhdistysrekisteristä"@fi,
+        "Kuvaus: jhs "@fi,
+        "NTP: 8.5. Tunnisteen roolit"@fi,
+        "Selite: http://uri.suomi.fi/datamodel/ns/jhs#yhdistysrekisterinumero"@fi .
+
+:ysoTerm skos:editorialNote "ntpwikibase:P263"@fi,
+        "tarkenteena"@fi .
+
+:ysoURI skos:editorialNote "Kuvaus: tarkenteena"@fi,
+        "Selite: kts. rdax:P00010"@fi,
+        "ntpwikibase:P43"@fi,
+        "tarkenteena"@fi .
+
