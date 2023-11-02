@@ -1,0 +1,3684 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<records xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:nbn:se:uu:ub:epc-schema:rs-location-mapping" xsi:schemaLocation="urn:nbn:se:uu:ub:epc-schema:rs-location-mapping http://urn.kb.se/resolve?urn=urn:nbn:se:uu:ub:epc-schema:rs-location-mapping&amp;amp;godirectly">
+  <protocol-version>3.0</protocol-version>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Person</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Person</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Agent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Agent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Timespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Timespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:String</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#String</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Nomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Nomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:CorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#CorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Family</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Family</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Monolingualtext</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Monolingualtext</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:CategoryOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#CategoryOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Concept</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Concept</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Item</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Item</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Work</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Work</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Entity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Entity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Event</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Event</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:Place</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#Place</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:CategoryOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#CategoryOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ExternalIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ExternalIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfConfernenceObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfConfernenceObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:countryAssociatedWithPersonPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#countryAssociatedWithPersonPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfCorporateBodyObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfCorporateBodyObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:partOfNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#partOfNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfCorporateBodyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfCorporateBodyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedAgentOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedAgentOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:corporateBodyMemberOfCorporateBodyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#corporateBodyMemberOfCorporateBodyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:productOfMerger</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#productOfMerger</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfPersonObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfPersonObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfRDAEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfRDAEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:isniIdentifer</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#isniIdentifer</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:significantPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#significantPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForCorporateBodyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForCorporateBodyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rdaPreferredNameOfCorporateBodyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rdaPreferredNameOfCorporateBodyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:broaderAffiliatedBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#broaderAffiliatedBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:foundingCorporateBodyOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#foundingCorporateBodyOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedWorkOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedWorkOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:absorbingCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#absorbingCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:propertyScope</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#propertyScope</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasSibling</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasSibling</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:typeOfIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#typeOfIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedCorporateBodyOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedCorporateBodyOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:givenNameObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#givenNameObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasSpouse</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasSpouse</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasParent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasParent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sponsoredCorporateBodyOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sponsoredCorporateBodyOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:isPartOfNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#isPartOfNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfPersonNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfPersonNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:componentOfMerger</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#componentOfMerger</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfTimespanObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfTimespanObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:chiefExecutiveOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#chiefExecutiveOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hierarchicalSuperior</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hierarchicalSuperior</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:descendantFamilyOfPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#descendantFamilyOfPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ntpID</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ntpID</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:chiefExecutive</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#chiefExecutive</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR8</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR8</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:descendantFamilyOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#descendantFamilyOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedNameOfCorporateBodyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedNameOfCorporateBodyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfFamilyObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfFamilyObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfPersonNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfPersonNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPersonOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPersonOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasChild</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasChild</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfTimespanNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfTimespanNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:personMemberOfFamilyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#personMemberOfFamilyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfFamilyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfFamilyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfAgentObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfAgentObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedNomenOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedNomenOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:foundedCorporateBodyOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#foundedCorporateBodyOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:referenceGroup</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#referenceGroup</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:employer</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#employer</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:absorbedCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#absorbedCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:signatory</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#signatory</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:modifierCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#modifierCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfResidenceObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfResidenceObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:restrictionOfGender</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#restrictionOfGender</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:minimumDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#minimumDate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfCorporateBodyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfCorporateBodyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:successorOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#successorOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:creatorAgentOfWorkOfObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#creatorAgentOfWorkOfObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identiferForTimespanObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identiferForTimespanObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForPlaceOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForPlaceOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedCorporateBodyOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedCorporateBodyOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasRealIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasRealIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:predecessorOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#predecessorOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:realIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#realIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rdaPreferredNameOfPersonNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rdaPreferredNameOfPersonNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfConferenceNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfConferenceNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForTimespanOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForTimespanOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hierarchicalSubordinate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hierarchicalSubordinate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForPersonObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForPersonObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfPlaceNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfPlaceNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:recordingSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#recordingSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfFamilyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfFamilyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:producerCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#producerCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sponsoringCorporateBodyOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sponsoringCorporateBodyOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForPlaceObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForPlaceObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfFamilyObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfFamilyObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfTerminationObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfTerminationObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:gender</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#gender</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:orcidIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#orcidIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:personMemberOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#personMemberOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:surnameNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#surnameNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:productOfSplit</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#productOfSplit</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:significantEvent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#significantEvent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPersonOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPersonOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedAgentOfWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedAgentOfWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedCorporateBodyOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedCorporateBodyOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasRelative</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasRelative</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfCorporateBodyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfCorporateBodyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfConferenceObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfConferenceObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:corporateBodyMemberOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#corporateBodyMemberOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:localAffiliate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#localAffiliate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:alternateIdentityOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#alternateIdentityOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:descendantFamilyOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#descendantFamilyOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfCorporateBodyNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfCorporateBodyNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:jointlyHeldConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#jointlyHeldConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:predecessorOfSplit</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#predecessorOfSplit</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:personMemberOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#personMemberOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfDeathObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfDeathObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:mergee</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#mergee</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:personMemberOfCorporateBodyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#personMemberOfCorporateBodyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:foundingPersonOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#foundingPersonOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:realIdentityOfPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#realIdentityOfPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:fullerFormOfPersonalNameNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#fullerFormOfPersonalNameNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfRDAEntityNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfRDAEntityNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:otherIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#otherIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfBirthObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfBirthObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:significantPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#significantPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hasAlternateIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hasAlternateIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedCorporateBodyOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedCorporateBodyOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:employee</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#employee</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForCorporateBodyObject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForCorporateBodyObject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rdaPreferredNameOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rdaPreferredNameOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:constraint</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#constraint</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:foundedCorporateBodyOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#foundedCorporateBodyOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:prominentMemberOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#prominentMemberOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:alternateIdentityOfPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#alternateIdentityOfPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:recordStatus</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#recordStatus</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:countryOfCitizenship</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#countryOfCitizenship</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfMetadataWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfMetadataWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:editorialDirectorAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#editorialDirectorAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäD</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäD</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnRDAEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnRDAEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttaC</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttaC</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identiferForNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identiferForNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:contextOfUsage</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#contextOfUsage</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:otherPlaceAssociatedWithCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#otherPlaceAssociatedWithCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:directorAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#directorAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:IdentifierForPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#IdentifierForPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nonPublicNoteOnResource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nonPublicNoteOnResource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfTermination</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfTermination</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:countryAssociatedWithPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#countryAssociatedWithPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:subject</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#subject</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:givenName</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#givenName</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedCorporateBodyOfPersonString</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedCorporateBodyOfPersonString</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfReference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfReference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ysoURI</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ysoURI</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:intervieweeAgentOfExpressionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#intervieweeAgentOfExpressionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfBirth</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfBirth</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnPeriodOfActivityOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnPeriodOfActivityOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:publisherOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#publisherOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:performerAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#performerAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:viewingRestriction</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#viewingRestriction</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfGovernment</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfGovernment</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameMonolingual</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameMonolingual</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:fieldOfActivityOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#fieldOfActivityOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:formatOfDate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#formatOfDate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnPeriodOfActivityOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnPeriodOfActivityOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfHierarchicalSuperior</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfHierarchicalSuperior</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:hereditaryTermOfHonour</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#hereditaryTermOfHonour</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:biographicalInformation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#biographicalInformation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:museumPlus</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#museumPlus</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfEstablishment</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfEstablishment</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:fullerFormOfPersonalName</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#fullerFormOfPersonalName</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointForEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointForEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:beginning</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#beginning</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:descriptionStandard</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#descriptionStandard</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ending</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ending</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnResource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnResource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:addresseeAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#addresseeAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:collectorAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#collectorAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:recordInfoNote</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#recordInfoNote</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:periodOfActivityOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#periodOfActivityOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:artistAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#artistAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR4</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR4</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR2</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR2</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:creatorAgentOfWorkOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#creatorAgentOfWorkOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfBirth</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfBirth</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:arrangerAgentOfMusicOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#arrangerAgentOfMusicOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sourceConsulted</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sourceConsulted</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttaA</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttaA</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:photographerAgentOfWorkOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#photographerAgentOfWorkOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:mandate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#mandate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedWorkOfAgentString</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedWorkOfAgentString</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:addressOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#addressOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:fieldOfActivityOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#fieldOfActivityOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnMetadataWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnMetadataWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfVariantName</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfVariantName</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:composerAgentOfWorkOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#composerAgentOfWorkOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:periodofActivityOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#periodofActivityOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rightOfAccessOfIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rightOfAccessOfIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:intervieweeAgentOfWorkOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#intervieweeAgentOfWorkOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttä0</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttä0</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:recordistAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#recordistAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:webAddressOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#webAddressOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäS</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäS</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR3</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR3</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:function</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#function</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäG</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäG</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:producerAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#producerAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rdaPreferredNameOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rdaPreferredNameOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:interviewerAgentOfWorkOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#interviewerAgentOfWorkOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21equivalent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21equivalent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäU</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäU</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointForPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointForPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:addressOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#addressOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfDeath</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfDeath</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:draftsmanPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#draftsmanPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfPersistentIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfPersistentIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR7</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR7</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointForFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointForFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:style</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#style</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:vocabularyIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#vocabularyIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:editorAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#editorAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:kaukoValue</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#kaukoValue</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:typeOfIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#typeOfIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttaB</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttaB</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäR</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäR</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedNameOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedNameOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR1</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR1</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:yhdistysrekisterinumero</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#yhdistysrekisterinumero</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nomenString</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nomenString</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:formerOwnerAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#formerOwnerAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:orcid</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#orcid</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:statusOfAuthority</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#statusOfAuthority</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:instrument</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#instrument</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäE</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäE</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:personalIdentityCode</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#personalIdentityCode</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:surname</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#surname</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateAssociatedWithAgent</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateAssociatedWithAgent</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnDateOfTermination</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnDateOfTermination</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:languageOfResource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#languageOfResource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttaF</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttaF</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:directorAgentOfPhotographyOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#directorAgentOfPhotographyOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointOfTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointOfTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:NR5</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#NR5</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:addressOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#addressOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnDateOfBirth</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnDateOfBirth</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:periodOfActivityOfEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#periodOfActivityOfEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:subjectPersonOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#subjectPersonOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfNomen</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfNomen</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:finaf-id</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#finaf-id</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:activity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#activity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfHierarchicalSubordinate</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfHierarchicalSubordinate</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dayOfBirth</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dayOfBirth</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:henkilotunnus</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#henkilotunnus</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfRDAEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfRDAEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForMetadataWork</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForMetadataWork</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:isniId</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#isniId</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:asteri-id</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#asteri-id</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:award</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#award</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForResource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForResource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfDeath</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfDeath</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:typeOfAddress</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#typeOfAddress</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForCorporateBodyString</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForCorporateBodyString</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:rdfuri</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#rdfuri</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:compilerAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#compilerAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäQ</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäQ</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäJ</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäJ</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfCaptureOfRepresentativeExpression</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfCaptureOfRepresentativeExpression</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:persistentIdentifier</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#persistentIdentifier</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:recordsManager</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#recordsManager</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:composerOfExpressionOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#composerOfExpressionOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sharedIdentity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sharedIdentity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:fieldOfActivity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#fieldOfActivity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sourceConsultedURL</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sourceConsultedURL</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:typeOfCorporateBodyName</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#typeOfCorporateBodyName</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:viaf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#viaf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:statusOfIdentification</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#statusOfIdentification</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dateOfUsage</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dateOfUsage</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:otherDesignationOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#otherDesignationOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:placeOfResidence</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#placeOfResidence</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:sortingOrder</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#sortingOrder</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:agentHistory</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#agentHistory</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ysoTerm</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ysoTerm</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnDateOfDeath</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnDateOfDeath</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:numberOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#numberOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForRDAEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForRDAEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:usageInstructions</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#usageInstructions</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:corporateHistory</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#corporateHistory</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:ahaaLabel</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#ahaaLabel</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfConference</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfConference</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteFromSource</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteFromSource</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:vatNumber</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#vatNumber</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:familyHistory</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#familyHistory</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:marc21-osakenttäT</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#marc21-osakenttäT</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:occupationClass</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#occupationClass</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:dayOfDeath</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#dayOfDeath</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:noteOnCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#noteOnCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:periodOfActivityOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#periodOfActivityOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedPlaceOfFamily</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedPlaceOfFamily</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfRDAEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfRDAEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:acronym</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#acronym</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:authorizedAccessPointOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#authorizedAccessPointOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:categoryOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#categoryOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:nameOfTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#nameOfTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:preferredNameOfPersonString</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#preferredNameOfPersonString</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:kotusID</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#kotusID</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfPerson</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfPerson</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForPlace</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForPlace</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:occupation</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#occupation</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:speakerAgentOf</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#speakerAgentOf</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:yTunnus</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#yTunnus</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:termOfRankHonourOrOffice</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#termOfRankHonourOrOffice</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:identifierForTimespan</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#identifierForTimespan</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedTimespanOfEntity</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedTimespanOfEntity</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:relatedNameOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#relatedNameOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+  <record>
+    <header>
+      <identifier>URN:NBN:fi:schema:ntp:variantNameOfCorporateBody</identifier>
+      <destinations>
+        <destination status="activated">
+          <url>http://schema.finto.fi/ntp#variantNameOfCorporateBody</url>
+        </destination>
+      </destinations>
+    </header>
+  </record>
+</records>
