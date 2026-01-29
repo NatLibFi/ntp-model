@@ -1,0 +1,32 @@
+@prefix ntp-meta: <http://urn.fi/URN:NBN:fi:schema:ntp-meta:> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # meneekö näin?
+
+ntp-meta:viewingRestriction a owl:AnnotationProperty ;
+  rdfs:label "näyttörajoitus"@fi ;
+  rdfs:domain rdfs:Resource ;
+  rdfs:range xsd:boolean ;
+  dct:modified "2026-01-26 (New)" .
+  
+ntp-meta:typeOfViewingRestriction a rdfs:DatatypeProperty
+  rdfs:label "näyttörajoitteen kohde ja tyyppi"@fi ;
+  skos:note "U = Ulkoiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun sisältöä avattaessa esim. Finnassa
+
+SI = Sisäiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun tuottajille
+
+Sisäinen rajoitus tarkoittaa myös ulkoista rajoitusta
+Sisäiset rajoitukset kohdistuvat NTP-tuottajiin, jotka ovat saaneet yleisen oikeuden käsitellä kuvailutietoja.
+Niissä kuvailutiedoissa, jotka tuotetaan primääristi NTP:ssä, on voitava tarkemmin määritellä, kenelle tiedot ovat näytettävissä
+T = Täysrajoitus = ei saa tallentaa tietoa Nimitietopalveluun
+
+Ne kuvailutiedot (esim. arkistoissa), joita ei halua näyttää kaikille NTP-tuottajille, ei tuoda NTP:hen
+Silloin kun NTP:tä käytetään primäärinä tuotantoympäristönä, täytyy nämä tiedot rajata vain jonkin ryhmän käytettäviksi.
+Y = Rajoitus koskee yhteisöä
+
+H = Rajoitus koskee henkilöä
+
+SU = Rajoitus koskee sukua" ;
+  dct:modified "2026-01-26 (New)" . 
