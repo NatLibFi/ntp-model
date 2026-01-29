@@ -3,17 +3,25 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . # meneekö näin?
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-ntp-meta:viewingRestriction a owl:AnnotationProperty ;
+ntp-meta: a owl:Ontology ;
+   dct:title "Metadata ontology for NTP data model"@en, "Metadataontologia NTP-tietomallin tueksi"@fi ;
+   dct:license  <http://creativecommons.org/publicdomain/zero/1.0/> ;
+   dct:description """Additional properties supporting NTP data model."""@en, """Sisältää lisäominaisuuksia NTP-tietomallia varten."""@fi  .
+
+ntp-meta:viewingRestriction a rdfs:DatatypeProperty ;
   rdfs:label "näyttörajoitus"@fi ;
-  rdfs:domain rdfs:Resource ;
+  rdfs:domain rdf:Property ;
   rdfs:range xsd:boolean ;
   dct:modified "2026-01-26 (New)" .
   
-ntp-meta:typeOfViewingRestriction a rdfs:DatatypeProperty
+ntp-meta:typeOfViewingRestriction a rdfs:DatatypeProperty ;
   rdfs:label "näyttörajoitteen kohde ja tyyppi"@fi ;
-  skos:note "U = Ulkoiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun sisältöä avattaessa esim. Finnassa
+  rdfs:domain rdf:Property ;
+  rdfs:range rdfs:Literal ;
+  skos:note """U = Ulkoiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun sisältöä avattaessa esim. Finnassa
 
 SI = Sisäiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun tuottajille
 
@@ -28,5 +36,5 @@ Y = Rajoitus koskee yhteisöä
 
 H = Rajoitus koskee henkilöä
 
-SU = Rajoitus koskee sukua" ;
-  dct:modified "2026-01-26 (New)" . 
+SU = Rajoitus koskee sukua""" ;
+dct:modified "2026-01-26 (New)" .
