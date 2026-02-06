@@ -1,0 +1,60 @@
+ntp:addressOfAgent ntp-meta:typeOfViewingRestriction "U: Y, H ja SU / SI: H / T: H" .
+ntp:addressOfCorporateBody ntp-meta:typeOfViewingRestriction "U: Y" .
+ntp:addressOfPerson ntp-meta:typeOfViewingRestriction "U: H / SI: H / T: H" .
+ntp:agentHistory ntp-meta:typeOfViewingRestriction "U: H ja SU / SI: H / T: H" .
+ntp:biographicalInformation ntp-meta:typeOfViewingRestriction "U: H / SI: H" .
+ntp:countryOfCitizenship ntp-meta:typeOfViewingRestriction "SI:H, Y, SU" .
+ntp:dateOfBirth ntp-meta:typeOfViewingRestriction "SI:H" .
+ntp:familyHistory ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:fieldOfActivity ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:fieldOfActivityOfPerson ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:foundingPersonOfCorporateBody ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:gender ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:hasAlternateIdentity ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:hasRealIdentity ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:nameOfAgent ntp-meta:typeOfViewingRestriction "U: H, SU" .
+ntp:nameOfFamily ntp-meta:typeOfViewingRestriction "U: SU" .
+ntp:nameOfFamilyNomen ntp-meta:typeOfViewingRestriction "U: SU" .
+ntp:nameOfPerson ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:nameOfPersonNomen ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:nonPublicNoteOnResource ntp-meta:typeOfViewingRestriction "U / SI" .
+ntp:noteOnDateOfBirth ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:noteOnDateOfDeath ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:noteOnPeriodOfActivityOfAgent ntp-meta:typeOfViewingRestriction "U: H, SU" .
+ntp:noteOnPeriodOfActivityOfPerson ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:occupation ntp-meta:typeOfViewingRestriction "U: H" .
+ntp:otherIdentity ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:personalIdentityCode ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:personMemberOfCorporateBody ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:personMemberOfCorporateBodyOf ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:personMemberOfFamily ntp-meta:typeOfViewingRestriction "SI: H, SU" .
+ntp:personMemberOfFamilyOf ntp-meta:typeOfViewingRestriction "SI: H, SU" .
+ntp:placeOfBirth ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:placeOfBirthObject ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:placeOfResidence ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:placeOfResidenceObject ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:preferredNameOfPersonNomen ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:preferredNameOfPersonOf ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:preferredNameOfPersonString ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:realIdentity ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:realIdentityOfPersonOf ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:referenceGroup ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedAgentOfAgent ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedCorporateBodyOfAgent ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedCorporateBodyOfPerson ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedCorporateBodyOfPersonString ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPersonOfCorporateBody ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPersonOfPerson ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPlaceOfAgent ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPlaceOfAgentObject ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPlaceOfPerson ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedPlaceOfPersonObject ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedTimespanOfAgent ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:relatedTimespanOfPerson ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:surname ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:surnameNomen ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:typeOfAddress ntp-meta:typeOfViewingRestriction "SI" .
+ntp:variantNameOfAgent ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:variantNameOfPerson ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:variantNameOfPersonOf ntp-meta:typeOfViewingRestriction "SI: H" .
+ntp:recordInfoNote ntp-meta:typeOfViewingRestriction "SI" .
