@@ -17,7 +17,7 @@
 from rdflib import Graph, URIRef, BNode, Namespace, RDF, Literal
 from rdflib.namespace import SKOS, XSD, OWL, DC, NamespaceManager
 from lxml import etree
-from helpers import add_sublement, defrag_iri
+from helpers import add_subelement, defrag_iri
 from io import StringIO
 import argparse
 import logging
@@ -25,8 +25,9 @@ import logging
 HEADERS = {OWL.Class: 'Classes',
            OWL.ObjectProperty: 'Object Properties',
            OWL.DatatypeProperty: 'Datatype Properties',
-           OWL.AnnotationProperty: 'Annotation Properties'}
-           
+           OWL.AnnotationProperty: 'Annotation Properties',
+           }
+
 TYPES = [OWL.Class, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty]
 
 class RDFtoHTML:
@@ -74,14 +75,14 @@ class RDFtoHTML:
                         return(obj)
                 else:    
                     return(obj)
-     
+
     def sort_properties_with_id(self, properties):
         sorted_labels = sorted(properties.keys(), key=str.casefold)
         sorted_properties = {}
         for subject in sorted_labels:
             sorted_properties.update({subject: properties[subject]})
         return sorted_properties
-        
+
     def sort_properties_with_label(self, properties):
         unsorted_properties = {}
         for prop in properties:
@@ -92,7 +93,7 @@ class RDFtoHTML:
         for pref_label in sorted_labels:
             sorted_properties.update(unsorted_properties[pref_label])
         return sorted_properties
-    
+
     def set_anchor(self, prop, value=None, urn=False):
         root = etree.Element('a')
         href_value = prop
@@ -105,7 +106,6 @@ class RDFtoHTML:
                 result = defrag_iri(href_value)
                 text_value = text_value.replace('http://urn.fi/', '')
             elif tag == self.name_space and prop != 'URN':
-                
                 text_value = self.get_pref_label(prop)
                 if text_value:
                     result = defrag_iri(href_value)
@@ -121,10 +121,10 @@ class RDFtoHTML:
         root.text = str(text_value)
         root.set('href', str(href_value))
         return root
-        
+
     def create_contents(self, html_doc, header, properties):
-        header_element = add_sublement(html_doc, 'h2', text=header)
-        paragraph = add_sublement(html_doc, 'p')
+        header_element = add_subelement(html_doc, 'h2', text=header)
+        paragraph = add_subelement(html_doc, 'p')
         for idx, subject in enumerate(properties):
             result = defrag_iri(subject)
             if result:
@@ -132,22 +132,22 @@ class RDFtoHTML:
                 text = fragment
                 if idx < len(properties) - 1:
                     text = text + ", "
-                anchor = add_sublement(paragraph, 'a', text) 
+                anchor = add_subelement(paragraph, 'a', text)
                 anchor.set('href' , "#" + fragment)
-        
+
     def create_properties(self, html_doc, header, properties):
-        header_element = add_sublement(html_doc, 'h2', text=header)
-        paragraph = add_sublement(html_doc, 'div')
+        header_element = add_subelement(html_doc, 'h2', text=header)
+        paragraph = add_subelement(html_doc, 'div')
         for subject in properties:
             result = defrag_iri(subject)
             if result:
-                div = add_sublement(paragraph, 'div')
+                div = add_subelement(paragraph, 'div')
                 div.set('class', 'property')
-                anchor = add_sublement(div, 'a', result[1])
+                anchor = add_subelement(div, 'a', result[1])
                 anchor.set('id', result[1])
-                table = add_sublement(paragraph, 'table')
+                table = add_subelement(paragraph, 'table')
                 for prop in properties[subject]:
-                    tablerow = add_sublement(table, 'tr')
+                    tablerow = add_subelement(table, 'tr')
                     prop_name = prop
                     tag = None
                     if type(prop) == URIRef:
@@ -155,13 +155,14 @@ class RDFtoHTML:
                         td_key = etree.SubElement(tablerow, 'td')
                         td_key.append(root)
                     else:
-                        td_key = add_sublement(tablerow, 'td', prop_name)
-                    
+                        td_key = add_subelement(tablerow, 'td', prop_name)
+
                     td_key.set('class', 'key')
-                    td_value = add_sublement(tablerow, 'td')
+                    td_value = add_subelement(tablerow, 'td')
                     td_value.set('class', 'value')
                     text = ""
                     for idx, value in enumerate(properties[subject][prop]):
+                        list_div = add_subelement(td_value, 'div')
                         if type(value) == URIRef:
                             urn = False
                             if prop == 'URN':
@@ -173,22 +174,21 @@ class RDFtoHTML:
                         else:  
                             if Literal(value).language:
                                 value = str(value) + " (" + Literal(value).language + ")"
-                            text += str(value)
+                            text = str(value)
                             if idx < len(properties[subject][prop]) - 1:
-                                text += ", "  
-                    try:
-                        text = etree.fromstring(text)
-                        td_value.append(text)
-                    except etree.XMLSyntaxError:
+                                text += ", "
                         try:
                             text = etree.fromstring(text)
-                            td_value.append(text)
+                            list_div.append(text)
                         except etree.XMLSyntaxError:
-                            td_value.text = text
-            
+                            try:
+                                text = etree.fromstring(text)
+                                list_div.append(text)
+                            except etree.XMLSyntaxError:
+                                list_div.text = text
+
     def parse_graph(self):
         self.graph.parse(self.input_path, format="ttl")
-        class_properties = set()         
         data_model = {}
         for ns in self.graph.namespaces():
             self.graph.namespace_manager.bind(ns[0], ns[1])
@@ -202,7 +202,6 @@ class RDFtoHTML:
                 pref_label = self.get_pref_label(subject)
                 if pref_label and fragment:    
                     sorted_properties  = {}
-                    subject_properties = {}
                     sorted_properties['URN'] = [subject]
                     pref_labels = []
                     other_properties = []
@@ -220,12 +219,12 @@ class RDFtoHTML:
                             pref_labels.append(prop_dict)
                         else:
                             other_properties.append(prop_dict)
-                            
+
                     sorted_languages = sorted(pref_labels, key=lambda k: (  
                         k['language'] != self.language,
                         k['language']
                     ))
-                    
+
                     for sl in sorted_languages:
                         if sl['prop'] in sorted_properties:
                             sorted_properties[sl['prop']].append(sl['obj'])
@@ -243,16 +242,16 @@ class RDFtoHTML:
 
                 else:
                     logging.warning("PrefLabel or URI fragment missing from %s"%subject)                      
-                                
+
         html_doc = etree.Element("html")
         head = etree.SubElement(html_doc, "head")
         if self.title:
-            title = add_sublement(head, 'title', self.title)
+            title = add_subelement(head, 'title', self.title)
         meta = etree.SubElement(head, "meta")
         meta.set('http-equiv', 'Content-Type')
         meta.set('content', 'text/html; charset=utf-8')
         meta.tail = None
-        link = add_sublement(head, "link", text=None)
+        link = add_subelement(head, "link", text=None)
         link.set('rel', 'stylesheet')
         link.set('href', 'stylesheet.css')
         link.tail = None
@@ -274,7 +273,6 @@ class RDFtoHTML:
                 self.create_properties(html_doc, HEADERS[t], data_model[t])
         with open(self.output_path, 'wb') as output:
             output.write(etree.tostring(html_doc, encoding='utf-8', pretty_print=True))
-            
+
 if __name__ == '__main__':
     RDFtoHTML()
-    

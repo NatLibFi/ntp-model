@@ -17,11 +17,13 @@
 from urllib.parse import urldefrag
 from lxml import etree
 
-def add_sublement(element, tag, text=None):
+
+def add_subelement(element, tag, text=None):
     subelement = etree.SubElement(element, tag)
     if text:
         subelement.text = text
-    return subelement    
+    return subelement
+
 
 def defrag_iri(iri):
     result = urldefrag(iri)

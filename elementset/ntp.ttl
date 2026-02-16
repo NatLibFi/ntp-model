@@ -7,6 +7,8 @@
 @prefix madsrdf: <http://www.loc.gov/mads/rdf/v1#> .
 @prefix modsrdf: <http://www.loc.gov/mods/modsrdf/v1> .
 @prefix mts: <http://urn.fi/URN:NBN:fi:au:mts:> .
+@prefix ntp: <http://urn.fi/URN:NBN:fi:schema:ntp:> .
+@prefix ntp-meta: <http://urn.fi/URN:NBN:fi:schema:ntp-meta:> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix person: <http://www.w3.org/ns/person#> .
@@ -39,7 +41,42 @@
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-: a :Class,
+ntp-meta: a owl:Ontology ;
+    dcterms:description "Additional properties supporting NTP data model."@en,
+        "Sisältää lisäominaisuuksia NTP-tietomallia varten."@fi ;
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:title "Metadata ontology for NTP data model"@en,
+        "Metadataontologia NTP-tietomallin tueksi"@fi .
+
+ntp-meta:typeOfViewingRestriction a owl:DatatypeProperty ;
+    skos:prefLabel "näyttörajoitteen kohde ja tyyppi"@fi ;
+    dcterms:modified "2026-01-26 (New)" ;
+    rdfs:domain rdf:Property ;
+    rdfs:range rdfs:Literal ;
+    skos:note """U = Ulkoiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun sisältöä avattaessa esim. Finnassa
+
+SI = Sisäiset rajoitukset = mitä näyttörajoituksia on Nimitietopalvelun tuottajille
+
+Sisäinen rajoitus tarkoittaa myös ulkoista rajoitusta
+Sisäiset rajoitukset kohdistuvat NTP-tuottajiin, jotka ovat saaneet yleisen oikeuden käsitellä kuvailutietoja.
+Niissä kuvailutiedoissa, jotka tuotetaan primääristi NTP:ssä, on voitava tarkemmin määritellä, kenelle tiedot ovat näytettävissä
+T = Täysrajoitus = ei saa tallentaa tietoa Nimitietopalveluun
+
+Ne kuvailutiedot (esim. arkistoissa), joita ei halua näyttää kaikille NTP-tuottajille, ei tuoda NTP:hen
+Silloin kun NTP:tä käytetään primäärinä tuotantoympäristönä, täytyy nämä tiedot rajata vain jonkin ryhmän käytettäviksi.
+Y = Rajoitus koskee yhteisöä
+
+H = Rajoitus koskee henkilöä
+
+SU = Rajoitus koskee sukua""" .
+
+ntp-meta:viewingRestriction a owl:DatatypeProperty ;
+    skos:prefLabel "näyttörajoitus"@fi ;
+    dcterms:modified "2026-01-26 (New)" ;
+    rdfs:domain rdf:Property ;
+    rdfs:range xsd:boolean .
+
+ntp: a ntp:Class,
         owl:Ontology ;
     dcterms:contributor "Katerina Sornova",
         "Matias Frosterus",
@@ -51,2565 +88,2579 @@
     skos:changeNote "v2.25: added language to editorial notes " ;
     skos:prefLabel "Nimitietopalvelun tietomalli v.2.26"@fi .
 
-:Concept a owl:Class ;
+ntp:Concept a owl:Class ;
     skos:altLabel "Aihe"@fi ;
     skos:closeMatch skos:Concept ;
     skos:prefLabel "Concept"@en,
         "Käsite"@fi .
 
-:Event a owl:Class ;
-    rdfs:subClassOf :CorporateBody ;
+ntp:Event a owl:Class ;
+    rdfs:subClassOf ntp:CorporateBody ;
     skos:prefLabel "Event"@en,
         "Tapahtuma"@fi .
 
-:IdentifierForPerson a :String,
+ntp:IdentifierForPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50094,
-        jhs:tunniste ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50094>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#tunniste> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön tunniste"@fi .
 
-:NR1 a :Monolingualtext,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range rdf:langString ;
-    skos:altLabel "näyttörajoituksen peruste"@fi ;
-    skos:closeMatch rdam:P30160 ;
-    skos:prefLabel "näyttörajoituksen peruste"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR2 a :String,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string ;
-    skos:altLabel "näyttörajoituksen nimi"@fi ;
-    skos:closeMatch rdax:P00019 ;
-    skos:prefLabel "näyttörajoituksen nimi"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR3 a :Monolingualtext,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range rdf:langString ;
-    skos:altLabel "näyttörajoituksen selite"@fi ;
-    skos:closeMatch rdan:P80068 ;
-    skos:prefLabel "näyttörajoituksen selite"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR4 a :String,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string ;
-    skos:altLabel "näyttörajoituksen kesto"@fi ;
-    skos:closeMatch rdax:P00011 ;
-    skos:prefLabel "näyttörajoituksen kesto"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR5 a :String,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string ;
-    skos:altLabel "näyttörajoituksen ajanjakso"@fi ;
-    skos:closeMatch rdam:P30145 ;
-    skos:prefLabel "näyttörajoituksen voimassaoloaika"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR7 a :Monolingualtext,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range rdf:langString ;
-    skos:altLabel "käyttäjätaso"@fi ;
-    skos:closeMatch rdaa:P50490 ;
-    skos:prefLabel "näyttörajoituksen käyttäjätaso"@fi ;
-    sh:maxCount "1"^^xsd:int ;
-    sh:minCount "1"^^xsd:int .
-
-:NR8 a :Item,
-        rdf:Property,
-        owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity ;
-    skos:altLabel "näyttörajoitettava attribuutti"@fi ;
-    skos:closeMatch rdax:P00001 ;
-    skos:prefLabel "näyttörajoitettava attribuutti"@fi ;
-    sh:minCount "1"^^xsd:int .
-
-:acronym a :String,
+ntp:acronym a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Person :CorporateBody ) ] ;
+            owl:unionOf ( ntp:Person ntp:CorporateBody ) ] ;
     rdfs:range xsd:string ;
     skos:altLabel "lyhenne;akronyymi"@fi ;
     skos:prefLabel "acronym"@en,
         "lyhenne"@fi .
 
-:addressOfAgent a :String,
+ntp:addressOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: Y, H ja SU / SI: H / T: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijan osoite"@fi ;
-    skos:closeMatch rdaa:P50036,
-        rdaa:P50114,
-        rdaa:P50418,
-        rdau:P60512,
-        locn:Address,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50036>,
+        <http://rdaregistry.info/Elements/a/P50114>,
+        <http://rdaregistry.info/Elements/a/P50418>,
+        <http://rdaregistry.info/Elements/u/P60512>,
+        <http://www.w3.org/ns/locn#Address>,
         org:siteAddress ;
     skos:prefLabel "address of agent"@en,
         "toimijan osoite"@fi .
 
-:addressOfCorporateBody a :String,
+ntp:addressOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    ntp-meta:typeOfViewingRestriction "U: Y" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50036 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50036> ;
     skos:prefLabel "address of corporate body"@en,
         "yhteisön osoite"@fi .
 
-:addressOfPerson a :String,
+ntp:addressOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H / SI: H / T: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "henkilön osoite"@fi ;
-    skos:closeMatch rdaad:P50114 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50114> ;
     skos:prefLabel "address of person"@en,
         "henkilön osoite"@fi .
 
-:addresseeAgentOf a rdf:Property,
+ntp:addresseeAgentOf a rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50209 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50209> ;
     skos:prefLabel "addressee agent of"@en,
         "vastaanottaja (toimija) teoksessa"@fi .
 
-:agentHistory a :Monolingualtext,
+ntp:agentHistory a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H ja SU / SI: H / T: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdau:P60484 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60484> ;
     skos:prefLabel "agent history"@en,
         "toimijan historia"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:ahaaLabel a :String,
+ntp:ahaaLabel a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "huomautus AHAA nimestä"@fi .
 
-:alternateIdentityOfPersonOf a :Item,
+ntp:alternateIdentityOfPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :Person ;
-    skos:closeMatch rdano:P80158 ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80158> ;
     skos:prefLabel "alternateIdentity of person of"@en,
         "toinen identiteetti henkilölle"@fi .
 
-:arrangerAgentOfMusicOf a :String,
+ntp:arrangerAgentOfMusicOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50137 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50137> ;
     skos:prefLabel "arranger agent of music of"@en,
         "sovittaja (toimija) ekspressiossa"@fi .
 
-:artistAgentOf a :String,
+ntp:artistAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50192 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50192> ;
     skos:prefLabel "artist agent of"@en,
         "taiteilija (toimija) teoksessa"@fi .
 
-:asteri-id a :String,
+ntp:asteri-id a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "Asteri-tunnus"@fi ;
-    skos:closeMatch jhs:J169,
-        :rdaa:P50094 ;
+    skos:closeMatch <http://uri.suomi.fi/datamodel/ns/jhs#J169>,
+        <http://urn.fi/URN:NBN:fi:schema:ntp:rdaa:P50094> ;
     skos:prefLabel "Asteri identifier"@en,
         "Asteri-tunniste"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:authorAgentOf a :String,
+ntp:authorAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50195 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50195> ;
     skos:prefLabel "author agent of"@en,
         "kirjoittaja (toimija) teoksessa"@fi .
 
-:authorCorporateBody a :Item,
+ntp:authorCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Work ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdaw:P10530 ;
+    rdfs:domain ntp:Work ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10530> ;
     skos:prefLabel "author corporate body"@en,
         "luetteloiva organisaatio"@fi .
 
-:authorizedAccessPointForEntity a :String,
+ntp:authorizedAccessPointForEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaxd:P00020 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/datatype/P00020> ;
     skos:prefLabel "authorized access point for entity"@en,
         "entiteetin auktorisoitu hakutieto"@fi .
 
-:authorizedAccessPointForFamily a :String,
+ntp:authorizedAccessPointForFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50409 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50409> ;
     skos:prefLabel "authorized access point for family"@en,
         "suvun auktorisoitu hakutieto"@fi .
 
-:authorizedAccessPointForPerson a :String,
+ntp:authorizedAccessPointForPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50411 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50411> ;
     skos:prefLabel "authorized access point for person"@en,
         "henkilön auktorisoitu hakutieto"@fi .
 
-:authorizedAccessPointOfConference a :String,
+ntp:authorizedAccessPointOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50407 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50407> ;
     skos:prefLabel "authorized access point of conference"@en,
         "konferenssin auktorisoitu hakutieto"@fi .
 
-:authorizedAccessPointOfCorporateBody a :String,
+ntp:authorizedAccessPointOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50407 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50407> ;
     skos:prefLabel "authorized access point of corporate body "@en,
         "yhteisön auktorisoitu hakutieto"@fi .
 
-:authorizedAccessPointOfTimespan a :String,
+ntp:authorizedAccessPointOfTimespan a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdatd:P70047 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70047> ;
     skos:prefLabel "authorized access point of timespan "@en,
         "ajanjakson auktorisoitu hakutieto"@fi .
 
-:award a :String,
+ntp:award a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Person :CorporateBody ) ] ;
+            owl:unionOf ( ntp:Person ntp:CorporateBody ) ] ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdau:P60090 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60090> ;
     skos:prefLabel "palkinto"@fi .
 
-:beginning a :Time,
+ntp:beginning a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:date ;
-    skos:closeMatch rdat:P70039,
-        rdau:P60998 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/P70039>,
+        <http://rdaregistry.info/Elements/u/P60998> ;
     skos:prefLabel "ajanjakson alku"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:biographicalInformation a :Monolingualtext,
+ntp:biographicalInformation a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    :viewingRestriction "20" ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H / SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
     skos:altLabel "elämänkerralliset tiedot;yhteisön historia"@fi ;
-    skos:closeMatch rdaad:P50113,
-        gndo:biographicalOrHistoricalInformation ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50113>,
+        <https://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> ;
     skos:prefLabel "elämäkerralliset tiedot"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:categoryOfAgent a :Item,
+ntp:categoryOfAgent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :CategoryOfAgent ;
+    rdfs:domain ntp:Agent ;
+    rdfs:range ntp:CategoryOfAgent ;
     skos:altLabel "kuvailun kohde; todellinen identiteetti;toimija"@fi ;
-    skos:closeMatch rdaa:P50490,
-        jhs:agenttype ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50490>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#agenttype> ;
     skos:prefLabel "toimijan tyyppi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:categoryOfCorporateBody a :Monolingualtext,
+ntp:categoryOfCorporateBody a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
     skos:altLabel "yhteisön tyyppi"@fi ;
-    skos:closeMatch rdaad:P50237,
-        :companyType,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50237>,
+        ntp:companyType,
         org:classification ;
     skos:prefLabel "yhteisön tyyppi"@fi ;
     sh:minCount "1"^^xsd:int .
 
-:categoryOfFamily a :String,
+ntp:categoryOfFamily a ntp:String,
         rdf:Property,
         owl:ObjectypeProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :CategoryOfFamily ;
-    skos:closeMatch rdaad:P50051 ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:CategoryOfFamily ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50051> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "suvun tyyppi"@fi .
 
-:categoryOfFamilyObject a :Item,
+ntp:categoryOfFamilyObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :CategoryOfFamily ;
-    skos:closeMatch rdaa:P50051 ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:CategoryOfFamily ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50051> ;
     skos:prefLabel "suvun tyyppi (kohde)"@fi .
 
-:categoryOfGovernment a :Monolingualtext,
+ntp:categoryOfGovernment a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaad:P50238 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50238> ;
     skos:prefLabel "hallintoalueen tyyppi"@fi .
 
-:categoryOfPersistentIdentifier a :String,
+ntp:categoryOfPersistentIdentifier a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "tunnuksen tyyppi"@fi ;
-    skos:closeMatch rdand:P80078 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/datatype/P80078> ;
     skos:prefLabel "pysyvän tunnisteen tyyppi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:categoryOfPerson a :Monolingualtext,
+ntp:categoryOfPerson a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50489 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50489> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön tyyppi"@fi .
 
-:categoryOfPlace a :String,
+ntp:categoryOfPlace a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range xsd:string ;
     skos:altLabel "paikan rooli"@fi ;
-    skos:closeMatch rdap:P70044 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70044> ;
     skos:prefLabel "paikan tyyppi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:categoryOfRDAEntity a :Item,
+ntp:categoryOfRDAEntity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity ;
-    skos:closeMatch rdax:P00029 ;
+    rdfs:domain ntp:Entity ;
+    rdfs:range ntp:Entity ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/P00029> ;
     skos:prefLabel "toimijan tyyppi"@fi .
 
-:categoryOfTimespan a :String,
+ntp:categoryOfTimespan a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range xsd:string ;
     skos:altLabel "ajanjakson tyyppi;ajan rooli"@fi ;
-    skos:closeMatch rdatd:P70059 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70059> ;
     skos:prefLabel "ajanjakson tyyppi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:categoryOfVariantName a :String,
+ntp:categoryOfVariantName a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "nimen nimitys (tyyppi)"@fi ;
-    skos:closeMatch rdand:P80078,
-        gndo:EarlierNameOfThePerson,
-        gndo:RealNameOfThePerson,
-        wd:Property:P1477,
-        wd:Property:P2562,
-        wd:Q1591278,
-        wd:Q29569274,
-        wd:Q590490 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/datatype/P80078>,
+        <https://d-nb.info/standards/elementset/gnd#EarlierNameOfThePerson>,
+        <https://d-nb.info/standards/elementset/gnd#RealNameOfThePerson>,
+        <https://www.wikidata.org/wiki/Property:P1477>,
+        <https://www.wikidata.org/wiki/Property:P2562>,
+        <https://www.wikidata.org/wiki/Q1591278>,
+        <https://www.wikidata.org/wiki/Q29569274>,
+        <https://www.wikidata.org/wiki/Q590490> ;
     skos:prefLabel "varianttinimen tyyppi"@fi .
 
-:chiefExecutive a :Item,
+ntp:chiefExecutive a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
-    skos:closeMatch rdaa:P50284,
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50284>,
         org:Head,
-        wd:Property:P1037 ;
+        <https://www.wikidata.org/wiki/Property:P1037> ;
     skos:prefLabel "pääjohtaja"@fi .
 
-:chiefExecutiveOf a :Item,
+ntp:chiefExecutiveOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdaao:P50286,
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50286>,
         org:headOf ;
     skos:prefLabel "pääjohtajana yhteisössä"@fi .
 
-:collectorAgentOf a :String,
+ntp:collectorAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50045 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50045> ;
     skos:prefLabel "kokoelman muodostaja (toimija) kappaleessa"@fi .
 
-:compilerAgentOf a :String,
+ntp:compilerAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50189 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50189> ;
     skos:prefLabel "kokoaja (toimija) teoksessa"@fi .
 
-:composerAgentOfWorkOf a :String,
+ntp:composerAgentOfWorkOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50187 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50187> ;
     skos:prefLabel "teoksen säveltäjä (toimija) musiikkiteoksessa"@fi .
 
-:composerOfExpressionOf a :String,
+ntp:composerOfExpressionOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50134 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50134> ;
     skos:prefLabel "sävellys (ekspressio)"@fi .
 
-:constraint a :Item,
+ntp:constraint a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity ;
+    rdfs:domain ntp:Entity ;
+    rdfs:range ntp:Entity ;
     skos:prefLabel "ominaisuusrajoite"@fi .
 
-:contextOfUsage a :Monolingualtext,
+ntp:contextOfUsage a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdan:P80067 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80067> ;
     skos:prefLabel "käyttökonteksti"@fi .
 
-:corporateHistory a :Monolingualtext,
+ntp:corporateHistory a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50035 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50035> ;
     skos:prefLabel "yhteisön historia"@fi .
 
-:countryAssociatedWithPerson a :String,
+ntp:countryAssociatedWithPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50097 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50097> ;
     skos:prefLabel "henkilöön liittyvä maa"@fi .
 
-:countryAssociatedWithPersonPlace a :Item,
+ntp:countryAssociatedWithPersonPlace a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Place ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Place ;
     skos:altLabel "henkilöön liittyvä maa"@fi ;
-    skos:closeMatch rdaa:P50097 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50097> ;
     skos:prefLabel "henkilöön liittyvä maa (kohde)"@fi .
 
-:countryOfCitizenship a :String,
+ntp:countryOfCitizenship a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI:H, Y, SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50097,
-        person:citizenship,
-        wd:Property:P27 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50097>,
+        <http://www.w3.org/ns/person#citizenship>,
+        <https://www.wikidata.org/wiki/Property:P27> ;
     skos:prefLabel "kansalaisuus"@fi .
 
-:creatorAgentOfWorkOf a :String,
+ntp:creatorAgentOfWorkOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "julkaisut"@fi ;
-    skos:closeMatch rdaad:P50204 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50204> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "teoksen tekijä (toimija) teoksessa"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:creatorAgentOfWorkOfObject a :Item,
+ntp:creatorAgentOfWorkOfObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :Work ;
-    skos:closeMatch rdaao:P50204 ;
+    rdfs:domain ntp:Agent ;
+    rdfs:range ntp:Work ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50204> ;
     skos:prefLabel "teoksen tekijänä teoksessa (kohde)"@fi .
 
-:dateAssociatedWithAgent a :String,
+ntp:dateAssociatedWithAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdau:P60324 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60324> ;
     skos:prefLabel "toimijaan liittyvä aika"@fi .
 
-:dateOfBirth a :Time,
+ntp:dateOfBirth a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI:H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range [ a owl:Class ;
             owl:unionOf ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear ) ] ;
-    owl:inverseOf :dateOfDeath ;
+    owl:inverseOf ntp:dateOfDeath ;
     skos:altLabel "syntymäaika"@fi ;
-    skos:closeMatch rdaad:P50121,
-        schema:birthDate,
-        madsrdf:birthDate,
-        gndo:dateOfBirth,
-        wd:Property:P569 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50121>,
+        <http://schema.org/birthDate>,
+        <http://www.loc.gov/mads/rdf/v1#birthDate>,
+        <https://d-nb.info/standards/elementset/gnd#dateOfBirth>,
+        <https://www.wikidata.org/wiki/Property:P569> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "syntymäaika"@fi .
 
-:dateOfCaptureOfRepresentativeExpression a :Time,
+ntp:dateOfCaptureOfRepresentativeExpression a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:date ;
-    skos:closeMatch rdaw:P10350 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10350> ;
     skos:prefLabel "tietueen luontipäivä"@fi .
 
-:dateOfConference a :String,
+ntp:dateOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "tapahtuman ajankohta"@fi ;
-    skos:closeMatch rdaa:P50039 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50039> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "konferenssin ajankohta"@fi .
 
-:dateOfEstablishment a :Time,
+ntp:dateOfEstablishment a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:date ;
     skos:altLabel "perustamisajankohta"@fi ;
-    skos:closeMatch rdaad:P50037 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50037> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "perustamisajankohta"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:dateOfMetadataWork a :Time,
+ntp:dateOfMetadataWork a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:date ;
     skos:altLabel "metatiedon luontiaika"@fi ;
-    skos:closeMatch rdaw:P10219 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10219> ;
     skos:prefLabel "metatiedon luontiaika"@fi .
 
-:dateOfReference a :Item,
+ntp:dateOfReference a ntp:Item,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range "Timespan" ;
     skos:prefLabel "viittauspäivä"@fi .
 
-:dateOfTermination a :String,
+ntp:dateOfTermination a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range [ a owl:Class ;
             owl:unionOf ( rdfs:Literal xsd:date xsd:gYearMonth xsd:gYear ) ] ;
-    skos:closeMatch rdaad:P50038 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50038> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "lakkauttamisajankohta"@fi .
 
-:dateOfTerminationObject a :Item,
+ntp:dateOfTerminationObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range "Timespan" ;
-    skos:closeMatch rdaao:P50038 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50038> ;
     skos:prefLabel "lakkauttamisajankohta (ajanjakso)"@fi .
 
-:dateOfUsage a :String,
+ntp:dateOfUsage a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
     skos:altLabel "tunnuksen ajallinen kattavuus"@fi ;
-    skos:closeMatch rdan:P80166 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80166> ;
     skos:prefLabel "käyttöaika"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:dateOfWork a "Time" ;
-    rdfs:domain :Work ;
+ntp:dateOfWork a "Time" ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:date ;
-    skos:closeMatch rdaw:P10219 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10219> ;
     skos:prefLabel "viimeisin päivitysajankohta"@fi .
 
-:dayOfBirth a :Time,
+ntp:dayOfBirth a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:date ;
-    skos:closeMatch rdaad:P50121 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50121> ;
     skos:prefLabel "syntymäpäivä"@fi .
 
-:dayOfDeath a :Time,
+ntp:dayOfDeath a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:date ;
     skos:prefLabel "kuolinvuosi kuvaus"@fi .
 
-:descendantFamilyOfFamily a :Item,
+ntp:descendantFamilyOfFamily a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range "Family" ;
     skos:altLabel "suvusta polveutuva suku"@fi ;
-    skos:closeMatch rdaa:P50053 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50053> ;
     skos:prefLabel "suvusta polveutuva suku"@fi .
 
-:descriptionStandard a :Monolingualtext,
+ntp:descriptionStandard a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range rdf:langString ;
     skos:altLabel "säännöt ja/tai käytännöt"@fi ;
-    skos:closeMatch rdaw:P10309,
-        madsrdf:recordInfo ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10309>,
+        <http://www.loc.gov/mads/rdf/v1#recordInfo> ;
     skos:prefLabel "kuvailukäytännöt"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:directorAgentOf a :String,
+ntp:directorAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50205 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50205> ;
     skos:prefLabel "ohjaaja (toimija) teoksessa"@fi .
 
-:directorAgentOfPhotographyOf a :String,
+ntp:directorAgentOfPhotographyOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50207 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50207> ;
     skos:prefLabel "kuvaaja (toimija) teoksessa"@fi .
 
-:draftsmanPersonOf a :String,
+ntp:draftsmanPersonOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50594 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50594> ;
     skos:prefLabel "piirtäjä (henkilö) ekspressiossa"@fi .
 
-:editorAgentOf a :String,
+ntp:editorAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50450 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50450> ;
     skos:prefLabel "tekstin toimittaja (toimija) ekspressiossa"@fi .
 
-:editorialDirectorAgentOf a :String,
+ntp:editorialDirectorAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50289 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50289> ;
     skos:prefLabel "toimituspäällikkönä teoksessa"@fi .
 
-:ending a :Time,
+ntp:ending a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:date ;
-    skos:closeMatch rdatd:P70040,
-        rdau:P61000 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70040>,
+        <http://rdaregistry.info/Elements/u/P61000> ;
     skos:prefLabel "ajanjakson loppu"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:familyHistory a :Monolingualtext,
+ntp:familyHistory a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Family ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50064 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50064> ;
     skos:prefLabel "suvun historia"@fi .
 
-:fieldOfActivity a :String,
+ntp:fieldOfActivity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50387 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50387> ;
     skos:prefLabel "toimiala"@fi .
 
-:fieldOfActivityOfCorporateBody a :Monolingualtext,
+ntp:fieldOfActivityOfCorporateBody a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
     skos:altLabel "yhteisön toiminta-alue"@fi ;
-    skos:closeMatch rdaa:P50022 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50022> ;
     skos:prefLabel "yhteisön toiminta-ala"@fi .
 
-:fieldOfActivityOfPerson a :Monolingualtext,
+ntp:fieldOfActivityOfPerson a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
     skos:altLabel "henkilön toiminta-alue"@fi ;
-    skos:closeMatch rdaad:P50100,
-        jhs:toimiala,
-        mts:m3661,
-        wd:Property:P101 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50100>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#toimiala>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m3661>,
+        <https://www.wikidata.org/wiki/Property:P101> ;
     skos:prefLabel "henkilön toiminta-ala"@fi .
 
-:finaf-id a :String,
+ntp:finaf-id a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:prefLabel "FINAF-tunnus"@fi .
 
-:formatOfDate a :String,
+ntp:formatOfDate a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:prefLabel "päiväyksen muoto"@fi .
 
-:formerOwnerAgentOf a :String,
+ntp:formerOwnerAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50163 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50163> ;
     skos:prefLabel "entinen omistaja (toimija) kappaleessa"@fi .
 
-:foundedCorporateBodyOfCorporateBody a :Item,
+ntp:foundedCorporateBodyOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :foundingCorporateBodyOfCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:foundingCorporateBodyOfCorporateBody ;
     skos:altLabel "yhteisön perustama yhteisö"@fi ;
-    skos:closeMatch rdaa:P50017 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50017> ;
     skos:prefLabel "yhteisön perustama yhteisö"@fi .
 
-:fullerFormOfPersonalName a :String,
+ntp:fullerFormOfPersonalName a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "henkilön nimen täydellisempi muoto"@fi ;
-    skos:closeMatch rdaad:P50115,
-        gndo:FullerFormOfNameOfThePerson ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50115>,
+        <https://d-nb.info/standards/elementset/gnd#FullerFormOfNameOfThePerson> ;
     skos:prefLabel "henkilönimen täydellisempi muoto"@fi .
 
-:fullerFormOfPersonalNameNomen a :Item,
+ntp:fullerFormOfPersonalNameNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50115 ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50115> ;
     skos:prefLabel "henkilönimen täydellisempi muoto (kohde)"@fi .
 
-:gender a :Item,
+ntp:gender a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    :viewingRestriction "20" ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range "sukupuoli (Q106)" ;
     skos:altLabel "sukupuoli"@fi ;
     skos:closeMatch <http://publications.europa.eu/resource/authority/human-sex>,
-        rdaa:P50116,
-        schema:gender,
-        wd:Property:P21,
-        wd:Q48277 ;
+        <http://rdaregistry.info/Elements/a/P50116>,
+        <http://schema.org/gender>,
+        <https://www.wikidata.org/wiki/Property:P21>,
+        <https://www.wikidata.org/wiki/Q48277> ;
     skos:prefLabel "sukupuoli"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:givenName a :String,
+ntp:givenName a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "etunimi"@fi ;
-    skos:closeMatch rdaad:P50292,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50292>,
         foaf:givenName ;
     skos:prefLabel "etunimi"@fi .
 
-:givenNameObject a :Item,
+ntp:givenNameObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "etunimi"@fi ;
-    skos:closeMatch rdaa:P50292,
-        rdan:P80175,
-        wd:Property:P735 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50292>,
+        <http://rdaregistry.info/Elements/n/P80175>,
+        <https://www.wikidata.org/wiki/Property:P735> ;
     skos:prefLabel "etunimi (kohde)"@fi .
 
-:hasRelative a :Item,
+ntp:hasRelative a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
     skos:altLabel "sukulaisuus"@fi ;
-    skos:closeMatch rdaa:P50316 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50316> ;
     skos:prefLabel "sukulainen"@fi .
 
-:henkilotunnus a :String,
+ntp:henkilotunnus a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:prefLabel "hetu"@fi .
 
-:hereditaryTermOfHonour a :Monolingualtext,
+ntp:hereditaryTermOfHonour a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range rdf:langString ;
     skos:altLabel "periytyvä arvonimi"@fi ;
-    skos:closeMatch rdaad:P50059,
-        wd:Property:P97 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50059>,
+        <https://www.wikidata.org/wiki/Property:P97> ;
     skos:prefLabel "periytyvä arvonimi"@fi .
 
-:hostInstitutionOf a :Item ;
-    rdfs:domain :CorporateBody ;
+ntp:hostInstitutionOf a ntp:Item ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range "Event" ;
-    skos:closeMatch rdau:P60003 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60003> ;
     skos:prefLabel "isäntäorganisaationa tapahtumassa"@fi .
 
-:identiferForNomen a :String,
+ntp:identiferForNomen a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:anyURI ;
     skos:prefLabel "nomenin tunniste"@fi .
 
-:identiferForTimespanObject a :Item,
+ntp:identiferForTimespanObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Timespan ;
-    rdfs:range :Identifier ;
-    skos:closeMatch rdat:P70018 ;
+    rdfs:domain ntp:Timespan ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/P70018> ;
     skos:prefLabel "ajanjakson tunniste (kohde)"@fi .
 
-:identifierForAgent a :String,
+ntp:identifierForAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijan tunniste;toimijan tunnus"@fi ;
-    skos:closeMatch rdaa:P50006,
-        rdaa:P50052,
-        rdaa:P50094,
-        rdaa:P50383,
-        :Identifier,
-        wd:Q853614 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50006>,
+        <http://rdaregistry.info/Elements/a/P50052>,
+        <http://rdaregistry.info/Elements/a/P50094>,
+        <http://rdaregistry.info/Elements/a/P50383>,
+        ntp:Identifier,
+        <https://www.wikidata.org/wiki/Q853614> ;
     skos:prefLabel "toimijan tunniste"@fi ;
     sh:minCount "1"^^xsd:int .
 
-:identifierForCorporateBodyObject a :Item,
+ntp:identifierForCorporateBodyObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Identifier ;
-    skos:closeMatch rdaao:P50006 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50006> ;
     skos:prefLabel "yhteisön tunniste (kohde)"@fi .
 
-:identifierForCorporateBodyOf a :Item,
+ntp:identifierForCorporateBodyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Identifier ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdano:P80035 ;
+    rdfs:domain ntp:Identifier ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80035> ;
     skos:prefLabel "tunniste yhteisölle"@fi .
 
-:identifierForCorporateBodyString a :String,
+ntp:identifierForCorporateBodyString a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50006,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50006>,
         org:identifier ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisön tunniste"@fi .
 
-:identifierForEntity a :String,
+ntp:identifierForEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "muu tunnus"@fi ;
-    skos:closeMatch rdaxd:P00018 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/datatype/P00018> ;
     skos:prefLabel "entiteetin tunniste"@fi .
 
-:identifierForFamily a :String,
+ntp:identifierForFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50052 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50052> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "suvun tunniste"@fi .
 
-:identifierForMetadataWork a :String,
+ntp:identifierForMetadataWork a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijakuvailun yksilöivä tunnus"@fi ;
-    skos:closeMatch rdaw:P10002 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10002> ;
     skos:prefLabel "toimijakuvailun yksilöivä tunnus"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:identifierForPersonObject a :Item,
+ntp:identifierForPersonObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Identifier ;
-    skos:closeMatch :rdaao:P50094 ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://urn.fi/URN:NBN:fi:schema:ntp:rdaao:P50094> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön tunniste (kohde)"@fi .
 
-:identifierForPersonOf a :Item,
+ntp:identifierForPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Identifier ;
-    rdfs:range :Person ;
-    skos:closeMatch rdano:P80037 ;
+    rdfs:domain ntp:Identifier ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80037> ;
     skos:prefLabel "tunniste henkilölle"@fi .
 
-:identifierForPlace a :String,
+ntp:identifierForPlace a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdapd:P70020 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/datatype/P70020> ;
     skos:prefLabel "paikan tunniste"@fi .
 
-:identifierForPlaceObject a :Item,
+ntp:identifierForPlaceObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Place ;
-    rdfs:range :Identifier ;
-    skos:closeMatch rdapo:P70020 ;
+    rdfs:domain ntp:Place ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/object/P70020> ;
     skos:prefLabel "paikan tunniste (kohde)"@fi .
 
-:identifierForPlaceOf a :Item,
+ntp:identifierForPlaceOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Identifier ;
-    rdfs:range :Place ;
-    skos:closeMatch rdano:P80042 ;
+    rdfs:domain ntp:Identifier ;
+    rdfs:range ntp:Place ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80042> ;
     skos:prefLabel "tunniste paikalle"@fi .
 
-:identifierForRDAEntity a :String,
+ntp:identifierForRDAEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdax:P00018 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/P00018> ;
     skos:prefLabel "entiteetin tunniste"@fi .
 
-:identifierForResource a :String,
+ntp:identifierForResource a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdau:P60052,
-        rdaw:P10002 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60052>,
+        <http://rdaregistry.info/Elements/w/P10002> ;
     skos:prefLabel "tietueen tunniste"@fi .
 
-:identifierForTimespan a :String,
+ntp:identifierForTimespan a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdatd:P70018 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70018> ;
     skos:prefLabel "ajanjakson tunniste (URL)	"@fi .
 
-:identifierForTimespanOf a :Item,
+ntp:identifierForTimespanOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Identifier ;
+    rdfs:domain ntp:Identifier ;
     rdfs:range "Timespan" ;
-    skos:closeMatch rdano:P80050 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80050> ;
     skos:prefLabel "tunniste ajanjaksolle"@fi .
 
-:instrument a :String,
+ntp:instrument a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:prefLabel "instrumentti"@fi .
 
-:intervieweeAgentOfExpressionOf a :String,
+ntp:intervieweeAgentOfExpressionOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50155 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50155> ;
     skos:prefLabel "haastateltavana haastattelussa (ekspressio)"@fi .
 
-:intervieweeAgentOfWorkOf a :String,
+ntp:intervieweeAgentOfWorkOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50193 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50193> ;
     skos:prefLabel "haastateltavana haastattelussa"@fi .
 
-:interviewerAgentOfWorkOf a :String,
+ntp:interviewerAgentOfWorkOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50191 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50191> ;
     skos:prefLabel "haastattelijana haastattelussa"@fi .
 
-:isPartOfNomen a :Item,
+ntp:isPartOfNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdan:P80059 ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80059> ;
     skos:prefLabel "osa nomenia"@fi .
 
-:isniId a :ExternalIdentifier,
+ntp:isniId a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:anyURI ;
     skos:altLabel "ISNI-tunnus"@fi ;
-    skos:closeMatch rdaad:P50094,
-        jhs:J383 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50094>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#J383> ;
     skos:prefLabel "ISNI-tunniste"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:isniIdentifer a :Item,
+ntp:isniIdentifer a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Identifier ;
-    skos:closeMatch :rdaa:P50094 ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://urn.fi/URN:NBN:fi:schema:ntp:rdaa:P50094> ;
     skos:prefLabel "ISNI-tunnus"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:kaukoValue a :String,
+ntp:kaukoValue a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "huomautus Kauko elementistä"@fi .
 
-:kotusID a :String,
+ntp:kotusID a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "KOTUS-id"@fi .
 
-:languageOfAgent a :String,
+ntp:languageOfAgent a ntp:String,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijan kieli"@fi ;
-    skos:closeMatch rdaa:P50401,
-        rdau:P60098,
-        jhs:kielitunniste ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50401>,
+        <http://rdaregistry.info/Elements/u/P60098>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#kielitunniste> ;
     skos:prefLabel "toimijan kieli"@fi .
 
-:languageOfCorporateBody a :String,
+ntp:languageOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50023,
-        jhs:kielitunniste,
-        wd:Property:P37 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50023>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#kielitunniste>,
+        <https://www.wikidata.org/wiki/Property:P37> ;
     skos:prefLabel "yhteisön kieli"@fi .
 
-:languageOfExpression a :String,
+ntp:languageOfExpression a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdae:P20006 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/e/P20006> ;
     skos:prefLabel "luettelointikieli"@fi .
 
-:languageOfNomen a :String,
+ntp:languageOfNomen a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
     skos:altLabel "nimen kieli"@fi ;
-    skos:closeMatch rdan:P80066 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80066> ;
     skos:prefLabel "nomenin kieli"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:languageOfPerson a :String,
+ntp:languageOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50102,
-        wd:Property:P463 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50102>,
+        <https://www.wikidata.org/wiki/Property:P463> ;
     skos:prefLabel "henkilön käyttämä kieli"@fi .
 
-:languageOfRepresentativeExpression a :Item,
+ntp:languageOfRepresentativeExpression a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range "kielitunniste (Q96)" ;
-    skos:closeMatch rdaw:P10353 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10353> ;
     skos:prefLabel "kieli"@fi .
 
-:languageOfResource a :String,
+ntp:languageOfResource a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdau:P60099 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60099> ;
     skos:prefLabel "resurssin kieli"@fi .
 
-:mandate a :Monolingualtext,
+ntp:mandate a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
     skos:altLabel "ohjaavat säädökset"@fi ;
-    skos:closeMatch rdaa:P50305 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50305> ;
     skos:prefLabel "ohjaavat säädökset"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:marc21-osakenttaA a :String,
+ntp:marc21-osakenttaA a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä a"@fi .
 
-:marc21-osakenttaB a :String,
+ntp:marc21-osakenttaB a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä b"@fi .
 
-:marc21-osakenttaC a :String,
+ntp:marc21-osakenttaC a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch :rdaad:P50108 ;
+    skos:closeMatch <http://urn.fi/URN:NBN:fi:schema:ntp:rdaad:P50108> ;
     skos:prefLabel "marc21-osakenttä c"@fi .
 
-:marc21-osakenttaF a :String,
+ntp:marc21-osakenttaF a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä f"@fi .
 
-:marc21-osakenttä0 a :String,
+ntp:marc21-osakenttä0 a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä 0"@fi .
 
-:marc21-osakenttäD a :String,
+ntp:marc21-osakenttäD a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä d"@fi .
 
-:marc21-osakenttäE a :String,
+ntp:marc21-osakenttäE a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä e"@fi .
 
-:marc21-osakenttäG a :String,
+ntp:marc21-osakenttäG a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä g"@fi .
 
-:marc21-osakenttäJ a :String,
+ntp:marc21-osakenttäJ a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä j"@fi .
 
-:marc21-osakenttäQ a :String,
+ntp:marc21-osakenttäQ a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä q"@fi .
 
-:marc21-osakenttäR a :String,
+ntp:marc21-osakenttäR a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä r"@fi .
 
-:marc21-osakenttäS a :String,
+ntp:marc21-osakenttäS a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä s"@fi .
 
-:marc21-osakenttäT a :String,
+ntp:marc21-osakenttäT a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä t"@fi .
 
-:marc21-osakenttäU a :String,
+ntp:marc21-osakenttäU a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "marc21-osakenttä u"@fi .
 
-:marc21equivalent a rdf:Property,
+ntp:marc21equivalent a rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "MARC 21 equivalent"@en,
         "MARC 21 -vastine"@fi .
 
-:maximumDate a "Item" ;
-    rdfs:domain :Entity ;
+ntp:maximumDate a "Item" ;
+    rdfs:domain ntp:Entity ;
     rdfs:range "Timespan (Q22)" ;
-    skos:closeMatch wd:Property:P2311 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P2311> ;
     skos:prefLabel "maksimipäiväys"@fi .
 
-:mergee a :Item,
+ntp:mergee a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :componentOfMerger ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:componentOfMerger ;
     skos:altLabel "yhteisöön yhdistynyt"@fi ;
-    skos:closeMatch rdaa:P50011,
-        mts:m4457 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50011>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m4457> ;
     skos:prefLabel "yhteisöön yhdistynyt"@fi .
 
-:minimumDate a :Item,
+ntp:minimumDate a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range "Timespan (Q22)" ;
-    skos:closeMatch wd:Property:P2310 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P2310> ;
     skos:prefLabel "minimipäiväys"@fi .
 
-:modifierCorporateBody a :Item,
+ntp:modifierCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Item ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdai:P40144 ;
+    rdfs:domain ntp:Item ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/i/P40144> ;
     skos:prefLabel "muokkaava organisaatio"@fi .
 
-:museumPlus a :String,
+ntp:museumPlus a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "huomautus museum Plus elementistä"@fi .
 
-:nameMonolingual a :Monolingualtext,
+ntp:nameMonolingual a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
-    skos:closeMatch wd:Property:P2561 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P2561> ;
     skos:prefLabel "nimi yksikielinen"@fi .
 
-:nameOfAgent a :Monolingualtext,
+ntp:nameOfAgent a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H, SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
     skos:altLabel "toimijan nimi"@fi ;
-    skos:closeMatch rdaa:P50385 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50385> ;
     skos:prefLabel "toimijan nimi"@fi ;
     sh:minCount "1"^^xsd:int .
 
-:nameOfConference a :String,
+ntp:nameOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50032 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50032> ;
     skos:prefLabel "konferenssin nimi"@fi .
 
-:nameOfConfernenceObject a :Item,
+ntp:nameOfConfernenceObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaa:P50032 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50032> ;
     skos:prefLabel "konferenssin nimi (kohde)"@fi .
 
-:nameOfCorporateBody a :String,
+ntp:nameOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhteisön nimi"@fi ;
-    skos:closeMatch rdaad:P50032,
-        madsrdf:COnferenceName,
-        madsrdf:CorporateName ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50032>,
+        <http://www.loc.gov/mads/rdf/v1#COnferenceName>,
+        <http://www.loc.gov/mads/rdf/v1#CorporateName> ;
     skos:prefLabel "yhteisön nimi"@fi .
 
-:nameOfCorporateBodyNomen a :Item,
+ntp:nameOfCorporateBodyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50032 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50032> ;
     skos:prefLabel "yhteisön nimi"@fi .
 
-:nameOfEntity a :Item,
+ntp:nameOfEntity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaxo:P00019 ;
+    rdfs:domain ntp:Entity ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/object/P00019> ;
     skos:prefLabel "entiteetin nimi"@fi .
 
-:nameOfFamily a :String,
+ntp:nameOfFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    ntp-meta:typeOfViewingRestriction "U: SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50061 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50061> ;
     skos:prefLabel "suvun nimi"@fi .
 
-:nameOfFamilyNomen a :Item,
+ntp:nameOfFamilyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :Nomen ;
+    ntp-meta:typeOfViewingRestriction "U: SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "suvun nimi"@fi ;
-    skos:closeMatch rdaa:P50061,
-        madsrdf:FamilyName ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50061>,
+        <http://www.loc.gov/mads/rdf/v1#FamilyName> ;
     skos:prefLabel "suvunnimi (kohde)"@fi .
 
-:nameOfHierarchicalSubordinate a :Monolingualtext,
+ntp:nameOfHierarchicalSubordinate a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
     skos:altLabel "yhteisön alanimi"@fi ;
-    skos:closeMatch rdaa:P50032 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50032> ;
     skos:prefLabel "alayhteisön nimi"@fi .
 
-:nameOfHierarchicalSuperior a :String,
+ntp:nameOfHierarchicalSuperior a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50008 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50008> ;
     skos:prefLabel "kattoyhteisön nimi"@fi .
 
-:nameOfPerson a :Monolingualtext,
+ntp:nameOfPerson a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
     skos:altLabel "henkilön nimi"@fi ;
-    skos:closeMatch rdaad:P50111,
-        madsrdf:PersonalName,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50111>,
+        <http://www.loc.gov/mads/rdf/v1#PersonalName>,
         foaf:name,
-        gndo:nameOfThePerson ;
+        <https://d-nb.info/standards/elementset/gnd#nameOfThePerson> ;
     skos:prefLabel "henkilön nimi"@fi .
 
-:nameOfPersonNomen a :Item,
+ntp:nameOfPersonNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50111 ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50111> ;
     skos:prefLabel "henkilön nimi"@fi .
 
-:nameOfPlace a :Monolingualtext,
+ntp:nameOfPlace a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range rdf:langString ;
     skos:altLabel "Paikan nimi"@fi ;
-    skos:closeMatch rdap:P70001,
-        :Location ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70001>,
+        ntp:Location ;
     skos:prefLabel "paikan nimi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:nameOfTimespan a :Monolingualtext,
+ntp:nameOfTimespan a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdatd:P70049 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70049> ;
     skos:prefLabel "ajanjakson nimi"@fi .
 
-:nameOfTimespanObject a :Item,
+ntp:nameOfTimespanObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Timespan ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdat:P70049 ;
+    rdfs:domain ntp:Timespan ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/P70049> ;
     skos:prefLabel "ajanjakson nimi (kohde)"@fi .
 
-:nomenString a :String,
+ntp:nomenString a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdan:P80068 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80068> ;
     skos:prefLabel "nomenin merkkijono"@fi .
 
-:nonPublicNoteOnResource a :Monolingualtext,
+ntp:nonPublicNoteOnResource a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    ntp-meta:typeOfViewingRestriction "U / SI" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Work ;
     rdfs:range rdf:langString ;
     skos:altLabel "sisäinen huomautus"@fi ;
-    skos:closeMatch rdaw:P10402,
-        modsrdf:adminMetadata ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10402>,
+        <http://www.loc.gov/mods/modsrdf/v1adminMetadata> ;
     skos:prefLabel "sisäinen huomautus"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:noteFromSource a :Monolingualtext,
+ntp:noteFromSource a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range rdf:langString ;
-    skos:closeMatch wd:Property:P1683 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P1683> ;
     skos:prefLabel "lähteestä saatu tieto"@fi .
 
-:noteOnCorporateBody a :Monolingualtext,
+ntp:noteOnCorporateBody a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
     skos:altLabel "yhteisön kategoria"@fi ;
-    skos:closeMatch rdaad:P50393 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50393> ;
     skos:prefLabel "huomautus yhteisöstä"@fi .
 
-:noteOnDateOfBirth a :Monolingualtext,
+ntp:noteOnDateOfBirth a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50121 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50121> ;
     skos:prefLabel "Syntymäaika kuvaus"@fi .
 
-:noteOnDateOfDeath a :Monolingualtext,
+ntp:noteOnDateOfDeath a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50120 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50120> ;
     skos:prefLabel "Kuolinaika kuvaus"@fi .
 
-:noteOnDateOfTermination a :String,
+ntp:noteOnDateOfTermination a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:prefLabel "lakkauttamisajankohdan kuvaus"@fi .
 
-:noteOnEntity a :Monolingualtext,
+ntp:noteOnEntity a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaxd:P00015 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/datatype/P00015> ;
     skos:prefLabel "huomautus entiteetistä"@fi .
 
-:noteOnFamily a :Monolingualtext,
+ntp:noteOnFamily a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaa:P50394 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50394> ;
     skos:prefLabel "huomatus suvusta"@fi .
 
-:noteOnIdentifier a :String,
+ntp:noteOnIdentifier a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "tunnisteen tyyppi"@fi .
 
-:noteOnMetadataWork a :Monolingualtext,
+ntp:noteOnMetadataWork a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdawd:P10402 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/datatype/P10402> ;
     skos:prefLabel "huomautus metatietoteoksesta"@fi .
 
-:noteOnNomen a :Monolingualtext,
+ntp:noteOnNomen a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdand:P80071 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/datatype/P80071> ;
     skos:prefLabel "huomautus nomenista"@fi .
 
-:noteOnPeriodOfActivityOfAgent a :Monolingualtext,
+ntp:noteOnPeriodOfActivityOfAgent a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H, SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
     skos:prefLabel "toimijan toimintaan liityvän ajanjakson kuvaus"@fi .
 
-:noteOnPeriodOfActivityOfPerson a :String,
+ntp:noteOnPeriodOfActivityOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:prefLabel "henkilön toimintaan liityvän ajanjakson kuvaus"@fi .
 
-:noteOnPerson a :Monolingualtext,
+ntp:noteOnPerson a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaad:P50395 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50395> ;
     skos:prefLabel "huomautus henkilöstä"@fi .
 
-:noteOnPlace a :Monolingualtext,
+ntp:noteOnPlace a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdapd:P70022 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/datatype/P70022> ;
     skos:prefLabel "huomautus paikasta"@fi .
 
-:noteOnRDAEntity a :String,
+ntp:noteOnRDAEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaxd:P00015 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/datatype/P00015> ;
     skos:prefLabel "huomautus resurssista"@fi .
 
-:noteOnResource a :Monolingualtext,
+ntp:noteOnResource a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
     skos:prefLabel "huomautus resurssista"@fi .
 
-:noteOnTimespan a :Monolingualtext,
+ntp:noteOnTimespan a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdatd:P70045 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70045> ;
     skos:prefLabel "huomautus ajanjaksosta"@fi .
 
-:ntpID a :String,
+ntp:ntpID a ntp:String,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
     skos:altLabel "Tekninen "@fi ;
-    skos:closeMatch jhs:J169 ;
+    skos:closeMatch <http://uri.suomi.fi/datamodel/ns/jhs#J169> ;
     skos:prefLabel "tekninen tunniste"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:numberOfConference a :String,
+ntp:numberOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "konferenssin numero"@fi ;
-    skos:closeMatch rdaa:P50019 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50019> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "konferenssin numero"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:occupation a :Monolingualtext,
+ntp:occupation a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
     skos:altLabel "ammatti tai tehtävä"@fi ;
-    skos:closeMatch rdaad:P50104,
-        schema:Occupation,
-        jhs:ammatti,
-        mts:m2332,
-        wd:Property:P106 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50104>,
+        <http://schema.org/Occupation>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#ammatti>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m2332>,
+        <https://www.wikidata.org/wiki/Property:P106> ;
     skos:prefLabel "henkilön ammatti"@fi .
 
-:occupationClass a :String,
+ntp:occupationClass a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P60489 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P60489> ;
     skos:prefLabel "ammattiluokka"@fi .
 
-:officer a "Item" ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
-    skos:closeMatch rdaa:P50027,
+ntp:officer a "Item" ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50027>,
         org:headOf ;
     skos:prefLabel "toimihenkilö"@fi .
 
-:orcid a :ExternalIdentifier,
+ntp:orcid a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:anyURI ;
     skos:altLabel "ORCID-tunnus"@fi ;
-    skos:closeMatch rdaad:P50094,
-        jhs:J384 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50094>,
+        <http://uri.suomi.fi/datamodel/ns/jhs#J384> ;
     skos:prefLabel "ORCID-ID"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:orcidIdentifier a :Item,
+ntp:orcidIdentifier a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Identifier ;
-    skos:closeMatch rdaa:P50094 ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Identifier ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50094> ;
     skos:prefLabel "ORCID-tunnus"@fi .
 
-:otherDesignationOfCorporateBody a :Monolingualtext,
+ntp:otherDesignationOfCorporateBody a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range rdf:langString ;
-    skos:closeMatch :rdaa:P50108 ;
+    skos:closeMatch <http://urn.fi/URN:NBN:fi:schema:ntp:rdaa:P50108> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisöön liittyvä muu määrite"@fi .
 
-:otherIdentity a :Item,
+ntp:otherIdentity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    skos:closeMatch rdaa:P50428 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50428> ;
     skos:prefLabel "muu identiteetti"@fi .
 
-:otherPlaceAssociatedWithCorporateBody a :String,
+ntp:otherPlaceAssociatedWithCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50260,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50260>,
         org:hasSite ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "muu yhteisöön liittyvä paikka"@fi .
 
-:partOfNomen a :Item,
+ntp:partOfNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdan:P80058 ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80058> ;
     skos:prefLabel "nomenin osa"@fi .
 
-:performerAgentOf a :String,
+ntp:performerAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P60147 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P60147> ;
     skos:prefLabel "esittäjä (toimija) ekspressiossa"@fi .
 
-:periodOfActivityOfCorporateBody a :String,
+ntp:periodOfActivityOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhteisön toiminta-aika"@fi ;
-    skos:closeMatch rdaad:P50236 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50236> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisön toiminta-aika"@fi .
 
-:periodOfActivityOfEntity a :String,
+ntp:periodOfActivityOfEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "entiteettiin liittyvä ajanjakso"@fi ;
-    skos:closeMatch rdax:P00011 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/P00011> ;
     skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi .
 
-:periodOfActivityOfPerson a :String,
+ntp:periodOfActivityOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "henkilön elinaika",
         "henkilön toiminta-aika"@fi ;
-    skos:closeMatch rdaad:P50098,
-        madsrdf:deathDate ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50098>,
+        <http://www.loc.gov/mads/rdf/v1#deathDate> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön toimintaan liittyvä ajanjakso"@fi .
 
-:periodofActivityOfAgent a :String,
+ntp:periodofActivityOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    :viewingRestriction "20" ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijaan liittyvä ajanjakso"@fi ;
-    skos:closeMatch rdaa:P50339,
-        gndo:associatedDate ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50339>,
+        <https://d-nb.info/standards/elementset/gnd#associatedDate> ;
     skos:prefLabel "toimijan toiminta-aika"@fi .
 
-:persistentIdentifier a :String,
+ntp:persistentIdentifier a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "Analoginen literaali"@fi ;
-    skos:closeMatch :rdaad:P53383 ;
+    skos:closeMatch <http://urn.fi/URN:NBN:fi:schema:ntp:rdaad:P53383> ;
     skos:note " " ;
     skos:prefLabel "pysyvä tunniste"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:personalIdentityCode a :ExternalIdentifier,
+ntp:personalIdentityCode a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "henkilötunnus"@fi ;
-    skos:closeMatch jhs:J1 ;
+    skos:closeMatch <http://uri.suomi.fi/datamodel/ns/jhs#J1> ;
     skos:prefLabel "henkilötunnus"@fi .
 
-:photographerAgentOfWorkOf a :String,
+ntp:photographerAgentOfWorkOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50190 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50190> ;
     skos:prefLabel "valokuvaajana teoksessa"@fi .
 
-:placeOfBirth a :String,
+ntp:placeOfBirth a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50119 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50119> ;
     skos:prefLabel "syntymäpaikka"@fi .
 
-:placeOfBirthObject a :Item,
+ntp:placeOfBirthObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Place;dcterms:Location;schema:Place" ;
     skos:altLabel "syntymäpaikka"@fi ;
-    skos:closeMatch rdaao:P50119,
-        person:placeOfBirth,
-        wd:Property:P19 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50119>,
+        <http://www.w3.org/ns/person#placeOfBirth>,
+        <https://www.wikidata.org/wiki/Property:P19> ;
     skos:prefLabel "syntymäpaikka (kohde)"@fi .
 
-:placeOfConference a :String,
+ntp:placeOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50024 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50024> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "konferenssin paikka"@fi .
 
-:placeOfConferenceObject a :Item,
+ntp:placeOfConferenceObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Place ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Place ;
     skos:altLabel "tapahtuman paikka"@fi ;
-    skos:closeMatch rdaa:P50024,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50024>,
         org:Site ;
     skos:prefLabel "konferenssin paikka (kohde)"@fi .
 
-:placeOfDeath a :String,
+ntp:placeOfDeath a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50118 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50118> ;
     skos:prefLabel "kuolinpaikka"@fi .
 
-:placeOfDeathObject a :Item,
+ntp:placeOfDeathObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Place;dcterms:Location;schema:Place" ;
     skos:altLabel "kuolinpaikka"@fi ;
-    skos:closeMatch rdaao:P50118,
-        person:placeOfDeath,
-        wd:Property:P20 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50118>,
+        <http://www.w3.org/ns/person#placeOfDeath>,
+        <https://www.wikidata.org/wiki/Property:P20> ;
     skos:prefLabel "kuolinpaikka (kohde)"@fi .
 
-:placeOfResidence a :Monolingualtext,
+ntp:placeOfResidence a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaad:P50109 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50109> ;
     skos:prefLabel "asuinpaikka"@fi .
 
-:placeOfResidenceObject a :Item,
+ntp:placeOfResidenceObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Place;dcterms:Jurisdiction" ;
     skos:altLabel "asuinpaikka"@fi ;
-    skos:closeMatch rdaao:P50109,
-        person:residency ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50109>,
+        <http://www.w3.org/ns/person#residency> ;
     skos:prefLabel "asuinpaikka (kohde)"@fi .
 
-:preferredNameOfAgent a :String,
+ntp:preferredNameOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "Ensisijainen nimi"@fi ;
-    skos:closeMatch rdaad:P50413,
-        gndo:preferredName ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50413>,
+        <https://d-nb.info/standards/elementset/gnd#preferredName> ;
     skos:prefLabel "toimijan ensisijainen nimi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:preferredNameOfConference a :String,
+ntp:preferredNameOfConference a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50041 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50041> ;
     skos:prefLabel "konferenssin ensisijainen nimi"@fi .
 
-:preferredNameOfConferenceNomen a :Item,
+ntp:preferredNameOfConferenceNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaa:P50041 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50041> ;
     skos:prefLabel "konferenssin ensisijainen nimi (kohde)"@fi .
 
-:preferredNameOfCorporateBody a :String,
+ntp:preferredNameOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhteisön ensisijainen nimi"@fi ;
-    skos:closeMatch rdaad:P50041 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50041> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisön ensisijainen nimi"@fi .
 
-:preferredNameOfCorporateBodyNomen a :Item,
+ntp:preferredNameOfCorporateBodyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "yhteisön ensisijainen nimi"@fi ;
-    skos:closeMatch rdaao:P50041 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50041> ;
     skos:prefLabel "yhteisön ensisijainen nimi (kohde)"@fi .
 
-:preferredNameOfCorporateBodyOf a :Item,
+ntp:preferredNameOfCorporateBodyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdano:P80144 ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80144> ;
     skos:prefLabel "ensisijainen nimi yhteisölle"@fi .
 
-:preferredNameOfFamily a :String,
+ntp:preferredNameOfFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50065 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50065> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "suvun ensisijainen nimi"@fi .
 
-:preferredNameOfFamilyOf a :Item,
+ntp:preferredNameOfFamilyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range "Family" ;
-    skos:closeMatch rdano:P80145 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80145> ;
     skos:prefLabel "ensisijainen nimi suvulle"@fi .
 
-:preferredNameOfPersonNomen a :Item,
+ntp:preferredNameOfPersonNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "henkilön ensisijainen nimi"@fi ;
-    skos:closeMatch rdaao:P50117 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50117> ;
     skos:prefLabel "henkilön ensisijainen nimi (kohde)"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:preferredNameOfPersonOf a :Item,
+ntp:preferredNameOfPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :Person ;
-    skos:closeMatch rdano:P80146 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/object/P80146> ;
     skos:prefLabel "ensisijainen nimi henkilölle"@fi .
 
-:preferredNameOfPersonString a :String,
+ntp:preferredNameOfPersonString a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "henkilön ensisijainen nimi"@fi ;
-    skos:closeMatch rdaad:P50117 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50117> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön ensisijainen nimi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:preferredNameOfPlace a :Monolingualtext,
+ntp:preferredNameOfPlace a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdapd:P70002 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/datatype/P70002> ;
     skos:prefLabel "paikan ensisijainen nimi"@fi .
 
-:preferredNameOfPlaceNomen a :Item,
+ntp:preferredNameOfPlaceNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Place ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdap:P70002 ;
+    rdfs:domain ntp:Place ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70002> ;
     skos:prefLabel "paikan ensisijainen nimi (kohde)"@fi .
 
-:preferredNameOfRDAEntity a :Monolingualtext,
+ntp:preferredNameOfRDAEntity a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdaxd:P00021 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/datatype/P00021> ;
     skos:prefLabel "entiteetin ensisijainen nimi"@fi .
 
-:preferredNameOfRDAEntityNomen a :Item,
+ntp:preferredNameOfRDAEntityNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaxo:P00021 ;
+    rdfs:domain ntp:Entity ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/object/P00021> ;
     skos:prefLabel "entiteetin ensisijainen nimi (kohde)"@fi .
 
-:preferredNameOfTimespan a :String,
+ntp:preferredNameOfTimespan a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdatd:P70049 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70049> ;
     skos:prefLabel "ajanjakson ensisijainen nimi"@fi .
 
-:preferredNameOfTimespanNomen a :Item,
+ntp:preferredNameOfTimespanNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Timespan ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdat:P70049 ;
+    rdfs:domain ntp:Timespan ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/P70049> ;
     skos:prefLabel "ajanjakson ensisijainen nimi (kohde)"@fi .
 
-:producerAgentOf a :String,
+ntp:producerAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50201 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50201> ;
     skos:prefLabel "tuottaja (toimija) teoksessa"@fi .
 
-:producerCorporateBody a :Item,
+ntp:producerCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Work ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdaw:P10548 ;
+    rdfs:domain ntp:Work ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10548> ;
     skos:prefLabel "tiedon tuottajaorganisaatio"@fi .
 
-:productOfMerger a :Item,
+ntp:productOfMerger a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :componentOfMerger ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:componentOfMerger ;
     skos:altLabel "yhdistymisestä muodostunut (2=>1)"@fi ;
-    skos:closeMatch rdaao:P50013,
-        mts:m1777 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50013>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1777> ;
     skos:prefLabel "yhdistymisestä muodostunut yhteisö"@fi .
 
-:prominentMemberOfFamily a :Item,
+ntp:prominentMemberOfFamily a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :Person ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:Person ;
     skos:altLabel "suvun tunnettu jäsen"@fi ;
-    skos:closeMatch rdaao:P50060,
-        wd:Property:P3342 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50060>,
+        <https://www.wikidata.org/wiki/Property:P3342> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "suvun tunnettu jäsen"@fi .
 
-:propertyScope a :Item,
+ntp:propertyScope a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range :Entity ;
-    skos:closeMatch wd:Property:P5314 ;
+    rdfs:domain ntp:Entity ;
+    rdfs:range ntp:Entity ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P5314> ;
     skos:prefLabel "ominaisuuden kattavuus"@fi .
 
-:publisherOf a :String,
+ntp:publisherOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50203 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50203> ;
     skos:prefLabel "kustantajana aineistossa"@fi .
 
-:rdaPreferredNameOfCorporateBody a :String,
+ntp:rdaPreferredNameOfCorporateBody a ntp:String,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "RDA:n Ensisijainen nimi"@fi ;
-    skos:closeMatch rdaad:P50041 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50041> ;
     skos:prefLabel "yhteisön RDAn mukainen ensisijainen nimi"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:rdaPreferredNameOfCorporateBodyNomen a :Item,
+ntp:rdaPreferredNameOfCorporateBodyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50041 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50041> ;
     skos:prefLabel "yhteisön RDAn mukainen ensisijainen nimi"@fi .
 
-:rdaPreferredNameOfPerson a :String,
+ntp:rdaPreferredNameOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "RDA:n Ensisijainen nimi"@fi ;
-    skos:closeMatch rdaad:P50117 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50117> ;
     skos:prefLabel "henkilön RDAn mukainen ensisijainen nimi"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:rdaPreferredNameOfPersonNomen a :Item,
+ntp:rdaPreferredNameOfPersonNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaa:P50117 ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50117> ;
     skos:prefLabel "henkilön RDAn mukainen ensisijainen nimi (kohde)"@fi .
 
-:rdfuri a :String,
+ntp:rdfuri a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:anyURI ;
-    skos:closeMatch wd:Property:P1921 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P1921> ;
     skos:prefLabel "RDF:ssä käytetty URL-muoto"@fi .
 
-:realIdentityOfPersonOf a :Item,
+ntp:realIdentityOfPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Nomen ;
-    rdfs:range :Person ;
-    skos:closeMatch rdan:P80158 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Nomen ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80158> ;
     skos:prefLabel "todellinen identiteetti henkilölle"@fi .
 
-:recordInfoNote a :Monolingualtext,
+ntp:recordInfoNote a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    ntp-meta:typeOfViewingRestriction "SI" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Work ;
     rdfs:range rdf:langString ;
     skos:altLabel "ylläpitomerkinnät"@fi ;
-    skos:closeMatch rdawd:P10330 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/datatype/P10330> ;
     skos:prefLabel "ylläpitomerkinnät"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:recordStatus a :String,
+ntp:recordStatus a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:altLabel "auktoriteettitietueen tila"@fi ;
     skos:prefLabel "auktoriteettitietueen tila"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:recordingSource a :String,
+ntp:recordingSource a ntp:String,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "metatiedon lähde"@fi ;
-    skos:closeMatch rdan:P80068,
-        rdaw:P10404 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80068>,
+        <http://rdaregistry.info/Elements/w/P10404> ;
     skos:prefLabel "metatiedon lähde"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:recordistAgentOf a :String,
+ntp:recordistAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50160 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50160> ;
     skos:prefLabel "taltioija (toimija) ekspressiossa"@fi .
 
-:recordsManager a :String,
+ntp:recordsManager a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "arkistonmuodostaja"@fi .
 
-:referenceGroup a :Item,
+ntp:referenceGroup a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :CorporateBody ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:CorporateBody ;
     skos:altLabel "henkilöön liittyvä yhteisö"@fi ;
-    skos:closeMatch rdaa:P50318,
-        wd:Q2984552 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50318>,
+        <https://www.wikidata.org/wiki/Q2984552> ;
     skos:prefLabel "viiteryhmä"@fi .
 
-:relatedAgentOfAgent a :Item,
+ntp:relatedAgentOfAgent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range "Agent" ;
     skos:altLabel "toimijaan liittyvä toimija"@fi ;
-    skos:closeMatch rdaao:P50309 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50309> ;
     skos:prefLabel "toimijaan liittyvä toimija"@fi .
 
-:relatedAgentOfWork a :Item,
+ntp:relatedAgentOfWork a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range "Agent" ;
-    skos:closeMatch rdaw:P10311 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/w/P10311> ;
     skos:prefLabel "teokseen liittyvä toimija"@fi .
 
-:relatedCorporateBodyOfAgent a :Item,
+ntp:relatedCorporateBodyOfAgent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :CorporateBody ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
+    rdfs:range ntp:CorporateBody ;
     skos:altLabel "toimijaan liittyvä yhteisö"@fi ;
-    skos:closeMatch rdaa:P50218 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50218> ;
     skos:prefLabel "toimijaan liittyvä yhteisö"@fi .
 
-:relatedCorporateBodyOfCorporateBody a :Item,
+ntp:relatedCorporateBodyOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
     skos:altLabel "laitokseen liittyvä yhteisö ; yhteisöön liittyvä laitos"@fi ;
-    skos:closeMatch rdaao:P50336,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50336>,
         org:linkedTo ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisöön liittyvä yhteisö"@fi .
 
-:relatedCorporateBodyOfPerson a :Item,
+ntp:relatedCorporateBodyOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
     rdfs:domain "Person " ;
-    rdfs:range :CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
     skos:altLabel "Yhteisöön liittyy"@fi ;
-    skos:closeMatch rdaao:P50318 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50318> ;
     skos:prefLabel "henkilöön liittyvä yhteisö (kohde)"@fi .
 
-:relatedCorporateBodyOfPersonString a :String,
+ntp:relatedCorporateBodyOfPersonString a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50318 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50318> ;
     skos:prefLabel "henkilöön liittyvä yhteisö"@fi .
 
-:relatedCorporateBodyOfPlace a :Item,
+ntp:relatedCorporateBodyOfPlace a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Place ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdap:P70016,
+    rdfs:domain ntp:Place ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70016>,
         org:siteOf ;
     skos:prefLabel "paikkaan liittyvä yhteisö"@fi .
 
-:relatedNameOfCorporateBody a :String,
+ntp:relatedNameOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhteisöön liittyvä nomen"@fi ;
-    skos:closeMatch rdaad:P50352 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50352> ;
     skos:prefLabel "yhteisöön liittyvä nimi"@fi .
 
-:relatedNameOfCorporateBodyNomen a :Item,
+ntp:relatedNameOfCorporateBodyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50352 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50352> ;
     skos:prefLabel "yhteisöön liittyvä nimi (kohde)"@fi .
 
-:relatedNameOfPerson a :String,
+ntp:relatedNameOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50348 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50348> ;
     skos:prefLabel "henkilöön liittyvä nimi"@fi .
 
-:relatedNomenOfPerson a :Item,
+ntp:relatedNomenOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "henkilöön liittyvä Nomen"@fi ;
-    skos:closeMatch rdaa:P50348 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50348> ;
     skos:prefLabel "henkilöön liittyvä nimi (kohde)"@fi .
 
-:relatedPersonOfCorporateBody a :Item,
+ntp:relatedPersonOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
     skos:altLabel "Liittyy yhteisöön"@fi ;
-    skos:closeMatch rdaao:P50334 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50334> ;
     skos:prefLabel "yhteisöön liittyvä henkilö"@fi .
 
-:relatedPersonOfPerson a :Item,
+ntp:relatedPersonOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
     skos:altLabel "henkilöön liittyvä henkilö"@fi ;
-    skos:closeMatch rdaao:P50316 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50316> ;
     skos:prefLabel "henkilöön liittyvä henkilö"@fi .
 
-:relatedPlaceOfAgent a :String,
+ntp:relatedPlaceOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "Paikka"@fi ;
-    skos:closeMatch rdaad:P50338,
-        madsrdf:Geographic,
-        gndo:PlaceOrGeographicName ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50338>,
+        <http://www.loc.gov/mads/rdf/v1#Geographic>,
+        <https://d-nb.info/standards/elementset/gnd#PlaceOrGeographicName> ;
     skos:prefLabel "toimijaan liittyvä paikka"@fi .
 
-:relatedPlaceOfAgentObject a :Item,
+ntp:relatedPlaceOfAgentObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :Place ;
-    skos:closeMatch rdaao:P50338 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
+    rdfs:range ntp:Place ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50338> ;
     skos:prefLabel "toimijaan liittyvä paikka"@fi .
 
-:relatedPlaceOfCorporateBody a :String,
+ntp:relatedPlaceOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50350,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50350>,
         org:Site ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisöön liittyvä paikka"@fi .
 
-:relatedPlaceOfCorporateBodyObject a :Item,
+ntp:relatedPlaceOfCorporateBodyObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Place ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Place ;
     skos:altLabel "yhteisöön liittyvä paikka"@fi ;
-    skos:closeMatch rdaao:P50350 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50350> ;
     skos:prefLabel "yhteisöön liittyvä paikka (kohde)"@fi .
 
-:relatedPlaceOfFamily a :String,
+ntp:relatedPlaceOfFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50354 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50354> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "sukuun liittyvä paikka"@fi .
 
-:relatedPlaceOfFamilyObject a :Item,
+ntp:relatedPlaceOfFamilyObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :Place ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:Place ;
     skos:altLabel "sukuun liittyvä paikka"@fi ;
-    skos:closeMatch rdaa:P50354 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50354> ;
     skos:prefLabel "sukuun liittyvä paikka (kohde)"@fi .
 
-:relatedPlaceOfPerson a :String,
+ntp:relatedPlaceOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50346 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50346> ;
     skos:prefLabel "henkilöön liittyvä paikka"@fi .
 
-:relatedPlaceOfPersonObject a :Item,
+ntp:relatedPlaceOfPersonObject a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Place ;
-    skos:closeMatch rdaa:P50346 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Place ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50346> ;
     skos:prefLabel "henkilöön liittyvä paikka (kohde)"@fi .
 
-:relatedTimespanOfAgent a :String,
+ntp:relatedTimespanOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijan toiminta-aika"@fi ;
-    skos:closeMatch rdaad:P50339 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50339> ;
     skos:prefLabel "toimijaan liittyvä ajanjakso"@fi .
 
-:relatedTimespanOfCorporateBody a :String,
+ntp:relatedTimespanOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50351 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50351> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "yhteisöön liittyvä ajanjakso"@fi .
 
-:relatedTimespanOfEntity a :String,
+ntp:relatedTimespanOfEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdax:P00011 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/P00011> ;
     skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:relatedTimespanOfFamily a :String,
+ntp:relatedTimespanOfFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
     skos:altLabel "sukuun liittyvä ajanjakso"@fi ;
-    skos:closeMatch rdaad:P50355 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50355> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "sukuun liittyvä ajanjakso"@fi .
 
-:relatedTimespanOfIdentifier a :String,
+ntp:relatedTimespanOfIdentifier a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Identifier ;
+    rdfs:domain ntp:Identifier ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdand:P80008 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/datatype/P80008> ;
     skos:prefLabel "tunnisteeseen liittyvä ajanjakso"@fi .
 
-:relatedTimespanOfNomen a :String,
+ntp:relatedTimespanOfNomen a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
     skos:altLabel "nimeen liittyvä aika"@fi ;
-    skos:closeMatch rdand:P80008 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/datatype/P80008> ;
     skos:prefLabel "nomeniin liittyvä ajanjakso"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:relatedTimespanOfPerson a :String,
+ntp:relatedTimespanOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50347 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50347> ;
     skos:prefLabel "henkilöön liittyvä ajanjakso"@fi .
 
-:relatedTimespanOfPlace a :String,
+ntp:relatedTimespanOfPlace a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range xsd:string ;
     skos:altLabel "paikkaan liittyvä ajanjakso"@fi ;
-    skos:closeMatch rdap:P70011 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70011> ;
     skos:prefLabel "paikkaan liittyvä ajanjakso"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:relatedTimespanOfRDAEntity a :String,
+ntp:relatedTimespanOfRDAEntity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "ajanjakso"@fi ;
-    skos:closeMatch rdax:P00011 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/x/P00011> ;
     skos:prefLabel "entiteettiin liittyvä ajanjakso"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:relatedWorkOfAgent a :Item,
+ntp:relatedWorkOfAgent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
-    rdfs:range :Work ;
+    rdfs:domain ntp:Agent ;
+    rdfs:range ntp:Work ;
     skos:altLabel "toimijan tekemät aineistot"@fi ;
-    skos:closeMatch rdaa:P50305 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50305> ;
     skos:prefLabel "toimijaan liittyvä teos"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:relatedWorkOfAgentString a :String,
+ntp:relatedWorkOfAgentString a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "toimijaan liittyvä teos (literaali)"@fi ;
-    skos:closeMatch rdaad:P50305 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50305> ;
     skos:prefLabel "toimijaan liittyvä teos (string)"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:restrictionOfGender a :Item,
+ntp:restrictionOfGender a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    :viewingRestriction "20" ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range "viewingRestriction" ;
     skos:altLabel "TJ03 Sukupuoli"@fi ;
     skos:prefLabel "TJ03 Sukupuoli"@fi .
 
-:rightOfAccessOfIdentity a :String,
+ntp:rightOfAccessOfIdentity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Work ;
+    rdfs:domain ntp:Work ;
     rdfs:range xsd:string ;
     skos:prefLabel "identiteetin julkisuus"@fi .
 
-:sharedIdentity a :String,
+ntp:sharedIdentity a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:prefLabel "jaettu identiteetti"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:signatory a :Item,
+ntp:signatory a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Work ;
-    rdfs:range :Person ;
-    skos:closeMatch rdai:P40016 ;
+    rdfs:domain ntp:Work ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/i/P40016> ;
     skos:prefLabel "allekirjoittaja"@fi .
 
-:significantEvent a :Item,
+ntp:significantEvent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Person :CorporateBody ) ] ;
+            owl:unionOf ( ntp:Person ntp:CorporateBody ) ] ;
     rdfs:range "Event" ;
     skos:prefLabel "merkittävä tapahtuma"@fi .
 
-:significantPerson a :Item,
+ntp:significantPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :Person ;
-    skos:closeMatch rdaa:P50060 ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:Person ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50060> ;
     skos:prefLabel "prominent member of family"@en,
         "suvun merkittävän jäsenen nimi"@fi .
 
-:significantPlace a :Item,
+ntp:significantPlace a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Person :CorporateBody ) ] ;
-    rdfs:range :Place ;
+            owl:unionOf ( ntp:Person ntp:CorporateBody ) ] ;
+    rdfs:range ntp:Place ;
     skos:prefLabel "merkittävä paikka (kohde)"@fi .
 
-:sortingOrder a :String,
+ntp:sortingOrder a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:prefLabel "järjestysnumero"@fi .
 
-:sourceConsulted a rdf:Property,
+ntp:sourceConsulted a rdf:Property,
         owl:DatatypeProperty,
         "Monolingual text",
         "String" ;
@@ -2618,791 +2669,812 @@
     rdfs:range "rdf:langString",
         "xsd:string" ;
     skos:altLabel "lähdeproperty"@fi ;
-    skos:closeMatch rdau:P61101 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P61101> ;
     skos:prefLabel "tiedon lähde"@fi .
 
-:sourceConsultedURL a :ExternalIdentifier,
+ntp:sourceConsultedURL a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:anyURI ;
-    skos:closeMatch rdau:P61101 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P61101> ;
     skos:prefLabel "lähde-URL"@fi .
 
-:speakerAgentOf a :String,
+ntp:speakerAgentOf a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaa:P50083 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50083> ;
     skos:prefLabel "puhuja (toimija) ekspressiossa"@fi .
 
-:sponsoredCorporateBodyOfCorporateBody a :Item,
+ntp:sponsoredCorporateBodyOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdaao:P50009 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50009> ;
     skos:prefLabel "yhteisön sponsoroima yhteisö"@fi .
 
-:sponsoringCorporateBodyOfCorporateBody a :Item,
+ntp:sponsoringCorporateBodyOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    skos:closeMatch rdaao:P50015 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50015> ;
     skos:prefLabel "yhteisöä sponsoroiva yhteisö"@fi .
 
-:statusOfAuthority a :String,
+ntp:statusOfAuthority a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:altLabel "auktorisoinnin tila"@fi ;
-    skos:closeMatch rdan:P80168 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80168> ;
     skos:prefLabel "auktorisoinnin taso"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:statusOfIdentification a :String,
+ntp:statusOfIdentification a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range xsd:string ;
     skos:altLabel "auktoriteettitietueen tarkkuusaste"@fi ;
-    skos:closeMatch modsrdf:recordInfo ;
+    skos:closeMatch <http://www.loc.gov/mods/modsrdf/v1recordInfo> ;
     skos:prefLabel "nimen vahvistamisen taso"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:style a :Monolingualtext,
+ntp:style a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
     skos:prefLabel "tyyli"@fi .
 
-:subject a :Monolingualtext,
+ntp:subject a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdau:P60805,
-        rdaw:P10256 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60805>,
+        <http://rdaregistry.info/Elements/w/P10256> ;
     skos:prefLabel "aihe"@fi .
 
-:subjectPersonOf a :Item,
+ntp:subjectPersonOf a ntp:Item,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Teos" ;
-    skos:closeMatch rdaa:P50249 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50249> ;
     skos:prefLabel "henkilö aiheena teoksessa"@fi .
 
-:surname a :String,
+ntp:surname a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "sukunimi"@fi ;
-    skos:closeMatch rdaad:P50291,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50291>,
         foaf:familyName ;
     skos:prefLabel "sukunimi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:surnameNomen a :Item,
+ntp:surnameNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
     skos:altLabel "Päänimi"@fi ;
-    skos:closeMatch rdaao:P50291,
-        wd:Property:P734 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50291>,
+        <https://www.wikidata.org/wiki/Property:P734> ;
     skos:prefLabel "sukunimi (kohde)"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:termOfRankHonourOrOffice a :Monolingualtext,
+ntp:termOfRankHonourOrOffice a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range rdf:langString ;
     skos:altLabel "arvonimi"@fi ;
-    skos:closeMatch rdaad:P50110,
-        rdau:P60363,
-        mts:m121,
-        wd:Property:P511 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50110>,
+        <http://rdaregistry.info/Elements/u/P60363>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m121>,
+        <https://www.wikidata.org/wiki/Property:P511> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "henkilön arvonimi"@fi .
 
-:typeOfAddress a :String,
+ntp:typeOfAddress a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
+    ntp-meta:typeOfViewingRestriction "SI" ;
+    ntp-meta:viewingRestriction true ;
     rdfs:domain [ a owl:Class ;
-            owl:unionOf ( :Person :CorporateBody ) ] ;
+            owl:unionOf ( ntp:Person ntp:CorporateBody ) ] ;
     rdfs:range xsd:string ;
     skos:prefLabel "yhteystieto"@fi .
 
-:typeOfCorporateBodyName a :String,
+ntp:typeOfCorporateBodyName a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:prefLabel "yhteisön nimen tyypin indikaattori"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:typeOfIdentifier a :Item,
+ntp:typeOfIdentifier a ntp:Item,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Nomen ;
+    rdfs:domain ntp:Nomen ;
     rdfs:range "Tunnisteen tyyppi Q158" ;
-    skos:closeMatch rdan:P80078 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/n/P80078> ;
     skos:prefLabel "tunnisteen tyyppi"@fi .
 
-:typeOfIdentity a :Item,
+ntp:typeOfIdentity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range "identiteetin tyyppi (Q341)" ;
     skos:altLabel "toinen identiteetti TAI todellinen Identiteetti"@fi ;
     skos:prefLabel "identiteetin tyyppi"@fi ;
     sh:maxCount "1"^^xsd:int ;
     sh:minCount "1"^^xsd:int .
 
-:usageInstructions a :Monolingualtext,
+ntp:usageInstructions a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range rdf:langString ;
-    skos:closeMatch wd:Property:P2559 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Property:P2559> ;
     skos:prefLabel "käyttöohjeet"@fi .
 
-:variantNameOfAgent a :String,
+ntp:variantNameOfAgent a ntp:String,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:altLabel "Vaihtoehtoinen nimi"@fi ;
     skos:closeMatch dcterms:alternative,
-        rdaa:P50415,
-        gndo:variantName ;
+        <http://rdaregistry.info/Elements/a/P50415>,
+        <https://d-nb.info/standards/elementset/gnd#variantName> ;
     skos:prefLabel "toimijan varianttinimi"@fi .
 
-:variantNameOfCorporateBody a :String,
+ntp:variantNameOfCorporateBody a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhteisön varianttinimi"@fi ;
-    skos:closeMatch rdaad:P50025 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50025> ;
     skos:prefLabel "yhteisön varianttinimi"@fi .
 
-:variantNameOfCorporateBodyNomen a :Item,
+ntp:variantNameOfCorporateBodyNomen a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50025 ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50025> ;
     skos:prefLabel "yhteisön varianttinimi (kohde)"@fi .
 
-:variantNameOfFamily a :String,
+ntp:variantNameOfFamily a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Family ;
+    rdfs:domain ntp:Family ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50054 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50054> ;
     skos:prefLabel "suvun varianttinimi"@fi .
 
-:variantNameOfPerson a :String,
+ntp:variantNameOfPerson a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:string ;
     skos:altLabel "Henkilön vaihtoehtoinen nimi"@fi ;
     skos:closeMatch dcterms:alternative,
-        rdaad:P50103 ;
+        <http://rdaregistry.info/Elements/a/datatype/P50103> ;
     skos:prefLabel "henkilön varianttinimi"@fi .
 
-:variantNameOfPersonOf a :Item,
+ntp:variantNameOfPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Nomen ;
-    skos:closeMatch rdaao:P50103 ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Nomen ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50103> ;
     skos:prefLabel "henkilön varianttinimi"@fi .
 
-:variantNameOfPlace a :Monolingualtext,
+ntp:variantNameOfPlace a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Place ;
+    rdfs:domain ntp:Place ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdap:P70003 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/p/P70003> ;
     skos:prefLabel "paikan varianttinimi"@fi .
 
-:variantNameOfTimespan a :Monolingualtext,
+ntp:variantNameOfTimespan a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Timespan ;
+    rdfs:domain ntp:Timespan ;
     rdfs:range rdf:langString ;
-    skos:closeMatch rdatd:P70050 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/t/datatype/P70050> ;
     skos:prefLabel "ajanjakson varianttinimi"@fi .
 
-:vatNumber a :String,
+ntp:vatNumber a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:prefLabel "ALV-tunnus"@fi .
 
-:viaf a :ExternalIdentifier,
+ntp:viaf a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:anyURI ;
-    skos:closeMatch rdaad:P50094 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50094> ;
     skos:prefLabel "VIAF-tunniste"@fi .
 
-:viewingRestriction a :String,
+ntp:vocabularyIdentifier a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
-    rdfs:range xsd:string ;
-    skos:prefLabel "näyttörajoitus"@fi .
-
-:vocabularyIdentifier a :String,
-        rdf:Property,
-        owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
     skos:prefLabel "sanastotunnus"@fi .
 
-:webAddressOfAgent a :String,
+ntp:webAddressOfAgent a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range xsd:string ;
-    skos:closeMatch rdaad:P50418 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50418> ;
     skos:prefLabel "verkkosivut"@fi .
 
-:yTunnus a :ExternalIdentifier,
+ntp:yTunnus a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "Y-tunnus"@fi ;
-    skos:closeMatch jhs:ytunnus,
+    skos:closeMatch <http://uri.suomi.fi/datamodel/ns/jhs#ytunnus>,
         <https://tietomallit.suomi.fi/model/yritysrek/y-tunnus/> ;
     skos:prefLabel "Y-tunnus"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:yhdistysrekisterinumero a :String,
+ntp:yhdistysrekisterinumero a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
     rdfs:range xsd:string ;
     skos:altLabel "yhdistysrekisterinumero"@fi ;
-    skos:closeMatch rdaa:P50006,
-        :Identifier ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50006>,
+        ntp:Identifier ;
     skos:prefLabel "yhdistysrekisterinumero"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:ysoTerm a :String,
+ntp:ysoTerm a ntp:String,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:string ;
     skos:prefLabel "YSO-termi"@fi .
 
-:ysoURI a :ExternalIdentifier,
+ntp:ysoURI a ntp:ExternalIdentifier,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain ntp:Entity ;
     rdfs:range xsd:anyURI ;
-    skos:closeMatch rdau:P60805 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60805> ;
     skos:prefLabel "YSO-ID"@fi .
 
-:CategoryOfAgent a owl:Class ;
+ntp:CategoryOfAgent a owl:Class ;
     skos:prefLabel "category of agent"@en,
         "Toimijan tyyppi"@fi,
         "agenkategori"@sv .
 
-:absorbedCorporateBody a :Item,
+ntp:absorbedCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :absorbingCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:absorbingCorporateBody ;
     skos:altLabel "yhteisöön sulautunut"@fi ;
-    skos:closeMatch rdaa:P50301,
-        mts:m1333 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50301>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1333> ;
     skos:prefLabel "absorbed corporate body"@en,
         "sulautunut yhteisö"@fi .
 
-:absorbingCorporateBody a :Item,
+ntp:absorbingCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :absorbedCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:absorbedCorporateBody ;
     skos:altLabel "sulautunut yhteisöön"@fi ;
-    skos:closeMatch rdaa:P50302,
-        mts:m4434 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50302>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m4434> ;
     skos:prefLabel "absorbing corporate body"@en,
         "sulautunut yhteisöön"@fi .
 
-:activity a :Monolingualtext,
+ntp:activity a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
-    owl:inverseOf :function ;
+    owl:inverseOf ntp:function ;
     skos:altLabel "on suorittanut;toiminta;valtuutettu toiminta"@fi ;
-    skos:closeMatch rdaa:P50387,
-        madsrdf:fieldOfActivity,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50387>,
+        <http://www.loc.gov/mads/rdf/v1#fieldOfActivity>,
         org:purpose,
-        gndo:fieldOfActivity ;
+        <https://d-nb.info/standards/elementset/gnd#fieldOfActivity> ;
     skos:prefLabel "activity"@en,
         "toiminta"@fi .
 
-:alternateIdentityOfPerson a :Item,
+ntp:alternateIdentityOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :realIdentity ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:realIdentity ;
     skos:altLabel "toinen identiteetti"@fi ;
-    skos:closeMatch rdaao:P50428,
-        gndo:pseudonym ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50428>,
+        <https://d-nb.info/standards/elementset/gnd#pseudonym> ;
     skos:prefLabel "alternate identity of person"@en,
         "toinen identiteetti"@fi .
 
-:broaderAffiliatedBody a :Item,
+ntp:broaderAffiliatedBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :localAffiliate ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:localAffiliate ;
     skos:altLabel "emoyhtiö"@fi ;
-    skos:closeMatch rdaa:P50240,
-        wd:Q1956113 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50240>,
+        <https://www.wikidata.org/wiki/Q1956113> ;
     skos:prefLabel "laajempi emoyhtiö"@fi .
 
-:corporateBodyMemberOfCorporateBody a :Item,
+ntp:corporateBodyMemberOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :corporateBodyMemberOfCorporateBodyOf ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:corporateBodyMemberOfCorporateBodyOf ;
     skos:altLabel "yhteisön jäsenyhteisö"@fi ;
-    skos:closeMatch rdaao:P50231,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50231>,
         org:member ;
     skos:prefLabel "yhteisön yhteisöjäsen"@fi .
 
-:corporateBodyMemberOfCorporateBodyOf a :Item,
+ntp:corporateBodyMemberOfCorporateBodyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :corporateBodyMemberOfCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:corporateBodyMemberOfCorporateBody ;
     skos:altLabel "laajempi jäsenyhteisö"@fi ;
-    skos:closeMatch rdaa:P50230,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50230>,
         org:hasMembership ;
     skos:prefLabel "yhteisön laajempi jäsenyhteisö"@fi .
 
-:dateOfDeath a :Time,
+ntp:dateOfDeath a ntp:Time,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range xsd:date ;
     skos:altLabel "kuolinaika"@fi ;
-    skos:closeMatch rdaad:P50120,
-        schema:deathDate,
-        wd:Property:P570 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/datatype/P50120>,
+        <http://schema.org/deathDate>,
+        <https://www.wikidata.org/wiki/Property:P570> ;
     skos:note "Ydinelementti" ;
     skos:prefLabel "kuolinaika"@fi .
 
-:descendantFamilyOfPerson a :Item,
+ntp:descendantFamilyOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Family" ;
-    owl:inverseOf :descendantFamilyOfPersonOf ;
+    owl:inverseOf ntp:descendantFamilyOfPersonOf ;
     skos:altLabel "henkilöstä polveutuva suku"@fi ;
-    skos:closeMatch rdaa:P50099 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50099> ;
     skos:prefLabel "henkilöstä polveutuva suku"@fi .
 
-:descendantFamilyOfPersonOf a :Item,
+ntp:descendantFamilyOfPersonOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :descendantFamilyOfPerson ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:descendantFamilyOfPerson ;
     skos:altLabel "kantaisä"@fi ;
-    skos:closeMatch rdaao:P50055 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50055> ;
     skos:prefLabel "kantaisä"@fi .
 
-:employee a :Item,
+ntp:employee a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
-    owl:inverseOf :employer ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:employer ;
     skos:altLabel "työntekijä"@fi ;
-    skos:closeMatch rdaa:P50026,
-        wd:Q703534 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50026>,
+        <https://www.wikidata.org/wiki/Q703534> ;
     skos:prefLabel "työntekijä"@fi .
 
-:employer a :Item,
+ntp:employer a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :employee ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:employee ;
     skos:altLabel "työnantaja"@fi ;
-    skos:closeMatch rdaa:P50096,
-        wd:Q3053337 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50096>,
+        <https://www.wikidata.org/wiki/Q3053337> ;
     skos:prefLabel "työnantaja"@fi .
 
-:foundedCorporateBodyOfPerson a :Item,
+ntp:foundedCorporateBodyOfPerson a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :foundingPersonOfCorporateBody ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:foundingPersonOfCorporateBody ;
     skos:altLabel "perustanut yhteisön"@fi ;
-    skos:closeMatch rdaa:P50112,
-        mts:m1499,
-        wd:Q65972149 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50112>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1499>,
+        <https://www.wikidata.org/wiki/Q65972149> ;
     skos:prefLabel "henkilön perustama yhteisö"@fi .
 
-:foundingCorporateBodyOfCorporateBody a :Item,
+ntp:foundingCorporateBodyOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :foundingPersonOfCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:foundingPersonOfCorporateBody ;
     skos:altLabel "perustajayhteisö"@fi ;
-    skos:closeMatch rdaa:P50007 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50007> ;
     skos:prefLabel "yhteisön perustanut yhteisö"@fi .
 
-:function a :Monolingualtext,
+ntp:function a ntp:Monolingualtext,
         rdf:Property,
         owl:DatatypeProperty ;
-    rdfs:domain :Agent ;
+    rdfs:domain ntp:Agent ;
     rdfs:range rdf:langString ;
-    owl:inverseOf :activity ;
+    owl:inverseOf ntp:activity ;
     skos:altLabel "tehtävä tai rooli;on suorittama"@fi ;
-    skos:closeMatch rdaa:P50387,
-        gndo:functionOrRole ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50387>,
+        <https://d-nb.info/standards/elementset/gnd#functionOrRole> ;
     skos:prefLabel "tehtävä"@fi .
 
-:hasAlternateIdentity a :Item,
+ntp:hasAlternateIdentity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range "Agent" ;
-    owl:inverseOf :hasRealIdentity ;
+    owl:inverseOf ntp:hasRealIdentity ;
     skos:altLabel "omaa myös identiteetin"@fi ;
     skos:prefLabel "Omaa myös identiteetin"@fi .
 
-:hasChild a :Item,
+ntp:hasChild a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :hasParent ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:hasParent ;
     skos:altLabel "lapsi"@fi ;
-    skos:closeMatch wd:Q7569 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Q7569> ;
     skos:prefLabel "lapsi"@fi .
 
-:hasParent a :Item,
+ntp:hasParent a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :hasChild ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:hasChild ;
     skos:altLabel "vanhempi"@fi ;
-    skos:closeMatch wd:Q7566 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Q7566> ;
     skos:prefLabel "vanhempi"@fi .
 
-:hasRealIdentity a :Item,
+ntp:hasRealIdentity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Agent ;
+    ntp-meta:typeOfViewingRestriction "U: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Agent ;
     rdfs:range "Agent" ;
-    owl:inverseOf :hasAlternateIdentity ;
+    owl:inverseOf ntp:hasAlternateIdentity ;
     skos:altLabel "On toimijan identiteetti"@fi ;
     skos:prefLabel "On toimijan identiteetti"@fi .
 
-:hasSibling a :Item,
+ntp:hasSibling a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :hasSibling ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:hasSibling ;
     skos:altLabel "sisarus"@fi ;
-    skos:closeMatch wd:Q31184 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Q31184> ;
     skos:prefLabel "sisarus"@fi .
 
-:hasSpouse a :Item,
+ntp:hasSpouse a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :hasSpouse ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:hasSpouse ;
     skos:altLabel "puoliso"@fi ;
-    skos:closeMatch wd:Q1196129 ;
+    skos:closeMatch <https://www.wikidata.org/wiki/Q1196129> ;
     skos:prefLabel "puoliso"@fi .
 
-:hierarchicalSubordinate a :Item,
+ntp:hierarchicalSubordinate a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :hierarchicalSuperior ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:hierarchicalSuperior ;
     skos:altLabel "alayhteisö"@fi ;
-    skos:closeMatch rdaa:P50010,
-        mts:m925,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50010>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m925>,
         org:hasSubOrganization ;
     skos:prefLabel "alayhteisö"@fi .
 
-:hierarchicalSuperior a :Item,
+ntp:hierarchicalSuperior a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :hierarchicalSubordinate ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:hierarchicalSubordinate ;
     skos:altLabel "ylempi organisaatio"@fi ;
-    skos:closeMatch rdaao:P50008,
-        mts:m142,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50008>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m142>,
         org:subOrganizationOf ;
     skos:prefLabel "kattoyhteisö"@fi .
 
-:jointlyHeldConference a :Item,
+ntp:jointlyHeldConference a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :jointlyHeldConference ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:jointlyHeldConference ;
     skos:altLabel "yhteiskonferenssi"@fi ;
-    skos:closeMatch rdaa:P50303,
-        wd:Q625994 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50303>,
+        <https://www.wikidata.org/wiki/Q625994> ;
     skos:prefLabel "yhteiskonferenssi"@fi .
 
-:localAffiliate a :Item,
+ntp:localAffiliate a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :broaderAffiliatedBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:broaderAffiliatedBody ;
     skos:altLabel "tytäryhtiö"@fi ;
-    skos:closeMatch rdaa:P50241,
-        wd:Q658255 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50241>,
+        <https://www.wikidata.org/wiki/Q658255> ;
     skos:prefLabel "paikallinen tytäryhtiö"@fi .
 
-:personMemberOfCorporateBody a :Item,
+ntp:personMemberOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
-    owl:inverseOf :personMemberOfCorporateBodyOf ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:personMemberOfCorporateBodyOf ;
     skos:altLabel "yhteisön jäsen"@fi ;
-    skos:closeMatch rdaa:P50030,
-        mts:m746,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50030>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m746>,
         org:hasMember,
-        wd:Property:P463,
-        wd:Q9200127 ;
+        <https://www.wikidata.org/wiki/Property:P463>,
+        <https://www.wikidata.org/wiki/Q9200127> ;
     skos:prefLabel "yhteisön henkilöjäsen"@fi .
 
-:personMemberOfCorporateBodyOf a :Item,
+ntp:personMemberOfCorporateBodyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :personMemberOfCorporateBody ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:personMemberOfCorporateBody ;
     skos:altLabel "jäsen yhteisössä"@fi ;
-    skos:closeMatch rdaa:P50095,
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50095>,
         org:memberOf,
-        wd:Property:P463 ;
+        <https://www.wikidata.org/wiki/Property:P463> ;
     skos:prefLabel "henkilöjäsen yhteisössä"@fi .
 
-:personMemberOfFamily a :Item,
+ntp:personMemberOfFamily a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Family ;
-    rdfs:range :Person ;
-    owl:inverseOf :personMemberOfFamilyOf ;
+    ntp-meta:typeOfViewingRestriction "SI: H, SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Family ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:personMemberOfFamilyOf ;
     skos:altLabel "suvun henkilöjäsen"@fi ;
-    skos:closeMatch rdaa:P50056,
-        wd:Property:P1038 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50056>,
+        <https://www.wikidata.org/wiki/Property:P1038> ;
     skos:prefLabel "suvun henkilöjäsen"@fi .
 
-:personMemberOfFamilyOf a :Item,
+ntp:personMemberOfFamilyOf a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
+    ntp-meta:typeOfViewingRestriction "SI: H, SU" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
     rdfs:range "Family" ;
-    owl:inverseOf :personMemberOfFamily ;
+    owl:inverseOf ntp:personMemberOfFamily ;
     skos:altLabel "suvun henkilöjäsen suvussa"@fi ;
-    skos:closeMatch rdaa:P50233,
-        wd:Property:P53 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50233>,
+        <https://www.wikidata.org/wiki/Property:P53> ;
     skos:prefLabel "kuuluu sukuun"@fi .
 
-:predecessorOfCorporateBody a :Item,
+ntp:predecessorOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :successorOfCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:successorOfCorporateBody ;
     skos:altLabel "yhteisön edeltäjä"@fi ;
-    skos:closeMatch rdaa:P50012,
-        wd:Property:P155 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50012>,
+        <https://www.wikidata.org/wiki/Property:P155> ;
     skos:prefLabel "yhteisön edeltäjä"@fi .
 
-:predecessorOfSplit a :Item,
+ntp:predecessorOfSplit a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :productOfSplit ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:productOfSplit ;
     skos:altLabel "jakautunut yhteisö;jakautumista edeltänyt yhteisö"@fi ;
-    skos:closeMatch rdaa:P50229,
-        mts:m3642 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50229>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m3642> ;
     skos:prefLabel "jakautunut yhteisö / Jakautumista edeltänyt yhteisö"@fi .
 
-:productOfSplit a :Item,
+ntp:productOfSplit a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :predecessorOfSplit ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:predecessorOfSplit ;
     skos:altLabel "Jakautumisesta muodostunut"@fi ;
-    skos:closeMatch rdaa:P50014,
-        mts:m1162 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50014>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1162> ;
     skos:prefLabel "Jakautumisesta muodostunut"@fi .
 
-:realIdentity a :Item,
+ntp:realIdentity a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :Person ;
-    rdfs:range :Person ;
-    owl:inverseOf :alternateIdentityOfPerson ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:Person ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:alternateIdentityOfPerson ;
     skos:altLabel "todellinen identiteetti"@fi ;
-    skos:closeMatch rdau:P60037,
-        gndo:realIdentity ;
+    skos:closeMatch <http://rdaregistry.info/Elements/u/P60037>,
+        <https://d-nb.info/standards/elementset/gnd#realIdentity> ;
     skos:prefLabel "todellinen identiteetti"@fi ;
     sh:maxCount "1"^^xsd:int .
 
-:successorOfCorporateBody a :Item,
+ntp:successorOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
-    owl:inverseOf :predecessorOfCorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
+    owl:inverseOf ntp:predecessorOfCorporateBody ;
     skos:altLabel "yhteisön seuraaja"@fi ;
-    skos:closeMatch rdaa:P50016,
-        wd:Property:P156 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50016>,
+        <https://www.wikidata.org/wiki/Property:P156> ;
     skos:prefLabel "yhteisön seuraaja"@fi .
 
-:CategoryOfFamily a owl:Class ;
+ntp:CategoryOfFamily a owl:Class ;
     skos:prefLabel "category of family"@en,
         "Suvun tyyppi"@fi .
 
-:componentOfMerger a :Item,
+ntp:componentOfMerger a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :CorporateBody ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:CorporateBody ;
     owl:inverseOf "ntp:mergee" ;
     skos:altLabel "yhdistynyt yhteisöön;yhdistymistä edeltänyt yhteisö:(1=<2)"@fi ;
-    skos:closeMatch rdaa:P50232,
-        mts:m1618 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/P50232>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1618> ;
     skos:prefLabel "yhdistynyt yhteisö"@fi .
 
-:foundingPersonOfCorporateBody a :Item,
+ntp:foundingPersonOfCorporateBody a ntp:Item,
         rdf:Property,
         owl:ObjectProperty ;
-    rdfs:domain :CorporateBody ;
-    rdfs:range :Person ;
-    owl:inverseOf :foundedCorporateBodyOfPerson ;
+    ntp-meta:typeOfViewingRestriction "SI: H" ;
+    ntp-meta:viewingRestriction true ;
+    rdfs:domain ntp:CorporateBody ;
+    rdfs:range ntp:Person ;
+    owl:inverseOf ntp:foundedCorporateBodyOfPerson ;
     skos:altLabel "yhteisön perustaja"@fi ;
-    skos:closeMatch rdaao:P50029,
-        mts:m1499,
-        wd:Q26950764 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/a/object/P50029>,
+        <http://urn.fi/URN:NBN:fi:au:mts:m1499>,
+        <https://www.wikidata.org/wiki/Q26950764> ;
     skos:prefLabel "yhteisön perustaja"@fi .
 
-:ExternalIdentifier a owl:Class ;
+ntp:ExternalIdentifier a owl:Class ;
     skos:prefLabel "External identifier"@en,
         "Ulkoinen tunniste"@fi .
 
-:Timespan a owl:Class ;
-    skos:closeMatch rdac:C10010 ;
+ntp:Timespan a owl:Class ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10010> ;
     skos:prefLabel "Ajanjakso"@fi .
 
-:Family a owl:Class ;
-    rdfs:subClassOf :Agent ;
-    skos:closeMatch rdac:C10008,
-        :Agent ;
+ntp:Family a owl:Class ;
+    rdfs:subClassOf ntp:Agent ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10008>,
+        ntp:Agent ;
     skos:prefLabel "Family"@en,
         "Suku"@fi .
 
-:Place a owl:Class ;
-    skos:closeMatch rdac:C10009 ;
+ntp:Place a owl:Class ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10009> ;
     skos:prefLabel "Paikka"@fi .
 
-:Work a owl:Class ;
-    skos:closeMatch rdac:C10001 ;
+ntp:Work a owl:Class ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10001> ;
     skos:prefLabel "Teos"@fi .
 
-:Nomen a owl:Class ;
-    skos:closeMatch rdac:C10012 ;
+ntp:Nomen a owl:Class ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10012> ;
     skos:prefLabel "Nomen"@en,
         "Nomen"@fi .
 
-:Entity a owl:Class ;
+ntp:Entity a owl:Class ;
     skos:altLabel "Auktoriteettiresurssi"@fi ;
-    skos:closeMatch rdac:C10013 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10013> ;
     skos:prefLabel "Entity"@en,
         "Entiteetti"@fi .
 
-:Monolingualtext a rdfs:langString,
+ntp:Monolingualtext a rdfs:langString,
         owl:Class ;
     rdfs:comment "wikibase datatyyppi" ;
     rdfs:subClassOf rdfs:Literal ;
     skos:prefLabel "Monolingual text"@en,
         "Yksikielinen teksti"@fi .
 
-:Agent a owl:Class ;
-    rdfs:subClassOf :Entity ;
+ntp:Agent a owl:Class ;
+    rdfs:subClassOf ntp:Entity ;
     skos:altLabel "toimija"@fi ;
-    skos:closeMatch rdac:C10002 ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10002> ;
     skos:prefLabel "Agent"@en,
         "Toimija"@fi .
 
-:CorporateBody a owl:Class ;
-    rdfs:subClassOf :Agent ;
+ntp:CorporateBody a owl:Class ;
+    rdfs:subClassOf ntp:Agent ;
     skos:altLabel "Organisaatio"@fi,
         "Yhteisö"@fi ;
-    skos:closeMatch rdac:C10005,
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10005>,
         <http://uri.suomi.fi/terminology/prh/c37>,
         org:Organization ;
     skos:prefLabel "Yhteisö"@fi .
 
-:Person a owl:Class ;
-    rdfs:subClassOf :Agent ;
-    skos:closeMatch rdac:C10004,
+ntp:Person a owl:Class ;
+    rdfs:subClassOf ntp:Agent ;
+    skos:closeMatch <http://rdaregistry.info/Elements/c/C10004>,
         <http://uri.suomi.fi/terminology/idha/concept-5>,
-        person:Person ;
+        <http://www.w3.org/ns/person#Person> ;
     skos:prefLabel "Person"@en,
         "Henkilö"@fi .
 
-:Item a owl:Class ;
+ntp:Item a owl:Class ;
     rdfs:comment "wikibase datatyyppi" ;
     rdfs:subClassOf rdfs:Literal ;
     rdfs:type xsd:anyURI ;
     skos:prefLabel "Item"@en,
         "Item"@fi .
 
-:String a xsd:string,
+ntp:String a xsd:string,
         owl:Class ;
     rdfs:comment "wikibase datatyyppi" ;
     rdfs:subClassOf rdfs:Literal ;
