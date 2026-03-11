@@ -1573,7 +1573,7 @@
   </record>
   <record>
     <header>
-      <identifier>URN:NBN:fi:schema:ntp:typeOfViewingRestriction</identifier>
+      <identifier>URN:NBN:fi:schema:ntp-meta:typeOfViewingRestriction</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/ntp#typeOfViewingRestriction</url>
@@ -2993,7 +2993,7 @@
   </record>
   <record>
     <header>
-      <identifier>URN:NBN:fi:schema:ntp:viewingRestriction</identifier>
+      <identifier>URN:NBN:fi:schema:ntp-meta:viewingRestriction</identifier>
       <destinations>
         <destination status="activated">
           <url>http://schema.finto.fi/ntp#viewingRestriction</url>
